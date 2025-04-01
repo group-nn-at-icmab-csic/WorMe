@@ -15,13 +15,14 @@
 ## Referències i enllaços d'interès sobre JOSS  
 
 - [Cerca d'articles relacionats amb MATLAB a JOSS](https://joss.theoj.org/papers/search?q=matlab&search_button=)  
-- [Informació sobre JOSS](https://joss.theoj.org/about)  
-- [Anunci original de JOSS](https://www.arfon.org/announcing-the-journal-of-open-source-software)  
-- [Llista de llicències reconegudes](https://opensource.org/licenses-old/category)  
+- [About JOSS](https://joss.theoj.org/about)  
+- [Anunci inicial sobre JOSS](https://www.arfon.org/announcing-the-journal-of-open-source-software)
+ 
+- [Llicències Open Source](https://opensource.org/licenses-old/category)  
 
 - [Guia per a la presentació d'articles](https://joss.readthedocs.io/en/latest/submitting.html)  
   > **Nota:** Es recomana revisar la secció *"Before you submit, you should:"*  
-- [Criteris d'avaluació a JOSS](https://joss.readthedocs.io/en/latest/review_criteria.html)  
+- [Review criteria](https://joss.readthedocs.io/en/latest/review_criteria.html)  
 
 --
 ## Exemple d'article i codi  
