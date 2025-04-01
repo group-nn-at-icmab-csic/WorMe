@@ -4,9 +4,8 @@
 **Títol:** *Chitin Builder: a VMD tool for the generation of structures of chitin molecular crystals for atomistic simulations*  
 [Enllaç a l'article](https://joss.theoj.org/papers/10.21105/joss.05771)  
 
-### Repositoris relacionats  
-- [Chitin Builder](https://github.com/soft-matter-theory-at-icmab-csic/chitin_builder)  
-- [Soft Matter Theory Group](https://github.com/soft-matter-theory-at-icmab-csic)  
+[Chitin Builder](https://github.com/soft-matter-theory-at-icmab-csic/chitin_builder)  
+[Soft Matter Theory Group](https://github.com/soft-matter-theory-at-icmab-csic)  
 
 ---
 
