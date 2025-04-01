@@ -1,5 +1,5 @@
 
-Notes sobre la publicació en Journal of Open Software
+# Notes sobre la publicació en Journal of Open Source Software
 
 
 
@@ -17,3 +17,40 @@ A fer:
 
 
 
+
+
+Notes i enllaços Journal of Open Source Software 
+https://joss.theoj.org/papers/search?q=matlab&search_button=
+
+About JOSS:
+https://joss.theoj.org/about
+
+Sobre JOSS (anunci, diria que ha variat)
+https://www.arfon.org/announcing-the-journal-of-open-source-software
+
+Open source licences:
+https://opensource.org/licenses-old/category
+
+Requeriments:
+https://joss.readthedocs.io/en/latest/submitting.html
+Veure: "Before you submit, you should:"
+
+
+Review criteria:
+https://joss.readthedocs.io/en/latest/review_criteria.html
+
+
+Exemple article i programa molt senzill:
+ACEInhibPKPD
+https://github.com/ashleefv/ACEInhibPKPD
+https://joss.theoj.org/papers/10.21105/joss.00340
+
+
+
+
+Fan servir MATLAB Runtime:
+
+EMViz (2018)
+https://joss.theoj.org/papers/10.21105/joss.01094
+→ Descarga .exe guardat en un .zip
+→ 4 branches 1 issue
