@@ -8,9 +8,18 @@
 ---
 
 ## Tasques pendents  
-- [ ] **Revisió de les biblioteques de MATLAB (llicència):** Verificar si estan disponibles sota una llicència de codi obert.  
-
+- [ ] **Revisió de les biblioteques de MATLAB (llicència):** Verificar si estan disponibles sota una llicència de codi obert. 
+- [ ] Decidir llicència (Suggeriment: GNU GPL3 si volem que els derivats hagin de ser codi obert, o MIT o BSD-3-Clause si ens és igual)
+- [ ] Escriure article
+- [ ] Escriure manual d'usuari
+- [ ] Traduir comentaris del codi
+- [ ] Provar-ho en Linux i Mac
 ---
+
+## Incloure o no incloure? i a on?
+- Length correction (Manual)
+- Export graphic data per IA (Manual)
+- Comparar Wormachine, ImageJ, WorMe (Manual? Document suplementari? Article?)
 
 ## Referències i enllaços d'interès sobre JOSS  
 

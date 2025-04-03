@@ -1,0 +1,1 @@
+In this folder we provide some example images for use with WorMe, the parameters used and the output files generated when analysing. 
