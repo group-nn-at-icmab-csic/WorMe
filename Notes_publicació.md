@@ -22,6 +22,13 @@
 - Export graphic data per IA (Manual)
 - Comparar Wormachine, ImageJ, WorMe (Manual? Document suplementari? Article?)
 
+
+## Articles JOSS referència
+
+- [micompm: A MATLAB/Octave toolbox for multivariate independent comparison of observations] (https://github.com/nunofachada/micompm/blob/master/docs/userguide.md)
+
+
+
 ## Referències i enllaços d'interès sobre JOSS  
 
 - [Cerca d'articles relacionats amb MATLAB a JOSS](https://joss.theoj.org/papers/search?q=matlab&search_button=)  
