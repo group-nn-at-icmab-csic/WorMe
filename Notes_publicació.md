@@ -17,6 +17,7 @@
 ---
 
 ## Incloure o no incloure? i a on?
+- Contribution Guidelines (Chitin builder inclou un document de com contribuir. Ho volem fer així o escriure-ho directament al readme, o no escriure-ho?)
 - Length correction (Manual)
 - Export graphic data per IA (Manual)
 - Comparar Wormachine, ImageJ, WorMe (Manual? Document suplementari? Article?)
