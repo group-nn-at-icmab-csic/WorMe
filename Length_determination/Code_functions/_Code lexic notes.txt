@@ -1,0 +1,16 @@
+
+% __CODIS TITOLS__
+%
+% Per a veure els títols dels apartats del programa, 
+% la jerarquia d'aquests és definida pel nombre de "_" que tenen.
+%
+% ex:
+% ____Titols____
+% __titol inferior__
+%
+% Títol   : _______
+% Títol 1 : _____
+% Títol 2 : ____
+% Títol 3 : ___
+% Títol 4 : __
+% Títol 5 : _

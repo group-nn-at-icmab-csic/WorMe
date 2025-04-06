@@ -1,0 +1,26 @@
+<annotation>
+	<folder>C_24</folder>
+	<filename>Image_827.jpg</filename>
+	<path>C:\Users\jllobet\Desktop\Length determination v2_15\_Imatges exemple\Amanda_Controls\C_24\Image_827.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>1920</width>
+		<height>1080</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>worm</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>1121</xmin>
+			<ymin>744</ymin>
+			<xmax>1326</xmax>
+			<ymax>836</ymax>
+		</bndbox>
+	</object>
+</annotation>
