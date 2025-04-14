@@ -29,6 +29,35 @@
 - Export graphic data per IA (Manual)
 - Comparar Wormachine, ImageJ, WorMe (Manual? Document suplementari? Article?)
 
+## Requirements
+
+- [X] The software must be open source as per the OSI definition.
+- [X] The software must be hosted at a location where users can open issues and propose code changes without manual approval of (or payment for) accounts.
+- [X] The software must have an obvious research application.
+- [X] You must be a major contributor to the software you are submitting, and have a GitHub account to participate in the review process.
+- [ ] Your paper must not focus on new research results accomplished with the software.
+- [X] Your paper (paper.md and BibTeX files, plus any figures) must be hosted in a Git-based repository together with your software.
+
+In addition, the software associated with your submission must:
+- [ ] Be stored in a repository that can be cloned without registration.
+- [ ] Be stored in a repository that is browsable online without registration.
+- [ ] Have an issue tracker that is readable without registration.
+- [ ] Permit individuals to create issues/file tickets against your repository.
+
+Judging effort
+- [ ] Age of software (is this a well-established software project) / length of commit history.
+- [X] Number of commits.
+- [X] Number of authors.
+- [ ] Total lines of code (LOC). Submissions under 1000 LOC will usually be flagged, those under 300 LOC will be desk rejected.
+- [ ] Whether the software has already been cited in academic papers.
+- [X] Whether the software is sufficiently useful that it is likely to be cited by your peer group.
+
+Before you submit, you should:
+- [X] Make your software available in an open repository (GitHub, Bitbucket, etc.) and include an OSI approved open source license.
+- [ ] Make sure that the software complies with the JOSS review criteria. In particular, your software should be full-featured, well-documented, and contain procedures (such as automated tests) for checking correctness.
+- [ ] Write a short paper in Markdown format using paper.md as file name, including a title, summary, author names, affiliations, and key references. See our example paper to follow the correct format.
+- [ ] (Optional) create a metadata file describing your software and include it in your repository. We provide a script that automates the generation of this metadata.
+
 
 ## Articles JOSS referència
 
