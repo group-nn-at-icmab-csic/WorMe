@@ -78,8 +78,8 @@ WorMe can operate with many types of images. The format of images can be .jpg, .
 
 In order that the program works in the best way images must be clear, without dirt objects if possible, and with worms not touching between them, or being coiled or tangling. One desired image example is Figure 4.
 
-![Image_982](https://github.com/user-attachments/assets/e96185b4-c2f2-4a4e-ad45-2504bc7ef9b6)
 
+<div align="center"> <img src="https://github.com/user-attachments/assets/e96185b4-c2f2-4a4e-ad45-2504bc7ef9b6" alt="selection" width="55%"> </div>
 
 
 ## Use of the program
