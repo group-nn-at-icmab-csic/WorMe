@@ -1,4 +1,0 @@
-
-En 0h y en 24h:
-Escala e 20microm, en verdad es 200 microm
-171px son 200 micras
