@@ -11,7 +11,8 @@
 
 ### Installation
 
-### Graphical user interface
+### Using of WorMe length determination
+![frink](https://github.com/user-attachments/assets/ea355d3d-a75d-4a51-b417-25189e28b717)
 
 ## Examples
 
