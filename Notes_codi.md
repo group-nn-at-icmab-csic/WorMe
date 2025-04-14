@@ -2,6 +2,14 @@
 
 # Notes sobre la modificació del codi
 
+https://code.visualstudio.com/docs/languages/markdown
+
+
+### ! Vigilar al modificar el codi! 👀
+
+- Programes de cerca 🔍  com Fileseek **no troven els noms en les apps de MATLAB** . Això vol dir que si es busca una funció o nom d'arxiu en concret dins del programa, no es trovarà si aquesta és o es menciona dins d'una app.
+
+
 
 
 
