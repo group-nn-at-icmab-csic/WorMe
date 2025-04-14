@@ -4,10 +4,11 @@ tags:
   - Caenorhabditis elegans
   - length determination
 authors:
-  - name: Josep Llobet
-    orcid: 
+  - name: Josep Llobet Lladó
+    orcid: 0000-0002-5644-3834
     affiliation: 1
   - name: Núria Garriga-Alonso
+    orcid: 0009-0007-5552-613X
     affiliation: 1
   - name: Anna Laromaine
     orcid: 0000-0002-4764-0780
