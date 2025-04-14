@@ -89,14 +89,15 @@ The program develop pre-setting steps of processing to the worm images, in order
 
 All the program use is descrived in the guide [DOI XXX] and tutorials [DOI XXX] of the program.
 
-![image-20230728-091743 (1)](https://github.com/user-attachments/assets/57ca0220-9afd-4f10-9fe7-58f9b3593712)
+<div align="center"> <img src="https://github.com/user-attachments/assets/57ca0220-9afd-4f10-9fe7-58f9b3593712" alt="image-20230728-091743 (1)" width="55%"> </div>
 
 
 In the first step, the user introduces the images to analyze, and set the scale. After it, the modification pannel is shown. In it, the user determines the modifications that will be done into all the image stacks. The aim of this panel is to mainly isolate the worms as binary objects, which will be analysed and selected after.
 
 The user must determine which set of image modifications will be applied to the stack of images. This modifications can be saved and imported, and they are used to be the same for same types of images. The versatility of image processing allows to operate into different kinds of images and objects. 
 
-![image_processing_pannel](https://github.com/user-attachments/assets/4fea1b09-c7d9-488e-a788-5020dbc65796)
+<div align="center"> <img src="https://github.com/user-attachments/assets/4fea1b09-c7d9-488e-a788-5020dbc65796" alt="image_processing_pannel" width="55%"> </div>
+
 
 
 When the modification configuration is determined, start the selection panel. Images are individually processed by the configuration, and every object is analysed. In this step user can select as worm or as not worm the object that is surrounded by a bounding box. The user can move between the images and can finish the selection at the desired moment.
@@ -114,7 +115,7 @@ The user-timing in the selection has been improved (example: shortkeys) trying t
 
 This manual selection panel is time consuming, but ensures the user to be aware in-time of the origin and quality of the measurement data, preventing bias.
 
-![selection_pannel](https://github.com/user-attachments/assets/c81dab40-d041-4889-8f61-d76b0f7fe9ec)
+<div align="center"> <img src="https://github.com/user-attachments/assets/c81dab40-d041-4889-8f61-d76b0f7fe9ec" alt="selection_pannel" width="55%"> </div>
 
 #### Results panel
 
@@ -122,7 +123,7 @@ Finally, after select the worms in the image, apperas the result panel. In this,
 
 User can also export the graphic data. This allows exporting the binary images, labelled images, as well as PascalVOC files of the images which objects were selected. This type of images can be useful for a posteriori object analysis as well as for the use of it in the AI model development.
 
-![image-20230731-164404](https://github.com/user-attachments/assets/3722f5c4-0e1e-43c1-bcd0-8d894fbdb6ab)
+<div align="center"> <img src="https://github.com/user-attachments/assets/3722f5c4-0e1e-43c1-bcd0-8d894fbdb6ab" alt="image-20230731-164404" width="55%"> </div>
 
 #### IA data and graphic exportation
 
@@ -175,7 +176,8 @@ Finally, because the skeletonization endpoints used to not touch the borders of 
 
 Softwares like WormSizer and AnliLength [] describe the development of the function to prune and extend the skeletonized image.
 
-![Images_arrays_4_horitz](https://github.com/user-attachments/assets/43e8c563-35d0-4d33-a4d0-118e5c1fe800)
+<div align="center"> <img src="https://github.com/user-attachments/assets/43e8c563-35d0-4d33-a4d0-118e5c1fe800" alt="Images_arrays_4_horitz" width="55%"> </div>
+
 
 ### Length determination
 
@@ -187,7 +189,9 @@ When, in difference, the line is traced throughout the body of the worm, like th
 
 (Descriure la funció en el codi del programa)
 
-![image-20230801-155918](https://github.com/user-attachments/assets/e8926716-39b0-4de9-b299-8ab3f117f81d)
+
+<div align="center"> <img src="https://github.com/user-attachments/assets/e8926716-39b0-4de9-b299-8ab3f117f81d" alt="image-20230801-155918" width="55%"> </div>
+
 
 
 #### Error bias in the manual vs automated length determination
@@ -200,10 +204,9 @@ We studied the difference between these annotations, and realized that the error
 
 A short study showing the difference of results is described in Results - Manual error.
 
+<div align="center"> <img src="https://github.com/user-attachments/assets/79209e6e-f7f4-4780-8808-2669cb26c73a" alt="image-20230801-160416" width="55%"> </div>
 
-![image-20230801-160416](https://github.com/user-attachments/assets/79209e6e-f7f4-4780-8808-2669cb26c73a)
-
-![image-20230801-160530](https://github.com/user-attachments/assets/4cd32ede-43ae-4574-9d73-cc5148c9604b)
+<div align="center"> <img src="https://github.com/user-attachments/assets/4cd32ede-43ae-4574-9d73-cc5148c9604b" alt="image-20230801-160530" width="55%"> </div>
 
 One of the main steps for the validation of the program was verification of the data measured with those from manual measurements. From the start, the program attempt to reproduce the same measurement line as the manual measurement.
 
@@ -237,7 +240,6 @@ In the selection panel the whole image is processed and their objects are isolat
 
 ### Comparison to ImageJ and WorMachine
 
-
-![frink](https://github.com/user-attachments/assets/ea355d3d-a75d-4a51-b417-25189e28b717)
+<div align="center"> <img src="https://github.com/user-attachments/assets/ea355d3d-a75d-4a51-b417-25189e28b717" alt="frink" width="55%"> </div>
 
 
