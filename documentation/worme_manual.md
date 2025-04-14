@@ -4,41 +4,14 @@
 
 ## Introduction
 
+<img src="https://github.com/user-attachments/assets/6ab47a84-05d1-444f-97ac-4e5edccb1be6" alt="selection" width="25%">
 
-![selection](https://github.com/user-attachments/assets/6ab47a84-05d1-444f-97ac-4e5edccb1be6)
+
 
 
 ## Software description, use and features
 
 *(Brief description of the program)*
-
-🔵 6. **WorMe briefly description and comparison**: description of the WorMe characteristics and comparison to the other software.  
- 🔵 a. **Ad hoc image typology and requirements**: each software used to respond to specific requirements (*Ad hoc*), as well as their images. → We too ad hoc (microscopical images), but versatility in the original image properties and objects characteristics because the further image processing  
-  🔵 i. Many image-processing tools (Image processing and Computer Vision MATLAB)  
-  🔵 ii. Exportation of the image processing  
-
- 🔵 b. **User-oriented, user-friendly, easy and intuitive**: The main program has not a code level, but the software is easy GUI user-oriented and intuitive. Installation complications. No code.  
-  🔵 i. Easy to install  
-   1. Open described functions  
-  🔵 ii. Easy to use: panels and easy tutorials.  
-  🔵 iii. Easy import and export of the images and data  
-
- 🔵 c. **Data quality**: direct visualizations and selection of the measurements.  
-  🔵 i. No false-positives  
-
- 🔵 d. **Semi-automated**, but reaches to solve time and obtain curated results  
-
- 🔵 e. **Free of software requirements**: free, open, no need to install other software.  
-  🔵 i. Open functions of the code  
-
- 🔵 f. **Computationally optimized**: Program functions are optimized and users don’t have to wait for the loading of the processes.  
-
- 🔵 g. **Artificial Intelligence landscape** (brush)  
-  🔵 i. Possibility to export the generated graphical data, for main models.  
-  🔵 ii. Is not IA integrated, despite is the state-of-art, but it pretend to be useful at same time to led the basis for future model creation. *(repository of images? in software description part)*  
-  🔵 iii. Working for future integration of C. elegans identification and segmentation Deep Learning models, to automatize and improve the process.
-
-
 
 WorMe has been developed in MATLAB 2024b version, because of the improvements of the updated version, but it can be used as well in MATLAB 2021b. The installation and use of the program doesn’t need the license, and it is done by an executable file.
 
