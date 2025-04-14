@@ -7,7 +7,7 @@
 (Introducció de l'article JOSS, relativament breu)
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/6ab47a84-05d1-444f-97ac-4e5edccb1be6" alt="selection" width="25%">
+  <img src="https://github.com/user-attachments/assets/6ab47a84-05d1-444f-97ac-4e5edccb1be6" alt="selection" width="55%">
 </div>
 
 
