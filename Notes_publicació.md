@@ -8,12 +8,13 @@
 ---
 
 ## Tasques pendents  
-- [ ] **Revisió de les biblioteques de MATLAB (llicència):** Verificar si estan disponibles sota una llicència de codi obert. 
+- [X] **Revisió de les biblioteques de MATLAB (llicència):** Verificar si estan disponibles sota una llicència de codi obert. 
 - [X] Decidir llicència (Suggeriment: GNU GPL3 si volem que els derivats hagin de ser codi obert, o MIT o BSD-3-Clause si ens és igual)
 - [ ] Escriure article
 - [ ] Escriure manual d'usuari
 - [ ] Traduir comentaris del codi
 - [ ] Provar-ho en Linux i Mac
+- [ ] Fer públic el repositori
 
 ### Altres punts importants
 - Llibreries Matlab
@@ -38,11 +39,11 @@
 - [ ] Your paper must not focus on new research results accomplished with the software.
 - [X] Your paper (paper.md and BibTeX files, plus any figures) must be hosted in a Git-based repository together with your software.
 
-In addition, the software associated with your submission must:
-- [ ] Be stored in a repository that can be cloned without registration.
-- [ ] Be stored in a repository that is browsable online without registration.
-- [ ] Have an issue tracker that is readable without registration.
-- [ ] Permit individuals to create issues/file tickets against your repository.
+In addition, the software associated with your submission must: (UN COP PÚBLIC)
+- [X] Be stored in a repository that can be cloned without registration.
+- [X] Be stored in a repository that is browsable online without registration.
+- [X] Have an issue tracker that is readable without registration.
+- [X] Permit individuals to create issues/file tickets against your repository.
 
 Judging effort
 - [ ] Age of software (is this a well-established software project) / length of commit history.
@@ -57,6 +58,14 @@ Before you submit, you should:
 - [ ] Make sure that the software complies with the JOSS review criteria. In particular, your software should be full-featured, well-documented, and contain procedures (such as automated tests) for checking correctness.
 - [ ] Write a short paper in Markdown format using paper.md as file name, including a title, summary, author names, affiliations, and key references. See our example paper to follow the correct format.
 - [ ] (Optional) create a metadata file describing your software and include it in your repository. We provide a script that automates the generation of this metadata.
+
+Your paper should include:
+- [X] A list of the authors of the software and their affiliations, using the correct format (see the example below).
+- [ ] A summary describing the high-level functionality and purpose of the software for a diverse, non-specialist audience.
+- [ ] A Statement of need section that clearly illustrates the research purpose of the software and places it in the context of related work.
+- [ ] A list of key references, including to other software addressing related needs. Note that the references should include full names of venues, e.g., journals and conferences, not abbreviations only understood in the context of a specific discipline.
+- [ ] Mention (if applicable) a representative set of past or ongoing research projects using the software and recent scholarly publications enabled by it.
+- [ ] Acknowledgement of any financial support.
 
 
 ## Articles JOSS referència
