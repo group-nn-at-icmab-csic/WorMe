@@ -14,6 +14,13 @@
 - [ ] Escriure manual d'usuari
 - [ ] Traduir comentaris del codi
 - [ ] Provar-ho en Linux i Mac
+
+### Altres punts importants
+- Llibreries Matlab
+    - [ ] [imbinarize](https://es.mathworks.com/help/images/ref/imbinarize.html)
+    - [ ] [im2gray](https://es.mathworks.com/help/matlab/ref/im2gray.html)
+    - [ ] [bwskel](https://es.mathworks.com/help/images/ref/bwskel.html)
+
 ---
 
 ## Incloure o no incloure? i a on?

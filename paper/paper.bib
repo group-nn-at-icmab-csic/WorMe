@@ -11,7 +11,6 @@
    volume = {9},
    year = {2012}
 }
-
 @inproceedings{Whlby2010,
    abstract = {The roundworm Caenorhabditis elegans is an effective model system for biological processes such as immunity, behavior, and metabolism. Robotic sample preparation together with automated microscopy and image analysis has recently enabled high-throughput screening experiments using C. elegans. So far, such experiments have been limited to per-image measurements due to the tendency of the worms to cluster, which prevents extracting features from individual animals. We present a novel approach for the extraction of individual C. elegans from clusters of worms in high-throughput microscopy images. The key ideas are the construction of a low-dimensional shape-descriptor space and the definition of a probability measure on it. Promising segmentation results are shown. ©2010 IEEE.},
    author = {Carolina Wählby and Tammy Riklin-Raviv and Vebjorn Ljosa and Annie L. Conery and Polina Golland and Frederick M. Ausubel and Anne E. Carpenter},
@@ -21,4 +20,160 @@
    title = {Resolving clustered worms via probabilistic shape models},
    year = {2010}
 }
-
+@article{Sznitman2010,
+   abstract = {The nematode Caenorhabditis elegans is a well-known model organism used to investigate fundamental questions in biology. Motility assays of this small roundworm are designed to study the relationships between genes and behavior. Commonly, motility analysis is used to classify nematode movements and characterize them quantitatively. Over the past years, C. elegans' motility has been studied across a wide range of environments, including crawling on substrates, swimming in fluids, and locomoting through microfluidic substrates. However, each environment often requires customized image processing tools relying on heuristic parameter tuning. In the present study, we propose a novel Multi-Environment Model Estimation (MEME) framework for automated image segmentation that is versatile across various environments. The MEME platform is constructed around the concept of Mixture of Gaussian (MOG) models, where statistical models for both the background environment and the nematode appearance are explicitly learned and used to accurately segment a target nematode. Our method is designed to simplify the burden often imposed on users; here, only a single image which includes a nematode in its environment must be provided for model learning. In addition, our platform enables the extraction of nematode 'skeletons' for straightforward motility quantification. We test our algorithm on various locomotive environments and compare performances with an intensity-based thresholding method. Overall, MEME outperforms the threshold-based approach for the overwhelming majority of cases examined. Ultimately, MEME provides researchers with an attractive platform for C. elegans' segmentation and 'skeletonizing' across a wide range of motility assays. © 2010 Sznitman et al.},
+   author = {Raphael Sznitman and Manaswi Gupta and Gregory D. Hager and Paulo E. Arratia and Josué Sznitman},
+   doi = {10.1371/journal.pone.0011631},
+   issn = {19326203},
+   journal = {PLoS ONE},
+   pmid = {20661478},
+   title = {Multi-environment model estimation for motility analysis of Caenorhabditis elegans},
+   volume = {5},
+   year = {2010}
+}
+@article{Wang2013,
+   abstract = {A major challenge of neuroscience is to understand the circuit and gene bases of behavior. C. elegans is commonly used as a model system to investigate how various gene products function at specific tissue, cellular, and synaptic foci to produce complicated locomotory and bending behavior. The investigation generally requires quantitative behavioral analyses using an automated single-worm tracker, which constantly records and analyzes the position and body shape of a freely moving worm at a high magnification. Many single-worm trackers have been developed to meet lab-specific needs, but none has been widely implemented for various reasons, such as hardware difficult to assemble, and software lacking sufficient functionality, having closed source code, or using a programming language that is not broadly accessible. The lack of a versatile system convenient for wide implementation makes data comparisons difficult and compels other labs to develop new worm trackers. Here we describe Track-A-Worm, a system rich in functionality, open in source code, and easy to use. The system includes plug-and-play hardware (a stereomicroscope, a digital camera and a motorized stage), custom software written to run with Matlab in Windows 7, and a detailed user manual. Grayscale images are automatically converted to binary images followed by head identification and placement of 13 markers along a deduced spline. The software can extract and quantify a variety of parameters, including distance traveled, average speed, distance/time/speed of forward and backward locomotion, frequency and amplitude of dominant bends, overall bending activities measured as root mean square, and sum of all bends. It also plots worm travel path, bend trace, and bend frequency spectrum. All functionality is performed through graphical user interfaces and data is exported to clearly-annotated and documented Excel files. These features make Track-A-Worm a good candidate for implementation in other labs. © 2013 Wang, Wang.},
+   author = {Sijie Jason Wang and Zhao Wen Wang},
+   doi = {10.1371/journal.pone.0069653},
+   issn = {19326203},
+   journal = {PLoS ONE},
+   month = {7},
+   pmid = {23922769},
+   title = {Track-A-Worm, An Open-Source System for Quantitative Assessment of C. elegans Locomotory and Bending Behavior},
+   volume = {8},
+   year = {2013}
+}
+@article{Ramot2008,
+   abstract = {Background: Caenorhabditis elegans locomotion is a simple behaviour that has been widely used to dissect genetic components of behaviour, synaptic transmission, and muscle function. Many of the paradigms that have been created to study C. elegans locomotion rely on qualitative experimenter observation. Here we report the implementation of an automated tracking system developed to quantify the locomotion of multiple individual worms in parallel. Methodology/Principal Findings: Our tracking system generates a consistent measurement of locomotion that allows direct comparison of results across experiments and experimenters and provides a standard method to share data between laboratories. The tracker utilizes a video camera attached to a zoom lens and a software package implemented in MATLAB®. We demonstrate several proof-of-principle applications for the tracker including measuring speed in the absence and presence of food and in the presence of serotonin. We further use the tracker to automatically quantify the time course of paralysis of worms exposed to aldicarb and levamisole and show that tracker performance compares favorably to data generated using a hand-scored metric. Conclusions/Significance: Although this is not the first automated tracking system developed to measure C. elegans locomotion, our tracking software package is freely available and provides a simple interface that includes tools for rapid data collection and analysis. By contrast with other tools, it is not dependent on a specific set of hardware. We propose that the tracker may be used for a broad range of additional worm locomotion applications including genetic and chemical screening. © 2008 Ramot et al.},
+   author = {Daniel Ramot and Brandon E. Johnson and Tommie L. Berry and Lucinda Carnell and Miriam B. Goodman},
+   doi = {10.1371/journal.pone.0002208},
+   issn = {19326203},
+   journal = {PLoS ONE},
+   month = {5},
+   pmid = {18493300},
+   title = {The parallel worm tracker: A platform for measuring average speed and drug-induced paralysis in nematodes},
+   volume = {3},
+   year = {2008}
+}
+@article{Restif2014,
+   abstract = {In the effort to define genes and specific neuronal circuits that control behavior and plasticity, the capacity for high-precision automated analysis of behavior is essential. We report on comprehensive computer vision software for analysis of swimming locomotion of C. elegans, a simple animal model initially developed to facilitate elaboration of genetic influences on behavior. C. elegans swim test software CeleST tracks swimming of multiple animals, measures 10 novel parameters of swim behavior that can fully report dynamic changes in posture and speed, and generates data in several analysis formats, complete with statistics. Our measures of swim locomotion utilize a deformable model approach and a novel mathematical analysis of curvature maps that enable even irregular patterns and dynamic changes to be scored without need for thresholding or dropping outlier swimmers from study. Operation of CeleST is mostly automated and only requires minimal investigator interventions, such as the selection of videotaped swim trials and choice of data output format. Data can be analyzed from the level of the single animal to populations of thousands. We document how the CeleST program reveals unexpected preferences for specific swim "gaits" in wild-type C. elegans, uncovers previously unknown mutant phenotypes, efficiently tracks changes in aging populations, and distinguishes "graceful" from poor aging. The sensitivity, dynamic range, and comprehensive nature of CeleST measures elevate swim locomotion analysis to a new level of ease, economy, and detail that enables behavioral plasticity resulting from genetic, cellular, or experience manipulation to be analyzed in ways not previously possible. © 2014 Restif et al.},
+   author = {Christophe Restif and Carolina Ibáñez-Ventoso and Mehul M. Vora and Suzhen Guo and Dimitris Metaxas and Monica Driscoll},
+   doi = {10.1371/journal.pcbi.1003702},
+   issn = {15537358},
+   journal = {PLoS Computational Biology},
+   pmid = {25033081},
+   publisher = {Public Library of Science},
+   title = {CeleST: Computer Vision Software for Quantitative Analysis of C. elegans Swim Behavior Reveals Novel Features of Locomotion},
+   volume = {10},
+   year = {2014}
+}
+@article{Jung2021,
+   abstract = {Accurately measuring the length of an animal's body is essential to studying the effects of various chemicals, genes, and the environment on the animal's growth. AniLength was developed to measure the body length of small worms present in images using hybrid image processing and deep neural network (DNN)-based image classification. The software not only includes a pretrained DNN model learned from approximately 16,000 images using ResNet-V2-101 for Caenorhabditis elegans analysis, but it can also perform new training using custom training images. AniLength is a user-friendly GUI-based software that runs on Microsoft Windows.},
+   author = {Sang Kyu Jung},
+   doi = {10.1016/j.softx.2021.100795},
+   issn = {23527110},
+   journal = {SoftwareX},
+   month = {7},
+   publisher = {Elsevier B.V.},
+   title = {AniLength: GUI-based automatic worm length measurement software using image processing and deep neural network},
+   volume = {15},
+   year = {2021}
+}
+@article{Moore2013,
+   abstract = {The fundamental phenotypes of growth rate, size and morphology are the result of complex interactions between genotype and environment. We developed a high-throughput software application, WormSizer, which computes size and shape of nematodes from brightfield images. Existing methods for estimating volume either coarsely model the nematode as a cylinder or assume the worm shape or opacity is invariant. Our estimate is more robust to changes in morphology or optical density as it only assumes radial symmetry. This open source software is written as a plugin for the well-known image-processing framework Fiji/ImageJ. It may therefore be extended easily. We evaluated the technical performance of this framework, and we used it to analyze growth and shape of several canonical Caenorhabditis elegans mutants in a developmental time series. We confirm quantitatively that a <underline>D</underline>um<underline>py</underline> (Dpy) mutant is short and fat and that a <underline>Lon</underline>g (Lon) mutant is long and thin. We show that daf-2 insulin-like receptor mutants are larger than wild-type upon hatching but grow slow, and WormSizer can distinguish dauer larvae from normal larvae. We also show that a <underline>Sma</underline>ll (Sma) mutant is actually smaller than wild-type at all stages of larval development. WormSizer works with <underline>Unc</underline>oordinated (Unc) and <underline>Rol</underline>ler (Rol) mutants as well, indicating that it can be used with mutants despite behavioral phenotypes. We used our complete data set to perform a power analysis, giving users a sense of how many images are needed to detect different effect sizes. Our analysis confirms and extends on existing phenotypic characterization of well-characterized mutants, demonstrating the utility and robustness of WormSizer. © 2013 Moore et al.},
+   author = {Brad T. Moore and James M. Jordan and L. Ryan Baugh},
+   doi = {10.1371/journal.pone.0057142},
+   issn = {19326203},
+   journal = {PLoS ONE},
+   month = {2},
+   pmid = {23451165},
+   title = {WormSizer: High-throughput Analysis of Nematode Size and Shape},
+   volume = {8},
+   year = {2013}
+}
+@article{Otin2013,
+   abstract = {In this work we present a new finite element code in frequency domain called ERMES. The novelty of this computational tool rests on the formulation behind it. ERMES is the C++ implementation of a simplified version of the weighted regularized Maxwell equation method. This finite element formulation has the advantage of producing well-conditioned matrices and the capacity of solving problems in the low (quasi-static) and high frequency regimens. As a consequence of this versatility, ERMES has been applied successfully to microwave engineering, antenna design, electromagnetic compatibility and eddy currents problems. This paper describes the main features of ERMES and explains how to use this numerical tool for computing electromagnetic fields in frequency domain. © 2013 Elsevier B.V. All rights reserved.},
+   author = {Ruben Otin},
+   doi = {10.1016/j.cpc.2013.06.010},
+   issn = {00104655},
+   journal = {Computer Physics Communications},
+   month = {11},
+   pages = {2588-2595},
+   title = {ERMES: A nodal-based finite element code for electromagnetic simulations in frequency domain},
+   volume = {184},
+   year = {2013}
+}
+@article{Hakim2018,
+   abstract = {Background: Caenorhabditis elegans nematodes are powerful model organisms, yet quantification of visible phenotypes is still often labor-intensive, biased, and error-prone. We developed WorMachine, a three-step MATLAB-based image analysis software that allows (1) automated identification of C. elegans worms, (2) extraction of morphological features and quantification of fluorescent signals, and (3) machine learning techniques for high-level analysis. Results: We examined the power of WorMachine using five separate representative assays: supervised classification of binary-sex phenotype, scoring continuous-sexual phenotypes, quantifying the effects of two different RNA interference treatments, and measuring intracellular protein aggregation. Conclusions: WorMachine is suitable for analysis of a variety of biological questions and provides an accurate and reproducible analysis tool for measuring diverse phenotypes. It serves as a "quick and easy," convenient, high-throughput, and automated solution for nematode research.},
+   author = {Adam Hakim and Yael Mor and Itai Antoine Toker and Amir Levine and Moran Neuhof and Yishai Markovitz and Oded Rechavi},
+   doi = {10.1186/s12915-017-0477-0},
+   issn = {17417007},
+   journal = {BMC Biology},
+   month = {1},
+   pmid = {29338709},
+   publisher = {BioMed Central Ltd.},
+   title = {WorMachine: Machine learning-based phenotypic analysis tool for worms},
+   volume = {16},
+   year = {2018}
+}
+@article{Bradley2007,
+   abstract = {Image thresholding is a common task in many computer vision and graphics applications. The goal of thresholding an image is to classify pixels as either “dark” or “light”. Adaptive thresholding is a form of thresholding that takes into account spatial variations in illumination. We present a technique for real-time adaptive thresholding using the integral image of the input. Our technique is an extension of a previous method. However, our solution is more robust to illumination changes in the image. Additionally, our method is simple and easy to implement. Our technique is suitable for processing live video streams at a real-time frame-rate, making it a valuable tool for interactive applications such as augmented reality. Source code is available online. 1},
+   author = {Derek Bradley and Gerhard Roth},
+   doi = {10.1080/2151237x.2007.10129236},
+   issn = {1086-7651},
+   journal = {Journal of Graphics Tools},
+   month = {1},
+   pages = {13-21},
+   publisher = {Informa UK Limited},
+   title = {Adaptive Thresholding using the Integral Image},
+   volume = {12},
+   year = {2007}
+}
+@article{Otsu1979,
+   abstract = {A nonparametric and unsupervised method of automatic threshold selection for picture segmentation is presented. An otpimal threshold is selected by the discriminant criterion, namely, so as the maximize the separability of the resultant classes in gray levels. The procedure is very simple, utilizing only the zeroth- and first-order cumulative moments of the gray-level histogram. It is strightforward to extend the method to multithreshold problems. Several experimental results are also presented to support the validity of the method.},
+   author = {Nobuyuki Otsu},
+   doi = {10.1109/tsmc.1979.4310076},
+   issn = {00189472},
+   journal = {IEEE Trans Syst Man Cybern},
+   pages = {62-66},
+   title = {A Threshold Selection Method from Gray-Level Histograms},
+   volume = {SMC-9},
+   year = {1979}
+}
+@inproceedings{Raviv2010,
+   abstract = {We present a novel approach for extracting cluttered objects based on their morphological properties. Specifically, we address the problem of untangling Caenorhabditis elegans clusters in high-throughput screening experiments. We represent the skeleton of each worm cluster by a sparse directed graph whose vertices and edges correspond to worm segments and their adjacencies, respectively. We then search for paths in the graph that are most likely to represent worms while minimizing overlap. The worm likelihood measure is defined on a low-dimensional feature space that captures different worm poses, obtained from a training set of isolated worms. We test the algorithm on 236 microscopy images, each containing 15 C. elegans worms, and demonstrate successful cluster untangling and high worm detection accuracy. © 2010 Springer-Verlag.},
+   author = {T. Riklin Raviv and V. Ljosa and A. L. Conery and F. M. Ausubel and A. E. Carpenter and P. Golland and C. Wählby},
+   doi = {10.1007/978-3-642-15711-0_79},
+   issn = {03029743},
+   booktitle = {Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelligence and Lecture Notes in Bioinformatics)},
+   pages = {634-641},
+   pmid = {20879454},
+   title = {Morphology-guided graph search for untangling objects: C. elegans analysis},
+   volume = {6363 LNCS},
+   year = {2010}
+}
+@inproceedings{Yurchenko2017,
+   abstract = {This work is motivated by the mostly unsolved task of parsing biological images with multiple overlapping articulated model organisms (such as worms or larvae). We present a general approach that separates the two main challenges associated with such data, individual object shape estimation and object groups disentangling. At the core of the approach is a deep feed-forward singling-out network (SON) that is trained to map each local patch to a vectorial descriptor that is sensitive to the characteristics (e.g. shape) of a central object, while being invariant to the variability of all other surrounding elements. Given a SON, a local image patch can be matched to a gallery of isolated elements using their SON-descriptors, thus producing a hypothesis about the shape of the central element in that patch. The image-level optimization based on integer programming can then pick a subset of the hypotheses to explain (parse) the whole image and disentangle groups of organisms. While sharing many similarities with existing "analysisby- synthesis" approaches, our method avoids the need for stochastic search in the high-dimensional configuration space and numerous rendering operations at test-time. We show that our approach can parse microscopy images of three popular model organisms (the C.Elegans roundworms, the Drosophila larvae, and the E. Coli bacteria) even under significant crowding and overlaps between organisms. We speculate that the overall approach is applicable to a wider class of image parsing problems concerned with crowded articulated objects, for which rendering training images is possible.},
+   author = {Victor Yurchenko and Victor Lempitsky},
+   doi = {10.1109/CVPR.2017.505},
+   booktitle = {Proceedings - 30th IEEE Conference on Computer Vision and Pattern Recognition, CVPR 2017},
+   month = {11},
+   pages = {4752-4760},
+   publisher = {Institute of Electrical and Electronics Engineers Inc.},
+   title = {Parsing images of overlapping organisms with deep singling-out networks},
+   volume = {2017-January},
+   year = {2017}
+}
+@inproceedings{Chen2020,
+   abstract = {Plant parasitic nematodes cause damage to crop plants on a global scale. Robust detection on image data is a prerequisite for monitoring such nematodes, as well as for many biological studies involving the nematode C. elegans, a common model organism. Here, we propose a framework for detecting worm-shaped objects in microscopic images that is based on convolutional neural networks (CNNs). We annotate nematodes with curved lines along the body, which is more suitable for worm-shaped objects than bounding boxes. The trained model predicts worm skeletons and body endpoints. The endpoints serve to untangle the skeletons from which segmentation masks are reconstructed by estimating the body width at each location along the skeleton. With light-weight backbone networks, we achieve 75.85% precision, 73.02% recall on a potato cyst nematode data set and 84.20% precision, 85.63% recall on a public C. elegans data set.},
+   author = {Long Chen and Martin Strauch and Matthias Daub and Xiaochen Jiang and Marcus Jansen and Hans Georg Luigs and Susanne Schultz-Kuhlmann and Stefan Krussel and Dorit Merhof},
+   doi = {10.1109/ISBI45749.2020.9098465},
+   issn = {19458452},
+   booktitle = {Proceedings - International Symposium on Biomedical Imaging},
+   month = {4},
+   pages = {508-512},
+   publisher = {IEEE Computer Society},
+   title = {A CNN Framework Based on Line Annotations for Detecting Nematodes in Microscopic Images},
+   volume = {2020-April},
+   year = {2020}
+}
