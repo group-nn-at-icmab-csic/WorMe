@@ -105,7 +105,7 @@ When the modification configuration is determined, start the selection panel. Im
 In this panel user can filtrate the objects mainly by length, area and circularity. There is also three tools for the object modification. Scissors allows to crop the objects, which is useful for example if two worms are joined. Draw line allows to draw a line that will be the length of the worm. The extension button is used for extend the objects, something that can be useful when there is a cropped part.
 
 
-#### Selection panel
+### Selection panel
 
 In the worm selection pannel, the user visualise and selects each worm’s measurement. That may be time-consuming, but the computational and usage have been optimized in order to improve and adapt the process.
 
@@ -117,7 +117,7 @@ This manual selection panel is time consuming, but ensures the user to be aware 
 
 <div align="center"> <img src="https://github.com/user-attachments/assets/c81dab40-d041-4889-8f61-d76b0f7fe9ec" alt="selection_pannel" width="55%"> </div>
 
-#### Results panel
+### Results panel
 
 Finally, after select the worms in the image, apperas the result panel. In this, user can see the an histogram with the results and descriptive statistics of the worms selected. The data of the length measures can be exported, as well as with the manual error correction (see below the apartat ASD). 
 
@@ -125,7 +125,7 @@ User can also export the graphic data. This allows exporting the binary images, 
 
 <div align="center"> <img src="https://github.com/user-attachments/assets/3722f5c4-0e1e-43c1-bcd0-8d894fbdb6ab" alt="image-20230731-164404" width="55%"> </div>
 
-#### IA data and graphic exportation
+### IA data and graphic exportation
 
 Finally the program visualize the set of length measurement data, and allows to export it. It includes also the option to export the data based in the manual error correction (see XXX). The program also provides the binary object data and other data that may be golden standard for deep learning models.
 
