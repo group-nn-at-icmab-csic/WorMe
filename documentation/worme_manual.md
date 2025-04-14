@@ -15,8 +15,6 @@
 
 WorMe has been developed in MATLAB 2024b version, because of the improvements of the updated version, but it can be used as well in MATLAB 2021b. The installation and use of the program doesn’t need the license, and it is done by an executable file.
 
-Manually select provide a high reliable and quality data.
-
 The objective of WorMe is to provide the automated obtaining of the length of C.elegans from images by directly visualization, in analogy to the manual measurement, ensuring on the same way reliability and origin of the data.
 
 The program works in a lineal set of pannels. There is a first image processment settings, where the user sets the image processing settings. Following it, there is the selection pannel, where the user visualizes the C. elegans measurements and selects manually the correct ones. Finally there is a pannel of data results and image object export. 
