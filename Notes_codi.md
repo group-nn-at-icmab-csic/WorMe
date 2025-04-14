@@ -12,6 +12,38 @@ https://code.visualstudio.com/docs/languages/markdown
 
 
 
+## Canviar codi
+
+**app_interf_video_demostratiu**: Fa que el vídeo s'obri dins del box. Revisar.
+
+
+- Posar test de normalitat de les dades
+
+- provar en IOs (Apple)
+- Provar en Linux
+
+- Posar text en ajudes
+- Treure Deteccio automàtica?
+
+- Adaptar a imatges en escala de grisos.
+
+- Cambiar icono excel (libre office)
+- Opció descarregar un .csv (separat per coma)
+
+- posar descripció en quadre automàtic al passar a sobre de tecles com tisores, allargar, etc. Que expliqui què fan. O posar imatge explicativa, o en GIF.
+
+- Treure el Max Circularity (ocultar-lo)
+
+- Min area : Explicar més? Donar valors de referència.
+
+- Posar Max length
+
+
+
+
+
+
+
 
 
 ## Comprovacións pendents
