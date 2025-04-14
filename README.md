@@ -5,10 +5,10 @@ WorMe is a Software for *Caenorhabditis elegans* length determination
 
 [Group of Nanoparticles and Nanocomposites - ICMAB-CSIC](https://nn.icmab.es/)
 
-![WorMe icon](icon.png)
+![WorMe icon](Length_determination/Images_resources/Icons/Logo_WorMe.png)
 
 It can be used in machines with Linux, Windows and macOS. 
-For detailed documentation with the User Manual please check out the "documentation" folder.
+For detailed documentation with the User Manual please check out the "[documentation](documentation/)" folder.
 
 ## Citation
 
@@ -33,10 +33,11 @@ If you wish to contribute to the software, report issues or problems with the so
 
 * /examples/: Folder containing example images for length determination
 
-
 -----------------------------------------
 
 ## Installation
+
+
 
 
 -------------------------------------------

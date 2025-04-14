@@ -9,7 +9,7 @@
 
 ## Tasques pendents  
 - [ ] **Revisió de les biblioteques de MATLAB (llicència):** Verificar si estan disponibles sota una llicència de codi obert. 
-- [ ] Decidir llicència (Suggeriment: GNU GPL3 si volem que els derivats hagin de ser codi obert, o MIT o BSD-3-Clause si ens és igual)
+- [X] Decidir llicència (Suggeriment: GNU GPL3 si volem que els derivats hagin de ser codi obert, o MIT o BSD-3-Clause si ens és igual)
 - [ ] Escriure article
 - [ ] Escriure manual d'usuari
 - [ ] Traduir comentaris del codi
