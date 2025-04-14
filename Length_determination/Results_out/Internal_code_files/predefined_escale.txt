@@ -1,1 +1,1 @@
-Escala;1.12
+Escala;0.855

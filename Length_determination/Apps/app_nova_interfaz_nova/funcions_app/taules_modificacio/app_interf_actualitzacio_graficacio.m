@@ -118,6 +118,7 @@ else
 
 end
 
+
 if ~app.finalitzat_a_estadistica % Si no s'ha passat a estadística.
     app_interf_table_act_dretaesquerra(app)
     app_interf_taula_actu_return(app)
