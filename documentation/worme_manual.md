@@ -63,14 +63,15 @@ The executable file for the installation of WorMe Length determination can be fo
 
 ### Requirements
 The opreation system requirements are:
-- Windows 8, 10 or 11
-- Linux?
-- iOS?
+- > Windows 8, 10 or 11
+- > Linux?
+- > iOS?
 
 The hardware minimal requirements are: 
-- 2Gb of RAM memory
-- basic CPU processor (for example Intel Core i3 2GHz)
-- >4 Gb of storage memory (if used as local software, installed from .exe)
+- > 2Gb of RAM memory
+- > 4Gb of storage memory (if used as local software, installed from .exe)
+- > basic CPU processor (for example Intel Core i3 2GHz)
+
 
 
 For example, the program works properly in a 8Gb RAM and an Intel Core i5 CPU of 2.60GHz computer using, in Windows 10.
