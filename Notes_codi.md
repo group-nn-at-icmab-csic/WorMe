@@ -14,15 +14,18 @@ https://code.visualstudio.com/docs/languages/markdown
 
 ## Canviar codi
 
-**app_interf_video_demostratiu**: Fa que el vídeo s'obri dins del box. Revisar.
+**app_interf_video_demostratiu**: Fa que el vídeo s'obri dins del box. Revisar treure?.
 
+- Botó retornar a menú de selecció d'escala (tornar des de selecció automatica, selecció manual, i selecció numèrica).
+
+- Posar botó per a cada funció de processament d'imatge
 
 - Posar test de normalitat de les dades
 
 - provar en IOs (Apple)
 - Provar en Linux
 
-- Posar text en ajudes
+- Posar text en funcions
 - Treure Deteccio automàtica?
 
 - Adaptar a imatges en escala de grisos.
