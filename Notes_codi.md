@@ -8,10 +8,10 @@ https://code.visualstudio.com/docs/languages/markdown
 
 Paquets MATLAB emprats al llarg del codi:
 
-Computer Vision Toolbox
-Image Processing Toolbox
-Image Acquisition Toolbox
-Statistics and Machine Learning Toolbox
+- Computer Vision Toolbox
+- Image Processing Toolbox
+- Image Acquisition Toolbox
+- Statistics and Machine Learning Toolbox
 
 
 
