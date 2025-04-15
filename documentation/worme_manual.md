@@ -71,7 +71,13 @@ The program offer a basic guide (link) which lead the use of the program.
 
 The requirements of the computer are basic. The program needs between 1,2-2Gb of RAM memory, and a basic CPU (for example Intel Core i3 2GHz). For example, the program works properly 8Gb RAM and an Intel Core i5 CPU of 2.60GHz, in Windows OS.
 
-(Foto compilation MATLAB Runtime?)
+
+<div align="center"> <img src="https://github.com/user-attachments/assets/e6e21505-aa81-4587-b9e6-fa12b1c112a2" alt="frink" width="55%"> </div>
+
+<div align="center"> <img src="https://github.com/user-attachments/assets/67fb5fee-6e24-46b4-8ea7-93fccb3323c6" alt="frink" width="55%"> </div>
+
+
+
 
 ## Use of the program
 
