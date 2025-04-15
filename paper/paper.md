@@ -1,5 +1,5 @@
 ---
-title: 'WorMe:'
+title: 'WorMe: A user-oriented software for *Caenorhabditis elegans* length determination'
 tags:
   - Caenorhabditis elegans
   - length determination
@@ -25,10 +25,12 @@ bibliography: paper.bib
 
 # Summary
 
-*Caenorhabditis elegans* is a widely used animal model for biomedical research. Length is a quantifiable parameter to assess its development, so it is often measured. Therefore, there are many tools that automatize this process. However, most of the available tools work for images from stereomicroscopes, and none were found that worked reliably for compound microscopy images. Here we present WorMe, a user-friendly software that measures *C. elegans* length in compound microscopy images as well as fluorescence images. The program accepts multiple images as input, which can then be analysed collectively. Furthermore, the user can discard wrongly-detected objects, separate joined worms, correct erroneous measurements and manually add new worms. Then, the results are presented in a spreadsheet file, with each measurement linked to their image. 
+*Caenorhabditis elegans* is a widely used animal model for biomedical research. The length of the nematode is a quantifiable parameter to assess its development. Currently, there are many tools that automatize this process. However, most of the available tools are designed for images from stereomicroscopes, and none were found that worked reliably for compound microscopy images. Here we present WorMe, a user-friendly software that measures *C. elegans* length in compound microscopy images. The program accepts multiple images as input, which can then be analysed collectively. Furthermore, the user can discard wrongly-detected objects, separate joined worms, correct erroneous measurements and manually add new worms. Then, the results are presented in a spreadsheet file, with each measurement linked to their image. 
 
 # Statement of Need
 *Caenorhabditis elegans* is a transparent nematode widely used as a model organism for whole animal studies. Its small size and short life cycle, as well as its compliance with the 3R principles for animal welfare in research allow for cost-effective and medium to high-throughput experiments [@Kaletta2006]. It is a robust model for early-stage research and toxicology studies since around 60-80% of human genes have a homolog in *C. elegans* [@Markaki2020].
+
+Body size is an important endpoint used to assess the nematode’s development, as dietary changes or altered temperatures are shown to decrease body length [@Tain2008; @So2011; @Muoz-Juan2024]. Furthermore, in toxicity studies, the nematode’s body length is used to assess whether exposure inhibits growth [@Schrter2024; @Jung2015; @Srinivasan2023].
 
 Body size is an important endpoint used to assess the nematode’s development, as dietary changes or altered temperatures are shown to decrease body length [@Tain2008; @So2011; @Muoz-Juan2024]. Furthermore, in toxicity studies of various types of nanoparticles on the growth of *C. elegans*, the nematode’s body length decreased by 50% when exposed to polystyrene [@Schrter2024], silver or SiO~2~ nanoparticles [@Jung2015], yet there was no effect when exposed to polypyrrole nanoparticles [@Srinivasan2023].
 
@@ -38,10 +40,10 @@ To automate and improve this process, many software solutions have been develope
 
 However, no software has been found for compound microscopy images. Compound microscopes offer higher magnification, which allows for other measurements such as pharynx pumping rate, fluorescence imaging, or more accurate and reliable length measurements.
 
-In this work we present WorMe, a *Caenorhabditis elegans* length determination software. WorMe is a MATLAB runtime application that automatizes the length measurements from optical and fluorescence microscopy images. It is open-source and user-friendly, and it allows for manual correction of failed measurements.
+In this work we present WorMe, a *Caenorhabditis elegans* length determination software. WorMe is a MATLAB Runtime application that automatizes the length measurements from compound microscopy images. It is open-source and user-friendly, since it works from a graphical user interface. WorMe is also versatile, because it has a wide range of settings to process many kinds of images, and it ensures data reliability since the user selects the worms to be analysed in a computationally optimized process.
 
 # Brief Description of the Program Use and Features
-WorMe is an application implemented in @matlab, using the @matlabimages, @matlabvision, @matlabimaq and @matlabstats toolboxes. It is deployed as an executable using MATLAB Runtime, so it can be installed and run without a MATLAB license. It is also possible to run the main script `WM_length_determination.m` from the MATLAB interface.
+WorMe is an application implemented in *MATLAB version 9.11 (R2021b)* [@matlab], using the *Image Processing Toolbox* [@matlabimages], *Computer Vision Toolbox* [@matlabvision], *Image Acquisition Toolbox* [@matlabimaq] and *Statistics and Machine Learning Toolbox* [@matlabstats]. It is deployed as an executable using MATLAB Runtime, so it can be installed and run without a MATLAB license. It is also possible to run the main script `WM_length_determination.m` from the MATLAB interface.
 
 First, the program prompts the user to provide the images to analyse. The user can select one or multiple images as long as the scale is consistent. Said scale is set by selecting the scale bar or by writing the scale value in pixels per unit.
 
