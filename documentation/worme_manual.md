@@ -2,7 +2,6 @@
 
 
 
-![Imatge 1](https://raw.githubusercontent.com/group-nn-at-icmab-csic/WorMe/refs/heads/main/documentation/Image_982.jpg?token=GHSAT0AAAAAADBOAQ5N5R32DJCO7HMTAEN6Z76DK6Q)
 
 ## Introduction
 
