@@ -61,6 +61,23 @@ The program’s computational operation has been optimized in order to rely a go
 
 The executable file for the installation of WorMe Length determination can be found in (put here DOI), and the main MATLAB code program in (put here DOI)
 
+### Requirements
+The opreation system requirements are:
+- Windows 8, 10 or 11
+- Linux?
+- iOS?
+
+The hardware minimal requirements are: 
+- 2Gb of RAM memory
+- basic CPU processor (for example Intel Core i3 2GHz)
+- >4 Gb of storage memory (if used as local software, installed from .exe)
+
+
+For example, the program works properly in a 8Gb RAM and an Intel Core i5 CPU of 2.60GHz computer using, in Windows 10.
+
+
+### Installation from executable (.exe)
+
 WorMe length determination can be installed from the executable file (DOI) as a local software in Windows (and Mac and Linux ?), without the necessity of having MATLAB license, nor other previous specific installations.
 
 <div align="center"> <img src="https://github.com/user-attachments/assets/e6e21505-aa81-4587-b9e6-fa12b1c112a2" alt="frink"> </div>
@@ -70,7 +87,11 @@ The installation is made from the executable installation file (.exe), and it in
 <div align="center"> <img src="https://github.com/user-attachments/assets/67fb5fee-6e24-46b4-8ea7-93fccb3323c6" alt="frink" width="55%"> </div>
 
 
-The program can also be used in MATLAB, by running the main file code (WM_length_determination_version.m). Note that using the program from MATLAB used to be a bit faster, but the system-installed program is also optimal.
+### Use in MATLAB 
+
+The program can also be used in MATLAB, by running the main file code (WM_length_determination.m). Note that using the program from MATLAB used to be a bit faster, but the system-installed program is also optimal.
+
+The program was developed in MATLAB 2021b. The use of it in old versions of MATLAB may develop problems of use and errors. If the program is executed in MATLAB 2024b or another older version from the initial, there should be no conflict of usage.
 
 The program use the MATLAB Toolbox packages:
 - Computer Vision Toolbox
@@ -81,12 +102,6 @@ The program use the MATLAB Toolbox packages:
 These packages are included in the executable file, but if the program is runned from MATLAB IDLE, it is going to be necessary to add these toolboxes. See: [How to add Add Ons in MATLAB](https://es.mathworks.com/help/matlab/matlab_env/get-add-ons.html).
 
 
-
-
-The requirements of the computer are basic. The program needs between 1,2-2Gb of RAM memory, and a basic CPU (for example Intel Core i3 2GHz). For example, the program works properly 8Gb RAM and an Intel Core i5 CPU of 2.60GHz, in Windows OS.
-
-
-In case of having MATLAB license, the program can be executed from the main script. This will allow faster 
 
 
 
