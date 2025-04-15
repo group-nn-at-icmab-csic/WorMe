@@ -37,7 +37,7 @@ WorMe is coded in MATLAB, and can be used in Windows, Linux and iOS [to comprove
 ## Software description, use and features
 
 
-
+### Brief description of the program 
 *(Còpia del Confluence ↓)*
 
 WorMe has been developed in MATLAB 2024b version, because of the improvements of the updated version, but it can be used as well in MATLAB 2021b. The installation and use of the program doesn’t need the license, and it is done by an executable file.
@@ -56,7 +56,7 @@ The program’s computational operation has been optimized in order to rely a go
 
 
 
-## Installation
+### Installation and requirements
 
 The executable installation and the MATLAB code of WorMe can be (put here DOI)
 
@@ -72,16 +72,6 @@ The requirements of the computer are basic. The program needs between 1,2-2Gb of
 
 (Foto compilation MATLAB Runtime?)
 
-## Image requirements
-
-WorMe can operate with many types of images. The format of images can be .jpg, .png, jpeg, .tif, .tiff, .jfif, and .bmp, being grayscale or rgb (per a implementar). The program is designed based on the compound microscopical images, with an usually standard proportions (example: 1920x1080), but it can operate with different types of resolutions, as well as different kinds of microscope images. The use of huge resolution microscopical images (ex: 2500x2500 ← comprovar) is possible but not recommended because of the logistics architecture of the computation processment.
-
-In order that the program works in the best way images must be clear, without dirt objects if possible, and with worms not touching between them, or being coiled or tangling. One desired image example is Figure 4.
-
-
-<div align="center"> <img src="https://github.com/user-attachments/assets/e96185b4-c2f2-4a4e-ad45-2504bc7ef9b6" alt="selection" width="55%"> </div>
-
-
 ## Use of the program
 
 
@@ -91,6 +81,13 @@ All the program use is descrived in the guide [DOI XXX] and tutorials [DOI XXX] 
 
 <div align="center"> <img src="https://github.com/user-attachments/assets/57ca0220-9afd-4f10-9fe7-58f9b3593712" alt="image-20230728-091743 (1)" width="55%"> </div>
 
+### Image selection and scale setting
+
+WorMe can operate with many types of images. The format of images can be .jpg, .png, jpeg, .tif, .tiff, .jfif, and .bmp, being grayscale or rgb (per a implementar). The program is designed based on the compound microscopical images, with an usually standard proportions (example: 1920x1080), but it can operate with different types of resolutions, as well as different kinds of microscope images. The use of huge resolution microscopical images (ex: 2500x2500 ← comprovar) is possible but not recommended because of the logistics architecture of the computation processment.
+
+In order that the program works in the best way images must be clear, without dirt objects if possible, and with worms not touching between them, or being coiled or tangling. One desired image example is Figure 4.
+
+<div align="center"> <img src="https://github.com/user-attachments/assets/e96185b4-c2f2-4a4e-ad45-2504bc7ef9b6" alt="selection" width="55%"> </div>
 
 In the first step, the user introduces the images to analyze, and set the scale. After it, the modification pannel is shown. In it, the user determines the modifications that will be done into all the image stacks. The aim of this panel is to mainly isolate the worms as binary objects, which will be analysed and selected after.
 
@@ -125,10 +122,11 @@ User can also export the graphic data. This allows exporting the binary images, 
 
 <div align="center"> <img src="https://github.com/user-attachments/assets/3722f5c4-0e1e-43c1-bcd0-8d894fbdb6ab" alt="image-20230731-164404" width="55%"> </div>
 
-### IA data and graphic exportation
 
 Finally the program visualize the set of length measurement data, and allows to export it. It includes also the option to export the data based in the manual error correction (see XXX). The program also provides the binary object data and other data that may be golden standard for deep learning models.
 
+
+?
 WorMe does not use artificial intelligence (AI) despite it is the state-of-the-art of the image processing and analysis. Many software are based on deep learning neural networks for the selection or identification of C. elegans in the images. Despite that, the program is consciousness about the data obtaintion and use for the creation of models, and it allows the user to export the graphical data in different formats (PascalVOC, label, binary, etc.) in order to be used for IA model building, among other types of analysis.
 
 As is usual, the program does not used to differentiate between coiled and joined worms. Some IA based softwares can approach this differentiation [1-4]. Despite that, the panel offer tools for manually separate and differentiate between two or more joined C. elegans or objects. 
@@ -140,11 +138,12 @@ State of the art: Artificial intelligence: There is still much to do in C. elega
 Many of the recent software use Deep Learning  (DL) as the basis for image processing. Despite of the it, there is still the necessity of good DL models for develop the image segregation, and to compile image segmented data in C. elegans is still a requirement. 
 
 
-
 ### Example of usage
 
 
-## Image and data processing
+## Software Methodology
+
+### Image and data processing
 
 The program uses a wide range of image processing tools, thanks to the MATLAB image processing functions, and allows to visualize the image processing at time. This differentiate from many software in which the image processing have few tools or are automatic, or not visual. To have many tools give versatililty allowing to analyse different types of images and figures in it.
 
@@ -194,7 +193,7 @@ When, in difference, the line is traced throughout the body of the worm, like th
 
 
 
-#### Error bias in the manual vs automated length determination
+#### Manual error correction
 
 Between the manual length and the pixel line length is used to there is a substantial difference, being the pixel length measure slightly higher. This is because of the lack of measurement in curved worms when their manual length is developed. The difference exist because the pixels between the pixel line describes a long distance than the two points of the manual annotation.
 
@@ -222,7 +221,19 @@ We figure out the bias was because of this length methodology of measurement. Wh
 
 (grafic distancia per pixel)
 
+### IA data and graphic exportation
 
+Finally the program visualize the set of length measurement data, and allows to export it. It includes also the option to export the data based in the manual error correction (see XXX). The program also provides the binary object data and other data that may be golden standard for deep learning models.
+
+WorMe does not use artificial intelligence (AI) despite it is the state-of-the-art of the image processing and analysis. Many software are based on deep learning neural networks for the selection or identification of C. elegans in the images. Despite that, the program is consciousness about the data obtaintion and use for the creation of models, and it allows the user to export the graphical data in different formats (PascalVOC, label, binary, etc.) in order to be used for IA model building, among other types of analysis.
+
+As is usual, the program does not used to differentiate between coiled and joined worms. Some IA based softwares can approach this differentiation [1-4]. Despite that, the panel offer tools for manually separate and differentiate between two or more joined C. elegans or objects. 
+
+ 
+
+State of the art: Artificial intelligence: There is still much to do in C. elegans
+
+Many of the recent software use Deep Learning  (DL) as the basis for image processing. Despite of the it, there is still the necessity of good DL models for develop the image segregation, and to compile image segmented data in C. elegans is still a requirement. 
 
 ### Computational optimization
 
@@ -236,9 +247,7 @@ In the selection panel the whole image is processed and their objects are isolat
 
 
 
-
-
-### Comparison to ImageJ and WorMachine
+## Comparison to ImageJ and WorMachine
 
 <div align="center"> <img src="https://github.com/user-attachments/assets/ea355d3d-a75d-4a51-b417-25189e28b717" alt="frink" width="55%"> </div>
 
