@@ -1,134 +1,129 @@
 # User Manual - WorMe: *Caenorhabditis elegans* length determination
 
-
-
-
 ## Introduction
 
-(Introducció de l'article JOSS, relativament breu)
+*Caenorhabditis elegans* is a widely used animal model for biomedical research. The length of the nematode is a quantifiable parameter to assess its development. Currently, there are many tools that automatize this process. However, most of the available tools are designed for images from stereomicroscopes, and none were found that worked reliably for compound microscopy images. 
 
-<div align="center"> <img src="https://github.com/user-attachments/assets/6ab47a84-05d1-444f-97ac-4e5edccb1be6" alt="selection" width="55%"> </div>
+Here we present WorMe, a *Caenorhabditis elegans* length determination software. WorMe is a MATLAB Runtime application that automatizes the length measurements from compound microscopy images. It is open-source and user-friendly, since it works from a graphical user interface. WorMe is also versatile, because it has a wide range of settings to process many kinds of images, and it ensures data reliability since the user selects the worms to be analysed in a computationally optimized process.
 
-
-
-*Còpia intro de l'article ja escrit* ↓
-
-
-Caenorhabditis elegans is a nematode widely used as model organism because its small size, body transparency, short life cycle, genetic manipulability, and its absence of ethical requirements, which makes it a good candidate for molecular biology and toxicological studies.
-
-Many morphological and biological variables in C. elegans are useful for experimentation, including reproduction rate, mobility, and survival. Among these, body length is a key parameter for analyzing the organism’s growth rate. This variable is particularly relevant in toxicological studies [NN grup article cite] and other experimental contexts.
-
-The length of C. elegans is used to be in the range of 100μm and 800μm (revisar), and it is used to be obtained measuring the head to the tail of the worm, or reverse. This measurement is made by the images or videos obtained from a microscope or stereomicroscope. This process is used to be  made manually by drawing a line for each worm, or computer-automatized by the processing and analysis of the images.
-
-
-The analysis with stereomicroscpy is widely used for C. elegans morphology measurements, mainly for the high-throughput analysis of images with many worms [cite stereomicroscopy softwares and their use]. This method gives a lower resolution and less details of the worm, compared to the use of a compound microscope, which offer more magnification and precise measurements. The use of compound microscopy for the length measurement is made to ensure the quality and reliability of the measurements, which is desired in cases of time-consuming or high-cost experiments. 
-
-Manual length measurement of C. elegans from microscopy images is a widely used methodology in various laboratories [cite NN group and non-NN group]. However, this process is time-consuming, as it requires the analyst to manually trace a line along each worm to determine its length. Typically, this measurement is performed using general image analysis software equipped with the necessary tools, such as ImageJ [5].
-
-The currently software programs that automatize the length determination of the C. elegans in an image or video are WorMachine [], the CellPose pipelines WormToolbox [], CeSnAP [], WormPose [], Celeganser []. These designed specifically for obtain the length of C. elegans as WormSizer [], AnliLength [], and WormSeg []. This software are designed mainly for the automation analysis of C. elegans in stereomicroscopical images, but not for the images from the compound microscopes.
-
-
-Here we present the WorMe length determination software. WorMe is a MATLAB-based free software that automatizes the length determination analysis of C. elegans for different types of microscopic images, giving a choiced and reliable data of the length measurements. The WorMe is user-friendly software, open-source, free, and easy to install and use.
-
-The program develops a processment of the microscopical images and return the measurement of each  worms in it. The user chose and rely singulary the measure, and finally obtain the data and image object components.
-
-WorMe is coded in MATLAB, and can be used in Windows, Linux and iOS [to comprove] without the necessity of MATLAB license [MATLAB Runtime cite explanation article]. The program can be downloaded from the repository website [ DOI …].
-
+The program accepts multiple images as input, which can then be analysed collectively. Furthermore, the user can discard wrongly-detected objects, separate joined worms, correct erroneous measurements and manually add new worms. Then, the results are presented in a spreadsheet file, with each measurement linked to their image. 
 
 ## Software description, use and features
-
-
 ### Brief description of the program 
-*(Còpia del Confluence ↓)*
 
-WorMe has been developed in MATLAB 2024b version, because of the improvements of the updated version, but it can be used as well in MATLAB 2021b. The installation and use of the program doesn’t need the license, and it is done by an executable file.
+WorMe is an open-source application implemented in *MATLAB version 9.11 (R2021b)* and deployed as an executable using MATLAB Runtime, so it can be installed and run without a license. It provides automatic detection and measurement of the length of *C. elegans* from microscopy images. It consists of a linear set of pannels that correspond to image processing, worm selection and results.  
 
-The objective of WorMe is to provide the automated obtaining of the length of C.elegans from images by directly visualization, in analogy to the manual measurement, ensuring on the same way reliability and origin of the data.
+First, the program prompts the user to provide the images to analyse. The user can select one or multiple images as long as the scale is consistent. Then, the program will show the image processing panel, where the images are processed to isolate the worms as binary objects. This is done by converting the image to grayscale (MATLAB function `im2gray`), improving the contrast (`imadjust`), binarizing the image (`imbinarize`), and removing noise and filling holes (`bwareaopen`, `imopen`, `imclose`, `imfill`, `imclearborder`). The user can select from a list of different sets of image modifications or apply their own if none display a workable result. This can happen if the contrast between worm and background is different from expected, such as when attempting to use fluoresence images. The ideal processing would show a black background with white, separate worms.
 
-The program works in a lineal set of pannels. There is a first image processment settings, where the user sets the image processing settings. Following it, there is the selection pannel, where the user visualizes the C. elegans measurements and selects manually the correct ones. Finally there is a pannel of data results and image object export. 
+Afterwards, the program will show the worm selection panel. It will skeletonize the binary objects (`bwmorph`) and prune the branches to obtain a line along the center of each nematode. Then, the user can visualize and select the *C. elegans* to measure. If a detected object is not a worm, it can be excluded from measurement. If two worms are connected, their binary object can be split, and the program will reprocess the skeleton for each new object. If the skeleton line does not span the entire worm, it can be extended. Similarly, if it is partly erroneous, it can be cut and extended again. Finally, if a worm is not detected, it can be added via manual analysis. This panel is the most time-consuming, as the user will have to go through all binary objects to accept, reject, or correct them. However, this ensures the quality and reliability of the data.
 
-The manual measurement selection may be time-consuming step, but it guarantees a quality and reliable data (see Results and Discussion). 
+Finally, the results panel will return a histogram of length results, which can be saved as a spreadsheet. In this document we can also include results that account for manual error, results modified so they would be similar to those obtained from manual measurement in FIJI. Graphic data such as the binary images, indexed images or PascalVOC data for other morphology measurements or AI model training can also be saved.
 
-User-based design
-
-The design of the program is based on the user necessities, ensuring being intuitive in the installation and use of the program tools, without the necessity to the user to know about code languages.
-
-The program’s computational operation has been optimized in order to rely a good timing in the processment and analysis of the image and objecs, and in the time of using by the user.
-
-
+A tutorial can be found in [Use of the program](#use-of-the-program), and an explanation of the used functions, error correction, and optimization can be found in [Software Methodology](#software-methodology).
 
 ### Installation and requirements
 
-The executable file for the installation of WorMe Length determination can be found in (put here DOI), and the main MATLAB code program in (put here DOI)
+WorMe source code and binaries can be downloaded from GitHub. The executable file can be found in releases at [https://github.com/group-nn-at-icmab-csic/WorMe/releases](https://github.com/group-nn-at-icmab-csic/WorMe/releases), and the source code at [https://github.com/group-nn-at-icmab-csic/WorMe](https://github.com/group-nn-at-icmab-csic/WorMe).
 
-### Requirements
-The opreation system requirements are:
-- > Windows 8, 10 or 11
-- > Linux?
-- > iOS?
+Minimal software requirements are:
+- Windows 8 or later
+- MATLAB Runtime R2021b (prompted to install by the WorMe binaries)
+- Internet connection
 
-The hardware minimal requirements are: 
-- > 2Gb of RAM memory
-- > 4Gb of storage memory (if used as local software, installed from .exe)
-- > basic CPU processor (for example Intel Core i3 2GHz)
+Minimal hardware requirements are:
+- RAM: At least 2GB
+- Storage: More than 4GB available disk space (for MATLAB Runtime)
+- Processor: Basic CPU (for example, Intel Core i3 2GHz or equivalent)
 
+For example, the program works properly in a computer with 8GB RAM and an Intel Core i5 2.60GHz CPU, in Windows 10.
 
+#### Installation from executable (.exe)
 
-For example, the program works properly in a 8Gb RAM and an Intel Core i5 CPU of 2.60GHz computer using, in Windows 10.
+WorMe Length determination can be installed from the [executable file](https://github.com/group-nn-at-icmab-csic/WorMe/releases) as a local software in Windows. It does not require a MATLAB license, or any previous installation. When triggered, it will download and install MATLAB Runtime and WorMe Length determination as system software. 
 
-
-### Installation from executable (.exe)
-
-WorMe length determination can be installed from the executable file (DOI) as a local software in Windows (and Mac and Linux ?), without the necessity of having MATLAB license, nor other previous specific installations.
-
-<div align="center"> <img src="https://github.com/user-attachments/assets/e6e21505-aa81-4587-b9e6-fa12b1c112a2" alt="frink"> </div>
-
-The installation is made from the executable installation file (.exe), and it installs automatically MATLAB Runtime and WorMe length determination as system software. MATLAB Runtime is a software that allows to use compiled programs from MATLAB without the necessity to have MATLAB or their license. The installation is easy, fast, and intuitive, and just requires an internet connexion and 4 Gb of memory. 
-
-<div align="center"> <img src="https://github.com/user-attachments/assets/67fb5fee-6e24-46b4-8ea7-93fccb3323c6" alt="frink" width="55%"> </div>
+<div align="center"> <img src="images/WM_install.png" alt="Installation Process"> </div>
 
 
-### Use in MATLAB 
+#### Use in MATLAB 
 
-The program can also be used in MATLAB, by running the main file code (WM_length_determination.m). Note that using the program from MATLAB used to be a bit faster, but the system-installed program is also optimal.
+The program can also be used in the **MATLAB version 9.11 (R2021b)** interface by running the main script `WM_length_determination.m`. However, this requires a MATLAB license. Using the program this way might be slightly faster, but the system-installed program is also optimal.
 
-The program was developed in MATLAB 2021b. The use of it in old versions of MATLAB may develop problems of use and errors. If the program is executed in MATLAB 2024b or another older version from the initial, there should be no conflict of usage.
-
-The program use the MATLAB Toolbox packages:
+The following MATLAB Toolboxes are required (See: [How to add Add Ons in MATLAB](https://es.mathworks.com/help/matlab/matlab_env/get-add-ons.html)):
 - Computer Vision Toolbox
 - Image Processing Toolbox
 - Image Acquisition Toolbox
 - Statistics and Machine Learning Toolbox
 
-These packages are included in the executable file, but if the program is runned from MATLAB IDLE, it is going to be necessary to add these toolboxes. See: [How to add Add Ons in MATLAB](https://es.mathworks.com/help/matlab/matlab_env/get-add-ons.html).
-
-
-
-
-
 ## Use of the program
 
+For a fast tutorial, please refer to [Example of usage](#example-of-usage).
 
-The program develop pre-setting steps of processing to the worm images, in order to isolate the worms of it as binary objects, which will be the length obtained and shown to the user in order to select it in a manual way. 
+WorMe Length Determination consists of four steps:
+- Image selection and scale setting
+- Image processing
+- Worm selection
+- Results
 
-All the program use is descrived in the guide [DOI XXX] and tutorials [DOI XXX] of the program.
+The program takes the selected images, processes them until it gets individual worms as binary objects which can be measured via skeletonization, lets the user select which objects are worms, and presents the length results in a spreadsheet, as well as graphic data.
 
-<div align="center"> <img src="https://github.com/user-attachments/assets/57ca0220-9afd-4f10-9fe7-58f9b3593712" alt="image-20230728-091743 (1)" width="55%"> </div>
+<div align="center"> <img src="https://github.com/user-attachments/assets/57ca0220-9afd-4f10-9fe7-58f9b3593712" alt="ASK FOR PPT" width="55%"> </div>
 
 ### Image selection and scale setting
 
-WorMe can operate with many types of images. The format of images can be .jpg, .png, jpeg, .tif, .tiff, .jfif, and .bmp, being grayscale or rgb (per a implementar). The program is designed based on the compound microscopical images, with an usually standard proportions (example: 1920x1080), but it can operate with different types of resolutions, as well as different kinds of microscope images. The use of huge resolution microscopical images (ex: 2500x2500 ← comprovar) is possible but not recommended because of the logistics architecture of the computation processment.
+WorMe can operate with many image formats, such as JPG, PNG, TIFF, JFIF and BMP. They can be rgb or grayscale images.
 
-In order that the program works in the best way images must be clear, without dirt objects if possible, and with worms not touching between them, or being coiled or tangling. One desired image example is Figure 4.
+The program is designed for compound microscopy images with standard proportions, but it can operate with different types of resolutions and different kinds of microscope images. The use of large resolution microscopy images is possible but not recommended as it would lead to long waiting times due to the logistics of the image processing. Therefore, we recommend lowering the image resolution before measuring worm length.
 
-<div align="center"> <img src="https://github.com/user-attachments/assets/e96185b4-c2f2-4a4e-ad45-2504bc7ef9b6" alt="selection" width="55%"> </div>
+The program works best with images that are clear, without dirt, and with separate worms that are not touching, coiled or tangled. One example is the image below. 
 
-In the first step, the user introduces the images to analyze, and set the scale. After it, the modification pannel is shown. In it, the user determines the modifications that will be done into all the image stacks. The aim of this panel is to mainly isolate the worms as binary objects, which will be analysed and selected after.
+<div align="center"> <img src="../examples/Image_988.jpg" alt="Example Image_988" width="70%"> </div>
+
+In the first step, the program will prompt the user to select the image or images to analyze. These must have the same magnification, as the program will use the same scale to calculate length. After selecting the images, the program will show the scale determination panel, with three options:
+
+- Select automatically: Zoom to the scale bar, click the Select bar button, double-click the scale bar, then click the Scale value button and input the number represented by the scale bar. Then, press Done.
+
+- Select by a line: Zoom to the scale bar, click the Draw line button, draw a line along the scale bar and double-click to confirm, then input the length unit in the Scale Value button and press Done.
+
+- Introduce numerical value: Input the Scale Value in pixels per unit, and press OK. Usually used after determining this number with one of the previous two methods for the same or similar images, shown as Scale Value before pressing Done, as seen in the image below.
+
+<div align="center"> <img src="images/WM_scale.png" alt="Scale determination process"> </div>
+
+### Image processing panel
+
+After setting the scale, WorMe shows the image processing panel, shown in the image below. In it, the user determines the modifications that will be done to all images. 
+
+The aim of this panel is to isolate each worm as a binary object. This means applying the right filters until the background is black and the worms are white and separate from each other, and there are no other white areas.
+
+<div align="center"> <img src="images/WM_processing.png" alt="Image Processing Panel"> </div>
+
+The panel consists of four sections:
+1. Filters: Consists of different buttons that can be used to set filters to the images. Normally, it is not used.
+    - im2grey
+    - imadjust
+    - Binarize, flip, and Binarize by value
+    - AreaOpen
+    - Close
+    - Open
+    - imfill
+    - imclearborder
+2. Image processing panel: Consists of the image display and the following buttons:
+    - Skeletonize: shows the skeletons in the binarized objects with a red line, which is what is measured for worm length.
+    - Original: Shows the original image
+    - Masked: Shows the worm masks. More information in [IA data and graphic exportation](#ia-data-and-graphic-exportation).
+    - Modified: Shows the binarized image.
+    - Arrow: Shows the next image.
+    - Magnifying glass: Zooms in the image
+    - Analyse: Runs the image analysis and continues to the next step
+3. Processings: Consists of three sections and one button:
+    - Temporal section: shows temporary modifications. Useful to add more filters, or start from the original image.
+    - Saved section: Shows finished modifications. Usually, one of these will work as needed for the next step.
+    - New processment button: Adds a new Temporal modification, which can be used to add custom filters. 
+    - Modifications section: lists the filters applied to get the current displayed image from the original image.
+4. Image properties: Shows which image is currently in display.
+
+The program automatically conducts some image processing. In the Saved section of column (3) Processings, in the image below, 
 
 The user must determine which set of image modifications will be applied to the stack of images. This modifications can be saved and imported, and they are used to be the same for same types of images. The versatility of image processing allows to operate into different kinds of images and objects. 
-
-<div align="center"> <img src="https://github.com/user-attachments/assets/4fea1b09-c7d9-488e-a788-5020dbc65796" alt="image_processing_pannel" width="55%"> </div>
-
 
 
 When the modification configuration is determined, start the selection panel. Images are individually processed by the configuration, and every object is analysed. In this step user can select as worm or as not worm the object that is surrounded by a bounding box. The user can move between the images and can finish the selection at the desired moment.
@@ -228,6 +223,8 @@ When, in difference, the line is traced throughout the body of the worm, like th
 
 
 #### Manual error correction
+These numbers are less accurate than the regular WorMe results, but may be useful to compare them to manual length measurements.
+
 
 Between the manual length and the pixel line length is used to there is a substantial difference, being the pixel length measure slightly higher. This is because of the lack of measurement in curved worms when their manual length is developed. The difference exist because the pixels between the pixel line describes a long distance than the two points of the manual annotation.
 
@@ -270,6 +267,8 @@ State of the art: Artificial intelligence: There is still much to do in C. elega
 Many of the recent software use Deep Learning  (DL) as the basis for image processing. Despite of the it, there is still the necessity of good DL models for develop the image segregation, and to compile image segmented data in C. elegans is still a requirement. 
 
 ### Computational optimization
+
+The program’s computational operation has been optimized in order to rely a good timing in the processment and analysis of the image and objecs, and in the time of using by the user.
 
 Computational optimization has been a must in the development of the program because of its proper use. Many of the image processing and data handling functions have been optimized, making the program work with indexed image data and disk-storage, among other strategies (See more information in Annex: XXX).
 
