@@ -41,7 +41,10 @@ For example, the program works properly in a computer with 8GB RAM and an Intel 
 
 WorMe Length determination can be installed from the [executable file](https://github.com/group-nn-at-icmab-csic/WorMe/releases) as a local software in Windows. It does not require a MATLAB license, or any previous installation. When triggered, it will download and install MATLAB Runtime and WorMe Length determination as system software. 
 
-<div align="center"> <img src="images/WM_install.png" alt="Installation Process"> </div>
+<div align="center"> <img src="images/WM_install.png" alt="Installation Process"> 
+
+_Figure 1: WorMe installer that triggers the installation of MATLAB runtime R2021b_
+</div>
 
 
 #### Use in MATLAB 
@@ -66,7 +69,10 @@ WorMe Length Determination consists of four steps:
 
 The program takes the selected images, processes them until it gets individual worms as binary objects which can be measured via skeletonization, lets the user select which objects are worms, and presents the length results in a spreadsheet, as well as graphic data.
 
-<div align="center"> <img src="https://github.com/user-attachments/assets/57ca0220-9afd-4f10-9fe7-58f9b3593712" alt="ASK FOR PPT" width="55%"> </div>
+<div align="center"> <img src="https://github.com/user-attachments/assets/57ca0220-9afd-4f10-9fe7-58f9b3593712" alt="ASK FOR PPT" width="55%"> 
+
+_Figure 2: Use_
+</div>
 
 ### Image selection and scale setting
 
@@ -74,9 +80,13 @@ WorMe can operate with many image formats, such as JPG, PNG, TIFF, JFIF and BMP.
 
 The program is designed for compound microscopy images with standard proportions, but it can operate with different types of resolutions and different kinds of microscope images. The use of large resolution microscopy images is possible but not recommended as it would lead to long waiting times due to the logistics of the image processing. Therefore, we recommend lowering the image resolution before measuring worm length.
 
-The program works best with images that are clear, without dirt, and with separate worms that are not touching, coiled or tangled. One example is the image below. 
+The program works best with images that are clear, without dirt, and with separate worms that are not touching, coiled or tangled. One example is Figure 4. 
 
-<div align="center"> <img src="../examples/Image_988.jpg" alt="Example Image_988" width="70%"> </div>
+<div align="center"> <img src="../examples/Image_988.jpg" alt="Example Image_988" width="70%"> 
+
+_Figure 3: Example image_
+</div>
+
 
 In the first step, the program will prompt the user to select the image or images to analyze. These must have the same magnification, as the program will use the same scale to calculate length. After selecting the images, the program will show the scale determination panel, with three options:
 
@@ -86,7 +96,10 @@ In the first step, the program will prompt the user to select the image or image
 
 - Introduce numerical value: Input the Scale Value in pixels per unit, and press OK. Usually used after determining this number with one of the previous two methods for the same or similar images, shown as Scale Value before pressing Done, as seen in the image below.
 
-<div align="center"> <img src="images/WM_scale.png" alt="Scale determination process"> </div>
+<div align="center"> <img src="images/WM_scale.png" alt="Scale determination process"> 
+
+_Figure 4: Scale determination options. The scale value is seen in the first two options to be 0.855 pixels per unit, which is the number to input for the last option._
+</div>
 
 ### Image processing panel
 
@@ -94,18 +107,13 @@ After setting the scale, WorMe shows the image processing panel, shown in the im
 
 The aim of this panel is to isolate each worm as a binary object. This means applying the right filters until the background is black and the worms are white and separate from each other, and there are no other white areas.
 
-<div align="center"> <img src="images/WM_processing.png" alt="Image Processing Panel"> </div>
+<div align="center"> <img src="images/WM_processing.png" alt="Image Processing Panel">
+
+_Figure 5: Image processing panel, with (1) Filters, (2) the main panel, (3) Processings and (4) Image Properties_
+</div>
 
 The panel consists of four sections:
-1. Filters: Consists of different buttons that can be used to set filters to the images. Normally, it is not used.
-    - im2grey
-    - imadjust
-    - Binarize, flip, and Binarize by value
-    - AreaOpen
-    - Close
-    - Open
-    - imfill
-    - imclearborder
+1. Filters: Consists of different buttons that can be used to set filters to the images. Normally, it is not used. They consist of converting the image to grayscale (im2gray), improving the contrast (imadjust), binarizing the image (Binarize, flip and Binarize by value), and removing noise and filling holes (AreaOpen, Close, Open, imfill, imclearborder).
 2. Image processing panel: Consists of the image display and the following buttons:
     - Skeletonize: shows the skeletons in the binarized objects with a red line, which is what is measured for worm length.
     - Original: Shows the original image
@@ -121,17 +129,24 @@ The panel consists of four sections:
     - Modifications section: lists the filters applied to get the current displayed image from the original image.
 4. Image properties: Shows which image is currently in display.
 
-The program automatically conducts some image processing. In the Saved section of column (3) Processings, in the image below, 
+Usually, selecting one of the sets of modifications present in the Saved section of Processings is enough to obtain a good modified image. For example, as seen in Figure 5, the first modification shows a modified image of Figure 3 which has a black background with all worms in white and no noise, besides the scale bar. This is a good modification, which will enable WorMe to get accurate length measurements.
+
+Sometimes, however, none of the modifications are good. This usually happens when attempting to analyze images that are not compound microscopy images. For example, fluorescence images tend to have black worms and white background, and stereomicroscopy images tend to miss worms due to differences in lighting at different parts of the image.
+
+In this case, it might be worthwhile to attempt a new image processing. The steps to take are the following:
+1. In (3) Processings, click the New processment button. This will add `Modif_img_06.txt` at the Temporal section.
+2. With `Modif_img_06.txt` selected, add some (1) Filters.
+
 
 The user must determine which set of image modifications will be applied to the stack of images. This modifications can be saved and imported, and they are used to be the same for same types of images. The versatility of image processing allows to operate into different kinds of images and objects. 
 
+### Selection panel
 
 When the modification configuration is determined, start the selection panel. Images are individually processed by the configuration, and every object is analysed. In this step user can select as worm or as not worm the object that is surrounded by a bounding box. The user can move between the images and can finish the selection at the desired moment.
 
 In this panel user can filtrate the objects mainly by length, area and circularity. There is also three tools for the object modification. Scissors allows to crop the objects, which is useful for example if two worms are joined. Draw line allows to draw a line that will be the length of the worm. The extension button is used for extend the objects, something that can be useful when there is a cropped part.
 
 
-### Selection panel
 
 In the worm selection pannel, the user visualise and selects each worm’s measurement. That may be time-consuming, but the computational and usage have been optimized in order to improve and adapt the process.
 
