@@ -156,7 +156,7 @@ The user-timing in the selection has been improved (example: shortkeys) trying t
 
 This manual selection panel is time consuming, but ensures the user to be aware in-time of the origin and quality of the measurement data, preventing bias.
 
-<div align="center"> <img src="images/WM_selection_pannel.png" alt="Image Processing Panel" width="65%"> </div>
+<div align="center"> <img src="images/WM_selection_pannel.png" alt="Image Processing Panel" width="70%"> </div>
 
 ### Results panel
 
