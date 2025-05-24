@@ -167,7 +167,7 @@ User can also export the graphic data. This allows exporting the binary images, 
 <div align="center"> <img src="https://github.com/user-attachments/assets/3722f5c4-0e1e-43c1-bcd0-8d894fbdb6ab" alt="image-20230731-164404" width="55%"> </div>
 
 
-Finally the program visualize the set of length measurement data, and allows to export it. It includes also the option to export the data based in the manual error correction (see XXX). The program also provides the binary object data and other data that may be golden standard for deep learning models.
+Finally the program visualize the set of length measurement data, and allows to export it. It includes also the option to export the data based in the manual error correction (see  ([Manual length error correction](#manual-length-error-correction) ). The program also provides the binary object data and other data that may be golden standard for deep learning models.
 
 
 ?
@@ -237,7 +237,7 @@ When, in difference, the line is traced throughout the body of the worm, like th
 
 
 
-#### Manual error correction
+### Manual length error correction
 These numbers are less accurate than the regular WorMe results, but may be useful to compare them to manual length measurements.
 
 
@@ -267,7 +267,7 @@ We figure out the bias was because of this length methodology of measurement. Wh
 
 (grafic distancia per pixel)
 
-### IA data and graphic exportation
+### Image data: image objects and deep learning data
 
 Finally the program visualize the set of length measurement data, and allows to export it. It includes also the option to export the data based in the manual error correction (see XXX). The program also provides the binary object data and other data that may be golden standard for deep learning models.
 
@@ -297,6 +297,6 @@ In the selection panel the whole image is processed and their objects are isolat
 
 ## Comparison to ImageJ and WorMachine
 
-<div align="center"> <img src="https://github.com/user-attachments/assets/ea355d3d-a75d-4a51-b417-25189e28b717" alt="frink" width="55%"> </div>
+
 
 
