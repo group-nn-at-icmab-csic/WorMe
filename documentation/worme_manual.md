@@ -117,7 +117,7 @@ The panel consists of four sections:
 2. Image processing panel: Consists of the image display and the following buttons:
     - Skeletonize: shows the skeletons in the binarized objects with a red line, which is what is measured for worm length.
     - Original: Shows the original image
-    - Masked: Shows the worm masks. More information in [IA data and graphic exportation](#ia-data-and-graphic-exportation).
+    - Masked: Shows the worm masks. More information in [Image data export](#image-data-export).
     - Modified: Shows the binarized image.
     - Arrow: Shows the next image.
     - Magnifying glass: Zooms in the image
@@ -170,6 +170,7 @@ User can also export the graphic data. This allows exporting the binary images, 
 Finally the program visualize the set of length measurement data, and allows to export it. It includes also the option to export the data based in the manual error correction (see  ([Manual length error correction](#manual-length-error-correction) ). The program also provides the binary object data and other data that may be golden standard for deep learning models.
 
 
+#### Image data export
 ?
 WorMe does not use artificial intelligence (AI) despite it is the state-of-the-art of the image processing and analysis. Many software are based on deep learning neural networks for the selection or identification of C. elegans in the images. Despite that, the program is consciousness about the data obtaintion and use for the creation of models, and it allows the user to export the graphical data in different formats (PascalVOC, label, binary, etc.) in order to be used for IA model building, among other types of analysis.
 
@@ -267,7 +268,7 @@ We figure out the bias was because of this length methodology of measurement. Wh
 
 (grafic distancia per pixel)
 
-### Image data: image objects and deep learning data
+### Image data for the analysis and deep learning use
 
 Finally the program visualize the set of length measurement data, and allows to export it. It includes also the option to export the data based in the manual error correction (see XXX). The program also provides the binary object data and other data that may be golden standard for deep learning models.
 
