@@ -69,7 +69,7 @@ WorMe Length Determination consists of four steps:
 
 The program takes the selected images, processes them until it gets individual worms as binary objects which can be measured via skeletonization, lets the user select which objects are worms, and presents the length results in a spreadsheet, as well as graphic data.
 
-<div align="center"> <img src="https://github.com/user-attachments/assets/57ca0220-9afd-4f10-9fe7-58f9b3593712" alt="ASK FOR PPT" width="55%"> 
+<div align="center"> <img src="https://github.com/user-attachments/assets/57ca0220-9afd-4f10-9fe7-58f9b3593712" alt="ASK FOR PPT" width="55%">  
 
 _Figure 2: Use_
 </div>
@@ -82,7 +82,7 @@ The program is designed for compound microscopy images with standard proportions
 
 The program works best with images that are clear, without dirt, and with separate worms that are not touching, coiled or tangled. One example is Figure 4. 
 
-<div align="center"> <img src="../examples/Image_988.jpg" alt="Example Image_988" width="70%"> 
+<div align="center"> <img src="../examples/Image_988.jpg" alt="Example Image_988" width="65%"> 
 
 _Figure 3: Example image_
 </div>
@@ -96,7 +96,7 @@ In the first step, the program will prompt the user to select the image or image
 
 - Introduce numerical value: Input the Scale Value in pixels per unit, and press OK. Usually used after determining this number with one of the previous two methods for the same or similar images, shown as Scale Value before pressing Done, as seen in the image below.
 
-<div align="center"> <img src="images/WM_scale.png" alt="Scale determination process"> 
+<div align="center"> <img src="images/WM_scale.png" alt="Scale determination process"  width="55%">  
 
 _Figure 4: Scale determination options. The scale value is seen in the first two options to be 0.855 pixels per unit, which is the number to input for the last option._
 </div>
@@ -107,7 +107,7 @@ After setting the scale, WorMe shows the image processing panel, shown in the im
 
 The aim of this panel is to isolate each worm as a binary object. This means applying the right filters until the background is black and the worms are white and separate from each other, and there are no other white areas.
 
-<div align="center"> <img src="images/WM_processing.png" alt="Image Processing Panel">
+<div align="center"> <img src="images/WM_processing.png" alt="Image Processing Panel" width="65%">
 
 _Figure 5: Image processing panel, with (1) Filters, (2) the main panel, (3) Processings and (4) Image Properties_
 </div>
@@ -156,7 +156,7 @@ The user-timing in the selection has been improved (example: shortkeys) trying t
 
 This manual selection panel is time consuming, but ensures the user to be aware in-time of the origin and quality of the measurement data, preventing bias.
 
-<div align="center"> <img src="images/WM_selection_pannel.png" alt="Image Processing Panel" width="55%"> </div>
+<div align="center"> <img src="images/WM_selection_pannel.png" alt="Image Processing Panel" width="65%"> </div>
 
 ### Results panel
 
@@ -164,7 +164,7 @@ Finally, after select the worms in the image, apperas the result panel. In this,
 
 User can also export the graphic data. This allows exporting the binary images, labelled images, as well as PascalVOC files of the images which objects were selected. This type of images can be useful for a posteriori object analysis as well as for the use of it in the AI model development.
 
-<div align="center"> <img src="https://github.com/user-attachments/assets/3722f5c4-0e1e-43c1-bcd0-8d894fbdb6ab" alt="image-20230731-164404" width="55%"> </div>
+<div align="center"> <img src="https://github.com/user-attachments/assets/3722f5c4-0e1e-43c1-bcd0-8d894fbdb6ab" alt="image-20230731-164404" width="65%"> </div>
 
 
 Finally the program visualize the set of length measurement data, and allows to export it. It includes also the option to export the data based in the manual error correction (see  ([Manual length error correction](#manual-length-error-correction) ). The program also provides the binary object data and other data that may be golden standard for deep learning models.
@@ -234,7 +234,7 @@ When, in difference, the line is traced throughout the body of the worm, like th
 (Descriure la funció en el codi del programa)
 
 
-<div align="center"> <img src="https://github.com/user-attachments/assets/e8926716-39b0-4de9-b299-8ab3f117f81d" alt="image-20230801-155918" width="55%"> </div>
+<div align="center"> <img src="https://github.com/user-attachments/assets/e8926716-39b0-4de9-b299-8ab3f117f81d" alt="image-20230801-155918" width="40%"> </div>
 
 
 
