@@ -226,6 +226,7 @@ Softwares like WormSizer and AnliLength [] describe the development of the funct
 
 #### Endline elongation
 Before we figure out about the manual error (See: #manual-length-error-correction), in order to slightly improve the length measurement, the elongation of the final line in the reduced-skeletonized line was developed. As result of skeletonization and branch reduction, the final lines doesn't reach the real final of the worm periphery. This might cause a slighlty deviation in the measurement. In order to accurate as much as we could the measurement, we incorporate functions that elongate the final of the measurement line.
+The functionalities are developed in the functions (ççç). Some proves can be shown in (ççç).
 
 <div align="center">
   <img src="images/branch2.png" alt="Image 1" width="45%" style="margin-right: 2%;">
