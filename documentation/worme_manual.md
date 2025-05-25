@@ -228,8 +228,8 @@ Softwares like WormSizer and AnliLength [] describe the development of the funct
 Before we figure out about the manual error (See: #manual-length-error-correction), in order to slightly improve the length measurement, the elongation of the final line in the reduced-skeletonized line was developed. As result of skeletonization and branch reduction, the final lines doesn't reach the real final of the worm periphery. This might cause a slighlty deviation in the measurement. In order to accurate as much as we could the measurement, we incorporate functions that elongate the final of the measurement line.
 
 <div align="center">
-  <img src="images/branch1.png" alt="Image 1" width="45%" style="margin-right: 2%;">
-  <img src="images/branch2.png" alt="Image 2" width="45%">
+  <img src="images/branch2.png" alt="Image 1" width="45%" style="margin-right: 2%;">
+  <img src="images/branch1.png" alt="Image 2" width="45%">
 </div>
 
 <p align="center">
@@ -237,20 +237,15 @@ Before we figure out about the manual error (See: #manual-length-error-correctio
 </p>
 
 
-<table align="center">
-  <tr>
-    <td><img src="images/branch2.png" alt="Arriba Izquierda" width="200"/></td>
-    <td><img src="images/branch1.png" alt="Arriba Derecha" width="200"/></td>
-  </tr>
-  <tr>
-    <td><img src="images/branch7.png" alt="Abajo Izquierda" width="200"/></td>
-    <td><img src="images/branch8.png" alt="Abajo Derecha" width="200"/></td>
-  </tr>
-</table>
+<div align="center">
+  <img src="images/branch7.png" alt="Image 1" width="45%" style="margin-right: 2%;">
+  <img src="images/branch8.png" alt="Image 2" width="45%">
+</div>
 
 <p align="center">
-  <em>Figure X: Paneles distribuidos en cuadrícula 2x2.</em>
+  <em>Figure X: (Left) Image processing panel. (Right) Another panel.</em>
 </p>
+
 
 
 ### Length determination
