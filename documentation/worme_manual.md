@@ -220,7 +220,8 @@ Finally, because the skeletonization endpoints used to not touch the borders of 
 
 Softwares like WormSizer and AnliLength [] describe the development of the function to prune and extend the skeletonized image.
 
-<div align="center"> <img src="https://github.com/user-attachments/assets/43e8c563-35d0-4d33-a4d0-118e5c1fe800" alt="Images_arrays_4_horitz" width="55%"> </div>
+<div align="center"> <img src="images/WM_branch_reduction.png" alt="Image Processing Panel" width="70%"> </div>
+
 
 
 #### Endline elongation
