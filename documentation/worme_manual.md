@@ -223,6 +223,19 @@ Softwares like WormSizer and AnliLength [] describe the development of the funct
 <div align="center"> <img src="https://github.com/user-attachments/assets/43e8c563-35d0-4d33-a4d0-118e5c1fe800" alt="Images_arrays_4_horitz" width="55%"> </div>
 
 
+#### Endline elongation
+Before we figure out about the manual error (See: #manual-length-error-correction), in order to slightly improve the length measurement, the elongation of the final line in the reduced-skeletonized line was developed. As result of skeletonization and branch reduction, the final lines doesn't reach the real final of the worm periphery. This might cause a slighlty deviation in the measurement. In order to accurate as much as we could the measurement, we incorporate functions that elongate the final of the measurement line.
+
+<div align="center">
+  <img src="images/branch1.png" alt="Image 1" width="45%" style="margin-right: 2%;">
+  <img src="images/branch2.png" alt="Image 2" width="45%">
+</div>
+
+<p align="center">
+  <em>Figure X: (Left) Image processing panel. (Right) Another panel.</em>
+</p>
+
+
 ### Length determination
 
  The length determination of the C. elegans in the image is the main objective of the program.
