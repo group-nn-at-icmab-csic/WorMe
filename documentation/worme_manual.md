@@ -233,8 +233,8 @@ Before we figure out about the manual error (See: #manual-length-error-correctio
 </div>
 
 <div align="center">
-  <img src="images/branch_cut_1.png" alt="Image 1" width="45%" style="margin-right: 2%;">
-  <img src="images/branch_cut_2.png" alt="Image 2" width="45%">
+  <img src="images/branch_cut_1.png" alt="Image 1" width="5%" style="margin-right: 2%;">
+  <img src="images/branch_cut_2.png" alt="Image 2" width="5%">
 </div>
 <p align="center">
   <em>Figure X: (Left) Image processing panel. (Right) Another panel.</em>
