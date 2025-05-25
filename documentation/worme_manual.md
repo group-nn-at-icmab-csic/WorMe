@@ -238,8 +238,8 @@ Before we figure out about the manual error (See: #manual-length-error-correctio
 
 
 <div align="center">
-  <img src="images/branch7.png" alt="Image 1" width="45%" style="margin-right: 2%;">
-  <img src="images/branch8.png" alt="Image 2" width="45%">
+  <img src="images/branch7.png" alt="Image 1" width="25%" style="margin-right: 2%;">
+  <img src="images/branch8.png" alt="Image 2" width="25%">
 </div>
 
 <p align="center">
