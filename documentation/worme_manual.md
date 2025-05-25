@@ -237,6 +237,22 @@ Before we figure out about the manual error (See: #manual-length-error-correctio
 </p>
 
 
+<table align="center">
+  <tr>
+    <td><img src="images/branch2.png" alt="Arriba Izquierda" width="200"/></td>
+    <td><img src="images/branch1.png" alt="Arriba Derecha" width="200"/></td>
+  </tr>
+  <tr>
+    <td><img src="images/branch7.png" alt="Abajo Izquierda" width="200"/></td>
+    <td><img src="images/branch8.png" alt="Abajo Derecha" width="200"/></td>
+  </tr>
+</table>
+
+<p align="center">
+  <em>Figure X: Paneles distribuidos en cuadrícula 2x2.</em>
+</p>
+
+
 ### Length determination
 
  The length determination of the C. elegans in the image is the main objective of the program.
