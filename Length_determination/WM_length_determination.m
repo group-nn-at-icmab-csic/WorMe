@@ -13,26 +13,14 @@ disp("WorMe_length_determination_v2_17")
 % carpeta_output - ruta resultats
 %                   ex (using MATLAB):  "C:\Users\jllobet\Desktop\Length determination v2_15\Results_out\20230124_1625_C_48"
 %                   ex (compiled in Windows): 'C:\Users\Josep TOSHIBA\Documents\WorMe_Length_Results Results_out\20230407_1813_control'
-
-
-% ___ Internes ____ %
-%   theFiles : Estructura de dades de les imatges (name, folder, date, ...). Utilitari per a l'obtenció de les imatges.
+%
+% theFiles : Estructura de dades de les imatges (name, folder, date, ...). Utilitari per a l'obtenció de les imatges.
 
 
 
 % ------------------------------------------
 % ______________INICI PROGRAMA______________
 % ------------------------------------------
-
-
-% _Temporització total programa_ 
-temps_inicial = datetime("now");
-
-
-% Contador temps
-%Control temps 1
-data_time_1 = datetime("now");
-
 
 
 % _______DETERMINACIO PATH I CARPETES_______
@@ -50,8 +38,6 @@ inicial_creacio_carpetes(userSavedDocuments)
 
 
 % ___OBTENCIÓ CARPETA IMATGES ORIGINALS___
-% [theFiles, carpeta_input, nom_carpeta_input, porta_f] = obtencio_theFiles_dir(userSavedDocuments);    
-% myFolder = carpeta_input;
 [theFiles, carpeta_input, nom_carpeta_input, porta_f] = obtencio_theFiles_img(userSavedDocuments);
 
 
@@ -72,8 +58,8 @@ if porta_f
     % ___Selecció imatges___
     % Es seleccionene les imatges
     waitfor(app_nova_interfaz_nova_funcions(theFiles, carpeta_output, escala_imatge))
-                                % Carpeta imatges , carpeta resultats, escala
-                                       
+
+
     % Variables
     % carpeta_output : carpeta resultats
     %                   ex: ...\Results_out\20221005_Poques
@@ -82,13 +68,30 @@ if porta_f
 end
 
 
+% ------------------------------------------
+% ______________FINAL PROGRAMA______________
+% ------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 function [userSavedDocuments] = determinacio_path()
 
-% Determina el path
+% Determina el path automàticament.
+%
+% Nota: Aquesta funció requereix estar en l'script principal.
 
 % INICI FUNCIO
     

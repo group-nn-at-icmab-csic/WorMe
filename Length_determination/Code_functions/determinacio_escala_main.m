@@ -9,7 +9,7 @@ function [escala_imatge] = determinacio_escala_main(userSavedDocuments, theFiles
     baseFileName = theFiles(1).name; % ÇÇÇÇ SI NO HI HA IMATGES PETA
     %disp(baseFileName)
     fullFileName = fullfile(theFiles(1).folder, baseFileName);
-    imageArray_escala = imread(fullFileName); % Imatge inicial
+    imageArray_escala = imread_ifgrey(fullFileName); % Imatge inicial
     
     
     % __Obtenció Escala__

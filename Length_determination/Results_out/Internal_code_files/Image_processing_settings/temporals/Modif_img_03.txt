@@ -1,0 +1,9 @@
+Ordre proces;Tipus proces
+1;Im2gray
+2;imadjust
+3;Imbinarize_adaptative_Foreground_dark
+4;bwareaopen(0.5)
+5;close_disc(1)
+6;close_disc(1)
+7;close_disc(3)
+8;imfill

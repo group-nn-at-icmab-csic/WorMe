@@ -151,8 +151,7 @@ function app_interf_startupFcn(app)
             baseFileName = theFiles(1).name;
             %disp(baseFileName)
             fullFileName = fullfile(theFiles(1).folder, baseFileName);
-            %imageArray_escala = imread(fullFileName); % Imatge inicial
-            imatge_original = imread(fullFileName);
+            imatge_original = imread_ifgrey(fullFileName);
             app.Image.ImageSource = imatge_original;
             
             % _Describim el nom de la imatge original primera_

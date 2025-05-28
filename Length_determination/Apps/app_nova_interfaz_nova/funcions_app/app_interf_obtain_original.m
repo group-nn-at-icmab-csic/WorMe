@@ -18,7 +18,7 @@ theFiles = app.theFiles_arxiu;
 baseFileName = theFiles(n_imatge).name;
 fullFileName = fullfile(theFiles(n_imatge).folder, baseFileName);
 % Imatge a processar
-imatge_original = imread(fullFileName);
+imatge_original = imread_ifgrey(fullFileName);
 
 % Nom img sortida
 nom_img_original = baseFileName;
