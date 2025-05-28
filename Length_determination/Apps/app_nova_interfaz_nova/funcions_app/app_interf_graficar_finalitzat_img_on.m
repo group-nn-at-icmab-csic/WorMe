@@ -85,8 +85,10 @@ function app_interf_graficar_finalitzat_img_on(app)
             app.Image5.Visible = 'on';
             
             app.n_yesLabel.Visible = 'off';
+            app.Thick_Button_little.Visible = 'off';
             app.n_yesLabel2.Visible = 'on';
             app.n_noLabel.Visible = 'off';
+            app.Cross_Button_little.Visible = 'off'; 
             app.n_noLabel2.Visible = 'on';
             app.acceptedLabel.Visible = 'on';
             app.refusedLabel.Visible = 'on';

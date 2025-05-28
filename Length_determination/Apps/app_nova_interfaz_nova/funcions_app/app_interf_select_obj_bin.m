@@ -85,6 +85,7 @@ else
         % Desactivem botóns
         app.Thick_Button.Visible = 'off';
         app.Cross_Button.Visible = 'off';
+
         %app.DoneButton.Visible = 'on';
 
         app.Hyperlink.Visible = 'on';

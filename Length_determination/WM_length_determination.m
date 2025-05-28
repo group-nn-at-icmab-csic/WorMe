@@ -73,38 +73,13 @@ if porta_f
     % Es seleccionene les imatges
     waitfor(app_nova_interfaz_nova_funcions(theFiles, carpeta_output, escala_imatge))
                                 % Carpeta imatges , carpeta resultats, escala
-%     app_nova_interfaz_nova_funcions(theFiles, carpeta_output, escala_imatge)                                        
+                                       
     % Variables
     % carpeta_output : carpeta resultats
     %                   ex: ...\Results_out\20221005_Poques
     % myFolder : Carpeta origen imatges
 
 end
-
-% 
-% 
-% % _Contador temps final_
-% % Control temps 2
-% data_time_2 = datetime("now");
-% interval_de_temps_segons = etime(datevec(data_time_2), datevec(data_time_1));
-% disp(strcat("time for images: ", string(round(interval_de_temps_segons ./ length(theFiles), 2)), " second/image"))
-% 
-% 
-% % _Temporització total programa_ 
-% temps_final = datetime("now");
-% 
-% interval_de_temps_segons = etime(datevec(temps_final), datevec(temps_inicial));
-% disp(strcat("Temps total d'execució del programa: ", string(floor(interval_de_temps_segons)), " segons"))
-
-
-
-
-
-
-
-
-
-
 
 
 

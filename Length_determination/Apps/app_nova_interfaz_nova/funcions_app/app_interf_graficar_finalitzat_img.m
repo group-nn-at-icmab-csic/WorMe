@@ -38,8 +38,10 @@ app.InfoIcon_3.Visible = 'off';
 app.InfoIcon_2.Visible = 'off';
 app.ExportnoncorrectedmanualerrordataCheckBox.Visible = 'off';
 app.n_yesLabel.Visible = 'on';
+app.Thick_Button_little.Visible = 'on';
 app.n_yesLabel2.Visible = 'off';
 app.n_noLabel.Visible = 'on';
+app.Cross_Button_little.Visible = 'on';
 app.n_noLabel2.Visible = 'off';
 app.acceptedLabel.Visible = 'off';
 app.refusedLabel.Visible = 'off';
@@ -51,6 +53,7 @@ app_interf_graficar_BB_imatge_ultima(app);
 % Desactivem botóns
 app.Thick_Button.Visible = 'off';
 app.Cross_Button.Visible = 'off';
+
 
 app.Hyperlink.Visible = 'on';
 app.CitationLabel.Visible = 'on';

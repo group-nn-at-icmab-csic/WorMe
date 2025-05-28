@@ -126,8 +126,10 @@ function app_interf_startupFcn(app)
             app.UIAxes2.Visible = 'off';
 
             app.n_yesLabel.Visible = 'on';
+            app.Thick_Button_little.Visible = 'on';            
             app.n_yesLabel2.Visible = 'off';
             app.n_noLabel.Visible = 'on';
+            app.Cross_Button_little.Visible = 'on';            
             app.n_noLabel2.Visible = 'off';
             app.acceptedLabel.Visible = 'off';
             app.refusedLabel.Visible = 'off';

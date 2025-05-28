@@ -10,7 +10,7 @@ if ~tf_porta
     app.RightButton.Visible = 'on';
     app.LeftButton.Visible = 'on';
     app.Thick_Button.Visible = 'off';
-    app.Cross_Button.Visible = 'off';
+    app.Cross_Button.Visible = 'off';    
     app.CutButton.Visible = 'off';
     app.PintarButton.Visible = 'off';
     
@@ -19,7 +19,7 @@ else
     app.RightButton.Visible = 'on';
     app.LeftButton.Visible = 'on';
     app.Thick_Button.Visible = 'on';
-    app.Cross_Button.Visible = 'on';
+    app.Cross_Button.Visible = 'on';   
     app.CutButton.Visible = 'on';
     app.PintarButton.Visible = 'on';
     

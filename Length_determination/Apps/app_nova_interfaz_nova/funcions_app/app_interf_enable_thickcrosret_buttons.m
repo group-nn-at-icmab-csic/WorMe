@@ -8,6 +8,11 @@ app.Thick_Button.Visible = enable_cod;
 app.ReturnButton.Visible = enable_cod;
 app.ReturnButton.Enable = enable_cod;
 
+app.Cross_Button_little.Visible = enable_cod; 
+app.Thick_Button_little.Visible = enable_cod;
+
+
+
 app.RightButton.Visible = 'off';
 
 % Si hi ha o no objectes, es mostra o no el return.

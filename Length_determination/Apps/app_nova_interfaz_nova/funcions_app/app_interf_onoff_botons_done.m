@@ -10,6 +10,8 @@ function app_interf_onoff_botons_done(app, onoff)
 app.Image4.Visible = onoff;
 app.Thick_Button.Visible = onoff;
 app.Cross_Button.Visible = onoff;
+app.Cross_Button_little.Visible = onoff; 
+app.Thick_Button_little.Visible = onoff;
 % app.ReturnButton.Visible = onoff;
 app.SpinnerRound.Visible = onoff;
 app.OriginalButton.Visible = onoff;
