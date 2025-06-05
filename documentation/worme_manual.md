@@ -232,7 +232,7 @@ We are going to select manually the worms, and exclude or avoid these ones are n
 
 <br>
 <p align="center"><strong><span style="font-size:18px;">Obtain the results</span></strong></p>
-We can obtain the length results of the selected worms in a numeric sheet (.xlsx file), with or without [ the manual error bias correction](#manual-length-error-correction).<br>
+We can obtain the length results of the selected worms in a numeric sheet (.xlsx file), with or without [the manual error bias correction](#manual-length-error-correction).<br>
 
 <p align="center">
   <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/example_use/a7.gif" width="60%" />
