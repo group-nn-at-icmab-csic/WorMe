@@ -190,13 +190,16 @@ Note the image tones are different between the sets of examples.
 
 We are going to show an example of use the use of the WorMe program using the  [C48 example images](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/examples/Example_images_C48).  
 
-<p align="center"><strong><span style="font-size:18px;">Select the images</span></strong></p><br>
+<br>
+<p align="center"><strong><span style="font-size:18px;">Select the images</span></strong></p>
 First of all, we would select the images. The program doesn't load but just save the path of the images.<br>
 <p align="center">
   <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/example_use/a1.gif" width="60%" />
 </p>
 
-<p align="center"><strong><span style="font-size:18px;">Set the scale</span></strong></p><br>
+<br>
+<p align="center"><strong><span style="font-size:18px;">Set the scale</span></strong></p>
+
 Then, we are going to set the scale. By do it, a way is to obtain the scale from measuring the scale bar.<br>
 <p align="center">
   <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/example_use/a2.png" width="60%" />
@@ -207,7 +210,9 @@ In the program it is done in a set of steps:<br>
   <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/example_use/a3.gif" width="60%" />
 </p>
 
-<p align="center"><strong><span style="font-size:18px;">Configure the image modifications</span></strong></p><br>
+
+<br>
+<p align="center"><strong><span style="font-size:18px;">Configure the image modifications</span></strong></p>
 Once we have setted the scale, we are going to define the image configuration of the modification. We are going to set the parameters of image filters in order to obtain the final binary objects, which there will be the worms.<br>
 May be other objects in the image, but we will try to set the image in order to obtain the most clear binary image of the worms.<br>
 These binary objects will be the basis for the length analysis.<br>
@@ -216,13 +221,17 @@ These binary objects will be the basis for the length analysis.<br>
   <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/example_use/a4.gif" width="60%" />
 </p>
 
-<p align="center"><strong><span style="font-size:18px;">Select the worms</span></strong></p><br>
+
+<br>
+<p align="center"><strong><span style="font-size:18px;">Select the worms</span></strong></p>
 We are going to select manually the worms, and exclude or avoid these ones are not.<br>
 <p align="center">
   <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/example_use/a6.gif" width="60%" />
 </p>
 
-<p align="center"><strong><span style="font-size:18px;">Obtain the results</span></strong></p><br>
+
+<br>
+<p align="center"><strong><span style="font-size:18px;">Obtain the results</span></strong></p>
 We can obtain the length results of the selected worms in a numeric sheet (.xlsx file), with or without [ the manual error bias correction](#manual-length-error-correction).<br>
 
 <p align="center">
