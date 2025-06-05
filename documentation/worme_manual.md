@@ -184,52 +184,52 @@ Many of the recent software use Deep Learning  (DL) as the basis for image proce
 
 ### Example of usage
 
-We share some set of _C.elegans_ microscopical examples images. These are [C24](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/examples/Example_images_C24), [C48](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/examples/Example_images_C48) and [C72](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/examples/Example_images_C72) worm images samples of their different growth.  
-Note the image tones are different between the sets of examples.
+We share some set of _C.elegans_ microscopical examples images. These are [C24](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/examples/Example_images_C24), [C48](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/examples/Example_images_C48) and [C72](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/examples/Example_images_C72) worm images samples of their different growth.<br>
+Note the image tones are different between the sets of examples.  
 
-#### WorMe in the C48 example images  
-We are going to show an example of use the program with the  [C48 example images](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/examples/Example_images_C48).
 
-**Select the images**  
-First of all, we would select the images. The program doesn't load but just save the path of the images.  
+We are going to show an example of use the use of the WorMe program using the  [C48 example images](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/examples/Example_images_C48).  
+
+<p align="center"><strong><span style="font-size:18px;">Select the images</span></strong></p><br>
+First of all, we would select the images. The program doesn't load but just save the path of the images.<br>
 <p align="center">
   <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/example_use/a1.gif" width="60%" />
 </p>
 
-**Set the scale**  
-Then, we are going to set the scale. By do it, a way is to obtain the scale from measuring the scale bar.  
+<p align="center"><strong><span style="font-size:18px;">Set the scale</span></strong></p><br>
+Then, we are going to set the scale. By do it, a way is to obtain the scale from measuring the scale bar.<br>
 <p align="center">
   <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/example_use/a2.png" width="60%" />
 </p>
 
-In the program it is done in a set of steps:  
+In the program it is done in a set of steps:<br>
 <p align="center">
   <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/example_use/a3.gif" width="60%" />
 </p>
 
-**Configure the image modifications**  
-Once we have setted the scale, we are going to define the image configuration of the modification. We are going to set the parameters of image filters in order to obtain the final binary objects, which there will be the worms.  
-May be other objects in the image, but we will try to set the image in order to obtain the most clear binary image of the worms.  
-These binary objects will be the basis for the length analysis.
+<p align="center"><strong><span style="font-size:18px;">Configure the image modifications</span></strong></p><br>
+Once we have setted the scale, we are going to define the image configuration of the modification. We are going to set the parameters of image filters in order to obtain the final binary objects, which there will be the worms.<br>
+May be other objects in the image, but we will try to set the image in order to obtain the most clear binary image of the worms.<br>
+These binary objects will be the basis for the length analysis.<br>
 
 <p align="center">
   <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/example_use/a4.gif" width="60%" />
 </p>
 
-**Select the worms**  
-We are going to select manually the worms, and exclude or avoid these ones are not.  
+<p align="center"><strong><span style="font-size:18px;">Select the worms</span></strong></p><br>
+We are going to select manually the worms, and exclude or avoid these ones are not.<br>
 <p align="center">
   <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/example_use/a6.gif" width="60%" />
 </p>
 
-**Obtain the results**  
-We can obtain the length results of the selected worms in a numeric sheet (.xlsx file), with or without [ the manual error bias correction](#manual-length-error-correction).  
+<p align="center"><strong><span style="font-size:18px;">Obtain the results</span></strong></p><br>
+We can obtain the length results of the selected worms in a numeric sheet (.xlsx file), with or without [ the manual error bias correction](#manual-length-error-correction).<br>
 
 <p align="center">
   <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/example_use/a7.gif" width="60%" />
 </p>
 
-And we can obtain the image objects files, which may be useful for to analyse the morphology of the worms, and for the deep learning training models.  
+And we can obtain the image objects files, which may be useful for to analyse the morphology of the worms, and for the deep learning training models.<br>
 
 <p align="center">
   <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/example_use/a8.gif" width="60%" />
