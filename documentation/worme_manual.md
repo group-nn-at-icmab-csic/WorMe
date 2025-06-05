@@ -1,5 +1,32 @@
 # User Manual - WorMe: *Caenorhabditis elegans* length determination
 
+
+# Table of Contents
+
+1. [Introduction](#introduction)
+2. [Software description, use and features](#software-description-use-and-features)
+   1. [Brief description of the program](#brief-description-of-the-program)
+   2. [Installation and requirements](#installation-and-requirements)
+      1. [Installation from executable (.exe)](#installation-from-executable-exe)
+      2. [Use in MATLAB](#use-in-matlab)
+3. [Use of the program](#use-of-the-program)
+   1. [Image selection and scale setting](#image-selection-and-scale-setting)
+   2. [Image processing panel](#image-processing-panel)
+   3. [Selection panel](#selection-panel)
+   4. [Results panel](#results-panel)
+      1. [Image data export](#image-data-export)
+4. [Example of usage](#example-of-usage)
+5. [Software Methodology](#software-methodology)
+   1. [Image and data processing](#image-and-data-processing)
+   2. [Skeletonize and branch reduction](#skeletonize-and-branch-reduction)
+      1. [Endline elongation](#endline-elongation)
+   3. [Length determination](#length-determination)
+   4. [Manual length error correction](#manual-length-error-correction)
+   5. [Image data for the analysis and deep learning use](#image-data-for-the-analysis-and-deep-learning-use)
+   6. [Computational optimization](#computational-optimization)
+6. [Comparison to ImageJ and WorMachine](#comparison-to-imagej-and-wormachine)
+
+
 ## Introduction
 
 *Caenorhabditis elegans* is a widely used animal model for biomedical research. The length of the nematode is a quantifiable parameter to assess its development. Currently, there are many tools that automatize this process. However, most of the available tools are designed for images from stereomicroscopes, and none were found that worked reliably for compound microscopy images. 
