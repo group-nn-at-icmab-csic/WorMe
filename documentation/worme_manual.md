@@ -191,7 +191,40 @@ Note the image tones are different between the sets of examples.
 #### WorMe in the C48 example images
 We are going to show an example of use the program with the  [C48 example images](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/examples/Example_images_C48).
 
-ççç posar GIFs
+**Select the images**
+First of all, we would select the images. The program doesn't load but just save the path of the images.
+![Load the images](https://raw.githubusercontent.com/group-nn-at-icmab-csic/WorMe/main/documentation/images/example_use/a1.gif)
+
+**Set the scale**
+Then, we are going to set the scale. By do it, a way is to obtain the scale from measuring the scale bar.
+![Box of scale chose](https://raw.githubusercontent.com/group-nn-at-icmab-csic/WorMe/main/documentation/images/example_use/a2.png)
+
+In the program it is done in a set of steps:
+![Box of scale chose 3](https://raw.githubusercontent.com/group-nn-at-icmab-csic/WorMe/main/documentation/images/example_use/a3.gif)
+
+**Configure the image modifications**
+Once we have setted the scale, we are going to define the image configuration of the modification. We are going to set the parameters of image filters in order to obtain the final binary objects, which there will be the worms.
+May be other objects in the image, but we will try to set the image in order to obtain the most clear binary image of the worms.
+These binary objects will be the basis for the length analysis.
+
+![image processing panel](https://raw.githubusercontent.com/group-nn-at-icmab-csic/WorMe/main/documentation/images/example_use/a4.gif)
+
+
+**Select the worms**
+We are going to select manually the worms, and exclude or avoid these ones are not.
+![Box of scale chose 6](https://raw.githubusercontent.com/group-nn-at-icmab-csic/WorMe/main/documentation/images/example_use/a6.gif)
+
+**Obtain the results**
+We can obtain the length results of the selected worms in a numeric sheet (.xlsx file), with or without [ the manual error bias correction](#manual-length-error-correction).
+
+![Box of scale chose 7](https://raw.githubusercontent.com/group-nn-at-icmab-csic/WorMe/main/documentation/images/example_use/a7.gif)
+
+And we can obtain the image objects files, which may be useful for to analyse the morphology of the worms, and for the deep learning training models.
+
+![Box of scale chose 8](https://raw.githubusercontent.com/group-nn-at-icmab-csic/WorMe/main/documentation/images/example_use/a8.gif)
+
+
+
 
 
 ## Software Methodology
