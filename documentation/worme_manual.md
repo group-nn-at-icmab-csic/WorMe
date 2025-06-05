@@ -185,6 +185,14 @@ Many of the recent software use Deep Learning  (DL) as the basis for image proce
 
 ### Example of usage
 
+We share some set of _C.elegans_ microscopical examples images. These are [C24](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/examples/Example_images_C24), [C48](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/examples/Example_images_C48) and [C72](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/examples/Example_images_C72) worm images samples of their different growth.
+Note the image tones are different between the sets of examples.
+
+#### WorMe in the C48 example images
+We are going to show an example of use the program with the  [C48 example images](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/examples/Example_images_C48).
+
+ççç posar GIFs
+
 
 ## Software Methodology
 
