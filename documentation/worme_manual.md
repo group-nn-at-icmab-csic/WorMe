@@ -117,15 +117,15 @@ _Figure 3: Example image_
 #### Image requirements
 
 ##### Image files
-WorMe can operate with a wide range of image formats, including RGB and grayscale images.
+WorMe can operate with a wide range of image formats, including RGB and grayscale images.  
 The accepted file image types are:
 <div align="center">
-  *'.jpg'*, *'.png'*, *'.jpeg'*, *'.tif'*, *'.tiff'*, *'.jfif'*, *'.bmp'*
+  *.jpg*, *.png*, *.jpeg*, *.tif*, *.tiff*, *.jfif*, *.bmp*
 </div>
 
 Excluded:
 <div align="center">
-*'.gif'* i *'.webp'*  
+*.gif* i *.webp*  
 </div>
 
 <br>
