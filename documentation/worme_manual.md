@@ -85,7 +85,7 @@ For a fast tutorial, please refer to [Example of usage](#example-of-usage).
 
 WorMe Length Determination consists in the steps:
 
-[Image selection](#image-selection) → [Scale setting](#scale-setting) → [Image processing](#image-processing) → [Worm selection](#worm-selection) → [Results](#results)
+[Image selection](#image-selection) → [Scale setting](#scale-setting) → [Image processing](#image-processing-panel) → [Worm selection](#selection-panel) → [Results](#results-panel)
 
 ### Image selection
 
