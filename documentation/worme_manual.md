@@ -12,17 +12,6 @@
 
 <br>
 
-<div align="center">
-  <a href="#introduction">Introduction</a> &nbsp;|&nbsp;<br>
-  <a href="#software-description-use-and-features">Software description, use and features</a> &nbsp;|&nbsp;<br>
-  <a href="#use-of-the-program">Use of the program</a> &nbsp;|&nbsp;<br>
-  <a href="#example-of-usage">Example of usage</a> &nbsp;|&nbsp;<br>
-  <a href="#software-methodology">Software Methodology</a> &nbsp;|&nbsp;<br>
-  <a href="#comparison-to-imagej-and-wormachine">Comparison to ImageJ and WorMachine</a><br>
-</div>
-
-
-<br>
 
 ## Introduction
 
