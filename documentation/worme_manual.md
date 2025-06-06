@@ -56,6 +56,7 @@ WorMe is MATLAB based software but **it doesn't need MATLAB license**. It can be
 
 *Requirements:* The program currently just work in Windows operating system. The software has not been yet settled in iOS or Linux systems.  
 
+<br>
 
 #### Installation and use from executable (.exe)
 
@@ -67,7 +68,7 @@ The installation is step by step and it is going to automatically download and i
   <br>
   <em>Figure 1: WorMe installer that triggers the installation of MATLAB runtime R2021b</em>
 </div>
-
+<br>
 
 #### Installation and use from the code 
 
