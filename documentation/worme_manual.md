@@ -120,12 +120,12 @@ _Figure 3: Example image_
 WorMe can operate with a wide range of image formats, including RGB and grayscale images.  
 The accepted file image types are:
 <div align="center">
-  *.jpg*, *.png*, *.jpeg*, *.tif*, *.tiff*, *.jfif*, *.bmp*
+  <em>'.jpg'</em>, <em>'.png'</em>, <em>'.jpeg'</em>, <em>'.tif'</em>, <em>'.tiff'</em>, <em>'.jfif'</em>, <em>'.bmp'</em>
 </div>
 
 Excluded:
 <div align="center">
-*.gif* i *.webp*  
+  <em>'.gif'</em> i <em>'.webp'</em>
 </div>
 
 <br>
