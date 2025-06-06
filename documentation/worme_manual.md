@@ -10,6 +10,7 @@
 5. [Software Methodology](#software-methodology)
 6. [Comparison to ImageJ and WorMachine](#comparison-to-imagej-and-wormachine)
 
+<br>
 
 ## Introduction
 
@@ -18,6 +19,8 @@
 Here we present WorMe, a *Caenorhabditis elegans* length determination software. WorMe is a MATLAB Runtime application that automatizes the length measurements from compound microscopy images. It is open-source and user-friendly, since it works from a graphical user interface. WorMe is also versatile, because it has a wide range of settings to process many kinds of images, and it ensures data reliability since the user selects the worms to be analysed in a computationally optimized process.
 
 The program accepts multiple images as input, which can then be analysed collectively. Furthermore, the user can discard wrongly-detected objects, separate joined worms, correct erroneous measurements and manually add new worms. Then, the results are presented in a spreadsheet file, with each measurement linked to their image. 
+
+<br>
 
 ## Software description, use and features
 ### Brief description of the program 
@@ -77,8 +80,7 @@ In this case, the program uses a few toolboxes which are required for its execut
 The use of the program from the MATLAB Desktop environment software is slightly faster, but the local-installed program is also optimal.
 
 <br>
-<br>
-<br>
+
 
 ## Use of the program
 
@@ -271,6 +273,7 @@ And we can obtain the image objects files, which may be useful for to analyse th
 </p>
 
 
+<br>
 
 
 ## Software Methodology
