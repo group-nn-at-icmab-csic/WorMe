@@ -103,8 +103,6 @@ For a fast tutorial, please refer to [Example of usage](#example-of-usage).
 
 ### Image selection
 
-WorMe can operate with many image formats, such as JPG, PNG, TIFF, JFIF and BMP. They can be rgb or grayscale images.
-
 The program is designed for compound microscopy images with standard proportions, but it can operate with different types of resolutions and different kinds of microscope images. The use of large resolution microscopy images is possible but not recommended as it would lead to long waiting times due to the logistics of the image processing. Therefore, we recommend lowering the image resolution before measuring worm length.
 
 The program works best with images that are clear, without dirt, and with separate worms that are not touching, coiled or tangled. One example is Figure 4. 
@@ -113,6 +111,51 @@ The program works best with images that are clear, without dirt, and with separa
 
 _Figure 3: Example image_
 </div>
+
+<br>
+
+#### Image requirements
+
+##### Image files
+WorMe can operate with a wide range of image formats, including RGB and grayscale images.
+The accepted file image types are:
+<div align="center">
+  *'.jpg'*, *'.png'*, *'.jpeg'*, *'.tif'*, *'.tiff'*, *'.jfif'*, *'.bmp'*
+</div>
+
+Excluded:
+<div align="center">
+*'.gif'* i *'.webp'*  
+</div>
+
+<br>
+WorMe is designed for to analyse a set of individual image files. The program is not designet though for to analyse images stuck in a single file, as it is in some cases in *'.tiff'* file images of optical microscopy.
+
+<br>
+
+##### Resolution
+The selected images may have any resolution size, and it can be different between them. Is recommended, though, to not overpass the 2500x25000 px resolution of the images because in this case the software may work more slowly than expected.
+<br>
+
+##### Desired image quality
+
+The program may operate in many kinds of images, and the image modification and analysis may adapt to any image. Despite that, images with a clear background, without worms crossing, and with a regular brightness and contrast are desired.  
+
+This will help to identify the worms and to avoid to overlap and interfere with other non-worm objects.  
+
+In the experimental design one may consider to use cleaning methods of the final plate before the microscopical image adquisition, which will improve the image analysis forward steps.  
+
+As is said, is desired worms don't cross between themselves. This will save time in the analysis and the selection.  
+
+Examples of desired images, with a clean background, regular bright and non-cross objects:
+
+ççç
+
+Examples of undesired images:  
+
+ççç
+
+
 
 
 ### Scale setting
