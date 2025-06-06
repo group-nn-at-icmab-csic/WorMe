@@ -265,6 +265,8 @@ And we can obtain the image objects files, which may be useful for to analyse th
 
 ### Image and data processing
 
+Throughout the program, there is the image and 
+
 The program uses a wide range of image processing tools, thanks to the MATLAB image processing functions, and allows to visualize the image processing at time. This differentiate from many software in which the image processing have few tools or are automatic, or not visual. To have many tools give versatililty allowing to analyse different types of images and figures in it.
 
 Many of the current software are designed ad hoc, working just in a specific kind of file or image typology, demanding images in a form that many times the users cannot provide, and being in some cases not user-friendly.
