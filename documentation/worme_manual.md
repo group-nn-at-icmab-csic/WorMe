@@ -3,12 +3,24 @@
 
 # Table of Contents
 
-1. [Introduction](#introduction)
-2. [Software description, use and features](#software-description-use-and-features)
-3. [Use of the program](#use-of-the-program)
-4. [Example of usage](#example-of-usage)
-5. [Software Methodology](#software-methodology)
-6. [Comparison to ImageJ and WorMachine](#comparison-to-imagej-and-wormachine)
+[Introduction](#introduction)
+[Software description, use and features](#software-description-use-and-features)
+[Use of the program](#use-of-the-program)
+[Example of usage](#example-of-usage)
+[Software Methodology](#software-methodology)
+[Comparison to ImageJ and WorMachine](#comparison-to-imagej-and-wormachine)
+
+<br>
+
+<div align="center">
+  <a href="#introduction">Introduction</a> &nbsp;|&nbsp;
+  <a href="#software-description-use-and-features">Software description, use and features</a> &nbsp;|&nbsp;
+  <a href="#use-of-the-program">Use of the program</a> &nbsp;|&nbsp;
+  <a href="#example-of-usage">Example of usage</a> &nbsp;|&nbsp;
+  <a href="#software-methodology">Software Methodology</a> &nbsp;|&nbsp;
+  <a href="#comparison-to-imagej-and-wormachine">Comparison to ImageJ and WorMachine</a>
+</div>
+
 
 <br>
 
