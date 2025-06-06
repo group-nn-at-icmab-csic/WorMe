@@ -89,13 +89,6 @@ The use of WorMe is based in five continuous steps:
 → [Worm selection](#selection-panel): Select manually the worm objects.<br>
 → [Results](#results-panel): Read and download the results (data and image objects). <br>
 
-<table>
-  <tr><td>→ <a href="#image-selection">Image selection</a></td><td>: Selection of the images.</td></tr>
-  <tr><td>→ <a href="#scale-setting">Scale setting</a></td><td>: Set of the scale.</td></tr>
-  <tr><td>→ <a href="#image-processing-panel">Image processing</a></td><td>: Configure the image modification.</td></tr>
-  <tr><td>→ <a href="#selection-panel">Worm selection</a></td><td>: Select manually the worm objects.</td></tr>
-  <tr><td>→ <a href="#results-panel">Results</a></td><td>: Read and download the results (data and image objects).</td></tr>
-</table>
 
 
 
