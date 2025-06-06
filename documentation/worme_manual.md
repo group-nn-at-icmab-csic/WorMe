@@ -83,11 +83,11 @@ The following MATLAB Toolboxes are required (See: [How to add Add Ons in MATLAB]
 
 The use of WorMe is based in five continuous steps:  
 
-→ [Image selection](#image-selection): Seleccion of the images.
-→ [Scale setting](#scale-setting): Set of the scale.
-→ [Image processing](#image-processing-panel): Configure the image modification
-→ [Worm selection](#selection-panel): Select manually the worm objects.
-→ [Results](#results-panel): Read and download the results (data and image objects)
+→ [Image selection](#image-selection): Seleccion of the images.<br>
+→ [Scale setting](#scale-setting): Set of the scale.<br>
+→ [Image processing](#image-processing-panel): Configure the image modification. <br>
+→ [Worm selection](#selection-panel): Select manually the worm objects.<br>
+→ [Results](#results-panel): Read and download the results (data and image objects). <br>
 
 
 
