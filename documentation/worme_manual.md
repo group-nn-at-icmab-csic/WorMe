@@ -81,11 +81,19 @@ The following MATLAB Toolboxes are required (See: [How to add Add Ons in MATLAB]
 
 ## Use of the program
 
+The use of WorMe is based in five continuous steps:  
+
+→ [Image selection](#image-selection): Seleccion of the images.
+→ [Scale setting](#scale-setting): Set of the scale.
+→ [Image processing](#image-processing-panel): Configure the image modification
+→ [Worm selection](#selection-panel): Select manually the worm objects.
+→ [Results](#results-panel): Read and download the results (data and image objects)
+
+
+
+
 For a fast tutorial, please refer to [Example of usage](#example-of-usage).
 
-WorMe Length Determination consists in the steps:
-
-[Image selection](#image-selection) → [Scale setting](#scale-setting) → [Image processing](#image-processing-panel) → [Worm selection](#selection-panel) → [Results](#results-panel)
 
 ### Image selection
 
