@@ -85,7 +85,7 @@ The program takes the selected images, processes them until it gets individual w
 _Figure 2: Use_
 </div>
 
-### Image selection and scale setting
+### Image selection
 
 WorMe can operate with many image formats, such as JPG, PNG, TIFF, JFIF and BMP. They can be rgb or grayscale images.
 
@@ -99,6 +99,7 @@ _Figure 3: Example image_
 </div>
 
 
+### Scale setting
 In the first step, the program will prompt the user to select the image or images to analyze. These must have the same magnification, as the program will use the same scale to calculate length. After selecting the images, the program will show the scale determination panel, with three options:
 
 - Select automatically: Zoom to the scale bar, click the Select bar button, double-click the scale bar, then click the Scale value button and input the number represented by the scale bar. Then, press Done.
