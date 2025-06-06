@@ -45,23 +45,16 @@ _Figure 2: Use_
 
 ### Installation and requirements
 
-WorMe source code and binaries can be downloaded from GitHub. The executable file can be found in releases at [https://github.com/group-nn-at-icmab-csic/WorMe/releases](https://github.com/group-nn-at-icmab-csic/WorMe/releases), and the source code at [https://github.com/group-nn-at-icmab-csic/WorMe](https://github.com/group-nn-at-icmab-csic/WorMe).
+WorMe is MATLAB based software but **it doesn't need MATLAB license**. It can be easily installed and executed as a local software (installed from executable, .exe). The code can be used also from MATLAB Desktop environment software (with versions >2021b), which in this case licence is required.  
 
-Minimal software requirements are:
-- Windows 8 or later
-- MATLAB Runtime R2021b (prompted to install by the WorMe binaries)
-- Internet connection
+The program currently just work in Windows. The software has not been settled in iOS or Linux systems.  
 
-Minimal hardware requirements are:
-- RAM: At least 2GB
-- Storage: More than 4GB available disk space (for MATLAB Runtime)
-- Processor: Basic CPU (for example, Intel Core i3 2GHz or equivalent)
+- [Download of the executable (.exe) last release](https://github.com/group-nn-at-icmab-csic/WorMe/releases)
+- 
 
-For example, the program works properly in a computer with 8GB RAM and an Intel Core i5 2.60GHz CPU, in Windows 10.
+#### Installation and use from executable (.exe)
 
-#### Installation from executable (.exe)
-
-WorMe Length determination can be installed from the [executable file](https://github.com/group-nn-at-icmab-csic/WorMe/releases) as a local software in Windows. It does not require a MATLAB license, or any previous installation. When triggered, it will download and install MATLAB Runtime and WorMe Length determination as system software. 
+WorMe Length determination can be installed from the [executable file](https://github.com/group-nn-at-icmab-csic/WorMe/releases) as a local software in Windows. It **does not require a MATLAB license**, or any previous installation. When triggered, it will download and install MATLAB Runtime and WorMe Length determination as system software. 
 
 <div align="center"> <img src="images/WM_install.png" alt="Installation Process"> 
 
@@ -71,13 +64,16 @@ _Figure 1: WorMe installer that triggers the installation of MATLAB runtime R202
 
 #### Use in MATLAB 
 
-The program can also be used in the **MATLAB version 9.11 (R2021b)** interface by running the main script `WM_length_determination.m`. However, this requires a MATLAB license. Using the program this way might be slightly faster, but the system-installed program is also optimal.
+The program can also be used from [the WorMe MATLAB code (Length_determination](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/Length_determination) The program can be used in the **MATLAB version 9.11 (R2021b)** interface or greater, by running the main script `WM_length_determination.m`.  In this case a MATLAB license is required.  
 
 The following MATLAB Toolboxes are required (See: [How to add Add Ons in MATLAB](https://es.mathworks.com/help/matlab/matlab_env/get-add-ons.html)):
 - Computer Vision Toolbox
 - Image Processing Toolbox
 - Image Acquisition Toolbox
 - Statistics and Machine Learning Toolbox
+
+The use of the program from the MATLAB Desktop environment software is slightly faster, but the local-installed program is also optimal.
+
 
 ## Use of the program
 
