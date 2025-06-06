@@ -54,19 +54,21 @@ The program currently just work in Windows. The software has not been settled in
 
 #### Installation and use from executable (.exe)
 
-WorMe Length determination can be installed from the [executable file](https://github.com/group-nn-at-icmab-csic/WorMe/releases) as a local software in Windows. It **does not require a MATLAB license**, or any previous installation. When triggered, it will download and install MATLAB Runtime and WorMe Length determination as system software. 
+WorMe Length determination can be **easily installed from the [executable file](https://github.com/group-nn-at-icmab-csic/WorMe/releases)** as a local software in Windows, **without the  MATLAB license**, because it's compilation.  
+The installation is step by step and it is going to automatically download and install the MATLAB Runtime 9.11 (4Gb) and the WorMe Length determination as system software. [MATLAB Runtime](https://es.mathworks.com/products/compiler/matlab-runtime.html) is just the standalone libraries required to run MATLAB aplications, in this case WorMe Length determination.
 
-<div align="center"> <img src="images/WM_install.png" alt="Installation Process"> 
-
-_Figure 1: WorMe installer that triggers the installation of MATLAB runtime R2021b_
+<div align="center">
+  <img src="images/WM_install.png" alt="Installation Process" width="60%">
+  <br>
+  <em>Figure 1: WorMe installer that triggers the installation of MATLAB runtime R2021b</em>
 </div>
 
 
-#### Use in MATLAB 
+#### Installation and use from the code 
 
-The program can also be used from [the WorMe MATLAB code (Length_determination](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/Length_determination) The program can be used in the **MATLAB version 9.11 (R2021b)** interface or greater, by running the main script `WM_length_determination.m`.  In this case a MATLAB license is required.  
+The program can also be used from [the WorMe MATLAB code (Length_determination](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/Length_determination) The program can be used in the **MATLAB version R2021b** or greater, by running the main script `WM_length_determination.m`.  In this case a MATLAB license is required.  
 
-The following MATLAB Toolboxes are required (See: [How to add Add Ons in MATLAB](https://es.mathworks.com/help/matlab/matlab_env/get-add-ons.html)):
+In this case, the program uses a few toolboxes which are required for its execution (See: [How to add Add Ons in MATLAB](https://es.mathworks.com/help/matlab/matlab_env/get-add-ons.html)):
 - Computer Vision Toolbox
 - Image Processing Toolbox
 - Image Acquisition Toolbox
@@ -74,6 +76,9 @@ The following MATLAB Toolboxes are required (See: [How to add Add Ons in MATLAB]
 
 The use of the program from the MATLAB Desktop environment software is slightly faster, but the local-installed program is also optimal.
 
+<br>
+<br>
+<br>
 
 ## Use of the program
 
