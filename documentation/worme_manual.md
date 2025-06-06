@@ -49,9 +49,10 @@ _Figure 2: Use_
 
 ### Installation and requirements
 
-WorMe is MATLAB based software but **it doesn't need MATLAB license**. It can be easily installed and executed:  
-- As a local software (installed from executable file .exe)  
-- From the source code using MATLAB Desktop environment software (with versions >2021b), which in this case licence is required.  
+WorMe is MATLAB based software but **it doesn't need MATLAB license**. It can be easily installed and executed in one of these two options:  
+- Install as local software from the [executable file](https://github.com/group-nn-at-icmab-csic/WorMe/releases) (.exe): This way does not require MATLAB licence, because the program is compiled.
+- Execute [the code](https://github.com/group-nn-at-icmab-csic/WorMe/releases) from the MATLAB Desktop environment software (version >2021b): This way require MATLAB license but it have a slightly faster time of execution.
+
 
 *Requirements:* The program currently just work in Windows operating system. The software has not been yet settled in iOS or Linux systems.  
 
