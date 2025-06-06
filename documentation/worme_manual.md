@@ -32,6 +32,17 @@ Finally, the results panel will return a histogram of length results, which can 
 
 A tutorial can be found in [Use of the program](#use-of-the-program), and an explanation of the used functions, error correction, and optimization can be found in [Software Methodology](#software-methodology).
 
+
+
+The program takes the selected images, processes them until it gets individual worms as binary objects which can be measured via skeletonization, lets the user select which objects are worms, and presents the length results in a spreadsheet, as well as graphic data.
+
+<div align="center"> <img src="https://github.com/user-attachments/assets/57ca0220-9afd-4f10-9fe7-58f9b3593712" alt="ASK FOR PPT" width="55%">  
+
+_Figure 2: Use_
+</div>
+
+
+
 ### Installation and requirements
 
 WorMe source code and binaries can be downloaded from GitHub. The executable file can be found in releases at [https://github.com/group-nn-at-icmab-csic/WorMe/releases](https://github.com/group-nn-at-icmab-csic/WorMe/releases), and the source code at [https://github.com/group-nn-at-icmab-csic/WorMe](https://github.com/group-nn-at-icmab-csic/WorMe).
@@ -72,18 +83,9 @@ The following MATLAB Toolboxes are required (See: [How to add Add Ons in MATLAB]
 
 For a fast tutorial, please refer to [Example of usage](#example-of-usage).
 
-WorMe Length Determination consists of four steps:
-- Image selection and scale setting
-- Image processing
-- Worm selection
-- Results
+WorMe Length Determination consists in the steps:
 
-The program takes the selected images, processes them until it gets individual worms as binary objects which can be measured via skeletonization, lets the user select which objects are worms, and presents the length results in a spreadsheet, as well as graphic data.
-
-<div align="center"> <img src="https://github.com/user-attachments/assets/57ca0220-9afd-4f10-9fe7-58f9b3593712" alt="ASK FOR PPT" width="55%">  
-
-_Figure 2: Use_
-</div>
+[Image selection](#image-selection) → [Scale setting](#scale-setting) → [Image processing](#image-processing) → [Worm selection](#worm-selection) → [Results](#results)
 
 ### Image selection
 
