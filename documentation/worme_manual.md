@@ -329,11 +329,45 @@ And we can obtain the image objects files, which may be useful for to analyse th
 WorMe is based in MATLAB, and uses a wide range of image processing tools which allows to easily visualize and analyse the image in a fast and optimized way, as well as the data treatment.  
 
 Once the images are loaded and the scale i settled, the user configure the image modification. In this step, the RGB image becomes to a grayscale, to become a binary image which objects of interest will be saved.  
-An RGB image means Red-Green-Blue image. We can understand an image as a 3 numerical matrix which every matrix have the 0 to 255 values of red, green and blue pixels. The combination of the three colors in every pixel results a color pixel. For example, orange is (255, 165, 0).  
-This is converted to grayscale image. In this case, the image is just a matrix of 0 to 255 pixels, where the ranges of colours for every pixels goes from 0 as black to 255 as white, being in a gray scale of colors. As it is understood as a matix, we can operate with the values of it, increasing or decreasing it, filtering and having numerical operations.  
-In order to obtain a single region of the image (Region of Interest: ROi), we filter some desired values of the image, and discrimine the parts of the image we are interested in, or not. This results in a matrix (an image) which will be binary, where every pixel would have the value of zero (0) or one (1). On this matrix we can operate easily, and we can finally reduce our parts of interest (worms), in order to obtain the pixels which configurate it and, in our case, obtain the length of the figures.  
 
+<p align="center">
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/Process_imatge/img6.png" width="60%" />
+</p>
+
+An RGB image means Red-Green-Blue image. We can understand an image as a 3 numerical matrix which every matrix have the 0 to 255 values of red, green and blue pixels. The combination of the three colors in every pixel results a color pixel. For example, orange is (255, 165, 0).  
+
+<p align="center">
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/Process_imatge/img2.png" width="60%" />
+</p>
+
+<p align="center">
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/Process_imatge/img4.png" width="60%" />
+</p>
+
+This is converted to grayscale image. In this case, the image is just a matrix of 0 to 255 pixels, where the ranges of colours for every pixels goes from 0 as black to 255 as white, being in a gray scale of colors. As it is understood as a matix, we can operate with the values of it, increasing or decreasing it, filtering and having numerical operations.  
+
+<p align="center">
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/Process_imatge/img1.png" width="60%" />
+</p>
+
+In order to obtain a single region of the image (Region of Interest: ROi), we filter some desired values of the image, and discrimine the parts of the image we are interested in, or not. This results in a matrix (an image) which will be binary, where every pixel would have the value of zero (0) or one (1). 
+
+<p align="center">
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/Process_imatge/img5.png" width="60%" />
+</p>
+
+<p align="center">
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/Process_imatge/img3.png" width="60%" />
+</p>
+
+On this matrix we can operate easily, and we can finally reduce our parts of interest (worms), in order to obtain the pixels which configurate it and, in our case, obtain the length of the figures.  
+
+<p align="center">
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/Process_imatge/img7.png" width="60%" />
+</p>
 ççç iamtge rgb 
+
+
 
 The processing of the images is developed by the user in modification panel. Image must be converted from Red-Green-Blue (RGB) to grayscale, to binary image, in order to isolate in these the desired objects, which are the worms.
 
