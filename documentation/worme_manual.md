@@ -351,7 +351,7 @@ This is converted to grayscale image. In this case, the image is just a matrix o
   <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/Process_imatge/img1.png" width="60%" />
 </p>
 
-In order to obtain a single region of the image (Region of Interest: ROi), we filter some desired values of the image, and discrimine the parts of the image we are interested in, or not. This results in a matrix (an image) which will be binary, where every pixel would have the value of zero (0) or one (1). 
+In order to obtain a single region of the image (Region of Interest: ROi), we filter some desired values of the image by a threshold, and discrimine the parts of the image we are interested in, or not. This results in an image called mask, where every pixel would have the value of zero (0) or one (1).
 
 <p align="center">
   <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/Process_imatge/img5.png" width="60%" />
@@ -372,28 +372,15 @@ On this matrix we can operate easily, and we can finally reduce our parts of int
 <p align="center">
   <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/Process_imatge/img7.png" width="40%" />
 </p>
-ççç iamtge rgb 
+
+The processing of the images is developed by the user in modification panel. Image must be converted from Red-Green-Blue (RGB) to grayscale, to binary image, in order to isolate in these the desired objects, which are the worms.  
+
+ We can operate with and analyze the objects in the binary image, for example isolating objects of interest, or analysising the morphology properties like length, circularity, area, etc. In WorMe there is many tools for operate with the objects, with the aim to obtain a mask in which we had the worms.
 
 
-
-The processing of the images is developed by the user in modification panel. Image must be converted from Red-Green-Blue (RGB) to grayscale, to binary image, in order to isolate in these the desired objects, which are the worms.
-
-A RGB image is a color image. An image can be understood as a matrix where every pixel have a value. In case of RGB the image is composed for three matrix which values range from 0 to 255. The colour of every pixel is defined by the value combination of the three matrix; for example orange colour have (255, 165, 0) value. 
-
-In the transition from colour to grayscale the values of three matrix are sinthetised in one singular matrix, which values range from 0 to 255. In this case, the values will define in the image a proportion of white and black colours [6-7]. As example, in MATLAB this is developed by the im2gray() function [9]. WorMe offer different options for to convert the image from colour to grayscale.
-
-When the image is converted to a binary, the values just range from 0 to 1. This transition is used to do by applying a threshold value, in which the upper or lower values will be segmented, making what is known as a mask. In MATLAB, as example, is applied the function imbinarize() [8].  We can operate with and analyze the objects in the binary image, for example isolating objects of interest, or analysising the morphology properties like length, circularity, area, etc. In WorMe there is many tools for operate with the objects, with the aim to obtain a mask in which we had the worms.
-
-(PHOTO PIXEL RGB VALUES?)
-
-Much of all of the image processing functions are part of the MATLAB Image Processing Toolbox, and the MATLAB Computer Vision Toolbox. MATLAB also use (…) toolbox.
-
-
-- [Computer Vision Toolbox](https://es.mathworks.com/products/computer-vision.html)
-- [Image Processing Toolbox](https://es.mathworks.com/products/image-processing.html)
-- [Image Acquisition Toolbox](https://es.mathworks.com/products/image-acquisition.html)
-- [Statistics and Machine Learning Toolbox](https://es.mathworks.com/products/statistics.html)
-
+#### Image processing using MATLAB tools
+The image processing functions are part of the [MATLAB Image Processing Toolbox](https://es.mathworks.com/products/image-processing.html), and the [MATLAB Computer Vision Toolbox](https://es.mathworks.com/products/computer-vision.html).  
+The funcions in the modification pannel are descrived in the information source of it. Some of these functions are ... 
 
 
 ### Skeletonize and branch reduction
