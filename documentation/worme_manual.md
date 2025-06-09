@@ -337,10 +337,9 @@ Once the images are loaded and the scale i settled, the user configure the image
 An RGB image means Red-Green-Blue image. We can understand an image as a 3 numerical matrix which every matrix have the 0 to 255 values of red, green and blue pixels. The combination of the three colors in every pixel results a color pixel. For example, orange is (255, 165, 0).  
 
 <p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/Process_imatge/img2.png" width="60%" />
-
-  _Figure 4: ._
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/Process_imatge/img2.png" width="85%" />
 </p>
+
 
 <p align="center">
   <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/Process_imatge/img4.png" width="15%" />
@@ -357,15 +356,21 @@ In order to obtain a single region of the image (Region of Interest: ROi), we fi
 <p align="center">
   <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/Process_imatge/img5.png" width="60%" />
 </p>
+<p align="center">
+  <em>Fig 5. Example of a Region of Interest. </em>
+</p>
 
 <p align="center">
   <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/Process_imatge/img3.png" width="60%" />
+</p>
+<p align="center">
+  <em>Fig 6. Selection of the regions of interest (worms) of the initial image. </em>
 </p>
 
 On this matrix we can operate easily, and we can finally reduce our parts of interest (worms), in order to obtain the pixels which configurate it and, in our case, obtain the length of the figures.  
 
 <p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/Process_imatge/img7.png" width="60%" />
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/Process_imatge/img7.png" width="40%" />
 </p>
 ççç iamtge rgb 
 
