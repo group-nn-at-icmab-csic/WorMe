@@ -75,10 +75,10 @@ The installation is step by step and it is going to automatically download and i
 The program can also be used from [the WorMe MATLAB code (Length_determination](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/Length_determination) The program can be used in the **MATLAB version R2021b** or greater, by running the main script `WM_length_determination.m`.  In this case a MATLAB license is required.  
 
 In this case, the program uses a few toolboxes which are required for its execution (See: [How to add Add Ons in MATLAB](https://es.mathworks.com/help/matlab/matlab_env/get-add-ons.html)):
-- Computer Vision Toolbox
-- Image Processing Toolbox
-- Image Acquisition Toolbox
-- Statistics and Machine Learning Toolbox
+- [Computer Vision Toolbox](https://es.mathworks.com/products/computer-vision.html)
+- [Image Processing Toolbox](https://es.mathworks.com/products/image-processing.html)
+- [Image Acquisition Toolbox](https://es.mathworks.com/products/image-acquisition.html)
+- [Statistics and Machine Learning Toolbox](https://es.mathworks.com/products/statistics.html)
 
 The use of the program from the MATLAB Desktop environment software is slightly faster, but the local-installed program is also optimal.
 
@@ -326,13 +326,14 @@ And we can obtain the image objects files, which may be useful for to analyse th
 
 ### Image and data processing
 
-Throughout the program, there is the image and 
+WorMe is based in MATLAB, and uses a wide range of image processing tools which allows to easily visualize and analyse the image in a fast and optimized way, as well as the data treatment.  
 
-The program uses a wide range of image processing tools, thanks to the MATLAB image processing functions, and allows to visualize the image processing at time. This differentiate from many software in which the image processing have few tools or are automatic, or not visual. To have many tools give versatililty allowing to analyse different types of images and figures in it.
+Once the images are loaded and the scale i settled, the user configure the image modification. In this step, the RGB image becomes to a grayscale, to become a binary image which objects of interest will be saved.  
+An RGB image means Red-Green-Blue image. We can understand an image as a 3 numerical matrix which every matrix have the 0 to 255 values of red, green and blue pixels. The combination of the three colors in every pixel results a color pixel. For example, orange is (255, 165, 0).  
+This is converted to grayscale image. In this case, the image is just a matrix of 0 to 255 pixels, where the ranges of colours for every pixels goes from 0 as black to 255 as white, being in a gray scale of colors. As it is understood as a matix, we can operate with the values of it, increasing or decreasing it, filtering and having numerical operations.  
+In order to obtain a single region of the image (Region of Interest: ROi), we filter some desired values of the image, and discrimine the parts of the image we are interested in, or not. This results in a matrix (an image) which will be binary, where every pixel would have the value of zero (0) or one (1). On this matrix we can operate easily, and we can finally reduce our parts of interest (worms), in order to obtain the pixels which configurate it and, in our case, obtain the length of the figures.  
 
-Many of the current software are designed ad hoc, working just in a specific kind of file or image typology, demanding images in a form that many times the users cannot provide, and being in some cases not user-friendly.
-
---
+ççç iamtge rgb 
 
 The processing of the images is developed by the user in modification panel. Image must be converted from Red-Green-Blue (RGB) to grayscale, to binary image, in order to isolate in these the desired objects, which are the worms.
 
@@ -345,6 +346,14 @@ When the image is converted to a binary, the values just range from 0 to 1. This
 (PHOTO PIXEL RGB VALUES?)
 
 Much of all of the image processing functions are part of the MATLAB Image Processing Toolbox, and the MATLAB Computer Vision Toolbox. MATLAB also use (…) toolbox.
+
+
+- [Computer Vision Toolbox](https://es.mathworks.com/products/computer-vision.html)
+- [Image Processing Toolbox](https://es.mathworks.com/products/image-processing.html)
+- [Image Acquisition Toolbox](https://es.mathworks.com/products/image-acquisition.html)
+- [Statistics and Machine Learning Toolbox](https://es.mathworks.com/products/statistics.html)
+
+
 
 ### Skeletonize and branch reduction
 
@@ -462,6 +471,9 @@ The result is that in 8Gb RAM i5 CPU the elapsed time for a main object processm
 
 In the selection panel the whole image is processed and their objects are isolated in a MATLAB file, saved in as indexed coordinates because of the computational optimization. For every object the skeletonization and operation is developed and showed, and the selection done by the user is saved. 
 
+
+WorMe works using the rute of the selected images (in the code: *theFiles* variable). The image data is saved in a , and saves the main data of images and analysis in physical files.  
+ççç explicar els passos i com es guarden les dades.
 
 
 ## Comparison to ImageJ and WorMachine
