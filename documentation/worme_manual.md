@@ -338,10 +338,12 @@ An RGB image means Red-Green-Blue image. We can understand an image as a 3 numer
 
 <p align="center">
   <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/Process_imatge/img2.png" width="60%" />
+
+  _Figure 4: ._
 </p>
 
 <p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/Process_imatge/img4.png" width="60%" />
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/Process_imatge/img4.png" width="15%" />
 </p>
 
 This is converted to grayscale image. In this case, the image is just a matrix of 0 to 255 pixels, where the ranges of colours for every pixels goes from 0 as black to 255 as white, being in a gray scale of colors. As it is understood as a matix, we can operate with the values of it, increasing or decreasing it, filtering and having numerical operations.  
