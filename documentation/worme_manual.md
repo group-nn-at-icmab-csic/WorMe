@@ -89,77 +89,81 @@ The use of the program from the MATLAB Desktop environment software is slightly 
 
 The use of WorMe is based in five continuous steps:  
 
-→ [Image selection](#image-selection): Seleccion of the images.<br>
-→ [Scale setting](#scale-setting): Set of the scale.<br>
-→ [Image processing](#image-processing-panel): Configure the image modification. <br>
-→ [Worm selection](#selection-panel): Select manually the worm objects.<br>
+→ [Image selection](#image-selection): Select the images to analyse.<br>
+→ [Scale setting](#scale-setting): Set the measuring scale.<br>
+→ [Image processing](#image-processing-panel): Configure the image modification parameters. <br>
+→ [Worm selection](#selection-panel): Select worm objects manually.<br>
 → [Results](#results-panel): Read and download the results (data and image objects). <br>
-
-
-
 
 For a fast tutorial, please refer to [Example of usage](#example-of-usage).
 
-
 ### Image selection
 
-The program is designed for compound microscopy images with standard proportions, but it can operate with different types of resolutions and different kinds of microscope images. The use of large resolution microscopy images is possible but not recommended as it would lead to long waiting times due to the logistics of the image processing. Therefore, we recommend lowering the image resolution before measuring worm length.
+The program is designed for compound microscopy images with standard proportions, but it can operate with different resolutions and different kinds of microscope images. 
 
-The program works best with images that are clear, without dirt, and with separate worms that are not touching, coiled or tangled. One example is Figure 4. 
+#### Image formats
+WorMe can operate with a wide range of image formats, including RGB and grayscale images.
 
-<div align="center"> <img src="../examples/Image_988.jpg" alt="Example Image_988" width="65%"> 
+Compatible image types are: ``.jpg``, ``.png``, ``.jpeg``, ``.tif``, ``.tiff``, ``.jfif`` and ``.bmp``.
 
-_Figure 3: Example image_
-</div>
+Non-compatible image types are: ``.gif`` and ``.webp``.
 
-<br>
+Nevertheless, WorMe is designed for single-layer images. Therefore, it is not compatible with multi-layer or multi-page optical microscopy ``.tiff`` images. 
 
-#### Image requirements
+#### Image resolution
+The selected images can have any resolution, and it is not necessary for it to be uniform between them. 
 
-##### Image files
-WorMe can operate with a wide range of image formats, including RGB and grayscale images.  
-The accepted file image types are:
-<div align="center">
-  <em>'.jpg'</em>, <em>'.png'</em>, <em>'.jpeg'</em>, <em>'.tif'</em>, <em>'.tiff'</em>, <em>'.jfif'</em>, <em>'.bmp'</em>
-</div>
+However, the use of large resolution microscopy images (over 25000 x 25000 px) is possible but not recommended as it would lead to long waiting times due to the logistics of the image processing. Therefore, we recommend lowering the image resolution before measuring worm length.
 
-Excluded:
-<div align="center">
-  <em>'.gif'</em> i <em>'.webp'</em>
-</div>
+#### Desired image quality
+The program can adapt to any image quality. Even so, it works best with images that are clear, with regular brightness and contrast, without dirt, and with separate worms that are not touching, coiled or tangled.
 
-<br>
-WorMe is designed for to analyse a set of individual image files. The program is not designet though for to analyse images stuck in a single file, as it is in some cases in *'.tiff'* file images of optical microscopy.
+Examples of desirable and undesirable images can be found below. Of course, as long as the worms in undesirable images are recognizable by the naked eye, they can still be measured manually within WorMe.
 
-<br>
-
-##### Resolution
-The selected images may have any resolution size, and it can be different between them. Is recommended, though, to not overpass the 2500x25000 px resolution of the images because in this case the software may work more slowly than expected.
-<br>
-
-##### Desired image quality
-
-The program may operate in many kinds of images, and the image modification and analysis may adapt to any image. Despite that, images with a clear background, without worms crossing, and with a regular brightness and contrast are desired.  
-
-This will help to identify the worms and to avoid to overlap and interfere with other non-worm objects.  
-
-In the experimental design one may consider to use cleaning methods of the final plate before the microscopical image adquisition, which will improve the image analysis forward steps.  
-
-As is said, is desired worms don't cross between themselves. This will save time in the analysis and the selection.  
+In the experimental design, one may consider using cleaning methods of the final plate before image adquisition, which would improve the image analysis step.  
 
 Examples of desired images, with a clean background, regular bright and non-cross objects:
 
-ççç
+<div align="center">
+<table>
+  <tr>
+    <td>a)<img src="../examples/Image_988.jpg" alt="Image_988" width="100%"></td>
+    <td>b)<img src="../examples/Image_961.jpg" alt="Image_961" width="100%"></td>
+    <td>c)<img src="../examples/Image_980.jpg" alt="Image_980" width="100%"></td>
+  </tr>
+  <tr>
+    <td>d)<img src="../examples/Image_1729.jpg" alt="Image_1729" width="100%"></td>
+    <td>e)<img src="../examples/Image_7884.jpg" alt="Image_7884" width="100%"></td>
+    <td>f)<img src="../examples/Image_972.jpg" alt="Image_972" width="100%"></td>
+  </tr>
+</table>
 
-Examples of undesired images:  
+_Table 1: Examples of desirable images. The background is bright, clean and with regular contrast, and the worms are not coiled or touching. The exceptions are e) where a worm is coiled at the top, and f) where there are some bubbles, but as they are far from the other worms, they do not impede analysis._
+</div>
 
-ççç
+<div align="center">
+<table>
+  <tr>
+    <td>a)<img src="../examples/bad_images/Image_7892.jpg" alt="Image_7892" width="100%"></td>
+    <td>b)<img src="../examples/bad_images/P1011659.JPG" alt="Image P1011659" width="100%"></td>
+    <td>c)<img src="../examples/bad_images/Image_7881.jpg" alt="Image_7881" width="100%"></td>
+  </tr>
+  <tr>
+    <td>d)<img src="../examples/bad_images/P1011853.JPG" alt="Image P1011853" width="100%"></td>
+    <td>e)<img src="../examples/bad_images/P1011646.JPG" alt="Image P1011646" width="100%"></td>
+    <td>f)<img src="../examples/bad_images/Image_834.jpg" alt="Image_834" width="100%"></td>
+  </tr>
+</table>
+
+_Table 2: Examples of undesirable images. a, b) Dirty and blurry images, but the worms might be detected correctly since they are clear. c) The worms are too coiled, which will impede skeletonization. d) The worms are touching, and they will need to be separated for analysis. e) Dirty image with irregular background, the worms will not be recognized. f) Non-worm objects are crossed with worm objects, which will impede correct detection_
+</div>
+
 
 
 
 
 ### Scale setting
-In the first step, the program will prompt the user to select the image or images to analyze. These must have the same magnification, as the program will use the same scale to calculate length. After selecting the images, the program will show the scale determination panel, with three options:
+In the first step, the program will prompt the user to select the image or images to analyse. These must have the same magnification, as the program will use the same scale to calculate length. After selecting the images, the program will show the scale determination panel, with three options:
 
 - Select automatically: Zoom to the scale bar, click the Select bar button, double-click the scale bar, then click the Scale value button and input the number represented by the scale bar. Then, press Done.
 
@@ -186,7 +190,7 @@ _Figure 5: Image processing panel, with (1) Filters, (2) the main panel, (3) Pro
 The panel consists of four sections:
 1. Filters: Consists of different buttons that can be used to set filters to the images. Normally, it is not used. They consist of converting the image to grayscale (im2gray), improving the contrast (imadjust), binarizing the image (Binarize, flip and Binarize by value), and removing noise and filling holes (AreaOpen, Close, Open, imfill, imclearborder).
 2. Image processing panel: Consists of the image display and the following buttons:
-    - Skeletonize: shows the skeletons in the binarized objects with a red line, which is what is measured for worm length.
+    - Skeletonize: Shows the skeletons in the binarized objects with a red line, which is what is measured for worm length.
     - Original: Shows the original image
     - Masked: Shows the worm masks. More information in [Image data export](#image-data-export).
     - Modified: Shows the binarized image.
@@ -194,24 +198,67 @@ The panel consists of four sections:
     - Magnifying glass: Zooms in the image
     - Analyse: Runs the image analysis and continues to the next step
 3. Processings: Consists of three sections and one button:
-    - Temporal section: shows temporary modifications. Useful to add more filters, or start from the original image.
+    - Temporal section: Shows temporary modifications. Useful to add more filters, or start from the original image.
     - Saved section: Shows finished modifications. Usually, one of these will work as needed for the next step.
     - New processment button: Adds a new Temporal modification, which can be used to add custom filters. 
-    - Modifications section: lists the filters applied to get the current displayed image from the original image.
+    - Modifications section: Lists the filters applied to get the current displayed image from the original image.
 4. Image properties: Shows which image is currently in display.
 
 Usually, selecting one of the sets of modifications present in the Saved section of Processings is enough to obtain a good modified image. For example, as seen in Figure 5, the first modification shows a modified image of Figure 3 which has a black background with all worms in white and no noise, besides the scale bar. This is a good modification, which will enable WorMe to get accurate length measurements.
 
-Sometimes, however, none of the modifications are good. This usually happens when attempting to analyze images that are not compound microscopy images. For example, fluorescence images tend to have black worms and white background, and stereomicroscopy images tend to miss worms due to differences in lighting at different parts of the image.
+Sometimes, however, none of the modifications are good. This usually happens when attempting to analyse images that are not compound microscopy images. For example, fluorescence images tend to have black worms and white background, and stereomicroscopy images tend to miss worms due to differences in lighting at different parts of the image.
 
 In this case, it might be worthwhile to attempt a new image processing. The steps to take are the following:
 1. In (3) Processings, click the New processment button. This will add `Modif_img_06.txt` at the Temporal section.
-2. With `Modif_img_06.txt` selected, add some (1) Filters.
-
-
-The user must determine which set of image modifications will be applied to the stack of images. This modifications can be saved and imported, and they are used to be the same for same types of images. The versatility of image processing allows to operate into different kinds of images and objects. 
+2. With `Modif_img_06.txt` selected, add some (1) Filters. The results of the filters can be seen step by step on the Image display, so one can undo if the results are not as expected.
+    1. Convert the image to grayscale (im2gray)
+    2. Improve the contrast (imadjust)
+    3. Binarize the image. This is a useful step for improving worm visualization.
+        - If binarization with the Binarize button needs improvement, try changing the value and using the Binarize by value button
+        - If, after binarizing, the worms are black and the background white, use the flip button.
+4. Clean up the image by removing noise and filling holes (AreaOpen, Close,
+Open, imfill, imclearborder). Not all filters might be needed.
+3. With the save icon button in the Saved section, you can save the applied filters for
+images of the same type. These can be imported with the import icon button.
+4. Press the Analyse button in the (2) Image Processing Panel. 
 
 ### Selection panel
+
+After pressing the Analyse button, WorMe will show the selection panel, found in Figure 6 below. In it, the images are processed individually according to the earlier modifications. For each binary object, there is a skeletonization and branch reduction process, which is further explained in [Skeletonize and branch reduction](#skeletonize-and-branch-reduction), and the length of the resulting skeleton will represent the length of the worm. The user must assess each of the obtained binary objects.
+
+The aim of this panel is to select the binary objects that correctly depict a worm, correct the objects that are worms but have incorrect skeletonization and reject the rest. 
+
+<div align="center"> <img src="images/WM_selection.png" alt="Image Selection Panel" width="65%">
+
+_Figure 5: Image selection panel, with (1) the main panel, (2) Filters, (3) Tools, (4) Selection and (5) Image properties_
+</div>
+
+The panel consists of five sections:
+1. Main panel: Shows the processed binary objects surrounded in red bounding boxes. As the selection progresses, it shows accepted objects in green (such as the worm with length 744), rejected objects in red, and the current object in a bold line (such as the worm with length 800).
+2. Filters: Consists of input areas that can filter binary objects. For example, to remove small dirt objects from the selection process.
+    - Max circularity: Filters by circularity
+    - Min area: Filters small objects by mask area
+    - Min length: Filters short objects by skeletonization length
+3. Tools: Consists of tools that can edit the binary object's mask. All of them can be used by clicking once to extend a line, and twice to finish and confirm.
+    - Scissors: Permits cutting the current binary object in two.
+    - New line: Permits adding a new worm. It will be automatically selected as correct.
+    - Extend line: Permits extending the current binary object. For example, to include a tail that was not previously detected.
+4. Selection: Consists of buttons to accept or reject worms.
+    - Undo: Undoes the last action.
+    - Orange arrow: Skips to the next image.
+    - Red cross: Rejects current binary object.
+    - Green checkmark: Accepts current binary object
+5. Image properties: Shows which image is in display.
+    - Original: Shows the original image with no bounding boxes.
+    - Magnifying glass: Zooms in the current Main panel.
+    - Binarized object: Shows the binarized object in the main panel.
+    - Tutorial: Shows key shortcuts for Tools, Selection and Image Properties buttons.
+    - Done: Finishes worm selection and continues to the next step.
+
+The process of worm selection is detailed in the following steps:
+1. The object to analyse is surrounded by a bounding box. 
+2. If it is a worm, and its skeletonization is correct, press the green checkmark. Then, the program will go back to (1) for the next binary object.
+
 
 When the modification configuration is determined, start the selection panel. Images are individually processed by the configuration, and every object is analysed. In this step user can select as worm or as not worm the object that is surrounded by a bounding box. The user can move between the images and can finish the selection at the desired moment.
 
@@ -226,8 +273,6 @@ In this step the image is processed and the objects are analysed based on the pr
 The user-timing in the selection has been improved (example: shortkeys) trying to accelerate the selection process.
 
 This manual selection panel is time consuming, but ensures the user to be aware in-time of the origin and quality of the measurement data, preventing bias.
-
-<div align="center"> <img src="images/WM_selection_pannel.png" alt="Image Processing Panel" width="70%"> </div>
 
 ### Results panel
 
@@ -375,7 +420,7 @@ On this matrix we can operate easily, and we can finally reduce our parts of int
 
 The processing of the images is developed by the user in modification panel. Image must be converted from Red-Green-Blue (RGB) to grayscale, to binary image, in order to isolate in these the desired objects, which are the worms.  
 
- We can operate with and analyze the objects in the binary image, for example isolating objects of interest, or analysising the morphology properties like length, circularity, area, etc. In WorMe there is many tools for operate with the objects, with the aim to obtain a mask in which we had the worms.
+ We can operate with and analyse the objects in the binary image, for example isolating objects of interest, or analysising the morphology properties like length, circularity, area, etc. In WorMe there is many tools for operate with the objects, with the aim to obtain a mask in which we had the worms.
 
 
 #### Image processing using MATLAB tools
