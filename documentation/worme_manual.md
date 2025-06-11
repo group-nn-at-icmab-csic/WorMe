@@ -26,7 +26,7 @@ The program accepts multiple images as input, which can then be analysed collect
 ## Software description, use and features
 ### Brief description of the program 
 
-WorMe is an open-source application implemented in *MATLAB version 9.11 (R2021b)* and deployed as an executable using MATLAB Runtime, so it can be installed and run without a license. It provides automatic detection and measurement of the length of *C. elegans* from microscopy images. It consists of a linear set of pannels that correspond to image processing, worm selection and results.  
+WorMe is an open-source application implemented in *MATLAB version 9.11 (R2021b)* and deployed as an executable using MATLAB Runtime, so it can be installed and run without a licence. It provides automatic detection and measurement of the length of *C. elegans* from microscopy images. It consists of a linear set of pannels that correspond to image processing, worm selection and results.  
 
 First, the program prompts the user to provide the images to analyse. The user can select one or multiple images as long as the scale is consistent. Then, the program will show the image processing panel, where the images are processed to isolate the worms as binary objects. This is done by converting the image to grayscale (MATLAB function `im2gray`), improving the contrast (`imadjust`), binarizing the image (`imbinarize`), and removing noise and filling holes (`bwareaopen`, `imopen`, `imclose`, `imfill`, `imclearborder`). The user can select from a list of different sets of image modifications or apply their own if none display a workable result. This can happen if the contrast between worm and background is different from expected, such as when attempting to use fluoresence images. The ideal processing would show a black background with white, separate worms.
 
@@ -45,45 +45,37 @@ The program takes the selected images, processes them until it gets individual w
 _Figure 2: Use_
 </div>
 
-
-
 ### Installation and requirements
 
-WorMe is MATLAB based software but **it doesn't need MATLAB license**. It can be easily installed and executed in one of these two options:  
-- Install as local software from the [executable file](https://github.com/group-nn-at-icmab-csic/WorMe/releases) (.exe): This way does not require MATLAB licence, because the program is compiled.
-- Execute [the code](https://github.com/group-nn-at-icmab-csic/WorMe/releases) from the MATLAB Desktop environment software (version >2021b): This way require MATLAB license but it have a slightly faster time of execution.
+WorMe is a MATLAB based software that **does not require a MATLAB licence**. It can be easily installed and executed in one of these two options:  
+- Install as local software from the [executable file](https://github.com/group-nn-at-icmab-csic/WorMe/releases) (.exe). This does not require a MATLAB licence, because the program is compiled.
+- Execute [the source code](https://github.com/group-nn-at-icmab-csic/WorMe/releases) from the MATLAB Desktop environment software (version >2021b). This requires a MATLAB licence but it has a slightly faster execution time.
 
+The program requires at least 4GB of available disk space, as well as a Windows Operating System. 
 
-*Requirements:* The program currently just work in Windows operating system. The software has not been yet settled in iOS or Linux systems.  
+#### Installation and use from the executable (.exe)
 
-<br>
-
-#### Installation and use from executable (.exe)
-
-WorMe Length determination can be **easily installed from the [executable file](https://github.com/group-nn-at-icmab-csic/WorMe/releases)** as a local software in Windows, **without the  MATLAB license**, because it's compilation.  
-The installation is step by step and it is going to automatically download and install the MATLAB Runtime 9.11 (4Gb) and the WorMe Length determination as system software. [MATLAB Runtime](https://es.mathworks.com/products/compiler/matlab-runtime.html) is just the standalone libraries required to run MATLAB aplications, in this case WorMe Length determination.
+WorMe Length determination can be **easily installed from the [executable file](https://github.com/group-nn-at-icmab-csic/WorMe/releases)** as a local software in Windows. **It does not require a MATLAB licence**.  
+The step-by-step installation will automatically download and install MATLAB Runtime R2021b (9.11) and WorMe Length determination as system software. [MATLAB Runtime](https://mathworks.com/products/compiler/matlab-runtime.html) is a collection of the libraries required to run MATLAB aplications, in this case WorMe Length determination.
 
 <div align="center">
-  <img src="images/WM_install.png" alt="Installation Process" width="60%">
+  <img src="images/use_of_the_program/WM_install.png" alt="Installation Process" width="60%">
   <br>
   <em>Figure 1: WorMe installer that triggers the installation of MATLAB runtime R2021b</em>
 </div>
 <br>
 
-#### Installation and use from the code 
+#### Installation and use from the source code 
 
-The program can also be used from [the WorMe MATLAB code (Length_determination](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/Length_determination) The program can be used in the **MATLAB version R2021b** or greater, by running the main script `WM_length_determination.m`.  In this case a MATLAB license is required.  
+The program can also be used by by running the main script [`WM_length_determination.m`](https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/Length_determination/WM_length_determination.m) in MATLAB version R2021b or greater. However, a MATLAB licence is required.  
 
-In this case, the program uses a few toolboxes which are required for its execution (See: [How to add Add Ons in MATLAB](https://es.mathworks.com/help/matlab/matlab_env/get-add-ons.html)):
+In this case, the program uses a few toolboxes which are needed for its execution (See: [How to add Add Ons in MATLAB](https://es.mathworks.com/help/matlab/matlab_env/get-add-ons.html)):
 - [Computer Vision Toolbox](https://es.mathworks.com/products/computer-vision.html)
 - [Image Processing Toolbox](https://es.mathworks.com/products/image-processing.html)
 - [Image Acquisition Toolbox](https://es.mathworks.com/products/image-acquisition.html)
 - [Statistics and Machine Learning Toolbox](https://es.mathworks.com/products/statistics.html)
 
 The use of the program from the MATLAB Desktop environment software is slightly faster, but the local-installed program is also optimal.
-
-<br>
-
 
 ## Use of the program
 
@@ -101,14 +93,17 @@ For a fast tutorial, please refer to [Example of usage](#example-of-usage).
 
 The program is designed for compound microscopy images with standard proportions, but it can operate with different resolutions and different kinds of microscope images. 
 
+[!IMPORTANT]
+Sometimes, an "Invalid or deleted object" error will appear due to exiting the program before going through all the steps. If the error persists when starting the program again, the easiest solution is to delete the `Documents/WorMe_Length_Results` folder.
+
 #### Image formats
 WorMe can operate with a wide range of image formats, including RGB and grayscale images.
 
-Compatible image types are: ``.jpg``, ``.png``, ``.jpeg``, ``.tif``, ``.tiff``, ``.jfif`` and ``.bmp``.
+Compatible image types are: `.jpg`, `.png`, `.jpeg`, `.tif`, `.tiff`, `.jfif` and `.bmp`.
 
-Non-compatible image types are: ``.gif`` and ``.webp``.
+Non-compatible image types are: `.gif` and `.webp`.
 
-Nevertheless, WorMe is designed for single-layer images. Therefore, it is not compatible with multi-layer or multi-page optical microscopy ``.tiff`` images. 
+Nevertheless, WorMe is designed for single-layer images. Therefore, it is not compatible with multi-layer or multi-page optical microscopy `.tiff` images. 
 
 #### Image resolution
 The selected images can have any resolution, and it is not necessary for it to be uniform between them. 
@@ -127,14 +122,14 @@ Examples of desired images, with a clean background, regular bright and non-cros
 <div align="center">
 <table>
   <tr>
-    <td>a)<img src="../examples/Image_988.jpg" alt="Image_988" width="100%"></td>
-    <td>b)<img src="../examples/Image_961.jpg" alt="Image_961" width="100%"></td>
-    <td>c)<img src="../examples/Image_980.jpg" alt="Image_980" width="100%"></td>
+    <td>a)<img src="images/use_of_the_program/good_images/Image_988.jpg" alt="Image_988" width="100%"></td>
+    <td>b)<img src="images/use_of_the_program/good_images/Image_961.jpg" alt="Image_961" width="100%"></td>
+    <td>c)<img src="images/use_of_the_program/good_images/Image_980.jpg" alt="Image_980" width="100%"></td>
   </tr>
   <tr>
-    <td>d)<img src="../examples/Image_1729.jpg" alt="Image_1729" width="100%"></td>
-    <td>e)<img src="../examples/Image_7884.jpg" alt="Image_7884" width="100%"></td>
-    <td>f)<img src="../examples/Image_972.jpg" alt="Image_972" width="100%"></td>
+    <td>d)<img src="images/use_of_the_program/good_images/Image_1729.jpg" alt="Image_1729" width="100%"></td>
+    <td>e)<img src="images/use_of_the_program/good_images/Image_7884.jpg" alt="Image_7884" width="100%"></td>
+    <td>f)<img src="images/use_of_the_program/good_images/Image_972.jpg" alt="Image_972" width="100%"></td>
   </tr>
 </table>
 
@@ -144,23 +139,19 @@ _Table 1: Examples of desirable images. The background is bright, clean and with
 <div align="center">
 <table>
   <tr>
-    <td>a)<img src="../examples/bad_images/Image_7892.jpg" alt="Image_7892" width="100%"></td>
-    <td>b)<img src="../examples/bad_images/P1011659.JPG" alt="Image P1011659" width="100%"></td>
-    <td>c)<img src="../examples/bad_images/Image_7881.jpg" alt="Image_7881" width="100%"></td>
+    <td>a)<img src="images/use_of_the_program/bad_images/Image_7892.jpg" alt="Image_7892" width="100%"></td>
+    <td>b)<img src="images/use_of_the_program/bad_images/P1011659.JPG" alt="Image P1011659" width="100%"></td>
+    <td>c)<img src="images/use_of_the_program/bad_images/Image_7881.jpg" alt="Image_7881" width="100%"></td>
   </tr>
   <tr>
-    <td>d)<img src="../examples/bad_images/P1011853.JPG" alt="Image P1011853" width="100%"></td>
-    <td>e)<img src="../examples/bad_images/P1011646.JPG" alt="Image P1011646" width="100%"></td>
-    <td>f)<img src="../examples/bad_images/Image_834.jpg" alt="Image_834" width="100%"></td>
+    <td>d)<img src="images/use_of_the_program/bad_images/P1011853.JPG" alt="Image P1011853" width="100%"></td>
+    <td>e)<img src="images/use_of_the_program/bad_images/P1011646.JPG" alt="Image P1011646" width="100%"></td>
+    <td>f)<img src="images/use_of_the_program/bad_images/Image_834.jpg" alt="Image_834" width="100%"></td>
   </tr>
 </table>
 
 _Table 2: Examples of undesirable images. a, b) Dirty and blurry images, but the worms might be detected correctly since they are clear. c) The worms are too coiled, which will impede skeletonization. d) The worms are touching, and they will need to be separated for analysis. e) Dirty image with irregular background, the worms will not be recognized. f) Non-worm objects are crossed with worm objects, which will impede correct detection_
 </div>
-
-
-
-
 
 ### Scale setting
 In the first step, the program will prompt the user to select the image or images to analyse. These must have the same magnification, as the program will use the same scale to calculate length. After selecting the images, the program will show the scale determination panel, with three options:
@@ -171,10 +162,13 @@ In the first step, the program will prompt the user to select the image or image
 
 - Introduce numerical value: Input the Scale Value in pixels per unit, and press OK. Usually used after determining this number with one of the previous two methods for the same or similar images, shown as Scale Value before pressing Done, as seen in the image below.
 
-<div align="center"> <img src="images/WM_scale.png" alt="Scale determination process"  width="55%">  
+<div align="center"> <img src="images/use_of_the_program/WM_scale.png" alt="Scale determination process"  width="55%">  
 
 _Figure 4: Scale determination options. The scale value is seen in the first two options to be 0.855 pixels per unit, which is the number to input for the last option._
 </div>
+
+[!TIP]
+The last used scale numerical value can be found at `Documents/WorMe_Length_Results/Results_out/Internal_code_files/escale_line.txt` 
 
 ### Image processing panel
 
@@ -182,7 +176,7 @@ After setting the scale, WorMe shows the image processing panel, shown in the im
 
 The aim of this panel is to isolate each worm as a binary object. This means applying the right filters until the background is black and the worms are white and separate from each other, and there are no other white areas. The white area is also known as a mask.
 
-<div align="center"> <img src="images/WM_processing.png" alt="Image Processing Panel" width="65%">
+<div align="center"> <img src="images/use_of_the_program/WM_processing.png" alt="Image Processing Panel" width="65%">
 
 _Figure 5: Image processing panel, with (1) Filters, (2) the main panel, (3) Processings and (4) Image Properties_
 </div>
@@ -228,9 +222,9 @@ After pressing the Analyse button, WorMe will show the selection panel, found in
 
 The aim of this panel is to select the binary objects that correctly depict a worm, correct the objects that are worms but have incorrect skeletonization and reject the rest. 
 
-The manual selection is time consuming, but it ensures the quality of the measurement data, as the user is aware of what is being measured and how. Furthermore, the computational time of the process has been optimized by working with indexated data, which can be seen in [Computational optimization](#computational-optimization)
+The manual selection is time consuming, but it ensures the quality of the measurement data, as the user is aware of what is being measured and how. Furthermore, the computational time of the process has been optimized by working with indexated data, which can be seen in [Computational optimization](#computational-optimization).
 
-<div align="center"> <img src="images/WM_selection.png" alt="Image Selection Panel" width="65%">
+<div align="center"> <img src="images/use_of_the_program/WM_selection.png" alt="Image Selection Panel" width="65%">
 
 _Figure 5: Image selection panel, with (1) the main panel, (2) Filters, (3) Tools, (4) Selection and (5) Image properties_
 </div>
@@ -277,23 +271,25 @@ There are other steps that can be taken to streamline or correct the selection p
 
 ### Results panel
 
-Finally, after select the worms in the image, apperas the result panel. In this, user can see the an histogram with the results and descriptive statistics of the worms selected. The data of the length measures can be exported, as well as with the manual error correction (see below the apartat ASD). 
+Finally, WorMe will show the Results panel, which can be seen in Figure 6. This is the final panel where the user can see the aggregated results of the measurements from all the analysed images, and they can export this data.
 
-User can also export the graphic data. This allows exporting the binary images, labelled images, as well as PascalVOC files of the images which objects were selected. This type of images can be useful for a posteriori object analysis as well as for the use of it in the AI model development.
+<div align="center"> <img src="images/use_of_the_program/WM_results.png" alt="Results Panel" width="65%">
 
-<div align="center"> <img src="https://github.com/user-attachments/assets/3722f5c4-0e1e-43c1-bcd0-8d894fbdb6ab" alt="image-20230731-164404" width="65%"> </div>
+_Figure 6: Results panel_
+</div>
 
+In this panel, the user can see a histogram which contains the length results, as well as the descriptive statistics of selected worms. This length data can be saved from the Export button in `.xls`, `.xlsx`, `.csv` or `.txt` format. Furthermore, there is an "Export manual error corrected data" checkbox which, when marked, will add manual error corrected data to the Export file. This correction allows the data to be compared to manually measured data from ImageJ or similar image analysis. More information can be found in [Manual length error correction](#manual-length-error-correction).
 
-Finally the program visualize the set of length measurement data, and allows to export it. It includes also the option to export the data based in the manual error correction (see  ([Manual length error correction](#manual-length-error-correction) ). The program also provides the binary object data and other data that may be golden standard for deep learning models.
+Graphic data, which consists of Binary Images, Indexed Images and PascalVOC files from both accepted and discarded binary objects, can also be obtained from the Export Graphic Data button. This data can be useful for both _a posteriori_ object analysis as well as AI model development. More information can be found in [Image data for the analysis and deep learning use](#image-data-for-the-analysis-and-deep-learning-use). 
 
+[!TIP]
+The image processing parameters can be found at `Documents/WorMe_Length_Results/Results_out` with the date and hour of the analysis.
 
 #### Image data export
 ?
 WorMe does not use artificial intelligence (AI) despite it is the state-of-the-art of the image processing and analysis. Many software are based on deep learning neural networks for the selection or identification of C. elegans in the images. Despite that, the program is consciousness about the data obtaintion and use for the creation of models, and it allows the user to export the graphical data in different formats (PascalVOC, label, binary, etc.) in order to be used for IA model building, among other types of analysis.
 
 As is usual, the program does not used to differentiate between coiled and joined worms. Some IA based softwares can approach this differentiation [1-4]. Despite that, the panel offer tools for manually separate and differentiate between two or more joined C. elegans or objects. 
-
- 
 
 State of the art: Artificial intelligence: There is still much to do in C. elegans
 
@@ -311,7 +307,7 @@ We are going to show an example of use the use of the WorMe program using the  [
 <p align="center"><strong><span style="font-size:18px;">Select the images</span></strong></p>
 First of all, we would select the images. The program doesn't load but just save the path of the images.<br>
 <p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/example_use/a1.gif" width="60%" />
+  <img src="images/example_use/a1.gif" width="60%" />
 </p>
 
 <br>
@@ -319,12 +315,12 @@ First of all, we would select the images. The program doesn't load but just save
 
 Then, we are going to set the scale. By do it, a way is to obtain the scale from measuring the scale bar.<br>
 <p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/example_use/a2.png" width="60%" />
+  <img src="images/example_use/a2.png" width="60%" />
 </p>
 
 In the program it is done in a set of steps:<br>
 <p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/example_use/a3.gif" width="60%" />
+  <img src="images/example_use/a3.gif" width="60%" />
 </p>
 
 
@@ -335,7 +331,7 @@ May be other objects in the image, but we will try to set the image in order to 
 These binary objects will be the basis for the length analysis.<br>
 
 <p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/example_use/a4.gif" width="60%" />
+  <img src="images/example_use/a4.gif" width="60%" />
 </p>
 
 
@@ -343,7 +339,7 @@ These binary objects will be the basis for the length analysis.<br>
 <p align="center"><strong><span style="font-size:18px;">Select the worms</span></strong></p>
 We are going to select manually the worms, and exclude or avoid these ones are not.<br>
 <p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/example_use/a6.gif" width="60%" />
+  <img src="images/example_use/a6.gif" width="60%" />
 </p>
 
 
@@ -355,13 +351,13 @@ We can obtain the length results of the selected worms in a numeric sheet (.xlsx
 
 
 <p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/example_use/a7.gif" width="60%" />
+  <img src="images/example_use/a7.gif" width="60%" />
 </p>
 
 And we can obtain the image objects files, which may be useful for to analyse the morphology of the worms, and for the deep learning training models.<br>
 
 <p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/example_use/a8.gif" width="60%" />
+  <img src="images/example_use/a8.gif" width="60%" />
 </p>
 
 
@@ -377,37 +373,37 @@ WorMe is based in MATLAB, and uses a wide range of image processing tools which 
 Once the images are loaded and the scale i settled, the user configure the image modification. In this step, the RGB image becomes to a grayscale, to become a binary image which objects of interest will be saved.  
 
 <p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/Process_imatge/img6.png" width="60%" />
+  <img src="images/Process_imatge/img6.png" width="60%" />
 </p>
 
 An RGB image means Red-Green-Blue image. We can understand an image as a 3 numerical matrix which every matrix have the 0 to 255 values of red, green and blue pixels. The combination of the three colors in every pixel results a color pixel. For example, orange is (255, 165, 0).  
 
 <p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/Process_imatge/img2.png" width="85%" />
+  <img src="images/Process_imatge/img2.png" width="85%" />
 </p>
 
 
 <p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/Process_imatge/img4.png" width="15%" />
+  <img src="images/Process_imatge/img4.png" width="15%" />
 </p>
 
 This is converted to grayscale image. In this case, the image is just a matrix of 0 to 255 pixels, where the ranges of colours for every pixels goes from 0 as black to 255 as white, being in a gray scale of colors. As it is understood as a matix, we can operate with the values of it, increasing or decreasing it, filtering and having numerical operations.  
 
 <p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/Process_imatge/img1.png" width="60%" />
+  <img src="images/Process_imatge/img1.png" width="60%" />
 </p>
 
 In order to obtain a single region of the image (Region of Interest: ROi), we filter some desired values of the image by a threshold, and discrimine the parts of the image we are interested in, or not. This results in an image called mask, where every pixel would have the value of zero (0) or one (1).
 
 <p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/Process_imatge/img5.png" width="60%" />
+  <img src="images/Process_imatge/img5.png" width="60%" />
 </p>
 <p align="center">
   <em>Fig 5. Example of a Region of Interest. </em>
 </p>
 
 <p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/Process_imatge/img3.png" width="60%" />
+  <img src="images/Process_imatge/img3.png" width="60%" />
 </p>
 <p align="center">
   <em>Fig 6. Selection of the regions of interest (worms) of the initial image. </em>
@@ -416,7 +412,7 @@ In order to obtain a single region of the image (Region of Interest: ROi), we fi
 On this matrix we can operate easily, and we can finally reduce our parts of interest (worms), in order to obtain the pixels which configurate it and, in our case, obtain the length of the figures.  
 
 <p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/images/Process_imatge/img7.png" width="40%" />
+  <img src="images/Process_imatge/img7.png" width="40%" />
 </p>
 
 The processing of the images is developed by the user in modification panel. Image must be converted from Red-Green-Blue (RGB) to grayscale, to binary image, in order to isolate in these the desired objects, which are the worms.  
