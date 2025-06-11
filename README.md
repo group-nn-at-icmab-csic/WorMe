@@ -8,7 +8,8 @@ WorMe is a Software for *Caenorhabditis elegans* length determination
 ![WorMe icon](Length_determination/Images_resources/Logo_WorMe.png)
 
 It can be used in machines with Linux, Windows and macOS. 
-For detailed documentation with the User Manual please check out the "[documentation](documentation/)" folder.
+For detailed documentation please check out the [User Manual](documentation/worme_manual.md).
+
 
 ## Citation
 
