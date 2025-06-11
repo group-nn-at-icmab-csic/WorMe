@@ -40,9 +40,9 @@ A tutorial can be found in [Use of the program](#use-of-the-program), and an exp
 
 The program takes the selected images, processes them until it gets individual worms as binary objects which can be measured via skeletonization, lets the user select which objects are worms, and presents the length results in a spreadsheet, as well as graphic data.
 
-<div align="center"> <img src="https://github.com/user-attachments/assets/57ca0220-9afd-4f10-9fe7-58f9b3593712" alt="ASK FOR PPT" width="55%">  
+<div align="center"> <img src="images/use_of_the_program/WM_summary.png" alt="Summary of the program usage" width="100%">  
 
-_Figure 2: Use_
+_Figure 2: Use of the program_
 </div>
 
 ### Installation and requirements
