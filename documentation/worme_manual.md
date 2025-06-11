@@ -180,7 +180,7 @@ _Figure 4: Scale determination options. The scale value is seen in the first two
 
 After setting the scale, WorMe shows the image processing panel, shown in the image below. In it, the user determines the modifications that will be done to all images. 
 
-The aim of this panel is to isolate each worm as a binary object. This means applying the right filters until the background is black and the worms are white and separate from each other, and there are no other white areas.
+The aim of this panel is to isolate each worm as a binary object. This means applying the right filters until the background is black and the worms are white and separate from each other, and there are no other white areas. The white area is also known as a mask.
 
 <div align="center"> <img src="images/WM_processing.png" alt="Image Processing Panel" width="65%">
 
@@ -228,6 +228,8 @@ After pressing the Analyse button, WorMe will show the selection panel, found in
 
 The aim of this panel is to select the binary objects that correctly depict a worm, correct the objects that are worms but have incorrect skeletonization and reject the rest. 
 
+The manual selection is time consuming, but it ensures the quality of the measurement data, as the user is aware of what is being measured and how. Furthermore, the computational time of the process has been optimized by working with indexated data, which can be seen in [Computational optimization](#computational-optimization)
+
 <div align="center"> <img src="images/WM_selection.png" alt="Image Selection Panel" width="65%">
 
 _Figure 5: Image selection panel, with (1) the main panel, (2) Filters, (3) Tools, (4) Selection and (5) Image properties_
@@ -239,40 +241,39 @@ The panel consists of five sections:
     - Max circularity: Filters by circularity
     - Min area: Filters small objects by mask area
     - Min length: Filters short objects by skeletonization length
-3. Tools: Consists of tools that can edit the binary object's mask. All of them can be used by clicking once to extend a line, and twice to finish and confirm.
-    - Scissors: Permits cutting the current binary object in two.
-    - New line: Permits adding a new worm. It will be automatically selected as correct.
-    - Extend line: Permits extending the current binary object. For example, to include a tail that was not previously detected.
+3. Tools: Consists of tools that can modify the binary object's mask. All of them can be used by clicking once to extend a line, and twice to finish and confirm. The mask of the current binary object will be shown as a grey overlay.
+    - Scissors (R): Permits cutting the current binary object in two.
+    - New line (F): Permits adding a new worm. It will be automatically selected as correct.
+    - Extend line (C): Permits extending the current binary object. For example, to include a tail that was not previously detected.
 4. Selection: Consists of buttons to accept or reject worms.
-    - Undo: Undoes the last action.
-    - Orange arrow: Skips to the next image.
-    - Red cross: Rejects current binary object.
-    - Green checkmark: Accepts current binary object
+    - Undo (W): Undoes the last action.
+    - Orange arrows (Q, E): Skip to the next image, or go back to the previous one.
+    - Red cross (A): Rejects current binary object.
+    - Green checkmark (D): Accepts current binary object
 5. Image properties: Shows which image is in display.
-    - Original: Shows the original image with no bounding boxes.
+    - Original (S): Shows the original image with no bounding boxes.
     - Magnifying glass: Zooms in the current Main panel.
     - Binarized object: Shows the binarized object in the main panel.
-    - Tutorial: Shows key shortcuts for Tools, Selection and Image Properties buttons.
+    - Tutorial: Shows keyboard shortcuts for Tools, Selection and Image Properties buttons. They have been added between brackets next to the button name.
     - Done: Finishes worm selection and continues to the next step.
 
 The process of worm selection is detailed in the following steps:
 1. The object to analyse is surrounded by a bounding box. 
-2. If it is a worm, and its skeletonization is correct, press the green checkmark. Then, the program will go back to (1) for the next binary object.
+2. If it is a worm, and its skeletonization is correct, press the green checkmark. If it is not a worm, press the red cross. Then, the program will go back to step (1) for the next binary object.
+3. If it is a worm, but its skeletonization is incorrect, the Tools will be used to correct it.
+    - If two worms are connected, use the Scissors to split the mask in two. Then, two binary objects will be separated.
+    - If the worm's head or tail is not included in the skeleton, use Extend line from within the existing mask to extend the skeleton.
+    - If the worm is too coiled and thus the skeleton does not follow its length, use the Scissors to cut off the wrong part, then use Extend line to add the rest.
+    - If the worm was not detected, use New line to add a new binary object. This binary object will be automatically accepted as a worm.
+4. After correction, the program will go back to step (1) with the new binary objects.
+5. When all objects have been sorted, press the Done button to continue to the next step.
 
-
-When the modification configuration is determined, start the selection panel. Images are individually processed by the configuration, and every object is analysed. In this step user can select as worm or as not worm the object that is surrounded by a bounding box. The user can move between the images and can finish the selection at the desired moment.
-
-In this panel user can filtrate the objects mainly by length, area and circularity. There is also three tools for the object modification. Scissors allows to crop the objects, which is useful for example if two worms are joined. Draw line allows to draw a line that will be the length of the worm. The extension button is used for extend the objects, something that can be useful when there is a cropped part.
-
-
-
-In the worm selection pannel, the user visualise and selects each worm’s measurement. That may be time-consuming, but the computational and usage have been optimized in order to improve and adapt the process.
-
-In this step the image is processed and the objects are analysed based on the previous defined image processing settings automatically. The computational time consumption of this process has been optimized by working with indexated data (see Computational optimization). 
-
-The user-timing in the selection has been improved (example: shortkeys) trying to accelerate the selection process.
-
-This manual selection panel is time consuming, but ensures the user to be aware in-time of the origin and quality of the measurement data, preventing bias.
+There are other steps that can be taken to streamline or correct the selection process:
+- Filtering: Sometimes, the dirt in the image will be detected as very small worms. If it could not be fixed with image processing, it can be filtered out by setting a minimum length for potential worms.
+- Undo button: if there is a mistake (for example, accepting a non-worm, or making an error with a Tool), it can be undone with this button.
+- Orange arrow: if all objects in the image have been sorted, the program will automatically continue to the next. However, the arrows can be used to navigate between images.
+- Done button: if some images want to be discarded (for example, if they have a different scale), it is not needed to discard all their binary objects. The selection can be finished at any moment by pressing the Done button. 
+- Keyboard shortcuts: their use permits faster worm selection.
 
 ### Results panel
 
