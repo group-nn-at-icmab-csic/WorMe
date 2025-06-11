@@ -93,8 +93,8 @@ For a fast tutorial, please refer to [Example of usage](#example-of-usage).
 
 The program is designed for compound microscopy images with standard proportions, but it can operate with different resolutions and different kinds of microscope images. 
 
-[!IMPORTANT]
-Sometimes, an "Invalid or deleted object" error will appear due to exiting the program before going through all the steps. If the error persists when starting the program again, the easiest solution is to delete the `Documents/WorMe_Length_Results` folder.
+> [!IMPORTANT]
+> Sometimes, an "Invalid or deleted object" error will appear due to exiting the program before going through all the steps. If the error persists when starting the program again, the easiest solution is to delete the `Documents/WorMe_Length_Results` folder.
 
 #### Image formats
 WorMe can operate with a wide range of image formats, including RGB and grayscale images.
@@ -167,8 +167,8 @@ In the first step, the program will prompt the user to select the image or image
 _Figure 4: Scale determination options. The scale value is seen in the first two options to be 0.855 pixels per unit, which is the number to input for the last option._
 </div>
 
-[!TIP]
-The last used scale numerical value can be found at `Documents/WorMe_Length_Results/Results_out/Internal_code_files/escale_line.txt` 
+> [!TIP]
+> The last used scale numerical value can be found at `Documents/WorMe_Length_Results/Results_out/Internal_code_files/escale_line.txt` 
 
 ### Image processing panel
 
@@ -282,8 +282,8 @@ In this panel, the user can see a histogram which contains the length results, a
 
 Graphic data, which consists of Binary Images, Indexed Images and PascalVOC files from both accepted and discarded binary objects, can also be obtained from the Export Graphic Data button. This data can be useful for both _a posteriori_ object analysis as well as AI model development. More information can be found in [Image data for the analysis and deep learning use](#image-data-for-the-analysis-and-deep-learning-use). 
 
-[!TIP]
-The image processing parameters can be found at `Documents/WorMe_Length_Results/Results_out` with the date and hour of the analysis.
+> [!TIP]
+> The image processing parameters can be found at `Documents/WorMe_Length_Results/Results_out` with the date and hour of the analysis.
 
 #### Image data export
 ?
