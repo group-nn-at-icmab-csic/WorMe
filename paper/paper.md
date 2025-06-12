@@ -32,8 +32,6 @@ bibliography: paper.bib
 
 Body size is an important endpoint used to assess the nematode’s development, as dietary changes or altered temperatures are shown to decrease body length [@Tain2008; @So2011; @Muoz-Juan2024]. Furthermore, in toxicity studies, the nematode’s body length is used to assess whether exposure inhibits growth [@Schrter2024; @Jung2015; @Srinivasan2023].
 
-Body size is an important endpoint used to assess the nematode’s development, as dietary changes or altered temperatures are shown to decrease body length [@Tain2008; @So2011; @Muoz-Juan2024]. Furthermore, in toxicity studies of various types of nanoparticles on the growth of *C. elegans*, the nematode’s body length decreased by 50% when exposed to polystyrene [@Schrter2024], silver or SiO~2~ nanoparticles [@Jung2015], yet there was no effect when exposed to polypyrrole nanoparticles [@Srinivasan2023].
-
 The manual measurement of *C. elegans* length from microscopy images is a widely used methodology. It is typically performed with FIJI-ImageJ, an image analysis software [@Schindelin2012]. However, this method is time consuming and imprecise, since it involves manually tracing a line along the middle of each worm. The measured length would thus vary across attempts and experimenters.
 
 To automate and improve this process, many software solutions have been developed, such as the WormSizer plugin for FIJI [@Moore2013], WormToolBox from CellProfiler [@Whlby2012], WormLength from QuantWorm [@Jung2014], Anilength [@Jung2021] or WorMachine [@Hakim2018], among others. However, most are designed to measure length from stereomicroscopy images, as they have high enough magnification to measure worm length, but low enough so the images include a large number of worms.
@@ -57,9 +55,8 @@ A more detailed explanation as well as examples of use can be found in the user 
 
 # Acknowledgements
 
-We acknowledge financial support from the Spanish Government through the XXX grant and the XXX grant awarded to ICMAB. We also thank the Government of Catalonia (AGAUR) for grant XX.
+We acknowledge financial support from the Spanish Government through the Becas de introducción a la investigación JAE Intro in CSIC institutes grants awarded to Josep Llobet Lladó and Núria Garriga-Alonso.
 
-XX was supported by the XXX grant.
 We acknowledge discussions with Dr. XX and Dr. XXX.
 
 
