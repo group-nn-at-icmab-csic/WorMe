@@ -70,7 +70,7 @@ There are five steps to use WorMe.
 
 5. **Results**: Press the export button to save the data. Select the "Export manual error corrected data" if the data requires comparison with other manual methods of measurement such as ImageJ.
 
-For a detailed tutorial please check out the [User Manual](documentation/worme_manual.md), in the Use of the program section.
+For a detailed tutorial please check out the [Use of the program](documentation/worme_manual.md#use-of-the-program) section in the User Manual.
 
 -------------------------------------------
 
