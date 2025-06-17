@@ -1,0 +1,17 @@
+Scale: 0.855 px/u
+
+Modifications: Modif_Example_3.txt
+1;Im2gray
+2;imadjust
+3;Imbinarize_adaptative_Foreground_dark
+4;bwareaopen(0.5)
+5;close_disc(1)
+6;imfill
+7;bwareaopen(2.5)
+8;bwareaopen(6)
+
+Tools used:
+Image_964: Scissors (Cut dirt away from the worm)
+Image_981: Scissors (Cut two worms apart)
+Image_986: Scissors (Cut dirt away from the worm)
+Image_987: Scissors (Cut two worms apart)

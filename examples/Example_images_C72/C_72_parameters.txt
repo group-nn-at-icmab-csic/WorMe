@@ -1,0 +1,27 @@
+Scale: 0.855 px/u
+
+Modifications: Modif_Example_3.txt
+1;Im2gray
+2;imadjust
+3;Imbinarize_adaptative_Foreground_dark
+4;bwareaopen(0.5)
+5;close_disc(1)
+6;imfill
+7;bwareaopen(2.5)
+8;bwareaopen(6)
+
+Tools used:
+Image_1716: Scissors (Cut egg away from the worm)
+Image_1717: Scissors (Cut two worms apart)
+Image_1719: Scissors (Cut two worms apart)
+Image_1720: Scissors (Cut worm fragment away)
+Image_1721: Scissors (Cut bubble away from the worm)
+Image_1722: Scissors (Cut bubble away from the worm)
+Image_1723: Scissors (Cut dirt away from the worm)
+Image_1724: Scissors (Cut larva away from the worm)
+Image_1725: Scissors (Cut two worms apart)
+Image_1727: Scissors (Cut bubble away from the worm)
+Image_1746: Scissors (Cut egg and larva away from the worm)
+Image_1747: Scissors (Cut egg away from the worm)
+Image_1749: Scissors (Cut two worms apart)
+Image_1750: Scissors (Cut egg away from the worm, cut two worms apart)

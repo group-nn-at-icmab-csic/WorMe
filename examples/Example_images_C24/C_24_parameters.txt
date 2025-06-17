@@ -1,0 +1,24 @@
+WARNING: The scale bar of 20um is incorrect. The real value is 200um, which is the value used for length determination.
+
+Scale: 0.855 px/u
+
+Modifications: Modif_Example_2.txt
+1;Im2gray
+2;imadjust_croped(0.89492, 0.054781)
+3;binarize_by_value(7.7273)
+4;bwareaopen(0.5)
+5;close_disc(1)
+6;bwareaopen(3.5)
+7;Imclearborder
+8;imfill
+
+Tools used:
+Image_834: New line (Added 4 worms)
+Image_836: New line (Added 1 worm)
+Image_837: New line (Added 1 worm)
+Image_839: Scissors and Extend line (Modified 1 worm)
+Image_841: New line (Added 1 worm)
+Image_844: Scissors (Cut one bubble away from the worm)
+Image_845: Scissors and Extend line (Cut one tangle in two, extend the cut worm)
+Image_851: Scissors (Cut dirt away from the worm)
+
