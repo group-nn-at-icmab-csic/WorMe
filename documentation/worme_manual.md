@@ -1,7 +1,7 @@
 # User Manual - WorMe: *Caenorhabditis elegans* length determination
 
 
-# Table of Contents
+## Table of Contents
 
 [Introduction](#introduction)  
 [Software description, use and features](#software-description-use-and-features)  
@@ -21,28 +21,33 @@ Here we present WorMe, a *Caenorhabditis elegans* length determination software.
 
 The program accepts multiple images as input, which can then be analysed collectively. Furthermore, the user can discard wrongly-detected objects, separate joined worms, correct erroneous measurements and manually add new worms. Then, the results are presented in a spreadsheet file, with each measurement linked to their image. 
 
-<br>
-
 ## Software description, use and features
 ### Brief description of the program 
 
 WorMe is an open-source application implemented in *MATLAB version 9.11 (R2021b)* and deployed as an executable using MATLAB Runtime, so it can be installed and run without a licence. It provides automatic detection and measurement of the length of *C. elegans* from microscopy images. It consists of a linear set of pannels that correspond to image processing, worm selection and results.  
 
-First, the program prompts the user to provide the images to analyse. The user can select one or multiple images as long as the scale is consistent. Then, the program will show the image processing panel, where the images are processed to isolate the worms as binary objects. This is done by converting the image to grayscale (MATLAB function `im2gray`), improving the contrast (`imadjust`), binarizing the image (`imbinarize`), and removing noise and filling holes (`bwareaopen`, `imopen`, `imclose`, `imfill`, `imclearborder`). The user can select from a list of different sets of image modifications or apply their own if none display a workable result. This can happen if the contrast between worm and background is different from expected, such as when attempting to use fluoresence images. The ideal processing would show a black background with white, separate worms.
+**Option a)**
+First, the user must select the images to analyze. Then, the program will show the image processing panel, where the images are processed to isolate the worms as binary objects. The ideal processing would show a black background with white, separate worms.
 
-Afterwards, the program will show the worm selection panel. It will skeletonize the binary objects (`bwmorph`) and prune the branches to obtain a line along the center of each nematode. Then, the user can visualize and select the *C. elegans* to measure. If a detected object is not a worm, it can be excluded from measurement. If two worms are connected, their binary object can be split, and the program will reprocess the skeleton for each new object. If the skeleton line does not span the entire worm, it can be extended. Similarly, if it is partly erroneous, it can be cut and extended again. Finally, if a worm is not detected, it can be added via manual analysis. This panel is the most time-consuming, as the user will have to go through all binary objects to accept, reject, or correct them. However, this ensures the quality and reliability of the data.
+Afterwards, the program will show the worm selection panel. Here, the program will obtain a line along the center of each nematode by skeletonizing the binary objects. Then, the user can select the objects to measure. If a detected object is not a worm, it can be excluded from measurement. If the detection is incorrect, it can be cut, extended or a new binary object can be added by using the panel Tools. This panel is a feature that ensures the quality and reliability of the data, as the user can see what is being measured.
 
-Finally, the results panel will return a histogram of length results, which can be saved as a spreadsheet. In this document we can also include results that account for manual error, results modified so they would be similar to those obtained from manual measurement in FIJI. Graphic data such as the binary images, indexed images or PascalVOC data for other morphology measurements or AI model training can also be saved.
+Finally, the results panel will return a histogram of length results, which can be saved as a spreadsheet. Another important feature of the program is that it can account for manual error, which lets the user obtain results that are modified so they would be equivalent to those obtained from manual measurements in programs such as FIJI ImageJ.
+
+Furthermore, the program also provides graphic data, such as binary images, indexed images or PascalVOC data, which would be useful for training AI models. 
+
+**Option b)**
+WorMe takes the selected images and processes them until it gets individual worms as binary objects, which are skeletonized. Afterwards, the user selects which objects are worms, and the program measures the length of the skeletonization, which corresponds to the length of the worm. This manual selection ensures the quality and reliability of the data, as the user can see what is being measured.
+
+Then, the program presents the length measurements in a spreadsheet. In this step, the program can account for manual error, and it can transform the results into values that would be equivalent to those obtained from manual measurements in programs such as FIJI ImageJ.
+
+Furthermore, the program also provides graphic data, such as binary images, indexed images or PascalVOC data, which would be useful for training AI models. 
+
 
 A tutorial can be found in [Use of the program](#use-of-the-program), and an explanation of the used functions, error correction, and optimization can be found in [Software Methodology](#software-methodology).
 
-
-
-The program takes the selected images, processes them until it gets individual worms as binary objects which can be measured via skeletonization, lets the user select which objects are worms, and presents the length results in a spreadsheet, as well as graphic data.
-
 <div align="center"> <img src="images/use_of_the_program/WM_summary.png" alt="Summary of the program usage" width="100%">  
 
-_Figure 2: Use of the program_
+_Figure 1: Use of the program_
 </div>
 
 ### Installation and requirements
@@ -61,7 +66,7 @@ The step-by-step installation will automatically download and install MATLAB Run
 <div align="center">
   <img src="images/use_of_the_program/WM_install.png" alt="Installation Process" width="60%">
   <br>
-  <em>Figure 1: WorMe installer that triggers the installation of MATLAB runtime R2021b</em>
+  <em>Figure 2: WorMe installer that triggers the installation of MATLAB runtime R2021b</em>
 </div>
 <br>
 
@@ -87,11 +92,11 @@ The use of WorMe is based in five continuous steps:
 → [Worm selection](#selection-panel): Select worm objects manually.<br>
 → [Results](#results-panel): Read and download the results (data and image objects). <br>
 
-For a fast tutorial, please refer to [Example of usage](#example-of-usage).
+For a fast tutorial, please refer to the repository's [README file](../README.md). For a video tutorial, please proceed to [Example of usage](#example-of-usage).
 
 ### Image selection
 
-The program is designed for compound microscopy images with standard proportions, but it can operate with different resolutions and different kinds of microscope images. 
+The program is designed for compound microscopy images with standard proportions, but it can operate with different resolutions and different kinds of microscope images. To change the selected images, the program must be restarted.
 
 > [!IMPORTANT]
 > Sometimes, an "Invalid or deleted object" error will appear due to exiting the program before going through all the steps. If the error persists when starting the program again, the easiest solution is to delete the `Documents/WorMe_Length_Results` folder.
@@ -113,11 +118,9 @@ However, the use of large resolution microscopy images (over 25000 x 25000 px) i
 #### Desired image quality
 The program can adapt to any image quality. Even so, it works best with images that are clear, with regular brightness and contrast, without dirt, and with separate worms that are not touching, coiled or tangled.
 
-Examples of desirable and undesirable images can be found below. Of course, as long as the worms in undesirable images are recognizable by the naked eye, they can still be measured manually within WorMe.
+Examples of desirable and undesirable images can be found below, in Tables 1 and 2, respectively. Of course, as long as the worms in undesirable images are recognizable by the naked eye, they can still be measured manually within WorMe.
 
 In the experimental design, one may consider using cleaning methods of the final plate before image adquisition, which would improve the image analysis step.  
-
-Examples of desired images, with a clean background, regular bright and non-cross objects:
 
 <div align="center">
 <table>
@@ -164,7 +167,7 @@ In the first step, the program will prompt the user to select the image or image
 
 <div align="center"> <img src="images/use_of_the_program/WM_scale.png" alt="Scale determination process"  width="55%">  
 
-_Figure 4: Scale determination options. The scale value is seen in the first two options to be 0.855 pixels per unit, which is the number to input for the last option._
+_Figure 3: Scale determination options. The input value for the first two options is 200. The scale value is seen in the first two options to be 0.855 pixels per unit, which is the number to input for the last option. The units, in this case, will be &mu;m._
 </div>
 
 > [!TIP]
@@ -172,13 +175,13 @@ _Figure 4: Scale determination options. The scale value is seen in the first two
 
 ### Image processing panel
 
-After setting the scale, WorMe shows the image processing panel, shown in the image below. In it, the user determines the modifications that will be done to all images. 
+After setting the scale, WorMe shows the image processing panel, shown in Figure 4 below. In it, the user determines the modifications that will be done to all images. 
 
 The aim of this panel is to isolate each worm as a binary object. This means applying the right filters until the background is black and the worms are white and separate from each other, and there are no other white areas. The white area is also known as a mask.
 
 <div align="center"> <img src="images/use_of_the_program/WM_processing.png" alt="Image Processing Panel" width="65%">
 
-_Figure 5: Image processing panel, with (1) Filters, (2) the main panel, (3) Processings and (4) Image Properties_
+_Figure 4: Image processing panel, with (1) Filters, (2) the main panel, (3) Processings and (4) Image Properties_
 </div>
 
 The panel consists of four sections:
@@ -198,7 +201,7 @@ The panel consists of four sections:
     - Modifications section: Lists the filters applied to get the current displayed image from the original image.
 4. Image properties: Shows which image is currently in display.
 
-Usually, selecting one of the sets of modifications present in the Saved section of Processings is enough to obtain a good modified image. For example, as seen in Figure 5, the first modification shows a modified image of Figure 3 which has a black background with all worms in white and no noise, besides the scale bar. This is a good modification, which will enable WorMe to get accurate length measurements.
+Usually, selecting one of the sets of modifications present in the Saved section of Processings is enough to obtain a good modified image. For example, as seen in Figure 4, the first modification shows a modified image of Table 1a) which has a black background with all worms in white and no noise, besides the scale bar. This is a good modification which will enable WorMe to get accurate length measurements.
 
 Sometimes, however, none of the modifications are good. This usually happens when attempting to analyse images that are not compound microscopy images. For example, fluorescence images tend to have black worms and white background, and stereomicroscopy images tend to miss worms due to differences in lighting at different parts of the image.
 
@@ -218,7 +221,7 @@ images of the same type. These can be imported with the import icon button.
 
 ### Selection panel
 
-After pressing the Analyse button, WorMe will show the selection panel, found in Figure 6 below. In it, the images are processed individually according to the earlier modifications. For each binary object, there is a skeletonization and branch reduction process, which is further explained in [Skeletonize and branch reduction](#skeletonize-and-branch-reduction), and the length of the resulting skeleton will represent the length of the worm. The user must assess each of the obtained binary objects.
+After pressing the Analyse button, WorMe will show the selection panel, found in Figure 5 below. In it, the images are processed individually according to the earlier modifications. For each binary object, there is a skeletonization and branch reduction process, which is further explained in [Skeletonize and branch reduction](#skeletonize-and-branch-reduction), and the length of the resulting skeleton will represent the length of the worm. The user must assess each of the obtained binary objects.
 
 The aim of this panel is to select the binary objects that correctly depict a worm, correct the objects that are worms but have incorrect skeletonization and reject the rest. 
 
