@@ -22,7 +22,7 @@ For bug reports and feature requests, please open an issue on the [GitHub issue 
 
 For code contributions, please fork the `main` branch, push your changes to your fork and create a pull request.
 
-Please feel free to create an issue if you have any questions or comments. Developers can be contacted at  (Josep Llobet)
+Please feel free to create an issue if you have any questions or comments. Developers can be contacted at alaromaine@icmab.es (Anna Laromaine).
 
 ----------------------------------------------------------------
 ## Files
