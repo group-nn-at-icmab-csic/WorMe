@@ -26,22 +26,11 @@ The program accepts multiple images as input, which can then be analysed collect
 
 WorMe is an open-source application implemented in *MATLAB version 9.11 (R2021b)* and deployed as an executable using MATLAB Runtime, so it can be installed and run without a licence. It provides automatic detection and measurement of the length of *C. elegans* from microscopy images. It consists of a linear set of pannels that correspond to image processing, worm selection and results.  
 
-**Option a)**
-First, the user must select the images to analyze. Then, the program will show the image processing panel, where the images are processed to isolate the worms as binary objects. The ideal processing would show a black background with white, separate worms.
-
-Afterwards, the program will show the worm selection panel. Here, the program will obtain a line along the center of each nematode by skeletonizing the binary objects. Then, the user can select the objects to measure. If a detected object is not a worm, it can be excluded from measurement. If the detection is incorrect, it can be cut, extended or a new binary object can be added by using the panel Tools. This panel is a feature that ensures the quality and reliability of the data, as the user can see what is being measured.
-
-Finally, the results panel will return a histogram of length results, which can be saved as a spreadsheet. Another important feature of the program is that it can account for manual error, which lets the user obtain results that are modified so they would be equivalent to those obtained from manual measurements in programs such as FIJI ImageJ.
-
-Furthermore, the program also provides graphic data, such as binary images, indexed images or PascalVOC data, which would be useful for training AI models. 
-
-**Option b)**
 WorMe takes the selected images and processes them until it gets individual worms as binary objects, which are skeletonized. Afterwards, the user selects which objects are worms, and the program measures the length of the skeletonization, which corresponds to the length of the worm. This manual selection ensures the quality and reliability of the data, as the user can see what is being measured.
 
 Then, the program presents the length measurements in a spreadsheet. In this step, the program can account for manual error, and it can transform the results into values that would be equivalent to those obtained from manual measurements in programs such as FIJI ImageJ.
 
-Furthermore, the program also provides graphic data, such as binary images, indexed images or PascalVOC data, which would be useful for training AI models. 
-
+Furthermore, the program also provides graphic data, such as binary images, indexed images or PascalVOC data, which would be useful for training Deep Learning models. 
 
 A tutorial can be found in [Use of the program](#use-of-the-program), and an explanation of the used functions, error correction, and optimization can be found in [Software Methodology](#software-methodology).
 
@@ -283,45 +272,40 @@ _Figure 6: Results panel_
 
 In this panel, the user can see a histogram which contains the length results, as well as the descriptive statistics of selected worms. This length data can be saved from the Export button in `.xls`, `.xlsx`, `.csv` or `.txt` format. Furthermore, there is an "Export manual error corrected data" checkbox which, when marked, will add manual error corrected data to the Export file. This correction allows the data to be compared to manually measured data from ImageJ or similar image analysis. More information can be found in [Manual length error correction](#manual-length-error-correction).
 
-Graphic data, which consists of Binary Images, Indexed Images and PascalVOC files from both accepted and discarded binary objects, can also be obtained from the Export Graphic Data button. This data can be useful for both _a posteriori_ object analysis as well as AI model development. More information can be found in [Image data for the analysis and deep learning use](#image-data-for-the-analysis-and-deep-learning-use). 
+Graphic data, which consists of Binary Images, Indexed Images and PascalVOC files from both accepted and discarded binary objects, can also be obtained from the Export Graphic Data button. This data can be useful for both _a posteriori_ worm morphology analysis as well as Deep Learning model development. More information can be found in [Image data for the analysis and deep learning use](#image-data-for-the-analysis-and-deep-learning-use). 
 
 > [!TIP]
 > The image processing parameters can be found at `Documents/WorMe_Length_Results/Results_out` with the date and hour of the analysis.
 
-#### Image data export
-?
-WorMe does not use artificial intelligence (AI) despite it is the state-of-the-art of the image processing and analysis. Many software are based on deep learning neural networks for the selection or identification of C. elegans in the images. Despite that, the program is consciousness about the data obtaintion and use for the creation of models, and it allows the user to export the graphical data in different formats (PascalVOC, label, binary, etc.) in order to be used for IA model building, among other types of analysis.
-
-As is usual, the program does not used to differentiate between coiled and joined worms. Some IA based softwares can approach this differentiation [1-4]. Despite that, the panel offer tools for manually separate and differentiate between two or more joined C. elegans or objects. 
-
-State of the art: Artificial intelligence: There is still much to do in C. elegans
-
-Many of the recent software use Deep Learning  (DL) as the basis for image processing. Despite of the it, there is still the necessity of good DL models for develop the image segregation, and to compile image segmented data in C. elegans is still a requirement. 
-
 ### Example of usage
 
-We share some set of _C.elegans_ microscopical examples images. These are [C24](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/examples/Example_images_C24), [C48](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/examples/Example_images_C48) and [C72](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/examples/Example_images_C72) worm images samples of their different growth.<br>
-Note the image tones are different between the sets of examples.  
+Three sets of _C. elegans_ microscopical example images have been provided in these repository. These are images at different stages of the nematodes' growth, and can be found at [C24](examples/Example_images_C24), [C48](examples/Example_images_C48) and [C72](examples/Example_images_C72).
 
+In each of these folders, you can also find three other files which were obtained after WorMe measurements:
+- `C_XX_length_results.csv`, for the worms' length results,
+- `C_XX_graphic_results.zip`, for image results,
+- `C_XX_parameters.txt`, for the scale values, image processment and selection tools used during the analysis.
 
-We are going to show an example of use the use of the WorMe program using the  [C48 example images](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/examples/Example_images_C48).  
+In this section, we present two different examples of the use of WorMe. A [graphic tutorial](#graphic-tutorial), which shows the analysis of the C48 example folder, and a [fast tutorial](#fast-tutorial), which explains the most basic usage of the WorMe program.
 
+#### Graphic tutorial
 <br>
 <p align="center"><strong><span style="font-size:18px;">Select the images</span></strong></p>
-First of all, we would select the images. The program doesn't load but just save the path of the images.<br>
+First, the user selects the images to analyze. The program will save the image paths.
 <p align="center">
   <img src="images/example_use/a1.gif" width="60%" />
 </p>
 
-<br>
 <p align="center"><strong><span style="font-size:18px;">Set the scale</span></strong></p>
 
-Then, we are going to set the scale. By do it, a way is to obtain the scale from measuring the scale bar.<br>
+Then, the user needs to set the scale. One way to do it is by tracing a line along the scale bar.
+
 <p align="center">
   <img src="images/example_use/a2.png" width="60%" />
 </p>
 
-In the program it is done in a set of steps:<br>
+This is done on a series of steps as follows:
+
 <p align="center">
   <img src="images/example_use/a3.gif" width="60%" />
 </p>
@@ -329,42 +313,65 @@ In the program it is done in a set of steps:<br>
 
 <br>
 <p align="center"><strong><span style="font-size:18px;">Configure the image modifications</span></strong></p>
-Once we have setted the scale, we are going to define the image configuration of the modification. We are going to set the parameters of image filters in order to obtain the final binary objects, which there will be the worms.<br>
-May be other objects in the image, but we will try to set the image in order to obtain the most clear binary image of the worms.<br>
-These binary objects will be the basis for the length analysis.<br>
+Once the scale is set, the image needs to be processed. This consists of applying filters until the background is black and the worms are white and separate from each other. The white areas will be binary objects, and these will be the basis for the length analysis.
+
+First, the user should check whether one of the Saved image processings works well for the selected images. If none do, the user should start a new processing and set the image filters manually.
 
 <p align="center">
   <img src="images/example_use/a4.gif" width="60%" />
 </p>
 
-
-<br>
 <p align="center"><strong><span style="font-size:18px;">Select the worms</span></strong></p>
-We are going to select manually the worms, and exclude or avoid these ones are not.<br>
+Next, the user will manually sort the binary objects according to whether they are a worm or not. In case a worm was not detected or it was detected wrongly, the Tools can edit the binary objects by:
+
+- Scissors: Cutting the object in two.
+- New Line: Adding a new object.
+- Extend Line: Lengthen the object.
+
+
 <p align="center">
   <img src="images/example_use/a6.gif" width="60%" />
 </p>
 
-
-<br>
 <p align="center"><strong><span style="font-size:18px;">Obtain the results</span></strong></p>
 
-We can obtain the length results of the selected worms in a numeric sheet (.xlsx file), with or without [the manual error bias correction](#manual-length-error-correction).<br>
-
-
+Then, the user can save the length results of the selected worms in a spreadsheet, as well as [the manual error bias correction](#manual-length-error-correction) values.
 
 <p align="center">
   <img src="images/example_use/a7.gif" width="60%" />
 </p>
 
-And we can obtain the image objects files, which may be useful for to analyse the morphology of the worms, and for the deep learning training models.<br>
+Furthermore, the user can obtain the binary objects files, which may be useful to analyse the morphology of the worms, or to train deep learning models.
 
 <p align="center">
   <img src="images/example_use/a8.gif" width="60%" />
 </p>
 
 
-<br>
+#### Fast tutorial
+
+There are five steps to use WorMe. 
+
+1. **Image selection**: Select the images to analyse. We will use this image as an example.
+<div align="center"> <img src="../examples/Example_images_C48/Image_972.jpg" alt="Image_972" width="70%">
+</div>
+
+> [!IMPORTANT]
+> Sometimes, an "Invalid or deleted object" error will appear due to exiting the program before going through all the steps. If the error persists when starting the program again, the easiest solution is to delete the `Documents/WorMe_Length_Results` folder.
+
+2. **Scale setting**: Set the measuring scale by selecting the scale bar. With "Select Automatically" the user must double click the scale bar and then input the displayed length number. In this example, it is 200.
+
+3. **Image processing**: Configure the image modifications. Select from the Saved options in Processings the one that shows the worms the best. In this case, we used `Modif_Example_4.txt`. Then, press Analyse.
+
+<div align="center"> <img src="images/use_of_the_program/WM_fastuse_1.png" alt="WM_fastuse_1" width="70%">
+</div>
+
+4. **Worm selection**: Select the worm objects manually. If the marked object is a worm, press the green checkmark. If it is not, the red cross. The Tools can modify the objects: the Scissors cut the current object in two, the New Object allows the user to trace a new object, and the Extend Object allows the user to lengthen the current object. Then, press Done.
+
+<div align="center"> <img src="images/use_of_the_program/WM_fastuse_2.png" alt="WM_fastuse_2" width="70%">
+</div>
+
+5. **Results**: Press the export button to save the data. Select the "Export manual error corrected data" if the data requires comparison with other manual methods of measurement such as ImageJ.
 
 
 ## Software Methodology
