@@ -58,6 +58,7 @@ There are five steps to use WorMe.
 > Sometimes, an "Invalid or deleted object" error will appear due to exiting the program before going through all the steps. If the error persists when starting the program again, the easiest solution is to delete the `Documents/WorMe_Length_Results` folder.
 
 2. **Scale setting**: Set the measuring scale by selecting the scale bar. With "Select Automatically" the user must double click the scale bar and then input the displayed length number. In this example, it is 200.
+
 3. **Image processing**: Configure the image modifications. Select from the Saved options in Processings the one that shows the worms the best. In this case, we used `Modif_Example_4.txt`. Then, press Analyse.
 
 <div align="center"> <img src="documentation/images/use_of_the_program/WM_fastuse_1.png" alt="WM_fastuse_1" width="70%">
