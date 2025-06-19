@@ -3,7 +3,7 @@ WorMe is a Software for *Caenorhabditis elegans* length determination.
 
 *Developed by Josep Llobet, documentation helped by Núria Garriga at Institut de Ciencia de Materials de Barcelona (ICMAB-CSIC)*
 
-[Group of Nanoparticles and Nanocomposites - ICMAB-CSIC](https://nn.icmab.es/)
+[Group of Nanoparticles and Nanocomposites - ICMAB-CSIC](https://nn.icmab.es/)  
 <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/Logos/logoNN.png" width="20%">
 
 
@@ -78,4 +78,8 @@ For a detailed tutorial please check out the [Use of the program](documentation/
 -------------------------------------------
 
 
+This project has been granted by the JAE Intro grant for the introduction of young pepople to the research, by the Ministerio de Ciencia, Innovacion y Universidades ([ciencia.gov.es](https://www.ciencia.gob.es/)) y el Consejo Superior de Investigaciones Científicas ([CSIC](https://www.csic.es/es)).  
+<p align="center">
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/Logos/jae.png" width="30%">
+</p>
 
