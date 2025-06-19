@@ -5,12 +5,9 @@ WorMe is a software for the *Caenorhabditis elegans* length determination.
   <img src="Length_determination/Images_resources/Logo_WorMe.png"  width="50%" alt="WorMe icon">  
 </p>
 
-MATLAB code based, free of license use, and easy to install.
-<h2 align="center">
-  <a href="https://github.com/group-nn-at-icmab-csic/WorMe/releases">Download</a>
-</h2>
-
-
+<p align="center">
+  <strong><a href="https://github.com/group-nn-at-icmab-csic/WorMe/releases">Download</a></strong>
+</p>
 
 For detailed documentation please check out the [User Manual](documentation/worme_manual.md).  
 
