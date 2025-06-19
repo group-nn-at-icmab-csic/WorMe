@@ -11,8 +11,9 @@ MATLAB code based, free of license use, and easy to install.
 </p>
 
 <h2 align="center">
-  <strong><a href="https://github.com/group-nn-at-icmab-csic/WorMe/releases">Download</a></strong>
+  <strong><a href="https://github.com/group-nn-at-icmab-csic/WorMe/releases" style="text-decoration:none; color: inherit;">Download</a></strong>
 </h2>
+
 
 
 For detailed documentation please check out the [User Manual](documentation/worme_manual.md).  
