@@ -5,6 +5,7 @@
 
 [Introduction](#introduction)  
 [Software description, use and features](#software-description-use-and-features)  
+[Installation](#installation)  
 [Use of the program](#use-of-the-program)   
 [Example of usage](#example-of-usage)  
 [Software Methodology](#software-methodology)  
@@ -39,7 +40,7 @@ A tutorial can be found in [Use of the program](#use-of-the-program), and an exp
 _Figure 1: Use of the program_
 </div>
 
-### Installation and requirements
+## Installation
 
 WorMe is a MATLAB based software that **does not require a MATLAB licence**. It can be easily installed and executed in one of these two options:  
 - Install as local software from the [executable file](https://github.com/group-nn-at-icmab-csic/WorMe/releases) (.exe). This does not require a MATLAB licence, because the program is compiled.
@@ -47,7 +48,7 @@ WorMe is a MATLAB based software that **does not require a MATLAB licence**. It 
 
 The program requires at least 4GB of available disk space, as well as a Windows Operating System. 
 
-#### Installation and use from the executable (.exe)
+### Installation and use from the executable (.exe)
 
 WorMe Length determination can be **easily installed from the [executable file](https://github.com/group-nn-at-icmab-csic/WorMe/releases)** as a local software in Windows. **It does not require a MATLAB licence**.  
 The step-by-step installation will automatically download and install MATLAB Runtime R2021b (9.11) and WorMe Length determination as system software. [MATLAB Runtime](https://mathworks.com/products/compiler/matlab-runtime.html) is a collection of the libraries required to run MATLAB aplications, in this case WorMe Length determination.
@@ -59,7 +60,7 @@ The step-by-step installation will automatically download and install MATLAB Run
 </div>
 <br>
 
-#### Installation and use from the source code 
+### Installation and use from the source code 
 
 The program can also be used by by running the main script [`WM_length_determination.m`](https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/Length_determination/WM_length_determination.m) in MATLAB version R2021b or greater. However, a MATLAB licence is required.  
 
