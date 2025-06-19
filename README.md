@@ -1,15 +1,6 @@
 # WorMe
 WorMe is a software for the *Caenorhabditis elegans* length determination.
 
-*Developed by Josep Llobet, documentation helped by Núria Garriga, leaded by Anna Laromaine, at Institut de Ciencia de Materials de Barcelona (ICMAB-CSIC)*
-
-[Group of Nanoparticles and Nanocomposites - ICMAB-CSIC](https://nn.icmab.es/)  
-<img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/Logos/logoNN.png" width="20%">
-<p align="center">
-  <img src="Length_determination/Images_resources/Logo_WorMe.png"  width="50%" alt="WorMe icon">  
-</p>
-
-
 For detailed documentation please check out the [User Manual](documentation/worme_manual.md).
 
 
@@ -17,6 +8,15 @@ For detailed documentation please check out the [User Manual](documentation/worm
 
 Please cite our publication describing this software as follows:
 
+----------------------------------------------------------------
+
+*Developed by Josep Llobet, documentation helped by Núria Garriga, leaded by Anna Laromaine, at Institut de Ciencia de Materials de Barcelona (ICMAB-CSIC)*
+
+[Group of Nanoparticles and Nanocomposites - ICMAB-CSIC](https://nn.icmab.es/)  
+<img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/Logos/logoNN.png" width="20%">
+<p align="center">
+  <img src="Length_determination/Images_resources/Logo_WorMe.png"  width="50%" alt="WorMe icon">  
+</p>
 ----------------------------------------------------------------
 
 ## Contributing, Reporting Issues and Support
