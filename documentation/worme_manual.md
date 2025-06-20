@@ -446,7 +446,25 @@ The funcions in the modification pannel are descrived in the information source 
 `imbinarize()`:   asdf  
 `imbinarize()`:   asdf  
 
+<p align="right">
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/Logos/Matlab_Logo.png" width="15%">
+</p>
 
+
+<div style="overflow: auto;">
+  <div style="float: left; width: 80%;">
+    <pre style="margin: 0;">
+`imbinarize()`:   asdf  
+`imbinarize()`:   asdf  
+`imbinarize()`:   asdf  
+`imbinarize()`:   asdf  
+`imbinarize()`:   asdf  
+    </pre>
+  </div>
+  <div style="float: right; width: 15%;">
+    <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/Logos/Matlab_Logo.png" width="100%">
+  </div>
+</div>
 
 
 
@@ -456,10 +474,6 @@ The funcions in the modification pannel are descrived in the information source 
 </p>
 <p align="center">
   <em>Fig 6. Selection of the regions of interest (worms) of the initial image. </em>
-</p>
-
-<p align="right">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/Logos/Matlab_Logo.png" width="15%">
 </p>
 
 
