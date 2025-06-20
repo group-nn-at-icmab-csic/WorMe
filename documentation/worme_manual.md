@@ -472,13 +472,11 @@ The implementation of the functions in the program has been tested and adapted t
 
 Once the worm binary object is obtained, in order to obtain its length the image is skeletonized, then the branches are pruned to obtain the main length, and then the endpoints are extended. By this operations, we went from a binary object to have their main central line, which is analogue at the manual drawed one.
 
-The skeletonization is the reduction from the binary object to a line. It is achieved by gradually reducing the surroundings of the image until achieves a line. In MATLAB it is developed by the `bwskel()` function [10].
+The skeletonization is the reduction from the binary object to a line. It is achieved by gradually reducing the surroundings of the image until achieves a line. In MATLAB it is developed by the `bwskel()` function [10]. In the program, the main function that develops the skeletonization and obtain the length of the worm object is `esqueletonitzacio_josep_optim()`.  
 
 The prune of the short branches in the skeleton image is developed by the own made function `large_skel_iter()`. This returns the main branch from a skeletonized object.
 
 Finally, because the skeletonization endpoints used to not touch the borders of the object, a function was created for lengthen the lines from endpoints to the object. This function was the `extendre_skel_estes_nou()` in the program. This allows to approximate the measure from the head to the tail of the C. elegans.
-
-Softwares like WormSizer and AnliLength [] describe the development of the function to prune and extend the skeletonized image.
 
 <div align="center"> <img src="images/WM_branch_reduction.png" alt="Image Processing Panel" width="70%"> </div>
 
@@ -487,7 +485,7 @@ Softwares like WormSizer and AnliLength [] describe the development of the funct
 #### Endline elongation
 Before we figure out about the [manual length error](#manual-length-error-correction), in order to slightly improve the length measurement,  the start and finals of the reduced-skeletonized line was elongated to the final of the obect.  
 The final skeletonized line obatined from the worm image doesnt reach the finals of the ROi, of the worms. We thought at first it was the cause of the [difference between manual measurement and software](#manual-length-error-correction). In consequence, in order to accurate as much as we could the measurement, we incorporate functions that elongate the final of the measurement line.  
-The functionalities are developed in the functions (ççç).
+As is said, this function is developed by the function  `extendre_skel_estes_nou()`, inside the `esqueletonitzacio_josep_optim()`.  
 
 <div align="center">
   <img src="images/branch2.png" alt="Image 1" width="45%" style="margin-right: 2%;">
