@@ -22,8 +22,9 @@ Please cite our publication describing this software as follows:
 
 *Developed by Josep Llobet, documentation helped by Núria Garriga, leaded by Anna Laromaine, at Institut de Ciencia de Materials de Barcelona (ICMAB-CSIC)*
 
-[Group of Nanoparticles and Nanocomposites - ICMAB-CSIC](https://nn.icmab.es/)  
-<img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/Logos/logoNN.png" width="20%">
+<p align="center">
+  <a href="https://nn.icmab.es/">Group of Nanoparticles and Nanocomposites</a> – <a href="https://icmab.es">Institute of Material Science of Barcelona (ICMAB-CSIC)</a>
+</p>
 
 
 <p align="center">
