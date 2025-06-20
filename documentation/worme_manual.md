@@ -378,7 +378,7 @@ There are five steps to use WorMe.
 ## Software Methodology
 
 
-[Image and data processing](#image-and-data-processing) 
+[Image and data processing](#image-and-data-processing)  
 [Skeletonize and branch reduction](#image-and-data-processing)  
 [Endline elongation](#image-and-data-processing)  
 [Length determination](#image-and-data-processing)  
