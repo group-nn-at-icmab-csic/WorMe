@@ -425,12 +425,6 @@ In order to obtain a single region of the image (Region of Interest: ROi), we fi
   <em>Fig 5. Example of a Region of Interest. </em>
 </p>
 
-<p align="center">
-  <img src="images/Process_imatge/img3.png" width="60%" />
-</p>
-<p align="center">
-  <em>Fig 6. Selection of the regions of interest (worms) of the initial image. </em>
-</p>
 
 On this matrix we can operate easily, and we can finally reduce our parts of interest (worms), in order to obtain the pixels which configurate it and, in our case, obtain the length of the figures.  
 
@@ -445,7 +439,29 @@ The processing of the images is developed by the user in modification panel. Ima
 
 #### Image processing using MATLAB tools
 The image processing functions are part of the [MATLAB Image Processing Toolbox](https://es.mathworks.com/products/image-processing.html), and the [MATLAB Computer Vision Toolbox](https://es.mathworks.com/products/computer-vision.html).  
-The funcions in the modification pannel are descrived in the information source of it. Some of these functions are ... 
+The funcions in the modification pannel are descrived in the information source of it. Some of these functions are:
+`imbinarize()`:   asdf  
+`imbinarize()`:   asdf  
+`imbinarize()`:   asdf  
+`imbinarize()`:   asdf  
+`imbinarize()`:   asdf  
+
+
+
+
+
+
+<p align="center">
+  <img src="images/Process_imatge/img3.png" width="60%" />
+</p>
+<p align="center">
+  <em>Fig 6. Selection of the regions of interest (worms) of the initial image. </em>
+</p>
+
+<p align="right">
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/Logos/Matlab_Logo.png" width="15%">
+</p>
+
 
 
 ### Skeletonize and branch reduction
