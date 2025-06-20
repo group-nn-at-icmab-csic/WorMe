@@ -379,12 +379,13 @@ There are five steps to use WorMe.
 
 
 [Image and data processing](#image-and-data-processing)  
-[Skeletonize and branch reduction](#image-and-data-processing)  
-[Endline elongation](#image-and-data-processing)  
-[Length determination](#image-and-data-processing)  
-[Manual length error correction](#image-and-data-processing)  
-[Image data](#image-and-data-processing)  
-[Computational optimization](#image-and-data-processing)
+[Skeletonize and branch reduction](#skeletonize-and-branch-reduction)  
+[Endline elongation](#endline-elongation)  
+[Length determination](#length-determination)  
+[Manual length error correction](#manual-length-error-correction)  
+[Image data](#image-data)  
+[Computational optimization](#computational-optimization)
+
 
 
 
