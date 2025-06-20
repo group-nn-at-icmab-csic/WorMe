@@ -49,13 +49,13 @@ Please feel free to create an issue if you have any questions or comments. Devel
 
 * LICENSE: license file, please read.
 
-* /Length_determination/: Folder containing the source code for the WorMe length determination software
+* /Length_determination/: Source code for the WorMe length determination software
 
-* /documentation/: Folder containing the User Manual
+* /documentation/: User Manual
 
-* /paper/: Folder containing the paper submitted to JOSS journal
+* /paper/: Paper submitted to JOSS journal
 
-* /examples/: Folder containing example images for length determination
+* /examples/: Example images and results
 
 -----------------------------------------
 
