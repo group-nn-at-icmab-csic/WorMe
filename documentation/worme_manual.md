@@ -471,11 +471,11 @@ The implementation of the functions in the program has been tested and adapted t
 
 Once the worm binary object is obtained, in order to obtain its length the image is skeletonized, then the branches are pruned to obtain the main length, and then the endpoints are extended. By this operations, we went from a binary object to have their main central line, which is analogue at the manual drawed one.
 
-The skeletonization is the reduction from the binary object to a line. It is achieved by gradually reducing the surroundings of the image until achieves a line. In MATLAB it is developed by the bwskel() function [10].
+The skeletonization is the reduction from the binary object to a line. It is achieved by gradually reducing the surroundings of the image until achieves a line. In MATLAB it is developed by the `bwskel()` function [10].
 
-The prune of the short branches in the skeleton image is developed by the own made function large_skel_iter(). This returns the main branch from a skeletonized object.
+The prune of the short branches in the skeleton image is developed by the own made function `large_skel_iter()`. This returns the main branch from a skeletonized object.
 
-Finally, because the skeletonization endpoints used to not touch the borders of the object, a function was created for lengthen the lines from endpoints to the object. This function was the extendre_skel_estes_nou() in the program. This allows to approximate the measure from the head to the tail of the C. elegans.
+Finally, because the skeletonization endpoints used to not touch the borders of the object, a function was created for lengthen the lines from endpoints to the object. This function was the `extendre_skel_estes_nou()` in the program. This allows to approximate the measure from the head to the tail of the C. elegans.
 
 Softwares like WormSizer and AnliLength [] describe the development of the function to prune and extend the skeletonized image.
 
