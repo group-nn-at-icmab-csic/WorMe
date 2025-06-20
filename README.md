@@ -74,8 +74,11 @@ There are five steps to use WorMe.
 <div align="center"> <img src="examples/Example_images_C48/Image_972.jpg" alt="Image_972" width="70%">
 </div>
 
+<!--
 > [!IMPORTANT]
 > Sometimes, an "Invalid or deleted object" error will appear due to exiting the program before going through all the steps. If the error persists when starting the program again, the easiest solution is to delete the `Documents/WorMe_Length_Results` folder.
+-->
+
 
 2. **Scale setting**: Set the measuring scale by selecting the scale bar. With "Select Automatically" the user must double click the scale bar and then input the displayed length number. In this example, it is 200.
 
