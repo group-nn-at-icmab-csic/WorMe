@@ -278,6 +278,7 @@ Graphic data, which consists of Binary Images, Indexed Images and PascalVOC file
 > [!TIP]
 > The image processing parameters can be found at `Documents/WorMe_Length_Results/Results_out` with the date and hour of the analysis.
 
+
 ### Example of usage
 
 Three sets of _C. elegans_ microscopical example images have been provided in these repository. These are images at different stages of the nematodes' growth, and can be found at [C24](examples/Example_images_C24), [C48](examples/Example_images_C48) and [C72](examples/Example_images_C72).
@@ -484,7 +485,8 @@ Softwares like WormSizer and AnliLength [] describe the development of the funct
 
 
 #### Endline elongation
-Before we figure out about the (manual error bias)[#manual-length-error-correction], in order to slightly improve the length measurement, the elongation of the final line in the reduced-skeletonized line was developed. As result of skeletonization and branch reduction, the final lines doesn't reach the real final of the worm periphery. This might cause a slighlty deviation in the measurement. In order to accurate as much as we could the measurement, we incorporate functions that elongate the final of the measurement line.
+Before we figure out about the [manual length error](#manual-length-error-correction), in order to slightly improve the length measurement,  the start and finals of the reduced-skeletonized line was elongated to the final of the obect.  
+The final skeletonized line obatined from the worm image doesnt reach the finals of the ROi, of the worms. We thought at first it was the cause of the [difference between manual measurement and software](#manual-length-error-correction). In consequence, in order to accurate as much as we could the measurement, we incorporate functions that elongate the final of the measurement line.  
 The functionalities are developed in the functions (ççç).
 
 <div align="center">
