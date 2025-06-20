@@ -482,6 +482,7 @@ Finally, because the skeletonization endpoints used to not touch the borders of 
 
 ççç: explicar fonament d'skeletonization?
 ççç Branch reduction: Veure la funcio que vaig treure branch reduction (D'un autor, a citar).  
+The length obtantion is based from the skeletonized line, in the function `esqueletonitzacio_josep_optim()`.
 
 
 
@@ -515,20 +516,24 @@ This function is developed by the function  `extendre_skel_estes_nou()`, inside 
 
 
 
+
 ### Length determination
 
-The main objective of the progarm is to automatically determine the length of *C. elegans*.  
-The length measurement came from a start in a manual way, where using progarms like ImageJ [5] a polyline line was drawn from the tail to the head of C. elegans, or reverse, going through the middle of the body in as much accurate way possible.  
-WorMe is based in the middle line automatically generated from the ROi worm mask object. This allows to draw a line theorically more accurate than manual.  
-The development of the program was based in the manual measurements comparison, and it was the basis to check and validate the software methodology.  
+The main objective of the progarm is automatically determine the length of *C. elegans*.  
+The manual length of *C.elegans* can be obtained using ImageJ [5], drawing manually a polyline from the tail to the head of C. elegans going through the middle of the worm as much accurate as it is possible.  
+WorMe performs an analog line drawing methodology for the length determination of the worms. In WorMe, a line is automatically obatined from the head to the tail of the worm mask object. This allows to obatin an theorically more accurate line than manually obtained.  
 
 <p align="center">
   <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/comparisons/Fiji_vs_WorMe.png" width="70%">
 </p>
 
 
-The length of the worm in ImageJ is defined from the sum of the Euclidean distance of the dotted points descrived in the manually drawing process through the worm.  
-When the line is traced automatically in WorMe, length distance of *C. elegans* can be calculated as the sum of the Euclidean points (used in bias correction, see: [Manual length error correction](#manual-length-error-correction)).
+The length of the worm in ImageJ is defined as the sum of the Euclidean distance of the dotted points descrived in the manually drawing process through the worm.  
+
+(imatge de distancia entre pixels ççç)  
+
+
+The length in WorMe is based also in the Euclidean points, but in this case every pixel in the line is a point to consider in the length determination. The difference of number of points give a slightly measurement bias between WorMe and ImageJ (used in bias correction, see: [Manual length error correction](#manual-length-error-correction)).  
 
 (imatge Fiji dibuixar pixels?)  
 
@@ -537,21 +542,26 @@ Eucledian distance:
 <div align="center"> <img src="https://github.com/user-attachments/assets/e8926716-39b0-4de9-b299-8ab3f117f81d" alt="image-20230801-155918" width="40%"> </div>
 
 
-
-The distance of the total of pixels is developed also as Eucledian pixels, but the algorithm has been summarized obatining the distance between each pixel next to the other, in a one-pixel-width line (1 for vertical or $\sqrt{2}$ in diagonal). Using the normal Euclidean distance or the infered distance from pixels, both ways obvey the Euclidean principle and the distance is the same:
+In order to simplify and optimize the algorithm, the distance between pixels is obtained directly from the infered Euclidean principle distance of pixels, bein 1 for vertical or horizontal pixels, or $\sqrt{2}$ in the diagonal ones.
 
 <p align="center">
   <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/comparisons/i1.png" width="30%">
 </p>
 Reference: [MATLAB - Distance Transform of a Binary Image](https://es.mathworks.com/help/images/distance-transform-of-a-binary-image.html?lang=en)
 
+Once the pixel-level distance is obtained, it is divided by the scale ratio, in order to obtain the empirical measurement of the worm.  
+<br>
 
-The length obtantion is based from the skeletonized line, in the function `esqueletonitzacio_josep_optim()`.
+The main formula for obtain the distance is in `esqueletonitzacio_josep_optim()`, and the length is obtained through the `llargada_josep()` formula, and the corrected length (see: [Manual length error correction](#manual-length-error-correction)) which uses Eucledian distance, in 'llargada_josep_Fiji()'.
+
+
 
 
 
 ### Manual length error correction
 These numbers are less accurate than the regular WorMe results, but may be useful to compare them to manual length measurements.
+
+The development of the program was based in the manual measurements comparison, and it was the basis to check and validate the software methodology.  
 
 
 Between the manual length and the pixel line length is used to there is a substantial difference, being the pixel length measure slightly higher. This is because of the lack of measurement in curved worms when their manual length is developed. The difference exist because the pixels between the pixel line describes a long distance than the two points of the manual annotation.
