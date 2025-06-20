@@ -476,16 +476,15 @@ The skeletonization is the reduction from the binary object to a line. It is ach
 
 The prune of the short branches in the skeleton image is developed by the own made function `large_skel_iter()`. This returns the main branch from a skeletonized object.
 
-Finally, because the skeletonization endpoints used to not touch the borders of the object, a function was created for lengthen the lines from endpoints to the object. This function was the `extendre_skel_estes_nou()` in the program. This allows to approximate the measure from the head to the tail of the C. elegans.
+Finally, because the skeletonization endpoints used to not touch the borders of the object, a function was created for lengthen the lines from endpoints to the object (see: [Endline elongation](#endline-elongation)).
 
 <div align="center"> <img src="images/WM_branch_reduction.png" alt="Image Processing Panel" width="70%"> </div>
 
 
 
 #### Endline elongation
-Before we figure out about the [manual length error](#manual-length-error-correction), in order to slightly improve the length measurement,  the start and finals of the reduced-skeletonized line was elongated to the final of the obect.  
-The final skeletonized line obatined from the worm image doesnt reach the finals of the ROi, of the worms. We thought at first it was the cause of the [difference between manual measurement and software](#manual-length-error-correction). In consequence, in order to accurate as much as we could the measurement, we incorporate functions that elongate the final of the measurement line.  
-As is said, this function is developed by the function  `extendre_skel_estes_nou()`, inside the `esqueletonitzacio_josep_optim()`.  
+Before we figure out about the [manual length error](#manual-length-error-correction), in order to approximate the measure from the head to the tail of the C. elegans, the start and finals of the reduced-skeletonized line was elongated to the final of the object, beacuse in the skeletonization the lines doesnt reach the finals.    
+This function is developed by the function  `extendre_skel_estes_nou()`, inside the `esqueletonitzacio_josep_optim()`.  
 
 <div align="center">
   <img src="images/branch2.png" alt="Image 1" width="45%" style="margin-right: 2%;">
