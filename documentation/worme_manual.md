@@ -518,8 +518,7 @@ The length measurement came from a start in a manual way, where using progarms l
 WorMe is based in the middle line automatically generated from the ROi worm mask object. This allows to draw a line theorically more accurate than manual.  
 The development of the program was based in the manual measurements comparison, and it was the basis to check and validate the software methodology.  
 
-(imatge manual vs imatge WorMe? ççç)  
-
+<img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/comparisons/Fiji_vs_WorMe_BO.png" width="50%">
 
 
 The length of the worm in ImageJ is defined from the sum of the Euclidean distance of the dotted points descrived in the drawing process. In contast, when the line is traced automatically, length distance of *C. elegans* can be calculated also as the sum of the Euclidean points, in this case, between each pixel next to the other, in a one-pixel-width line.  
