@@ -451,23 +451,6 @@ The funcions in the modification pannel are descrived in the information source 
 </p>
 
 
-<div style="overflow: auto;">
-  <div style="float: left; width: 80%;">
-    <pre style="margin: 0;">
-`imbinarize()`:   asdf  
-`imbinarize()`:   asdf  
-`imbinarize()`:   asdf  
-`imbinarize()`:   asdf  
-`imbinarize()`:   asdf  
-    </pre>
-  </div>
-  <div style="float: right; width: 15%;">
-    <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/Logos/Matlab_Logo.png" width="100%">
-  </div>
-</div>
-
-
-
 
 <p align="center">
   <img src="images/Process_imatge/img3.png" width="60%" />
