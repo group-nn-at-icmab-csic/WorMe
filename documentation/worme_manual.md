@@ -450,12 +450,12 @@ Some of the image functions mainly used in the progarm are:
 `imfill()`:   Automatically fills the binary objects, allowing the analysis of that ones.  
 
 These functions are executed in the `processament_imatge_llistat` funcion in the program, which works based in the descrived list from Processment pannel of image modification and its values.  
-The implementation of the functions in the program has been tested and adapted to the *C. elegans* microscopical images. Numerous test has been developed in order to accurate the optimus functions and their configuration for the kind of images and its ROi. For example, most of the functions has been adapted to percentual values from the image, not by unique numerical values, in order to adapt the processment to the user images.  
 
 <p align="right">
   <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/Logos/Matlab_Logo.png" width="15%">
 </p>
 
+The implementation of the functions in the program has been tested and adapted to the *C. elegans* microscopical images. Numerous test has been developed in order to accurate the optimus functions and their configuration for the kind of images and its ROi. For example, most of the functions has been adapted to percentual values from the image, not by unique numerical values, in order to adapt the processment to the user images.  
 
 
 <p align="center">
