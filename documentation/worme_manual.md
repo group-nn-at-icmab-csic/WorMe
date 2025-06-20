@@ -377,6 +377,17 @@ There are five steps to use WorMe.
 
 ## Software Methodology
 
+
+[Image and data processing](#image-and-data-processing) 
+[Skeletonize and branch reduction](#image-and-data-processing)  
+[Endline elongation](#image-and-data-processing)  
+[Length determination](#image-and-data-processing)  
+[Manual length error correction](#image-and-data-processing)  
+[Image data](#image-and-data-processing)  
+[Computational optimization](#image-and-data-processing)
+
+
+
 ### Image and data processing
 
 WorMe is based in MATLAB, and uses a wide range of image processing tools which allows to easily visualize and analyse the image in a fast and optimized way, as well as the data treatment.  
@@ -526,7 +537,7 @@ We figure out the bias was because of this length methodology of measurement. Wh
 
 (grafic distancia per pixel)
 
-### Image data for the analysis and deep learning use
+### Image data
 
 Finally the program visualize the set of length measurement data, and allows to export it. It includes also the option to export the data based in the manual error correction (see XXX). The program also provides the binary object data and other data that may be golden standard for deep learning models.
 
