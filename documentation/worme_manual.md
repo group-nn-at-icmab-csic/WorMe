@@ -514,11 +514,11 @@ The functionalities are developed in the functions (ççç).
 
 ### Length determination
 
- The length determination of the C. elegans in the image is the main objective of the program.
+The determination of the length of C. elegans in the image is the main objective of the program. We have the aim to automatize the hand-drawed length of *C. elegans*. Because of that, the program main objective is to draw a line throughout the worm in its center in order to obtain the length from it.  
 
-When the measure of the length is made by manually, using programs like ImageJ [5], usually a polyline is described from the tail to the head of C. elegans, or reverse, going through the middle of the body if possible. The length of the worm is defined from the sum of the Euclidean distance of the points (formula X).
+When the measure of the length is made by manually, using programs like ImageJ [5], usually a polyline is described from the tail to the head of C. elegans, or reverse, going through the middle of the body if possible. The length of the worm in ImageJ is defined from the sum of the Euclidean distance of the dotted points descrived in the drawing process.  
 
-When, in difference, the line is traced throughout the body of the worm, like the line obtained from the skeletonization, the length distance of C. elegans can be calculated also as the sum of the Euclidean points, in this case, between each pixel next to the other, in a one-pixel-width line.
+When, in difference, the line is traced throughout the body of the worm, like the line obtained from the skeletonization, the length distance of C. elegans can be calculated also as the sum of the Euclidean points, in this case, between each pixel next to the other, in a one-pixel-width line. This generate a difference. ççç
 
 (Descriure la funció en el codi del programa)
 
