@@ -513,16 +513,24 @@ This function is developed by the function  `extendre_skel_estes_nou()`, inside 
 
 ### Length determination
 
-The determination of the length of C. elegans in the image is the main objective of the program. We have the aim to automatize the hand-drawed length of *C. elegans*. Because of that, the program main objective is to draw a line throughout the worm in its center in order to obtain the length from it.  
+The main objective of the progarm is to automatically determine the length of *C. elegans*.  
+The length measurement came from a start in a manual way, where using progarms like ImageJ [5] a polyline line was drawn from the tail to the head of C. elegans, or reverse, going through the middle of the body in as much accurate way possible.  
+WorMe is based in the middle line automatically generated from the ROi worm mask object. This allows to draw a line theorically more accurate than manual.  
+The development of the program was based in the manual measurements comparison, and it was the basis to check and validate the software methodology.  
 
-When the measure of the length is made by manually, using programs like ImageJ [5], usually a polyline is described from the tail to the head of C. elegans, or reverse, going through the middle of the body if possible. The length of the worm in ImageJ is defined from the sum of the Euclidean distance of the dotted points descrived in the drawing process.  
+(imatge manual vs imatge WorMe? ççç)  
 
-When, in difference, the line is traced throughout the body of the worm, like the line obtained from the skeletonization, the length distance of C. elegans can be calculated also as the sum of the Euclidean points, in this case, between each pixel next to the other, in a one-pixel-width line. This generate a difference. ççç
+
+
+The length of the worm in ImageJ is defined from the sum of the Euclidean distance of the dotted points descrived in the drawing process. In contast, when the line is traced automatically, length distance of *C. elegans* can be calculated also as the sum of the Euclidean points, in this case, between each pixel next to the other, in a one-pixel-width line.  
+
+<div align="center"> <img src="https://github.com/user-attachments/assets/e8926716-39b0-4de9-b299-8ab3f117f81d" alt="image-20230801-155918" width="40%"> </div>
+
+
+This generate a difference. ççç
 
 (Descriure la funció en el codi del programa)
 
-
-<div align="center"> <img src="https://github.com/user-attachments/assets/e8926716-39b0-4de9-b299-8ab3f117f81d" alt="image-20230801-155918" width="40%"> </div>
 
 
 
