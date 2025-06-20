@@ -28,8 +28,8 @@ Please cite our publication describing this software as follows:
 
 
 <p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/Logos/logoNN.png" width="20%">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/Logos/icmab.jpg" width="20%">
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/Logos/logoNN.png" width="20%">&nbsp;&nbsp;
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/Logos/icmab.jpg" width="20%">&nbsp;&nbsp;
   <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/Logos/csic.png" width="20%">
 </p>
 
