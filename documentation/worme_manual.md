@@ -438,13 +438,19 @@ The processing of the images is developed by the user in modification panel. Ima
 
 
 #### Image processing using MATLAB tools
-The image processing functions are part of the [MATLAB Image Processing Toolbox](https://es.mathworks.com/products/image-processing.html), and the [MATLAB Computer Vision Toolbox](https://es.mathworks.com/products/computer-vision.html).  
-The funcions in the modification pannel are descrived in the information source of it. Some of these functions are:
-`imbinarize()`:   asdf  
-`imbinarize()`:   asdf  
-`imbinarize()`:   asdf  
-`imbinarize()`:   asdf  
-`imbinarize()`:   asdf  
+The image processing functions used in the program are part of the MATLAB Toolboxes. For the image processment and analysis, the toolboxes [MATLAB Image Processing Toolbox](https://es.mathworks.com/products/image-processing.html), and the [MATLAB Computer Vision Toolbox](https://es.mathworks.com/products/computer-vision.html) offered a wide, useful and optimized variety of image processment and analysis functions.  
+Some of the image functions mainly used in the progarm are:  
+`imcrop()`:   Allows to easily cut the image from specific coordinates. This may help to opearte and select the objects and ROi.  
+`im2gray()`:   Automatically converts the RGB image into grayscale.  
+`imadjust()`:   Automatically adjust and normalize the greyscale values of the image.  
+`imbinarize()`:   Binarize the image from a threshold, which may be statistically determined.  
+`bwareaopen()`:   Allows to easy and fast cleaning of the small objects in the image.  
+`imopen()` and `imclose()`:   Allows to reduce or expand the binarized objects, in order to reduce or increase their properties (ex: worm tail and profile).  
+`imclearborder()`:   Automatically deletes the objects that touch the edges of the image.  
+`imfill()`:   Automatically fills the binary objects, allowing the analysis of that ones.  
+
+These functions are executed in the `processament_imatge_llistat` funcion in the program, which works based in the descrived list from Processment pannel of image modification and its values.  
+The implementation of the functions in the program has been tested and adapted to the *C. elegans* microscopical images. Numerous test has been developed in order to accurate the optimus functions and their configuration for the kind of images and its ROi. For example, most of the functions has been adapted to percentual values from the image, not by unique numerical values, in order to adapt the processment to the user images.  
 
 <p align="right">
   <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/Logos/Matlab_Logo.png" width="15%">
