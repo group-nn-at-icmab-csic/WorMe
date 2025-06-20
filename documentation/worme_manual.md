@@ -519,7 +519,7 @@ WorMe is based in the middle line automatically generated from the ROi worm mask
 The development of the program was based in the manual measurements comparison, and it was the basis to check and validate the software methodology.  
 
 <p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/comparisons/Fiji_vs_WorMe_BO.png" width="70%">
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/comparisons/Fiji_vs_WorMe.png" width="70%">
 </p>
 
 
