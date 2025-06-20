@@ -480,6 +480,10 @@ Finally, because the skeletonization endpoints used to not touch the borders of 
 
 <div align="center"> <img src="images/WM_branch_reduction.png" alt="Image Processing Panel" width="70%"> </div>
 
+ççç: explicar fonament d'skeletonization?
+ççç Branch reduction: Veure la funcio que vaig treure branch reduction (D'un autor, a citar).  
+
+
 
 
 #### Endline elongation
@@ -523,15 +527,26 @@ The development of the program was based in the manual measurements comparison, 
 </p>
 
 
-The length of the worm in ImageJ is defined from the sum of the Euclidean distance of the dotted points descrived in the drawing process. In contast, when the line is traced automatically, length distance of *C. elegans* can be calculated also as the sum of the Euclidean points, in this case, between each pixel next to the other, in a one-pixel-width line.  
+The length of the worm in ImageJ is defined from the sum of the Euclidean distance of the dotted points descrived in the manually drawing process through the worm.  
+When the line is traced automatically in WorMe, length distance of *C. elegans* can be calculated as the sum of the Euclidean points (used in bias correction, see: [Manual length error correction](#manual-length-error-correction)).
+
+(imatge Fiji dibuixar pixels?)  
+
+Eucledian distance:  
 
 <div align="center"> <img src="https://github.com/user-attachments/assets/e8926716-39b0-4de9-b299-8ab3f117f81d" alt="image-20230801-155918" width="40%"> </div>
 
 
-This generate a difference. ççç
 
-(Descriure la funció en el codi del programa)
+The distance of the total of pixels is developed also as Eucledian pixels, but the algorithm has been summarized obatining the distance between each pixel next to the other, in a one-pixel-width line (1 for vertical or $\sqrt{2}$ in diagonal). Using the normal Euclidean distance or the infered distance from pixels, both ways obvey the Euclidean principle and the distance is the same:
 
+<p align="center">
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/comparisons/i1.png" width="30%">
+</p>
+Reference: [MATLAB - Distance Transform of a Binary Image](https://es.mathworks.com/help/images/distance-transform-of-a-binary-image.html?lang=en)
+
+
+The length obtantion is based from the skeletonized line, in the function `esqueletonitzacio_josep_optim()`.
 
 
 
@@ -564,6 +579,12 @@ We analyse the way distance was obtained in manual drawing, seeing the distance 
 We figure out the bias was because of this length methodology of measurement. When we develop the euclediant distance every a certain number of pixels throughout the computer-drawn line we had a proportional dismiss of the error which made the data statistically the same. We find the difference was almost non-significant when the distance was almost 5 pixels difference between points.
 
 (grafic distancia per pixel)
+
+
+'llargada_josep_Fiji()' obatins the length of the skeletonize applying the manual factor correction. In the program, it is 5, which means 5 pixels every each point.  
+`llargada_josep()` obtains the length of the skeletonize image for every pixel.  
+Both 
+
 
 ### Image data
 
