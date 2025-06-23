@@ -561,11 +561,9 @@ In order to simplify and optimize the algorithm, the distance between pixels is 
 
 <p align="center">
   <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/comparisons/i1.png" width="30%">
+  <br>
+  <em>Reference: <a href="https://es.mathworks.com/help/images/distance-transform-of-a-binary-image.html?lang=en">MATLAB: Distance Transform of a Binary Image</a></em>
 </p>
-
-<br>
-Reference:
-[MATLAB: Distance Transform of a Binary Image](https://es.mathworks.com/help/images/distance-transform-of-a-binary-image.html?lang=en)  
 
 
 <p align="center">
