@@ -709,7 +709,7 @@ PascalVOC is a .xml file which may be useful for the identification by bounding 
 <p align="center">
   <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/example_use/969_PascalVOC.png" width="50%">
       <br>
-  <em> Pascal VOC file. </em>  
+  <em> Pascal VOC file. Rounded the bounding box coordinate. </em>  
 </p>
 
 
