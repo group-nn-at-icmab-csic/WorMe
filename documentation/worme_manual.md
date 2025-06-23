@@ -716,8 +716,10 @@ PascalVOC is a .xml file which may be useful for the identification by bounding 
 #### Examples of graphic export
 
 <br>
-You can find examples of exported graphic data in [examples/Example_images_C24/C_24_graphic_results.zip](https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/examples/Example_images_C24/C_24_graphic_results.zip), [examples/Example_images_C48/C_48_graphic_results.zip](https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/examples/Example_images_C48/C_48_graphic_results.zip), [examples/Example_images_C72/C_72_graphic_results.zip](https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/examples/Example_images_C72/C_72_graphic_results.zip).
-
+You can find examples of exported graphic data in 
+<a href="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/examples/Example_images_C24/C_24_graphic_results.zip">examples/Example_images_C24/C_24_graphic_results.zip</a>, 
+<a href="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/examples/Example_images_C48/C_48_graphic_results.zip">examples/Example_images_C48/C_48_graphic_results.zip</a>, 
+<a href="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/examples/Example_images_C72/C_72_graphic_results.zip">examples/Example_images_C72/C_72_graphic_results.zip</a>.
 
 
 
