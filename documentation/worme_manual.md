@@ -649,6 +649,7 @@ WorMe does not use artificial intelligence (AI) despite it is the state-of-the-a
 
 <p align="center">
   <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/example_use/Image_969.jpg" width="50%">
+  <br>
   <em> Image example </em>
 </p>
 
