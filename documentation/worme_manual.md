@@ -536,7 +536,10 @@ The length of the worm in ImageJ is defined as the sum of the Euclidean distance
 
 The length in WorMe is based also in the Euclidean points, but in this case every pixel in the line is a point to consider in the length determination. The difference of number of points give a slightly measurement bias between WorMe and ImageJ (used in bias correction, see: [Manual length error correction](#manual-length-error-correction)).  
 
-(imatge Fiji dibuixar pixels?)  
+<p align="center">
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/comparisons/2025_06_23_Comparison%20images%20Documentation.png" width="40%">
+</p>
+
 
 Eucledian distance:  
 
