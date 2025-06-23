@@ -526,24 +526,27 @@ WorMe performs an analog line drawing methodology for the length determination o
 
 The length of the worm in ImageJ is defined as the sum of the Euclidean distance of the dotted points descrived in the manually drawing process through the worm.  
 
+
+<p align="center">
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/comparisons/2025_06_23_Comparison%20images%20Documentation.png" width="85%">
+</p>
+
 <p align="center">
   <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/comparisons/Example_Fiji.png" width="40%">
   <br>
   <em>Measurement with polyline using ImageJ</em>
 </p>
 
+<p align="center">
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/comparisons/img_ex_2.png" width="65%">
+    <br>
+  <em> Skeletonized and elonged line from a C.elegans mask using WorMe.</em>
+</p>
+
 
 
 The length in WorMe is based also in the Euclidean points, but in this case every pixel in the line is a point to consider in the length determination. The difference of number of points give a slightly measurement bias between WorMe and ImageJ (used in bias correction, see: [Manual length error correction](#manual-length-error-correction)).  
 
-<p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/comparisons/2025_06_23_Comparison%20images%20Documentation.png" width="65%">
-</p>
-
-
-<p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/comparisons/dist_img_skel_BO.png" width="65%">
-</p>
 
 
 
@@ -559,8 +562,16 @@ In order to simplify and optimize the algorithm, the distance between pixels is 
 <p align="center">
   <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/comparisons/i1.png" width="30%">
 </p>
+
+<br>
 Reference:
 [MATLAB: Distance Transform of a Binary Image](https://es.mathworks.com/help/images/distance-transform-of-a-binary-image.html?lang=en)  
+
+
+<p align="center">
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/comparisons/dist_img_skel_BO.png" width="65%">
+</p>
+
 
 Once the pixel-level distance is obtained, it is divided by the scale ratio, in order to obtain the empirical measurement of the worm.  
 <br>
