@@ -585,13 +585,13 @@ To compare the results of the software with the manual ones was the main way to 
 <br>
 Curiously, we find the measurements was similar in some worms and not in others, without a simply shape difference between them.  
 <p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/comparisons/comparison1_BO.png" width="75%">
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/comparisons/comparison1_BO.png" width="100%">
 </p>
 
 We analysed the measurements noy just in worms but in straight drawed lines. First we analysed horizontal, vertical and diagonal lines, and the programa didn't give us bias with it. This struggles us because we validate the measurements with the software with this kind of control but not with empirical worm images. That fact made us to find the way to improve the software analysis of the image to find the possible causes, in example we thought that bias was due to the [endline elongation](#endline-elongation).  
 
 <p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/comparisons/comparison3_BO.png" width="70%">
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/comparisons/comparison3_BO.png" width="100%">
 </p>
 
 
@@ -599,7 +599,7 @@ We analysed the measurements noy just in worms but in straight drawed lines. Fir
 When we change the main validation control developed by lines, adding polylines, we saw there was difference between the measurements, and we research on it.  
 
 <p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/comparisons/comparison2_BO.png" width="75%">
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/comparisons/comparison2_BO.png" width="100%">
 </p>
 
 We find that in ImageJ the manual length obtantion is made from a drawed polyline. The distance in this case is obtained throught the Eucledian distance between these dotted points. We figure out that exist a difference if the distance in a line is obtained thorught every pixel (which was our case), or if it is obtained every certain pixels.  
@@ -612,16 +612,15 @@ We saw if we drawed a polyline with our software the results was very similar, b
 Then we probe to obtain the distance from every certain pixels, in order to automatically emulate the manual measurement. We probe different distances, and conclude that if the measurement was made from the eucledian distance from every 5 pixels in the line of the worm, we obtained values like the ones obtained from the manual measurements. We conclude, this correction was made by 
 
 
-A short study showing the difference of results is described in Results - Manual error.
 
 <p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/comparisons/comparison5_BO.png" width="75%">
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/comparisons/comparison5_BO.png" width="100%">
 </p>
 
 Finally, we conclude if the bias manual error correction was applied, which means to measure the same line every 5 pixels, emulating the manual measurement, the measures was same as the manually obatined through ImageJ and we could validate the length obtaintion of the software.  
 
 <p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/comparisons/comparison4_BO.png" width="75%">
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/comparisons/comparison4_BO.png" width="100%">
 </p>
 
 <br> 
