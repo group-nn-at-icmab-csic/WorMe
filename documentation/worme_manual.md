@@ -449,6 +449,7 @@ Some of the image functions mainly used in the progarm are:
 `imopen()` and `imclose()`:   Allows to reduce or expand the binarized objects, in order to reduce or increase their properties (ex: worm tail and profile).  
 `imclearborder()`:   Automatically deletes the objects that touch the edges of the image.  
 `imfill()`:   Automatically fills the binary objects, allowing the analysis of that ones.  
+`bwskel()`: Skeletonization of the binary image. Useful for to obtain the main central line of *C. elegans*.
 
 These functions are executed in the `processament_imatge_llistat` funcion in the program, which works based in the descrived list from Processment pannel of image modification and its values.  
 
@@ -479,11 +480,6 @@ The prune of the short branches in the skeleton image is developed by the own ma
 Finally, because the skeletonization endpoints used to not touch the borders of the object, a function was created for lengthen the lines from endpoints to the object (see: [Endline elongation](#endline-elongation)).
 
 <div align="center"> <img src="images/WM_branch_reduction.png" alt="Image Processing Panel" width="70%"> </div>
-
-ççç: explicar fonament d'skeletonization?
-ççç Branch reduction: Veure la funcio que vaig treure branch reduction (D'un autor, a citar).  
-The length obtantion is based from the skeletonized line, in the function `esqueletonitzacio_josep_optim()`.
-
 
 
 
