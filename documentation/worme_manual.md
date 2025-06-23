@@ -660,17 +660,21 @@ Binary objects may be useful for the object analysis and also for the segmentati
 **Individual masks**
 <p align="center">
   <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/example_use/Image_969_01.png" width="50%">
-  <em> Binary mask 1 </em>
+  <br>
+  <em> Binary mask 1.</em>
 </p>
 <p align="center">
   <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/example_use/Image_969_02.png" width="50%">
-  <em> Binary mask 2 </em>
+  <br>
+  <em> Binary mask 2.</em>
 </p>
 
 
 **Joined masks**
 <p align="center">
   <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/example_use/Image_969_Joined.png" width="50%">
+  <br>
+  <em> Joined masks.</em>
 </p>
 
 <br>
@@ -679,6 +683,8 @@ The use of the binary objects is wide. We can see, for example, easily the width
 
 <p align="center">
   <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/width_BO.png" width="80%">
+    <br>
+  <em> Width analysis from binary object. </em>  
 </p>
 
 
@@ -691,6 +697,8 @@ We offer two types of idnexed images, where the value of the object is singular 
 
 <p align="center">
   <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/example_use/Image_969_label.png" width="50%">
+      <br>
+  <em> Indexed objects. </em>  
 </p>
 
 #### Pascal VOC
@@ -699,6 +707,8 @@ PascalVOC is a .xml file which may be useful for the identification by bounding 
 
 <p align="center">
   <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/example_use/969_PascalVOC.png" width="50%">
+      <br>
+  <em> Pascal VOC file. </em>  
 </p>
 
 
