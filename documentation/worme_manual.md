@@ -541,6 +541,12 @@ The length in WorMe is based also in the Euclidean points, but in this case ever
 </p>
 
 
+<p align="center">
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/comparisons/dist_img_skel_BO.png" width="65%">
+</p>
+
+
+
 <div align="center">
   <img src="https://github.com/user-attachments/assets/e8926716-39b0-4de9-b299-8ab3f117f81d" alt="image-20230801-155918" width="40%">
   <br>
