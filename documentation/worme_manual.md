@@ -517,6 +517,11 @@ This function is developed by the function  `extendre_skel_estes_nou()`, inside 
 
 The main objective of the progarm is automatically determine the length of *C. elegans*.  
 The manual length of *C.elegans* can be obtained using ImageJ [5], drawing manually a polyline from the tail to the head of C. elegans going through the middle of the worm as much accurate as it is possible.  
+<br>
+
+The function in which the length is obtained is in `esqueletonitzacio_josep_optim()`. Length is obtained thorugh the function `llargada_josep()`, and the corrected length (see: [Manual length error correction](#manual-length-error-correction)), from `llargada_josep_Fiji()`.  
+<br>
+
 WorMe performs an analog line drawing methodology for the length determination of the worms. In WorMe, a line is automatically obatined from the head to the tail of the worm mask object. This allows to obatin an theorically more accurate line than manually obtained.  
 
 <p align="center">
@@ -557,7 +562,7 @@ The length in WorMe is based also in the Euclidean points, but in this case ever
 </div>
 
 
-In order to simplify and optimize the algorithm, the distance between pixels is obtained directly from the infered Euclidean principle distance of pixels, bein 1 for vertical or horizontal pixels, or $\sqrt{2}$ in the diagonal ones.
+In order to simplify and optimize the algorithm, the distance between pixels is obtained directly from the infered Euclidean principle distance of pixels, bein 1 for vertical or horizontal pixels, or $\sqrt{2}$ in the diagonal ones (See: `llargada_josep()` function).
 
 <p align="center">
   <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/comparisons/i1.png" width="30%">
@@ -573,10 +578,6 @@ In order to simplify and optimize the algorithm, the distance between pixels is 
 
 Once the pixel-level distance is obtained, it is divided by the scale ratio, in order to obtain the empirical measurement of the worm.  
 <br>
-
-The main formula for obtain the distance is in `esqueletonitzacio_josep_optim()`, and the length is obtained through the `llargada_josep()` formula, and the corrected length (see: [Manual length error correction](#manual-length-error-correction)) which uses Eucledian distance, in 'llargada_josep_Fiji()'.
-
-
 
 
 
