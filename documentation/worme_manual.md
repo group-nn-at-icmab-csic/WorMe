@@ -623,9 +623,12 @@ Finally, we conclude if the bias manual error correction was applied, which mean
   <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/comparisons/comparison4_BO.png" width="100%">
 </p>
 
+
+The images made for the validation can be founded in [Worme/examples](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/examples), and the results of the Fiji measurements and their analysis with the correction can be founded in the folder [documentation/Comparison_studies/Fiji_vs_WM](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/documentation/Comparison_studies/Fiji_vs_WM).
+
 <br> 
 
-In WorMe, 'llargada_josep_Fiji()' obatins the length of the skeletonize applying the manual factor correction. In the program, it is 5, which means 5 pixels every each point.  
+In WorMe, `llargada_josep_Fiji()` obatins the length of the skeletonize applying the manual factor correction. In the program, it is 5, which means 5 pixels every each point.  
 `llargada_josep()` obtains the length of the skeletonize image for every pixel. Both are in the main function of length and skeletonization from the mask image `esqueletonitzacio_josep_optim()`.  
 
 <br>
