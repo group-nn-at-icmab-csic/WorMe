@@ -55,9 +55,9 @@ A more detailed explanation as well as examples of use can be found in the user 
 
 # Acknowledgements
 
-We acknowledge financial support from the Spanish Government through the Becas de introducción a la investigación JAE Intro in CSIC institutes grants awarded to Josep Llobet Lladó and Núria Garriga-Alonso.
+We acknowledge discussions with Dra. Amanda Muñoz, Dra. Sirvasan Sumithra, Dr. Nico Dix, Dr. Pablo Guardia, M.D. Miriam Vidal, Dr. Eduardo Soudah (CIMNE), Dr. Jordi Faraudo (ICMAB), Dr. Vinod Thalakkatukalathil, Dr. Pol Alonso, Dr. Dmytro Kukhtar, Laura Sancho,	Diego Esteban Peñas, (el french guy de Nanomol amic Laura), Dr. Martí Gich, Dra. Anna Roig, Dr. Thomas Meslier, the JEDI Academy UPC-FIB teachers. Also, mainly all the N&N group and the ICMAB institution for the discussion and support.
 
-We acknowledge discussions with Dr. XX and Dr. XXX.
+This project has been supported for the Spanish Government through the Becas de introducción a la investigación JAE Intro in CSIC institutes grants awarded to Josep Llobet Lladó and Núria Garriga-Alonso, by which we want to express our gratitude.
 
 
 # References
