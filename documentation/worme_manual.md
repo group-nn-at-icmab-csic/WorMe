@@ -637,17 +637,71 @@ In WorMe, `llargada_josep_Fiji()` obatins the length of the skeletonize applying
 
 ### Image data
 
-Finally the program visualize the set of length measurement data, and allows to export it. It includes also the option to export the data based in the manual error correction (see XXX). The program also provides the binary object data and other data that may be golden standard for deep learning models.
+WorMe provides image data useful to be used as golden standard for deep learning models, or for the object analysis.  
 
-WorMe does not use artificial intelligence (AI) despite it is the state-of-the-art of the image processing and analysis. Many software are based on deep learning neural networks for the selection or identification of C. elegans in the images. Despite that, the program is consciousness about the data obtaintion and use for the creation of models, and it allows the user to export the graphical data in different formats (PascalVOC, label, binary, etc.) in order to be used for IA model building, among other types of analysis.
+WorMe does not use artificial intelligence (AI) despite it is the state-of-the-art of the image processing and analysis. Many software are based on deep learning neural networks for the selection or identification of *C. elegans* in the images. Despite that, the program is consciousness about the data obtaintion and use for the creation of models, and it allows the user to export the graphical data in different formats (PascalVOC, label, binary, etc.) in order to be used for IA model building, and also for the object analysis (width, shape, etc.).
 
-As is usual, the program does not used to differentiate between coiled and joined worms. Some IA based softwares can approach this differentiation [1-4]. Despite that, the panel offer tools for manually separate and differentiate between two or more joined C. elegans or objects. 
+<p align="center">
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/example_use/asdf.png" width="30%">
+</p>
 
- 
+<br>
 
-State of the art: Artificial intelligence: There is still much to do in C. elegans
 
-Many of the recent software use Deep Learning  (DL) as the basis for image processing. Despite of the it, there is still the necessity of good DL models for develop the image segregation, and to compile image segmented data in C. elegans is still a requirement. 
+#### Binary objects
+Binary objects may be useful for the object analysis and also for the segmentation models in deep learning. The program offers the option to export these objects for the user to analyse or use it.  
+
+**Individual masks**
+<p align="center">
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/example_use/Image_969_01.png" width="50%">
+</p>
+<p align="center">
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/example_use/Image_969_02.png" width="50%">
+</p>
+
+
+**Joined masks**
+<p align="center">
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/example_use/Image_969_Joined.png" width="50%">
+</p>
+
+<br>
+
+The use of the binary objects is wide. We can see, for example, easily the width of the worm, in different parts of it, or in some regions. Some other research base the shape of the worm to determin the phenotype, among other. The option to use the binary object opens an outlook of possibilities.  
+
+<p align="center">
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/width_BO.png" width="80%">
+</p>
+
+
+
+#### Indexed images
+
+Indexed images may be useful for the deep learning model creations. Some of the model uses this kind of images in order to create the model.  
+We offer two types of idnexed images, where the value of the object is singular for every object, or they have the same one. 
+
+
+<p align="center">
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/example_use/Image_969_label.png" width="50%">
+</p>
+
+#### Pascal VOC
+
+PascalVOC is a .xml file which may be useful for the identification by bounding boxes deep learning model creation, among others. Is for this reason that we include it in the graphic export.  
+
+<p align="center">
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/example_use/969_PascalVOC.png" width="50%">
+</p>
+
+
+#### Examples of graphic export
+
+<br>
+You can find examples of exported graphic data in [examples/Example_images_C24/C_24_graphic_results.zip](https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/examples/Example_images_C24/C_24_graphic_results.zip), [examples/Example_images_C48/C_48_graphic_results.zip](https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/examples/Example_images_C48/C_48_graphic_results.zip), [examples/Example_images_C72/C_72_graphic_results.zip](https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/examples/Example_images_C72/C_72_graphic_results.zip).
+
+
+
+
 
 ### Computational optimization
 
