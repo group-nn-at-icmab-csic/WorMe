@@ -642,10 +642,16 @@ WorMe provides image data useful to be used as golden standard for deep learning
 WorMe does not use artificial intelligence (AI) despite it is the state-of-the-art of the image processing and analysis. Many software are based on deep learning neural networks for the selection or identification of *C. elegans* in the images. Despite that, the program is consciousness about the data obtaintion and use for the creation of models, and it allows the user to export the graphical data in different formats (PascalVOC, label, binary, etc.) in order to be used for IA model building, and also for the object analysis (width, shape, etc.).
 
 <p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/example_use/asdf.png" width="30%">
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/example_use/asdf.png" width="18%">
 </p>
 
 <br>
+
+<p align="center">
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/example_use/Image_969.jpg" width="50%">
+  <em> Image example </em>
+</p>
+
 
 
 #### Binary objects
@@ -654,9 +660,11 @@ Binary objects may be useful for the object analysis and also for the segmentati
 **Individual masks**
 <p align="center">
   <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/example_use/Image_969_01.png" width="50%">
+  <em> Binary mask 1 </em>
 </p>
 <p align="center">
   <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/example_use/Image_969_02.png" width="50%">
+  <em> Binary mask 2 </em>
 </p>
 
 
