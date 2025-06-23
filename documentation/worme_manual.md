@@ -526,7 +526,12 @@ WorMe performs an analog line drawing methodology for the length determination o
 
 The length of the worm in ImageJ is defined as the sum of the Euclidean distance of the dotted points descrived in the manually drawing process through the worm.  
 
-(imatge de distancia entre pixels ççç)  
+<p align="center">
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/comparisons/Example_Fiji.png" width="40%">
+  <br>
+  <em>Measurement with polyline using ImageJ</em>
+</p>
+
 
 
 The length in WorMe is based also in the Euclidean points, but in this case every pixel in the line is a point to consider in the length determination. The difference of number of points give a slightly measurement bias between WorMe and ImageJ (used in bias correction, see: [Manual length error correction](#manual-length-error-correction)).  
