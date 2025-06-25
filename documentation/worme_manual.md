@@ -419,14 +419,15 @@ Regions of Interest (RoI) are regions in the image which contain worms. In order
 <div align="center">
   <img src="images/methodology/process/img5.png" width="60%" />
 
-_Figure 11:_
+_Figure 11: Example Region of Interest_
 </div>
 
+From this binary matrix, it is easy to isolate the RoIs or worms as binary objects. Furthermore, it allows us to operate easily, so we can modify these objects as needed. 
 
-On this matrix we can operate easily, and we can finally reduce our parts of interest (worms), in order to obtain the pixels which configurate it and, in our case, obtain the length of the figures.  
+On this binary matrix we can operate easily. This allows us to determine which pixels correspond to RoIs in order to isolate them into binary objects. Then, their morphological properties like length, circularity, area, etc. can be analysed.
 
 <div align="center">
-  <img src="images/methodology/process/img7.png" width="40%" />
+  <img src="images/methodology/process/img7.png" width="60%" />
 
 _Figure 12:_
 </div>
@@ -449,7 +450,7 @@ Some of the image functions mainly used in the progarm are:
 `imfill()`:   Automatically fills the binary objects, allowing the analysis of that ones.  
 `bwskel()`: Skeletonization of the binary image. Useful for to obtain the main central line of *C. elegans*.
 
-These functions are executed in the `processament_imatge_llistat` funcion in the program, which works based in the descrived list from Processment pannel of image modification and its values.  
+These functions are executed in the `processament_imatge_llistat` function in the program, which works based in the descrived list from Processment pannel of image modification and its values.  
 
 <div align="right">
   <img src="images/Logos/Matlab_Logo.png" width="15%">
