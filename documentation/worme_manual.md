@@ -9,7 +9,6 @@
 [Use of the program](#use-of-the-program)   
 [Example of usage](#example-of-usage)  
 [Software Methodology](#software-methodology)  
-[Comparison to ImageJ and WorMachine](#comparison-to-imagej-and-wormachine)  
 
 <br>
 
@@ -215,7 +214,7 @@ After pressing the Analyse button, WorMe will show the selection panel, found in
 
 The aim of this panel is to select the binary objects that correctly depict a worm, correct the objects that are worms but have incorrect skeletonization and reject the rest. 
 
-The manual selection is time consuming, but it ensures the quality of the measurement data, as the user is aware of what is being measured and how. Furthermore, the computational time of the process has been optimized by working with indexated data, which can be seen in [Computational optimization](#computational-optimization).
+The manual selection is time consuming, but it ensures the quality of the measurement data, as the user is aware of what is being measured and how. Furthermore, the computational time of the process has been optimized by working with indexated data, which can be seen in [Data architecture and computational optimization](#data-architecture-and-computational-optimization).
 
 <div align="center"> <img src="images/use_of_the_program/WM_selection.png" alt="Image Selection Panel" width="65%">
 
@@ -385,7 +384,8 @@ There are five steps to use WorMe.
 [Length determination](#length-determination)  
 [Manual length error correction](#manual-length-error-correction)  
 [Image data](#image-data)  
-[Computational optimization](#computational-optimization)
+[Data architecture and computational optimization](#data-architecture-and-computational-optimization)
+
 
 
 
@@ -724,7 +724,7 @@ You can find examples of exported graphic data in <br>
 
 
 
-### Computational optimization
+### Data architecture and computational optimization
 
 WorMe is a user-based designed software. This implyes that the time in the use of the program must be short, not having many delaying in the use of it.  
 The image processment and image data analysis is a process that have a considerable computational times of consume. This means that, for example, in the operation of an image and its analysis (example: opening the image with the function `imread()`, or binarizing a whole image by `imbinarize()`, etc.) the computer is going to need time to computational develop the task. The time consumption also happen with the data save and open. The program’s computational operation has been optimized in order to rely a good timing in the processment and analysis of the image and objecs, and in the time of using by the user. We had to continously consider the software architecture and the data and image acquisition and operation in order to develop a program which process would have a short time of computational consume.  
@@ -749,6 +749,10 @@ Most of the functions using the program are MATLAB already made. We use the MATL
 </p>
 
 
+The result is that in 8Gb RAM i5 CPU the elapsed time for a main object processment in the selection panel is 0,03 seconds (← approximate, must validate).
+
+In the selection panel the whole image is processed and their objects are isolated in a MATLAB file, saved in as indexed coordinates because of the computational optimization. For every object the skeletonization and operation is developed and showed, and the selection done by the user is saved. 
+
 
 #### Image analysis and processment
 
@@ -762,31 +766,31 @@ The program develop the analysis individually of every image, in the moment the 
 A big concern about the timings in the use of the program was the RAM consumption, and secondarly the disk memory use. The program just save the rutes of the images in the `theFiles` variable of the main script. All the data is saved in the `Results_out` folder, in the folder of the program if it is used from MATLAB Desktop, or in Documents if the software used is the executable file (compiled one). In `Results_out` folder the `Internal_code_files` folder save the image modifications data, and then from a `date_folder_of_image_names` folder is saved the defined scale (`escala_imatge.mat`), the processment parameters (in the folder `Processment_parameters`), and the main file and most important is the `main_data_analysis.txt`.  
 The `main_data_analysis.txt` is the file in which the data of the images are saved. The acquisition and operation to this file was fully optimized in order to obtain good use of the program timings.  
 The function `llegir_dades()` is the one used for the reading of the `main_data_analysis.txt` file, where every position is a kind of data (if it is C. elegans, the worm name, length, bounding box coordinates, modifications developed, index of the skeleton, index of the mask (BW), width values, etc.).  
-ççç
+
+<p align="center">
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/Process_imatge/a2fin.png" width="80%">
+</p>
+<br>
+
+As logic in image software, WorMe doesn't save the images as local data in the program, otherwise the RAM memory would be full and the computer would delay considerably. Because of this reason, the program saves all the data in local files, and adquire the information from this physical files, in order to not collapse the RAM memory.  
+<br>
+
+
+##### Work with indexes
+WorMe, as a result of a redesign in a improved and optimized computation in the software architecture of the program, operates the image processment, acquisition and operation, among many functions, by indexes. Index is the location of the pixel in the image, in a linear way (not in axial *x* and *y* coordinadtes, but every pixel has a linear value (1, 2, 3...)).  
+The use with indexes is the operation basis of many of the MATLAB developed or non-MATLAB developed in order to operate in a fast and optimized way.   
+The program in a strart used to work opening and saving the analysed images physically, or in the RAM memory. This concerned a big data memory use, and a big delay in the use of the program. The use of indexes for to save, open and operate with the images is highly useful.  
+The indexation is just done in the binary images. By this way, we just save the data that we need, which are the positions of the mask, and we do it in a region of the main image.  
+
+<p align="center">
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/indexed.png" width="100%">
+    <br>
+  <em> Indexation of a binary image. </em>  
+</p>
+
 
 
 Note: The data of the program is saved in a `.txt` file and not in a `.mat` file for unkdnowledge. Functions for the `.txt` optimized writting was developed, but lately we saw the save of the data in a `.mat` file was more easy and optimized, but the software structure was already settled and we chose to not change it.  
-
-
-#### Work with indexes
-The program in a strart used to work opening and saving the analysed images, which concerns a big data memory use, and the 
-
-
-
-
-
-The result is that in 8Gb RAM i5 CPU the elapsed time for a main object processment in the selection panel is 0,03 seconds (← approximate, must validate).
-
-In the selection panel the whole image is processed and their objects are isolated in a MATLAB file, saved in as indexed coordinates because of the computational optimization. For every object the skeletonization and operation is developed and showed, and the selection done by the user is saved. 
-
-
-WorMe works using the rute of the selected images (in the code: *theFiles* variable). The image data is saved in a , and saves the main data of images and analysis in physical files.  
-ççç explicar els passos i com es guarden les dades.
-
-
-
-
-
 
 
 
