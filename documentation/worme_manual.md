@@ -624,7 +624,7 @@ Finally, we conclude if the bias manual error correction was applied, which mean
 </p>
 
 
-The images made for the validation can be founded in [Worme/examples](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/examples), and the results of the Fiji measurements and their analysis with the correction can be founded in the folder [documentation/Comparison_studies/Fiji_vs_WM](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/documentation/Comparison_studies/Fiji_vs_WM).
+The images made for the validation can be founded in [Worme/examples](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/examples), and the results of the Fiji measurements and their analysis with the correction can be founded in the folder [documentation/Comparison_studies/Fiji_vs_WM](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/documentation/Comparison_studies/Fiji_vs_WM). You can also find the exportation file of prove for the distance of the pixel validation in the [documentation/Comparison_studies/Pixel_dist_bias_proves](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/documentation/Comparison_studies/Pixel_dist_bias_proves) folder.
 
 <br> 
 
@@ -726,11 +726,40 @@ You can find examples of exported graphic data in <br>
 
 ### Computational optimization
 
-The program’s computational operation has been optimized in order to rely a good timing in the processment and analysis of the image and objecs, and in the time of using by the user.
+WorMe is a user-based designed software. This implyes that the time in the use of the program must be short, not having many delaying in the use of it.  
+The image processment and image data analysis is a process that have a considerable computational times of consume. This means that, for example, in the operation of an image and its analysis (example: opening the image with the function `imread()`, or binarizing a whole image by `imbinarize()`, etc.) the computer is going to need time to computational develop the task. The time consumption also happen with the data save and open. The program’s computational operation has been optimized in order to rely a good timing in the processment and analysis of the image and objecs, and in the time of using by the user. We had to continously consider the software architecture and the data and image acquisition and operation in order to develop a program which process would have a short time of computational consume.  
+Softwares like WormMachine are fully user optimized, but some other programs like WormAlign made the user to wait to the processment and analysis of the full stuck of the images.  
 
-Computational optimization has been a must in the development of the program because of its proper use. Many of the image processing and data handling functions have been optimized, making the program work with indexed image data and disk-storage, among other strategies (See more information in Annex: XXX).
 
-Most of the functions using the program are MATLAB, and we used it as possible because they are per se fully optimized.
+<br>
+An useful function in MATLAB is the `tic`and `toc` functions to obtain the time of a process.  
+
+<p align="center">
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/Elapsed_times.png" width="25%">
+</p>
+<br>
+
+Most of the functions using the program are MATLAB already made. We use the MATLAB functions as much as we can because they are per se fully optimized functions. Example of them are `imbinarize()`, `imread()`, `imopen()`, and so many other functions.  
+
+#### Image analysis and processment
+
+One of the main time-consuming process in the software is the acquisition, operation and analysis of the images. For example, in a 8Gb RAM i5 CPU (2022) computer the time of consumption for open a image using `imread()`function, is 0,03 seconds, develop the `im2gray()` function 0,002 seconds, `imbrinarize()` 0,03 seconds, etc.  
+This time consuming when is punctually applied doesn't cause a sum of delaying times, but when they are stack applyied, the conumption times are summed and there is a big time delaying. For this reason, the program has reduced as much as possible the use of some functions. One example is the opening and save of the image.  
+WorMe works with the rute of the files. In the main script `WM_length_determination.m` the variable `theFiles` is saved and used thorughout the program, which contains the rutes of the selected images. In the selection and processment, WorMe develop the functions individually to the mask objects (see: [Work with indexes](#work-with-indexes).   
+The program develop the analysis individually of every image, in the moment the user select the function (modify, manually select, etc.). By this way, the functions are individually developed, implying singular functions and short times.  
+
+#### RAM consumption and memory save
+A big concern about the timings in the use of the program was the RAM consumption, and secondarly the disk memory use. The program does not save the image files.
+
+
+#### Work with indexes
+The program in a strart used to work opening and saving the analysed images, which concerns a big data memory use, and the 
+
+
+**Save and data acquisition**  
+One 
+ççç main data analysis
+
 
 The result is that in 8Gb RAM i5 CPU the elapsed time for a main object processment in the selection panel is 0,03 seconds (← approximate, must validate).
 
@@ -741,7 +770,7 @@ WorMe works using the rute of the selected images (in the code: *theFiles* varia
 ççç explicar els passos i com es guarden les dades.
 
 
-## Comparison to ImageJ and WorMachine
+
 
 
 
