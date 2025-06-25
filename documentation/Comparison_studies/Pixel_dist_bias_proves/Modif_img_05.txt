@@ -1,0 +1,7 @@
+Ordre proces;Tipus proces
+1;Im2gray
+2;imadjust
+3;binarize_by_value(12.8788)
+4;Flip
+5;bwareaopen(0.5)
+6;bwareaopen(1.5)
