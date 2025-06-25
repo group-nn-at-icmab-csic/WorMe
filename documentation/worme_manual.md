@@ -741,6 +741,13 @@ An useful function in MATLAB is the `tic`and `toc` functions to obtain the time 
 
 Most of the functions using the program are MATLAB already made. We use the MATLAB functions as much as we can because they are per se fully optimized functions. Example of them are `imbinarize()`, `imread()`, `imopen()`, and so many other functions.  
 
+<p align="center">
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/Process_imatge/timings.png" width="55%">
+  <em> Example of time analysis in the use of the program. </em>  
+</p>
+
+
+
 #### Image analysis and processment
 
 One of the main time-consuming process in the software is the acquisition, operation and analysis of the images. For example, in a 8Gb RAM i5 CPU (2022) computer the time of consumption for open a image using `imread()`function, is 0,03 seconds, develop the `im2gray()` function 0,002 seconds, `imbrinarize()` 0,03 seconds, etc.  
