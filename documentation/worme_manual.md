@@ -743,7 +743,7 @@ Most of the functions using the program are MATLAB already made. We use the MATL
 
 <br>
 <p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/Process_imatge/timings.png" width="55%">
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/Process_imatge/timings.png" width="40%">
   <br>
   <em> Example of time analysis in the use of the program. </em>  
 </p>
@@ -756,6 +756,7 @@ One of the main time-consuming process in the software is the acquisition, opera
 This time consuming when is punctually applied doesn't cause a sum of delaying times, but when they are stack applyied, the conumption times are summed and there is a big time delaying. For this reason, the program has reduced as much as possible the use of some functions. One example is the opening and save of the image.  
 WorMe works with the rute of the files. In the main script `WM_length_determination.m` the variable `theFiles` is saved and used thorughout the program, which contains the rutes of the selected images. In the selection and processment, WorMe develop the functions individually to the mask objects (see: [Work with indexes](#work-with-indexes).   
 The program develop the analysis individually of every image, in the moment the user select the function (modify, manually select, etc.). By this way, the functions are individually developed, implying singular functions and short times.  
+
 
 #### RAM consumption and data acquisition
 A big concern about the timings in the use of the program was the RAM consumption, and secondarly the disk memory use. The program just save the rutes of the images in the `theFiles` variable of the main script. All the data is saved in the `Results_out` folder, in the folder of the program if it is used from MATLAB Desktop, or in Documents if the software used is the executable file (compiled one). In `Results_out` folder the `Internal_code_files` folder save the image modifications data, and then from a `date_folder_of_image_names` folder is saved the defined scale (`escala_imatge.mat`), the processment parameters (in the folder `Processment_parameters`), and the main file and most important is the `main_data_analysis.txt`.  
