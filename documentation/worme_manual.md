@@ -748,17 +748,21 @@ This time consuming when is punctually applied doesn't cause a sum of delaying t
 WorMe works with the rute of the files. In the main script `WM_length_determination.m` the variable `theFiles` is saved and used thorughout the program, which contains the rutes of the selected images. In the selection and processment, WorMe develop the functions individually to the mask objects (see: [Work with indexes](#work-with-indexes).   
 The program develop the analysis individually of every image, in the moment the user select the function (modify, manually select, etc.). By this way, the functions are individually developed, implying singular functions and short times.  
 
-#### RAM consumption and memory save
-A big concern about the timings in the use of the program was the RAM consumption, and secondarly the disk memory use. The program does not save the image files.
+#### RAM consumption and data acquisition
+A big concern about the timings in the use of the program was the RAM consumption, and secondarly the disk memory use. The program just save the rutes of the images in the `theFiles` variable of the main script. All the data is saved in the `Results_out` folder, in the folder of the program if it is used from MATLAB Desktop, or in Documents if the software used is the executable file (compiled one). In `Results_out` folder the `Internal_code_files` folder save the image modifications data, and then from a `date_folder_of_image_names` folder is saved the defined scale (`escala_imatge.mat`), the processment parameters (in the folder `Processment_parameters`), and the main file and most important is the `main_data_analysis.txt`.  
+The `main_data_analysis.txt` is the file in which the data of the images are saved. The acquisition and operation to this file was fully optimized in order to obtain good use of the program timings.  
+The function `llegir_dades()` is the one used for the reading of the `main_data_analysis.txt` file, where every position is a kind of data (if it is C. elegans, the worm name, length, bounding box coordinates, modifications developed, index of the skeleton, index of the mask (BW), width values, etc.).  
+ççç
+
+
+Note: The data of the program is saved in a `.txt` file and not in a `.mat` file for unkdnowledge. Functions for the `.txt` optimized writting was developed, but lately we saw the save of the data in a `.mat` file was more easy and optimized, but the software structure was already settled and we chose to not change it.  
 
 
 #### Work with indexes
 The program in a strart used to work opening and saving the analysed images, which concerns a big data memory use, and the 
 
 
-**Save and data acquisition**  
-One 
-ççç main data analysis
+
 
 
 The result is that in 8Gb RAM i5 CPU the elapsed time for a main object processment in the selection panel is 0,03 seconds (← approximate, must validate).
