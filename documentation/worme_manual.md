@@ -533,7 +533,7 @@ The length of the worm in ImageJ is defined as the sum of the Euclidean distance
 
 
 <p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/comparisons/Example_Fiji.png" width="40%">
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/example_use/Fiji_measure.png" width="40%">
   <br>
   <em>Measurement with polyline using ImageJ</em>
 </p>
