@@ -1,1 +1,0 @@
-Imatges per a mostrar.

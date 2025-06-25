@@ -4,7 +4,6 @@
 ## Table of Contents
 
 [Introduction](#introduction)  
-[Software description, use and features](#software-description-use-and-features)  
 [Installation](#installation)  
 [Use of the program](#use-of-the-program)   
 [Example of usage](#example-of-usage)  
@@ -21,7 +20,6 @@ Here we present WorMe, a *Caenorhabditis elegans* length determination software.
 
 The program accepts multiple images as input, which can then be analysed collectively. Furthermore, the user can discard wrongly-detected objects, separate joined worms, correct erroneous measurements and manually add new worms. Then, the results are presented in a spreadsheet file, with each measurement linked to their image. 
 
-## Software description, use and features
 ### Brief description of the program 
 
 WorMe is an open-source application implemented in *MATLAB version 9.11 (R2021b)* and deployed as an executable using MATLAB Runtime, so it can be installed and run without a licence. It provides automatic detection and measurement of the length of *C. elegans* from microscopy images. It consists of a linear set of pannels that correspond to image processing, worm selection and results.  
@@ -293,23 +291,23 @@ In this section, we present two different examples of the use of WorMe. A [graph
 <br>
 <p align="center"><strong><span style="font-size:18px;">Select the images</span></strong></p>
 First, the user selects the images to analyze. The program will save the image paths.
-<p align="center">
+<div align="center">
   <img src="images/example_use/a1.gif" width="60%" />
-</p>
+</div>
 
 <p align="center"><strong><span style="font-size:18px;">Set the scale</span></strong></p>
 
 Then, the user needs to set the scale. One way to do it is by tracing a line along the scale bar.
 
-<p align="center">
+<div align="center">
   <img src="images/example_use/a2.png" width="60%" />
-</p>
+</div>
 
 This is done on a series of steps as follows:
 
-<p align="center">
+<div align="center">
   <img src="images/example_use/a3.gif" width="60%" />
-</p>
+</div>
 
 
 <br>
@@ -318,9 +316,9 @@ Once the scale is set, the image needs to be processed. This consists of applyin
 
 First, the user should check whether one of the Saved image processings works well for the selected images. If none do, the user should start a new processing and set the image filters manually.
 
-<p align="center">
+<div align="center">
   <img src="images/example_use/a4.gif" width="60%" />
-</p>
+</div>
 
 <p align="center"><strong><span style="font-size:18px;">Select the worms</span></strong></p>
 Next, the user will manually sort the binary objects according to whether they are a worm or not. In case a worm was not detected or it was detected wrongly, the Tools can edit the binary objects by:
@@ -330,23 +328,23 @@ Next, the user will manually sort the binary objects according to whether they a
 - Extend Line: Lengthen the object.
 
 
-<p align="center">
+<div align="center">
   <img src="images/example_use/a6.gif" width="60%" />
-</p>
+</div>
 
 <p align="center"><strong><span style="font-size:18px;">Obtain the results</span></strong></p>
 
 Then, the user can save the length results of the selected worms in a spreadsheet, as well as [the manual error bias correction](#manual-length-error-correction) values.
 
-<p align="center">
+<div align="center">
   <img src="images/example_use/a7.gif" width="60%" />
-</p>
+</div>
 
 Furthermore, the user can obtain the binary objects files, which may be useful to analyse the morphology of the worms, or to train deep learning models.
 
-<p align="center">
+<div align="center">
   <img src="images/example_use/a8.gif" width="60%" />
-</p>
+</div>
 
 
 #### Fast tutorial
@@ -377,7 +375,6 @@ There are five steps to use WorMe.
 
 ## Software Methodology
 
-
 [Image and data processing](#image-and-data-processing)  
 [Skeletonize and branch reduction](#skeletonize-and-branch-reduction)  
 [Endline elongation](#endline-elongation)  
@@ -387,51 +384,52 @@ There are five steps to use WorMe.
 [Data architecture and computational optimization](#data-architecture-and-computational-optimization)
 
 
-
-
-
 ### Image and data processing
 
-WorMe is based in MATLAB, and uses a wide range of image processing tools which allows to easily visualize and analyse the image in a fast and optimized way, as well as the data treatment.  
+WorMe is written in MATLAB. It uses its wide range of image processing tools which allows for easy image visualization and analysis in a fast and optimized way, as well as data treatment.  
 
-Once the images are loaded and the scale i settled, the user configure the image modification. In this step, the RGB image becomes to a grayscale, to become a binary image which objects of interest will be saved.  
+Once the images are loaded and the scale is set, the user can configure the image modifications. In this step, an RGB image is transformed to grayscale, and then to a binary image. Its objects of interest will be saved.  
 
-<p align="center">
-  <img src="images/Process_imatge/img6.png" width="60%" />
-</p>
+<div align="center">
+  <img src="images/methodology/process/img6.png" width="60%" />
 
-An RGB image means Red-Green-Blue image. We can understand an image as a 3 numerical matrix which every matrix have the 0 to 255 values of red, green and blue pixels. The combination of the three colors in every pixel results a color pixel. For example, orange is (255, 165, 0).  
+_Figure 7:_
+</div>
 
-<p align="center">
-  <img src="images/Process_imatge/img2.png" width="85%" />
-</p>
+An RGB image is a Red-Green-Blue image. We can understand an image as 3 numerical matrices with values of 0 to 255 for red, green and blue for each pixel. The combination of the three values in every pixel results in the color of the pixel. For example, orange is (255, 165, 0).  
 
+<div align="center">
+  <img src="images/methodology/process/img2.png" width="85%" />
 
-<p align="center">
-  <img src="images/Process_imatge/img4.png" width="15%" />
-</p>
+  <img src="images/methodology/process/img4.png" width="15%" />
 
-This is converted to grayscale image. In this case, the image is just a matrix of 0 to 255 pixels, where the ranges of colours for every pixels goes from 0 as black to 255 as white, being in a gray scale of colors. As it is understood as a matix, we can operate with the values of it, increasing or decreasing it, filtering and having numerical operations.  
+_Figure 9:_
+</div>
 
-<p align="center">
-  <img src="images/Process_imatge/img1.png" width="60%" />
-</p>
+When RGB is converted to grayscale image, the image only has one matrix of numbers from 0 to 255 for each pixel. The range of colours goes from black, at number 0; and white, at 255; with the middle values being shades of gray. As it is a numerical matrix, we can operate with its values, such as adding, substracting, filtering and other numerical operations.  
 
-In order to obtain a single region of the image (Region of Interest: ROi), we filter some desired values of the image by a threshold, and discrimine the parts of the image we are interested in, or not. This results in an image called mask, where every pixel would have the value of zero (0) or one (1).
+<div align="center">
+  <img src="images/methodology/process/img1.png" width="60%" />
 
-<p align="center">
-  <img src="images/Process_imatge/img5.png" width="60%" />
-</p>
-<p align="center">
-  <em>Fig 5. Example of a Region of Interest. </em>
-</p>
+_Figure 10:_
+</div>
+
+Regions of Interest (RoI) are regions in the image which contain worms. In order to obtain one, we filter and keep the desired values of the image matrix by a threshold, and discriminate between the parts of the image we are interested in and the ones we are not. This results in an image called mask, where every pixel has the value of 0 (black, no interest) or one (white, interest).
+
+<div align="center">
+  <img src="images/methodology/process/img5.png" width="60%" />
+
+_Figure 11:_
+</div>
 
 
 On this matrix we can operate easily, and we can finally reduce our parts of interest (worms), in order to obtain the pixels which configurate it and, in our case, obtain the length of the figures.  
 
-<p align="center">
-  <img src="images/Process_imatge/img7.png" width="40%" />
-</p>
+<div align="center">
+  <img src="images/methodology/process/img7.png" width="40%" />
+
+_Figure 12:_
+</div>
 
 The processing of the images is developed by the user in modification panel. Image must be converted from Red-Green-Blue (RGB) to grayscale, to binary image, in order to isolate in these the desired objects, which are the worms.  
 
@@ -453,21 +451,18 @@ Some of the image functions mainly used in the progarm are:
 
 These functions are executed in the `processament_imatge_llistat` funcion in the program, which works based in the descrived list from Processment pannel of image modification and its values.  
 
-<p align="right">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/Logos/Matlab_Logo.png" width="15%">
-</p>
+<div align="right">
+  <img src="images/Logos/Matlab_Logo.png" width="15%">
+</div>
 
 The implementation of the functions in the program has been tested and adapted to the *C. elegans* microscopical images. Numerous test has been developed in order to accurate the optimus functions and their configuration for the kind of images and its ROi. For example, most of the functions has been adapted to percentual values from the image, not by unique numerical values, in order to adapt the processment to the user images.  
 
 
-<p align="center">
-  <img src="images/Process_imatge/img3.png" width="60%" />
-</p>
-<p align="center">
-  <em>Fig 6. Selection of the regions of interest (worms) of the initial image. </em>
-</p>
+<div align="center">
+  <img src="images/methodology/process/img3.png" width="60%" />
 
-
+_Figure 13:_ Selection of the regions of interest (worms) of the initial image.
+</div>
 
 ### Skeletonize and branch reduction
 
@@ -479,7 +474,10 @@ The prune of the short branches in the skeleton image is developed by the own ma
 
 Finally, because the skeletonization endpoints used to not touch the borders of the object, a function was created for lengthen the lines from endpoints to the object (see: [Endline elongation](#endline-elongation)).
 
-<div align="center"> <img src="images/WM_branch_reduction.png" alt="Image Processing Panel" width="70%"> </div>
+<div align="center"> <img src="images/methodology/skeletonize/WM_branch_reduction.png" width="70%"> 
+
+_Figure 14:_
+</div>
 
 
 
@@ -488,29 +486,25 @@ Before we figure out about the [manual length error](#manual-length-error-correc
 This function is developed by the function  `extendre_skel_estes_nou()`, inside the `esqueletonitzacio_josep_optim()`.  
 
 <div align="center">
-  <img src="images/branch2.png" alt="Image 1" width="45%" style="margin-right: 2%;">
-  <img src="images/branch1.png" alt="Image 2" width="45%">
+  <img src="images/methodology/skeletonize/branch2.png" alt="Image 1" width="45%" style="margin-right: 2%;">
+  <img src="images/methodology/skeletonize/branch1.png" alt="Image 2" width="45%">
+
+_Figure 15:_
 </div>
 
 <div align="center">
-  <img src="images/branch_cut_1.png" alt="Image 1" width="15%" style="margin-right: 25px;">
-  <img src="images/branch_cut_2.png" alt="Image 2" width="15%" style="margin-left: 25px;">
-</div>
-<p align="center">
-  <em>Figure X: (Left) Image processing panel. (Right) Another panel.</em>
-</p>
+  <img src="images/methodology/skeletonize/branch_cut_1.png" alt="Image 1" width="15%" style="margin-right: 25px;">
+  <img src="images/methodology/skeletonize/branch_cut_2.png" alt="Image 2" width="15%" style="margin-left: 25px;">
 
+_Figure 16:_
+</div>
 
 <div align="center">
-  <img src="images/branch7.png" alt="Image 1" width="25%" style="margin-right: 2%;">
-  <img src="images/branch8.png" alt="Image 2" width="25%">
+  <img src="images/methodology/skeletonize/branch7.png" alt="Image 1" width="25%" style="margin-right: 2%;">
+  <img src="images/methodology/skeletonize/branch8.png" alt="Image 2" width="25%">
+
+_Figure 17:_
 </div>
-
-<p align="center">
-  <em>Figure X: (Left) Image processing panel. (Right) Another panel.</em>
-</p>
-
-
 
 
 ### Length determination
@@ -524,56 +518,59 @@ The function in which the length is obtained is in `esqueletonitzacio_josep_opti
 
 WorMe performs an analog line drawing methodology for the length determination of the worms. In WorMe, a line is automatically obatined from the head to the tail of the worm mask object. This allows to obatin an theorically more accurate line than manually obtained.  
 
-<p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/comparisons/Fiji_vs_WorMe.png" width="80%">
-</p>
+<div align="center">
+  <img src="images/methodology/length/Fiji_vs_WorMe.png" width="80%">
+
+_Figure 18:_
+</div>
 
 
 The length of the worm in ImageJ is defined as the sum of the Euclidean distance of the dotted points descrived in the manually drawing process through the worm.  
 
 
-<p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/example_use/Fiji_measure.png" width="50%">
+<div align="center">
+  <img src="images/methodology/length/Fiji_measure.png" width="50%">
   <br>
   <em>Measurement with polyline using ImageJ</em>
-</p>
+</div>
 
-<p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/comparisons/img_ex_2.png" width="50%">
+<div align="center">
+  <img src="images/methodology/length/img_ex_2.png" width="50%">
     <br>
   <em> Skeletonized and elonged line from a C.elegans mask using WorMe.</em>
-</p>
+</div>
 
 
 
 The length in WorMe is based also in the Euclidean points, but in this case every pixel in the line is a point to consider in the length determination. The difference of number of points give a slightly measurement bias between WorMe and ImageJ (used in bias correction, see: [Manual length error correction](#manual-length-error-correction)).  
 
-
-
-
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/e8926716-39b0-4de9-b299-8ab3f117f81d" alt="image-20230801-155918" width="40%">
-  <br>
-  <em>Euclidean distance</em>
+
+$$\sum\limits_{i=1}^{n-1} \sqrt{(x_{i+1} - x_i)^2 + (y_{i+1} - y_i)^2}$$
+
+$ n:$ number of points
+
+_Equation 1: Euclidean distance_
 </div>
 
 
 In order to simplify and optimize the algorithm, the distance between pixels is obtained directly from the infered Euclidean principle distance of pixels, bein 1 for vertical or horizontal pixels, or $\sqrt{2}$ in the diagonal ones (See: `llargada_josep()` function).
 
-<p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/comparisons/i1.png" width="30%">
-  <br>
-  <em>Reference: <a href="https://es.mathworks.com/help/images/distance-transform-of-a-binary-image.html?lang=en">MATLAB: Distance Transform of a Binary Image</a></em>
-</p>
+<div align="center">
+  <img src="images/methodology/length/i1.png" width="30%">
+
+_Figure 19: Reference: <a href="https://es.mathworks.com/help/images/distance-transform-of-a-binary-image.html?lang=en">MATLAB: Distance Transform of a Binary Image</a>_
+</div>
 
 
-<p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/comparisons/dist_img_skel_BO.png" width="65%">
-</p>
+<div align="center">
+  <img src="images/methodology/length/dist_img_skel_BO.png" width="65%">
+
+_Figure 20:_
+</div>
 
 
 Once the pixel-level distance is obtained, it is divided by the scale ratio, in order to obtain the empirical measurement of the worm.  
-<br>
 
 
 
@@ -582,57 +579,65 @@ Once the pixel-level distance is obtained, it is divided by the scale ratio, in 
 Exist a meaningful difference between the measurements obatined by a manual drawing points, as it is in the ImageJ measurements, and the measures obtained from a skeletonized pruned line throughout the worm mask object, as is the case in WorMe. The difference of both methods is giving a statistical bias between the measurements of a set of *C. elegans* images using both methods.  
 To compare the results of the software with the manual ones was the main way to validate the reliability of the use of the program. We compared continously our results with the manual measured results, in order to check the inference automatization in the use of the program.     
 
-<br>
-Curiously, we find the measurements was similar in some worms and not in others, without a simply shape difference between them.  
-<p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/comparisons/comparison1_BO.png" width="100%">
-</p>
+Curiously, we find the measurements was similar in some worms and not in others, without a simply shape difference between them.
+
+<div align="center">
+  <img src="images/methodology/length/comparison1_BO.png" width="100%">
+
+_Figure 21:_
+</div>
 
 We analysed the measurements noy just in worms but in straight drawed lines. First we analysed horizontal, vertical and diagonal lines, and the programa didn't give us bias with it. This struggles us because we validate the measurements with the software with this kind of control but not with empirical worm images. That fact made us to find the way to improve the software analysis of the image to find the possible causes, in example we thought that bias was due to the [endline elongation](#endline-elongation).  
 
-<p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/comparisons/comparison3_BO.png" width="100%">
-</p>
+<div align="center">
+  <img src="images/methodology/length/comparison3_BO.png" width="100%">
+
+_Figure 22:_
+</div>
 
 
 <br>
 When we change the main validation control developed by lines, adding polylines, we saw there was difference between the measurements, and we research on it.  
 
-<p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/comparisons/comparison2_BO.png" width="100%">
-</p>
+<div align="center">
+  <img src="images/methodology/length/comparison2_BO.png" width="100%">
+
+_Figure 23:_
+</div>
 
 We find that in ImageJ the manual length obtantion is made from a drawed polyline. The distance in this case is obtained throught the Eucledian distance between these dotted points. We figure out that exist a difference if the distance in a line is obtained thorught every pixel (which was our case), or if it is obtained every certain pixels.  
 
-<p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/comparisons/All_joined_horiz_bo.png" width="75%">
-</p>
+<div align="center">
+  <img src="images/methodology/length/All_joined_horiz_bo.png" width="75%">
+
+_Figure 24:_
+</div>
 
 We saw if we drawed a polyline with our software the results was very similar, because the euclidean distance was obtained continuing the same methodology.  
 Then we probe to obtain the distance from every certain pixels, in order to automatically emulate the manual measurement. We probe different distances, and conclude that if the measurement was made from the eucledian distance from every 5 pixels in the line of the worm, we obtained values like the ones obtained from the manual measurements. We conclude, this correction was made by 
 
 
 
-<p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/comparisons/comparison5_BO.png" width="100%">
-</p>
+<div align="center">
+  <img src="images/methodology/length/comparison5_BO.png" width="100%">
+
+_Figure 25:_
+</div>
 
 Finally, we conclude if the bias manual error correction was applied, which means to measure the same line every 5 pixels, emulating the manual measurement, the measures was same as the manually obatined through ImageJ and we could validate the length obtaintion of the software.  
 
-<p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/comparisons/comparison4_BO.png" width="100%">
-</p>
+<div align="center">
+  <img src="images/methodology/length/comparison4_BO.png" width="100%">
+
+_Figure 26:_
+</div>
 
 
 The images made for the validation can be founded in [Worme/examples](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/examples), and the results of the Fiji measurements and their analysis with the correction can be founded in the folder [documentation/Comparison_studies/Fiji_vs_WM](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/documentation/Comparison_studies/Fiji_vs_WM). You can also find the exportation file of prove for the distance of the pixel validation in the [documentation/Comparison_studies/Pixel_dist_bias_proves](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/documentation/Comparison_studies/Pixel_dist_bias_proves) folder.
 
-<br> 
 
 In WorMe, `llargada_josep_Fiji()` obatins the length of the skeletonize applying the manual factor correction. In the program, it is 5, which means 5 pixels every each point.  
 `llargada_josep()` obtains the length of the skeletonize image for every pixel. Both are in the main function of length and skeletonization from the mask image `esqueletonitzacio_josep_optim()`.  
-
-<br>
-<br>
 
 
 ### Image data
@@ -641,52 +646,37 @@ WorMe provides image data useful to be used as golden standard for deep learning
 
 WorMe does not use artificial intelligence (AI) despite it is the state-of-the-art of the image processing and analysis. Many software are based on deep learning neural networks for the selection or identification of *C. elegans* in the images. Despite that, the program is consciousness about the data obtaintion and use for the creation of models, and it allows the user to export the graphical data in different formats (PascalVOC, label, binary, etc.) in order to be used for IA model building, and also for the object analysis (width, shape, etc.).
 
-<p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/example_use/asdf.png" width="18%">
-</p>
+<div align="center">
+  <img src="images/methodology/img_data/Image_969.jpg" width="50%">
 
-<br>
-
-<p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/example_use/Image_969.jpg" width="50%">
-  <br>
-  <em> Image example </em>
-</p>
+_Figure 27:_
+</div>
 
 
 
 #### Binary objects
 Binary objects may be useful for the object analysis and also for the segmentation models in deep learning. The program offers the option to export these objects for the user to analyse or use it.  
 
-**Individual masks**
-<p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/example_use/Image_969_01.png" width="50%">
-  <br>
-  <em> Binary mask 1.</em>
-</p>
-<p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/example_use/Image_969_02.png" width="50%">
-  <br>
-  <em> Binary mask 2.</em>
-</p>
 
+<div align="center">
+<table>
+  <tr>
+    <td>a)<img src="images/methodology/img_data/Image_969_01.png" alt="Binary mask 1" width="100%"></td>
+    <td>b)<img src="images/methodology/img_data/Image_969_02.png" alt="Binary mask 2" width="100%"></td>
+    <td>c)<img src="images/methodology/img_data/Image_969_Joined.png" alt="Joined masks" width="100%"></td>
+  </tr>
+</table>
 
-**Joined masks**
-<p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/example_use/Image_969_Joined.png" width="50%">
-  <br>
-  <em> Joined masks.</em>
-</p>
-
-<br>
+_Table 3: a) and b) Individual binary masks, c) Joined masks._
+</div>
 
 The use of the binary objects is wide. We can see, for example, easily the width of the worm, in different parts of it, or in some regions. Some other research base the shape of the worm to determin the phenotype, among other. The option to use the binary object opens an outlook of possibilities.  
 
-<p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/width_BO.png" width="80%">
-    <br>
-  <em> Width analysis from binary object. </em>  
-</p>
+<div align="center">
+  <img src="images/use_of_the_program/width_BO.png" width="80%">
+
+_Figure 28: Width analysis from binary object._
+</div>
 
 
 
@@ -696,21 +686,21 @@ Indexed images may be useful for the deep learning model creations. Some of the 
 We offer two types of idnexed images, where the value of the object is singular for every object, or they have the same one. 
 
 
-<p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/example_use/Image_969_label.png" width="50%">
-      <br>
-  <em> Indexed objects. </em>  
-</p>
+<div align="center">
+  <img src="images/example_use/Image_969_label.png" width="50%">
+
+_Figure 29: Indexed objects_
+</div>
 
 #### Pascal VOC
 
 PascalVOC is a .xml file which may be useful for the identification by bounding boxes deep learning model creation, among others. Is for this reason that we include it in the graphic export.  
 
-<p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/example_use/969_PascalVOC.png" width="50%">
-      <br>
-  <em> Pascal VOC file. Rounded the bounding box coordinate. </em>  
-</p>
+<div align="center">
+  <img src="images/example_use/969_PascalVOC.png" width="50%">
+
+_Figure 30: Pascal VOC file. Rounded the bounding box coordinate._ 
+</div>
 
 
 #### Examples of graphic export
@@ -731,28 +721,26 @@ The image processment and image data analysis is a process that have a considera
 Softwares like WormMachine are fully user optimized, but some other programs like WormAlign made the user to wait to the processment and analysis of the full stuck of the images.  
 
 
-<br>
 An useful function in MATLAB is the `tic`and `toc` functions to obtain the time of a process.  
 
-<p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/Elapsed_times.png" width="25%">
-</p>
-<br>
+<div align="center">
+  <img src="images/methodology/optimization/Elapsed_times.png">
+
+_Figure 31:_
+</div>
 
 Most of the functions using the program are MATLAB already made. We use the MATLAB functions as much as we can because they are per se fully optimized functions. Example of them are `imbinarize()`, `imread()`, `imopen()`, and so many other functions.  
 
 <br>
-<p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/Process_imatge/timings.png" width="40%">
-  <br>
-  <em> Example of time analysis in the use of the program. </em>  
-</p>
+<div align="center">
+  <img src="images/methodology/optimization/timings.png" width="40%">
 
+_Figure 32: Example of time analysis in the use of the program._ 
+</div>
 
 The result is that in 8Gb RAM i5 CPU the elapsed time for a main object processment in the selection panel is 0,03 seconds (← approximate, must validate).
 
 In the selection panel the whole image is processed and their objects are isolated in a MATLAB file, saved in as indexed coordinates because of the computational optimization. For every object the skeletonization and operation is developed and showed, and the selection done by the user is saved. 
-
 
 #### Image analysis and processment
 
@@ -761,19 +749,18 @@ This time consuming when is punctually applied doesn't cause a sum of delaying t
 WorMe works with the rute of the files. In the main script `WM_length_determination.m` the variable `theFiles` is saved and used thorughout the program, which contains the rutes of the selected images. In the selection and processment, WorMe develop the functions individually to the mask objects (see: [Work with indexes](#work-with-indexes).   
 The program develop the analysis individually of every image, in the moment the user select the function (modify, manually select, etc.). By this way, the functions are individually developed, implying singular functions and short times.  
 
-
 #### RAM consumption and data acquisition
 A big concern about the timings in the use of the program was the RAM consumption, and secondarly the disk memory use. The program just save the rutes of the images in the `theFiles` variable of the main script. All the data is saved in the `Results_out` folder, in the folder of the program if it is used from MATLAB Desktop, or in Documents if the software used is the executable file (compiled one). In `Results_out` folder the `Internal_code_files` folder save the image modifications data, and then from a `date_folder_of_image_names` folder is saved the defined scale (`escala_imatge.mat`), the processment parameters (in the folder `Processment_parameters`), and the main file and most important is the `main_data_analysis.txt`.  
 The `main_data_analysis.txt` is the file in which the data of the images are saved. The acquisition and operation to this file was fully optimized in order to obtain good use of the program timings.  
 The function `llegir_dades()` is the one used for the reading of the `main_data_analysis.txt` file, where every position is a kind of data (if it is C. elegans, the worm name, length, bounding box coordinates, modifications developed, index of the skeleton, index of the mask (BW), width values, etc.).  
 
-<p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/Process_imatge/a2fin.png" width="80%">
-</p>
-<br>
+<div align="center">
+  <img src="images/methodology/optimization/a2fin.png" width="100%">
+
+_Figure 33:_
+</div>
 
 As logic in image software, WorMe doesn't save the images as local data in the program, otherwise the RAM memory would be full and the computer would delay considerably. Because of this reason, the program saves all the data in local files, and adquire the information from this physical files, in order to not collapse the RAM memory.  
-<br>
 
 
 ##### Work with indexes
@@ -782,24 +769,21 @@ The use with indexes is the operation basis of many of the MATLAB developed or n
 The program in a strart used to work opening and saving the analysed images physically, or in the RAM memory. This concerned a big data memory use, and a big delay in the use of the program. The use of indexes for to save, open and operate with the images is highly useful.  
 The indexation is just done in the binary images. By this way, we just save the data that we need, which are the positions of the mask, and we do it in a region of the main image.  
 
-<p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/use_of_the_program/indexed.png" width="100%">
-    <br>
-  <em> Indexation of a binary image. </em>  
-</p>
+<div align="center">
+  <img src="images/use_of_the_program/indexed.png">
 
-
+_Figure 34: Indexation of a binary image._ 
+</div>
 
 Note: The data of the program is saved in a `.txt` file and not in a `.mat` file for unkdnowledge. Functions for the `.txt` optimized writting was developed, but lately we saw the save of the data in a `.mat` file was more easy and optimized, but the software structure was already settled and we chose to not change it.  
-
 
 
 ----------------------------------------------
 
 
-*This project has been granted by the JAE Intro grant for the introduction of young people to the research, by the Ministerio de Ciencia, Innovacion y Universidades ([ciencia.gob.es](https://www.ciencia.gob.es/)) y el Consejo Superior de Investigaciones Científicas ([CSIC](https://www.csic.es/es)).*  
-<p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/Logos/jae.png" width="30%">
-</p>
+*This project has been funded by the JAE Intro grant for the introduction of young people to research, by the Ministerio de Ciencia, Innovación y Universidades ([ciencia.gob.es](https://www.ciencia.gob.es/)) and the Consejo Superior de Investigaciones Científicas ([CSIC](https://www.csic.es/es)).*  
+<div align="center">
+  <img src="images/Logos/jae.png" width="30%">
+</div>
 
 

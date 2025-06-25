@@ -1,5 +1,5 @@
 # WorMe
-WorMe is a software for the *Caenorhabditis elegans* length determination.
+WorMe is a software for *Caenorhabditis elegans* length determination.
 
 <p align="center">
   <img src="Length_determination/Images_resources/Logo_WorMe.png"  width="50%" alt="WorMe icon">  
@@ -11,16 +11,7 @@ WorMe is a software for the *Caenorhabditis elegans* length determination.
   </a>
 </p>
 
-For detailed documentation please check out the [User Manual](documentation/worme_manual.md).  
-
-
-## Citation
-
-Please cite our publication describing this software as follows:
-
-----------------------------------------------------------------
-
-*Developed by Josep Llobet, documentation helped by Núria Garriga, leaded by Anna Laromaine, at Institut de Ciencia de Materials de Barcelona (ICMAB-CSIC)*
+*Developed by Josep Llobet, documentation helped by Núria Garriga, lead by Anna Laromaine, at Institut de Ciencia de Materials de Barcelona (ICMAB-CSIC)*
 
 <p align="center">
   <a href="https://nn.icmab.es/">Group of Nanoparticles and Nanocomposites</a> – <a href="https://icmab.es">Institute of Material Science of Barcelona (ICMAB-CSIC)</a>
@@ -28,11 +19,18 @@ Please cite our publication describing this software as follows:
 
 
 <p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/Logos/logoNN.png" width="20%">&nbsp;&nbsp;
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/Logos/icmab.jpg" width="20%">&nbsp;&nbsp;
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/Logos/csic.png" width="20%">
+  <img src="documentation/images/Logos/LOGO_NN_square.png" width="12%">&nbsp;&nbsp;
+  <img src="documentation/images/Logos/ochoa-csic-color.jpg" width="25%">
 </p>
 
+----------------------------------------------------------------
+
+For detailed documentation please check out the [User Manual](documentation/worme_manual.md).  
+
+
+## Citation
+
+Please cite our publication describing this software as follows:
 
 ----------------------------------------------------------------
 
@@ -101,6 +99,6 @@ For a detailed tutorial please check out the [Use of the program](documentation/
 
 *This project has been granted by the JAE Intro grant for the introduction of young people to the research, by the Ministerio de Ciencia, Innovacion y Universidades ([ciencia.gob.es](https://www.ciencia.gob.es/)) y el Consejo Superior de Investigaciones Científicas ([CSIC](https://www.csic.es/es)).*  
 <p align="center">
-  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/raw/main/documentation/images/Logos/jae.png" width="30%">
+  <img src="documentation/images/Logos/jae.png" width="30%">
 </p>
 
