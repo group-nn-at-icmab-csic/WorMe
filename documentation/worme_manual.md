@@ -393,7 +393,7 @@ Once the images are loaded and the scale is set, the user can configure the imag
 <div align="center">
   <img src="images/methodology/process/img6.png" width="60%" />
 
-_Figure 7:_
+_Figure 7: WorMe image modifications_
 </div>
 
 An RGB image is a Red-Green-Blue image. We can understand an image as 3 numerical matrices with values of 0 to 255 for red, green and blue for each pixel. The combination of the three values in every pixel results in the color of the pixel. For example, orange is (255, 165, 0).  
@@ -403,7 +403,7 @@ An RGB image is a Red-Green-Blue image. We can understand an image as 3 numerica
 
   <img src="images/methodology/process/img4.png" width="15%" />
 
-_Figure 9:_
+_Figure 8: RGB matrices_
 </div>
 
 When RGB is converted to grayscale image, the image only has one matrix of numbers from 0 to 255 for each pixel. The range of colours goes from black, at number 0; and white, at 255; with the middle values being shades of gray. As it is a numerical matrix, we can operate with its values, such as adding, substracting, filtering and other numerical operations.  
@@ -411,106 +411,98 @@ When RGB is converted to grayscale image, the image only has one matrix of numbe
 <div align="center">
   <img src="images/methodology/process/img1.png" width="60%" />
 
-_Figure 10:_
+_Figure 9: Grayscale matrix_
 </div>
 
-Regions of Interest (RoI) are regions in the image which contain worms. In order to obtain one, we filter and keep the desired values of the image matrix by a threshold, and discriminate between the parts of the image we are interested in and the ones we are not. This results in an image called mask, where every pixel has the value of 0 (black, no interest) or one (white, interest).
+Regions of Interest (ROI) are regions in the image which contain worms. In order to obtain them, we filter and keep the desired values of the image matrix by a threshold, and discriminate between the parts of the image we are interested in and the ones we are not. This results in an image called mask, where every pixel has the value of 0 (black, no interest) or one (white, interest). This process is called binarization.
 
 <div align="center">
   <img src="images/methodology/process/img5.png" width="60%" />
 
-_Figure 11: Example Region of Interest_
+_Figure 10: Example Region of Interest_
 </div>
 
-From this binary matrix, it is easy to isolate the RoIs or worms as binary objects. Furthermore, it allows us to operate easily, so we can modify these objects as needed. 
-
-On this binary matrix we can operate easily. This allows us to determine which pixels correspond to RoIs in order to isolate them into binary objects. Then, their morphological properties like length, circularity, area, etc. can be analysed.
+From this binary matrix, it is easy to isolate the ROIs or worms as binary objects. Then, we can easily operate with and and analyse the objects in the binary image. For example, we can isolate objects of interest, or analyse morphological properties like length, circularity or area. There are many tools in WorMe to operate with the objects in order to obtain a mask where there are the worms.
 
 <div align="center">
   <img src="images/methodology/process/img7.png" width="60%" />
 
-_Figure 12:_
+_Figure 11: Processed image with analysed worm_
 </div>
 
-The processing of the images is developed by the user in modification panel. Image must be converted from Red-Green-Blue (RGB) to grayscale, to binary image, in order to isolate in these the desired objects, which are the worms.  
+#### MATLAB tools for image processing
+The image processing and analysis functions used in the program are part of the MATLAB Toolboxes. The [MATLAB Image Processing Toolbox](https://es.mathworks.com/products/image-processing.html), and the [MATLAB Computer Vision Toolbox](https://es.mathworks.com/products/computer-vision.html) offer a wide, useful and optimized variety of image processing and analysis functions.
 
- We can operate with and analyse the objects in the binary image, for example isolating objects of interest, or analysising the morphology properties like length, circularity, area, etc. In WorMe there is many tools for operate with the objects, with the aim to obtain a mask in which we had the worms.
-
-
-#### Image processing using MATLAB tools
-The image processing functions used in the program are part of the MATLAB Toolboxes. For the image processment and analysis, the toolboxes [MATLAB Image Processing Toolbox](https://es.mathworks.com/products/image-processing.html), and the [MATLAB Computer Vision Toolbox](https://es.mathworks.com/products/computer-vision.html) offered a wide, useful and optimized variety of image processment and analysis functions.  
-Some of the image functions mainly used in the progarm are:  
-`imcrop()`:   Allows to easily cut the image from specific coordinates. This may help to opearte and select the objects and ROi.  
-`im2gray()`:   Automatically converts the RGB image into grayscale.  
+Some of the image functions mainly used in the program are:  
+`imcrop()`:   Cuts the image from specific coordinates, which helps when operating and selecting the objects and ROI.  
+`im2gray()`:   Automatically convert the RGB image into grayscale.  
 `imadjust()`:   Automatically adjust and normalize the greyscale values of the image.  
-`imbinarize()`:   Binarize the image from a threshold, which may be statistically determined.  
-`bwareaopen()`:   Allows to easy and fast cleaning of the small objects in the image.  
-`imopen()` and `imclose()`:   Allows to reduce or expand the binarized objects, in order to reduce or increase their properties (ex: worm tail and profile).  
+`imbinarize()`:   Binarize the image from a threshold, which might be statistically determined.  
+`bwareaopen()`:   Easy and fast cleaning of the small objects in the image.  
+`imopen()` and `imclose()`:   Reduce or expand the binarized objects, in order to reduce or increase their properties (ex: worm tail and profile).  
 `imclearborder()`:   Automatically deletes the objects that touch the edges of the image.  
-`imfill()`:   Automatically fills the binary objects, allowing the analysis of that ones.  
-`bwskel()`: Skeletonization of the binary image. Useful for to obtain the main central line of *C. elegans*.
+`imfill()`:   Automatically fills the binary objects.  
+`bwskel()`: Skeletonization of the binary image. Useful to obtain the main central line of *C. elegans*.
 
-These functions are executed in the `processament_imatge_llistat` function in the program, which works based in the descrived list from Processment pannel of image modification and its values.  
+These functions are executed in the `processament_imatge_llistat` function in the program, which works based in the list described in the Image modification of the Processing panel and its values.  
 
 <div align="right">
   <img src="images/Logos/Matlab_Logo.png" width="15%">
 </div>
 
-The implementation of the functions in the program has been tested and adapted to the *C. elegans* microscopical images. Numerous test has been developed in order to accurate the optimus functions and their configuration for the kind of images and its ROi. For example, most of the functions has been adapted to percentual values from the image, not by unique numerical values, in order to adapt the processment to the user images.  
-
+The implementation of the functions in the program has been tested and adapted to *C. elegans* optical microscopy images. Numerous tests have been developed in order to find the most optimal and accurate functions and their configuration for that type of images and the ROI. For example, most of the functions have been adapted to use percentages derived from the image and not absolute values, in order to adapt the processing to the user's images.  
 
 <div align="center">
   <img src="images/methodology/process/img3.png" width="60%" />
 
-_Figure 13:_ Selection of the regions of interest (worms) of the initial image.
+_Figure 12:_ Selection of the regions of interest (worms) of the initial image.
 </div>
 
-### Skeletonize and branch reduction
+### Skeletonization and branch reduction
 
-Once the worm binary object is obtained, in order to obtain its length the image is skeletonized, then the branches are pruned to obtain the main length, and then the endpoints are extended. By this operations, we went from a binary object to have their main central line, which is analogue at the manual drawed one.
+Once the worm as a binary object is obtained, the next step is measuring its length. The image is skeletonized, then the branches are pruned and the endpoints are extended. With this, we obtain a line along the center of the nematode, which is analogous to a line drawn manually.
 
-The skeletonization is the reduction from the binary object to a line. It is achieved by gradually reducing the surroundings of the image until achieves a line. In MATLAB it is developed by the `bwskel()` function [10]. In the program, the main function that develops the skeletonization and obtain the length of the worm object is `esqueletonitzacio_josep_optim()`.  
+Skeletonization is the reduction from a binary object to a line. It consists on gradually reducing the binary object's surroundings until it becomes a line. In WorMe, the main function that conducts the skeletonization and obtains the length of the worm object is `esqueletonitzacio_josep_optim()`, with the MATLAB `bwskel()` function.
 
-The prune of the short branches in the skeleton image is developed by the own made function `large_skel_iter()`. This returns the main branch from a skeletonized object.
+Pruning the short branches in the skeleton is done by the function `large_skel_iter()`, a function developed for this program. This cuts off all the branches except for the main branch.
 
-Finally, because the skeletonization endpoints used to not touch the borders of the object, a function was created for lengthen the lines from endpoints to the object (see: [Endline elongation](#endline-elongation)).
+Finally, because the skeletonization main branch does not touch the border of the binary object, a function was created to lengthen the lines to the end (see: [Endline elongation](#endline-elongation)).
 
 <div align="center"> <img src="images/methodology/skeletonize/WM_branch_reduction.png" width="70%"> 
 
-_Figure 14:_
+_Figure 13: Skeletonization, branch reduction and endline elongation process_
 </div>
 
-
-
 #### Endline elongation
-Before we figure out about the [manual length error](#manual-length-error-correction), in order to approximate the measure from the head to the tail of the C. elegans, the start and finals of the reduced-skeletonized line was elongated to the final of the object, beacuse in the skeletonization the lines doesnt reach the finals.    
-This function is developed by the function  `extendre_skel_estes_nou()`, inside the `esqueletonitzacio_josep_optim()`.  
+The length of a *C. elegans* should be measured from the beginning of the head to the end of the tail. Therefore, in order to increase the accuracy of the measurements, the beginning and the end of the branch-reduced skeletonization line needs to be elongated until it touches the border of the binarized object.
+
+This is performed by the function `extendre_skel_estes_nou()` inside `esqueletonitzacio_josep_optim()`.  
 
 <div align="center">
   <img src="images/methodology/skeletonize/branch2.png" alt="Image 1" width="45%" style="margin-right: 2%;">
   <img src="images/methodology/skeletonize/branch1.png" alt="Image 2" width="45%">
 
-_Figure 15:_
+_Figure 14: Length measurements before (left) and after (right) endline elongation_
 </div>
 
 <div align="center">
   <img src="images/methodology/skeletonize/branch_cut_1.png" alt="Image 1" width="15%" style="margin-right: 25px;">
   <img src="images/methodology/skeletonize/branch_cut_2.png" alt="Image 2" width="15%" style="margin-left: 25px;">
 
-_Figure 16:_
+_Figure 15: Detail of a *C. elegans* head's skeletonization line before (left) and after (right) endline elongation_
 </div>
 
 <div align="center">
   <img src="images/methodology/skeletonize/branch7.png" alt="Image 1" width="25%" style="margin-right: 2%;">
   <img src="images/methodology/skeletonize/branch8.png" alt="Image 2" width="25%">
 
-_Figure 17:_
+_Figure 16:_
 </div>
 
 
 ### Length determination
 
-The main objective of the progarm is automatically determine the length of *C. elegans*.  
+The main objective of the program is to determine *C. elegans* length automatically.  
 The manual length of *C.elegans* can be obtained using ImageJ [5], drawing manually a polyline from the tail to the head of C. elegans going through the middle of the worm as much accurate as it is possible.  
 <br>
 
