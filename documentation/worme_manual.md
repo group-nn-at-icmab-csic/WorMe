@@ -626,7 +626,11 @@ _Figure 26:_
 </div>
 
 
-The images made for the validation can be founded in [Worme/examples](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/examples), and the results of the Fiji measurements and their analysis with the correction can be founded in the folder [documentation/Comparison_studies/Fiji_vs_WM](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/documentation/Comparison_studies/Fiji_vs_WM). You can also find the exportation file of prove for the distance of the pixel validation in the [documentation/Comparison_studies/Pixel_dist_bias_proves](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/documentation/Comparison_studies/Pixel_dist_bias_proves) folder.
+The images made for the validation can be founded in [Worme/examples](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/examples).  
+We show two image experiments that we developed in order to validate our data. These are showed in `WorMe/documentation/Comparison_studies
+/Fiji_vs_WM/`, and the previously descrived images was used. The first experiment ([Experiment_1](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/documentation/Comparison_studies/Fiji_vs_WM/Experiment_1)) descrives the measurement manually of different users, and compare it with an old version of WorMe (1.4, 2022). In this experiment we can see the [protocol for manually measure C. elegans in optical microscope images using ImageJ](https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/Comparison_studies/Fiji_vs_WM/Experiment_1/Protocol%20length%20C%20elegans%20ImageJ.pdf).
+ The second experiment (Experiment_2) we show the validation of the program. In this, we use of C24, C48 and C72 sets of *C. elegans* images, and for each set, we compare statistically the length of the worms using ImageJ for manually measure them, and using WorMe with the manual bias correction. The results showed that the distributions of the measurements was very similar, and the means was statistically same applying Shapiro-Wilkinson test.
+ <br>
 
 
 In WorMe, `llargada_josep_Fiji()` obatins the length of the skeletonize applying the manual factor correction. In the program, it is 5, which means 5 pixels every each point.  
