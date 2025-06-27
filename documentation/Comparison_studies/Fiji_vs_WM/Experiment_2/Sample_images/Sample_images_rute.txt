@@ -1,0 +1,4 @@
+The images used for develop the experiment are in:
+https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/examples
+
+This are the C24, C48 and C72 sets of images.
