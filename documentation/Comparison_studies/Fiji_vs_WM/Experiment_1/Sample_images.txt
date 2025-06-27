@@ -1,3 +1,0 @@
-For the sample images of length measurement, see:
-
-https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/examples/Sample_images
