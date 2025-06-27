@@ -601,7 +601,7 @@ _Figure 26: Error plot of measurement differences between ImageJ and WorMe, chan
 
 Therefore, we included a "manual error correction" checkbox that, when selected, it adds the manual bias to the results. This means that in the results spreadsheed we would get one column with regular measurements and one column that measures the same line every 5 pixels, emulating manual measurements. 
 
-Using these corrected values, we were able to test the reliability of WorMe measurements when using worms instead of drawn lines, and we found that the results of the same set of images for both programs were the same (t-test p value > 0.8). 
+Using these corrected values, we were able to test the reliability of WorMe measurements when using worms instead of drawn lines, and we found that the results of the same set of images for both programs were the same (t-test p value > 0.8, see: [Experiments for validation](#experiments-for-validation)).
 
 <div align="center">
   <img src="images/methodology/length/comparison4_BO.png" width="100%">
@@ -611,19 +611,16 @@ _Figure 27: t-test between means of FIJI-ImageJ and WorMe_ C. elegans _measureme
 
 In WorMe, the function `llargada_josep_Fiji()` obtains the length of the skeleton line applying the manual error correction, measuring one every five pixels. The function `llargada_josep()` obtains the length for every pixel. Both can be found in the main function for length and skeletonization from the mask image, `esqueletonitzacio_josep_optim()`.  
 
-The images made for the validation can be founded in [Worme/examples](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/examples).  
-<br>
-
-**Experiments**
-We want to show in the documentation of the program two image experiments that we developed in order to validate our data. These are showed in `WorMe/documentation/Comparison_studies
-/Fiji_vs_WM/`, and the images used was the previously descrived ones (Sample_images, C24, C48 and C72). This experiments can be seen in the [Fiji_vs_WM experiment folder](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/documentation/Comparison_studies/Fiji_vs_WM).
-The first experiment ([Experiment_1](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/documentation/Comparison_studies/Fiji_vs_WM/Experiment_1)) descrives the measurement manually of different users, and compare it with an old version of WorMe (1.4, 2022). In this experiment we can see the [protocol for manually measure C. elegans in optical microscope images using ImageJ](https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/Comparison_studies/Fiji_vs_WM/Experiment_1/Protocol%20length%20C%20elegans%20ImageJ.pdf).
- The second experiment ([Experiment_2](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/documentation/Comparison_studies/Fiji_vs_WM/Experiment_2)) we show the validation of the program. In this, we use of C24, C48 and C72 sets of *C. elegans* images, and for each set, we compare statistically the length of the worms using ImageJ for manually measure them, and using WorMe with the manual bias correction. The results showed that the distributions of the measurements was very similar, and the means was statistically same applying Shapiro-Wilkinson test.
- <br>
-
 #### Examples of length data export
 
 You can find examples of exported length data and manual error corrected data in the examples folder, for the [C_24 images](../examples/Example_images_C24/C_24_length_results.csv), the [C_48 images](../examples/Example_images_C48/C_48_length_results.csv), and the [C_72 images](../examples/Example_images_C72/C_72_length_results.csv).
+
+#### Experiments for validation
+There are two experiments that were done in order to validate the quality of WorMe's length determination. These are showed in the [Fiji_vs_WM](Fiji_vs_WM) folder. The images used for these experiments can be found in the [examples](../examples) folder. 
+
+The [first experiment](Fiji_vs_WM/Experiment_1/) describes the manual measurement by different users in FIJI-ImageJ and compares it to an old version of WorMe (v1.4, 2022). The manual measurements were done by following [this ImageJ protocol](Fiji_vs_WM/Experiment_1/Protocol%20length%20C%20elegans%20ImageJ.pdf), and the images used are in the [Sample_images](../examples/Sample_images/) folder.
+
+The [second experiment](Fiji_vs_WM/Experiment_2/) shows the validation of the program. This experiment uses the [C24](../examples/Example_images_C24/), [C48](../examples/Example_images_C48/) and [C72](../examples/Example_images_C72/) sets of *C. elegans* images. For each set, the measured length in FIJI-ImageJ was compared to the measured length in WorMe, applying the manual error correction. A Shapiro-Wilkinson test was applied to test for normality, and afterwards a t-test was applied to test for differences in results. The results showed that there was no statistical difference in the measurements by the two programs.
 
 ### Image data
 
