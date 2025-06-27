@@ -284,10 +284,8 @@ In each of these folders, you can also find three other files which were obtaine
 - `C_XX_graphic_results.zip`, for image results,
 - `C_XX_parameters.txt`, for the scale values, image processment and selection tools used during the analysis.
 
-In this section, we present two different examples of the use of WorMe. A [graphic tutorial](#graphic-tutorial), which shows the analysis of the C48 example folder, and a [fast tutorial](#fast-tutorial), which explains the most basic usage of the WorMe program.
+In this section, we present a tutorial which shows the analysis of the C48 example folder. For a fast tutorial, please refer to the repository's [README file](../README.md).
 
-#### Graphic tutorial
-<br>
 <p align="center"><strong><span style="font-size:18px;">Select the images</span></strong></p>
 First, the user selects the images to analyze. The program will save the image paths.
 <div align="center">
@@ -344,33 +342,6 @@ Furthermore, the user can obtain the binary objects files, which may be useful t
 <div align="center">
   <img src="images/example_use/a8.gif" width="60%" />
 </div>
-
-
-#### Fast tutorial
-
-There are five steps to use WorMe. 
-
-1. **Image selection**: Select the images to analyse. We will use this image as an example.
-<div align="center"> <img src="../examples/Example_images_C48/Image_972.jpg" alt="Image_972" width="70%">
-</div>
-
-> [!IMPORTANT]
-> Sometimes, an "Invalid or deleted object" error will appear due to exiting the program before going through all the steps. If the error persists when starting the program again, the easiest solution is to delete the `Documents/WorMe_Length_Results` folder.
-
-2. **Scale setting**: Set the measuring scale by selecting the scale bar. With "Select Automatically" the user must double click the scale bar and then input the displayed length number. In this example, it is 200.
-
-3. **Image processing**: Configure the image modifications. Select from the Saved options in Processings the one that shows the worms the best. In this case, we used `Modif_Example_4.txt`. Then, press Analyse.
-
-<div align="center"> <img src="images/use_of_the_program/WM_fastuse_1.png" alt="WM_fastuse_1" width="70%">
-</div>
-
-4. **Worm selection**: Select the worm objects manually. If the marked object is a worm, press the green checkmark. If it is not, the red cross. The Tools can modify the objects: the Scissors cut the current object in two, the New Object allows the user to trace a new object, and the Extend Object allows the user to lengthen the current object. Then, press Done.
-
-<div align="center"> <img src="images/use_of_the_program/WM_fastuse_2.png" alt="WM_fastuse_2" width="70%">
-</div>
-
-5. **Results**: Press the export button to save the data. Select the "Export manual error corrected data" if the data requires comparison with other manual methods of measurement such as ImageJ.
-
 
 ## Software Methodology
 
