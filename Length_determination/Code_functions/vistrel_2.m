@@ -1,7 +1,7 @@
 function [im_zeros_SA] = vistrel_2(Strel_AAA)
 
-% Visualitza un Strel (ex: SA_AAA = strel('line', 10, 75) en una imatge de
-% zeros, per a que es pugui veure bé.
+% Visualizes a Strel (example: SA_AAA = strel('line', 10, 75))
+% in an image made from zeroes, to be able to see it properly.
 
 SA_img = Strel_AAA.Neighborhood;
 size_SA = size(SA_img);

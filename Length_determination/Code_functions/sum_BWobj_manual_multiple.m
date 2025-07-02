@@ -1,41 +1,40 @@
 function [bwlabel_BW_obj_sumatlinia, imatge_BW_colors, porta_window_drawline, zeros_imatge_cotxe_punts_units] = sum_BWobj_manual_multiple(BWobj_image, im_original, val_exampl)
 
-% Donada una imatge binària singular, es defineix de manera manuall una línia amb la qual es talla la imatge binària.
-% Es retorna la imatge binaria retallada (bwlabel_BW_obj_sumatlinia), així
-% com la imatge en color retallada (imatge_BW_colors).
-% Aquest últim procediment empra la funció f'BW_objects_to_color'.
-% Si es defineix una segona imatge en color (3D), es superposa
-% (f'imoverlay) a la imatge a l'hora de seleccionar la línia.
+% Given a single binary image, a line is manually defined with which the binary image is cut.
+% The cropped binary image (bwlabel_BW_obj_sumatlinia) is returned, as well as
+% the cropped color image (imatge_BW_colors).
+% This last procedure uses the function f'BW_objects_to_color'.
+% If a second color image (3D) is defined, it is superimposed
+% (f'imoverlay) on the image when selecting the line.
 %
-% La imatge pot tenir més d'un objecte binari, però ha de ser binària.
-% Aquesta es retallarà.
+% The image can have more than one binary object, but it must be binary.
+% The image will be cropped.
 %
 % Variables
 % ---------
 % input:
-% BWobj_image : Imatge binària amb un sol objecte binàri
-% im_original : (opcional) Imatge original a superposar a la binària
+% BWobj_image : Binary image with a single binary object
+% im_original : (optional) Original image to superimpose on the binary image
 %
 % output:
-% bwlabel_BW_obj_sumatlinia : imatge BW amb la línia restada.
-% porta_window_drawline : Porta sobre si s'ha executat o no correctament la funció.
-% imatge_BW_colors : Imatge BW colorejada
-% zeros_imatge_cotxe_punts_units : Línia definida.
+% bwlabel_BW_obj_sumatlinia : BW image with the subtracted line.
+% porta_window_drawline : Status flag to check whether or not the function was successfully executed.
+% image_BW_colors : Colored BW image
+% zeros_image_cotxe_punts_units : Defined line.
 %
 %
 % See also
 % BW_objects_to_color
 
 
-% %Variable exemple
-% bwlabel_BW_obj_sumatlinia2 = BW_llistat_imatges;
+% %Example variable
+% bwlabel_BW_obj_sumatlinia2 = BW_listat_images;
 % imshow(bwlabel_BW_obj_sumatlinia2)
 % BWobj_image = bwlabel_BW_obj_sumatlinia2;
 
+% START FUNCTION
 
-% INICI FUNCIÓ
-
-% Dibuixem línia
+% Draw the line
 try
 
     if exist('im_original','var')
@@ -59,9 +58,9 @@ try
         % h2 = drawline('SelectedColor','magenta');
         h1.Selected = true;
     
-        % Posició dels punts de la línia
+        % Position of the line points
         ep = h1.Position;
-        % Arrodonim posicions
+        % Rounding positions
         ep_rounded = round(ep);
     
         close
@@ -76,7 +75,7 @@ try
     catch
         porta_window_drawline = false;
 
-        % Definim variables:
+        % Defining variables:
         bwlabel_BW_obj_sumatlinia = false;
         imatge_BW_colors = false;
         zeros_imatge_cotxe_punts_units = false;
@@ -86,50 +85,50 @@ try
     end
     
     if porta_window_drawline
-        % DEFINIM LINIA EN IMATGE BINÀRIA
+        % DEFINE THE LINE IN THE BINARY IMAGE
         
-        % Imatge de zeros igual que la inicial
+        % Image made from zeroes equal to the initial image
         [xd1, xd2, ~] = size(BWobj_image);
         zeros_imatge_cotxe = zeros(xd1, xd2);
         %size(zeros_imatge_cotxe)
         %imshow(zeros_imatge_cotxe)
         
-        % Printem punts en imatge de zeros
+        % Print points in image made from zeroes
         for cada_lin = 1:length(ep_rounded)
             %zeros_imatge_cotxe(ep_rounded(cada_lin,2), ep_rounded(cada_lin,1)) = 1;
             
             if cada_lin > 1
-                % Fem una imatge zeros en blanc que contingui els dos píxels
+                % Make an image with zeroes in white which contains the two pixels
                 zeros_imatge_cotxe_blanc = zeros(xd1, xd2);
                 
-                % Punt anterior
+                % Front point
                 zeros_imatge_cotxe_blanc(ep_rounded(cada_lin-1,2), ep_rounded(cada_lin-1,1)) = 1;   
-                % Punt posterior
+                % Back point
                 zeros_imatge_cotxe_blanc(ep_rounded(cada_lin,2), ep_rounded(cada_lin,1)) = 1;
                 
         
-                % Creem la línea
+                % Create the line
                 zeros_imatge_cotxe_blanc_linea = bwconvhull(zeros_imatge_cotxe_blanc);
                 
-                % La sumem a la imatge de zeros principal
+                % Add the line to the main image made from zeroes
                 zeros_imatge_cotxe = zeros_imatge_cotxe + zeros_imatge_cotxe_blanc_linea;
             end
         end
         
-        % Igualem els vaors
+        % Equal the values
         zeros_imatge_cotxe = zeros_imatge_cotxe>0;
         
         
-        % La línia ha de ser gruixuda, sinó un sol píxel pot no separar la imatge.
+        % The line must be thick, as one pixel cannot separate the image
         zeros_imatge_cotxe_punts_units = bwmorph(zeros_imatge_cotxe, 'diag');
         
         
-        % Eixamplem els píxels de la línia
+        % Widen the pixels of the line
         [total_indx_fin] = eixamplar_indx_BB(find(zeros_imatge_cotxe_punts_units), val_exampl, size(zeros_imatge_cotxe_punts_units));
         zeros_imatge_cotxe_punts_units(total_indx_fin) = 1;
         
         
-        % RESTEM LA LÍNIA A LA IMATGE BINARIA INICIAL
+        % SUBSTRACT THE LINE FROM THE INITIAL BINARY IMAGE
         bwlabel_BW_obj_sumatlinia = BWobj_image + zeros_imatge_cotxe_punts_units;
         bwlabel_BW_obj_sumatlinia = bwlabel_BW_obj_sumatlinia > 0;
         %unique(bwlabel_BW_obj_sumatlinia)
@@ -138,7 +137,7 @@ try
         %imshow(imatge_BW_colors)
         
         
-        % % Exemple Posterior esqueletonització de la imatge
+        % % Example back image skeletonization
         % bwlabeled_obj_tot = bwlabel(bwlabel_BW_obj_sumatlinia);
         % bwlabeled_obj_tot_2 = bwlabeled_obj_tot == 2;
         % imshow(bwlabeled_obj_tot_2)
@@ -163,16 +162,21 @@ catch
     % funció que hi ha el fallo, i que s'ha de repetir, o no.
     % Els objectes binaris es retornen sense que hi hagi una modificació d'aquests.
     
+    % If there is an error, such as the draw window being closed,
+    % we return the status flag 'porta_window_drawline' as 'false'
+    % so that it can be announced outside the function that there
+    % is an error, so the action must be repeated if needed.
+    % The binary objects are returned without any modification.
 
     porta_window_drawline = false;
 
-    % Definim variables:
+    % Define variables:
     bwlabel_BW_obj_sumatlinia = false;
     imatge_BW_colors = false;
     zeros_imatge_cotxe_punts_units = false;   
 
 
 end
-% FINAL FUNCIÓ
+% END FUNCTION
 
 end

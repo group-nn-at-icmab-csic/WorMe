@@ -1,16 +1,16 @@
 function write_str_txt(file_txt, str_write)
 
-% Escriu un string a un txt.
-% Si no existeix l'arxiu crea un de nou, sino escriu en un salt de línea
+% Escriu a string to a txt.
+% If the file does not exist, it creates a new one, otherwise, write a line skip
 %
 % Variables
-% file_txt - .txt file rute.   ex: "proba.txt"
-% str_write - string to write.   ex: "imatges_68_69"
+% file_txt - .txt file path.   example: "proba.txt"
+% str_write - string to write.   example: "imatges_68_69"
 % 
 % See also
 
 
-% INICI FUNCIÓ
+% START FUNCTION
 
 if ~isfile(file_txt)
 
@@ -26,10 +26,10 @@ else
 end
 
 
-% % Comprovació
+% % Check
 % !notepad proba.txt
 
 
-% FINAL FUNCIÓ
+% END FUNCTION
 
 end

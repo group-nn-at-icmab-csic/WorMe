@@ -1,7 +1,7 @@
 function show_two_cropeds(img1, img2, xy_croped)
 
-% Donades dos imatges amb la mateixa dimensió, i els punts on es tallen
-% d'aquestes, la funció mostra la regió d'ambdós imatges.
+% Given two images with the same size and the points where they are cut,
+% the function shows the region of both images.
 %
 
 % [BW_new_crop, xy_croped] = imcrop(BW_new); close

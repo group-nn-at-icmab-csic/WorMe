@@ -1,35 +1,35 @@
 function imageArray_fintot = suma_semiBW_norm_millorat(imageArray, BW_semi)
 
-% Donada una imatge en 3D normal  (imageArray), i una altre en 3D tipu binària (BW_semi), és a dir, on gran part dels seus
-% valors tenen valors 0, però altres tenen valor entre 0 i 255, es
-% superposa la imatge binària a la imatge en 3D.
+% Given a normal 3D image (imageArray), and another binary 3D image (BW_semi), 
+% that is, where most of its values ​​are 0, but others have values ​​between 0 and 255,
+% the binary image is superimposed on the 3D image.
 %
 % _Variables_
 %
-% imageArray  : Imatge RGB en 3D
-% BW_semi     : Imatge RBG en 3D, amb molts espais amb 0's.
+% imageArray : 3D RGB image
+% BW_semi : 3D RBG image, with many points with 0's.
 %
-% % Variables exemple
+% % Example variables
 % BW_semi = new_object_colored;
 % imshow(BW_semi)
 % imshow(imageArray)
 %
 %
-% COMBINACIÓ IMATGES
-% El que fem és combinar la imatge principal v'imageArray' amb la imatge
-% semibinària v'zeros_imatge', la qual té tres matrius i va de 0 a 255.
-% Per a fer-ho, hem de passar la imatge principal a 'double',
-% posar a zeros els llocs on coincideixen amb la imatge binària, i llavors
-% sumar la imatge semibinaria, per a cada dimensió de la matriu,
-% de manera que simplement es restin els llocs de la imatge binària i se li
-% sumin els de la mateixa imatge binaria pero amb color.
+% IMAGE COMBINATION
+% What is done is combine the main image v'imageArray' with the semi-binary image
+% v'zeros_image', which has three matrices that go from 0 to 255.
+% To do this, we must change the main image to type 'double',
+% set the places where it matches with the binary image to zero, and then
+% add the semi-binary image, for each dimension of the matrix,
+% so that the places of the binary image are subtracted and those of the
+% same binary image but with color are added.
 %
 %
 % % See also
 % BW_objects_to_color
 % suma_semiBW_norm
 
-% INICI FUNCIÓ
+% START FUNCTION
 
 if size(BW_semi) ~= size(imageArray)
     msgbox('Images different size', 'Error','error');
@@ -37,18 +37,18 @@ if size(BW_semi) ~= size(imageArray)
 end
 
 
-% Definim la imatge binària.
+% Define the binary image
 BW_proba_temp = BW_semi(:,:,1);
 BW_proba = imbinarize(BW_proba_temp); 
-% Fem imbinarize i no 'im>0' perquè al ser la imatge exportada possiblement d'un '.jpg', aquesta
-% pot donar píxels que tinguin valors de 1,2,3, fet que distorsionaria la
-% filtració. %BW_proba = BW_proba_temp > 0;
+% Do imbinarize and not 'im>0' because since the image could come from a '.jpg',
+% it could have pixels with 1,2,3 values which could distort
+% the filtration. 
+% BW_proba = BW_proba_temp > 0;
 % unique(BW_proba)
 % imshow(BW_proba)
 
 
-% Passem a double (per a poder operar matemàticament, si està a uint8 no es
-% pot)
+% Change to double type (to operate mathematically, if it is uint8 it cannot be done)
 imageArray = double(imageArray);
 
 
@@ -66,13 +66,13 @@ imageArray_3 = imageArray(:,:,3);
 imageArray_3(BW_proba) = 0;
 imageArray_3_fin = imageArray_3 + double(BW_semi(:, :, 3));
 
-% Juntem les tres matrius
+% Combine the three matrices
 imageArray_fintot = cat(3, imageArray_1_fin, imageArray_2_fin, imageArray_3_fin);
 
-% Tornem a passara uint8.
+% Change the type to uint8.
 imageArray_fintot = uint8(imageArray_fintot);
 %imshow(imageArray_fintot)
 
-% FINAL FUNCIÓ
+% END FUNCTION
 
 end

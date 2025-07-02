@@ -1,24 +1,22 @@
 function [str_rute_redef] = split_string_n(str_rute, n_restant)
 
-    % Resta el nombre n de carpetes (n_restant) finals d'una ruta (str_rute).
+    % Substracts the number n of last folders (n_restant) of a path (str_rute).
     % 
     %
-    % See also
+    % See also:
     % determina_path_def
     % determinacio_path
 
 
-    % INICI FUNCIÓ
+    % START FUNCTION
 
-    % Resta el nombre n de carpetes (n_restant) finals d'una ruta (str_rute).
-
-    % Split valors
+    % Split values
     spit_rute = strsplit(str_rute, "\");
     
-    % Sumem strings
+    % Add strings
     str_rute_redef = strjoin(spit_rute(1:end-n_restant), "\");
 
 
-    % FINAL FUNCIÓ
+    % END FUNCTION
 
 end

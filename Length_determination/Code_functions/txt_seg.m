@@ -1,36 +1,34 @@
 function txt_seg(arxiu_output, proces_desenvolupat, delimitador_text, creacio_arxiu, en_blanc)
 
-% Donat el nom d'un arxiu amb dades en dues columnes, es llegeix o es crea aquest, i se li afegeix contingut.
+% Given the name of a file with data in two columns, it is read or created, and content is added to it.
 
-% Exemple:
+% Example:
 %   txt_seg(field_set, "Im2gray", ";;")
-%               En aquest cas, si no hi ha la carpeta en el directori
-%               indicat (field_set), se'n crea una de nova, i si sí que
-%               existeix s'escriu en una línea nova de l'arxiu.
+%       In this case, if the folder does not exist in the indicated
+%       folder (field_set), a new one is created, and if it does
+%       exist, it is written on a new line of the file.
 
-
-% Paràmetres:
-%               delimitador_text - Delimitador de text.
+% Parameters:
+% delimitador_text - Text delimiter.
+%                    If not specified, this is defined
+%                    as ";".
+%           "nou": only reading is done, no new
+%                   content is inserted.
 %
-%                                   Si no s'especifica, aquest es defineix
-%                                   com ";".
-%                           "nou" : nomès es fa lectura, no es fica nou
-%                           contingut.
+% creacio_arxiu -    Determines whether or not a file is created, even if one already exists.
+%                    If the variable is not defined, a new file is not created
+%                    if one already exists.
 %
-%               creacio_arxiu - Determina si es crea o no un arxiu, tot i haventhi un d'existent.
-%                               Si no es defineix la variable, no es crea
-%                               un arxiu nou si n'hi ha un d'existent.
+%           "nou" : a new file is created, even if there is
+%                   an existing one.
 %
-%                          "nou" : es crea un arxiu nou, tot i que hi hagi
-%                          un d'existent.
-%
-%               en_blanc - si l'arxiu nou serà en blanc o no.
-%                           "blanc" : l'arxiu nou creat serà en blanc.
+% en_blanc -         whether the new file will be blank or not.
+%           "blanc" : the newly created file will be blank.
 %
 
-% INICI FUNCIÓ
+% START FUNCTION 
 
-% Si no es defineix la variable 'delimitador_text'
+% If the variable 'delimitador_text' is not defined
 if ~exist('delimitador_text','var')
     delimitador_text = ";";
 end
@@ -45,14 +43,14 @@ end
 
 
 
-% Si l'arxiu existeix, o bé si s'ha indicat que no se'n vol fer un de nou ( o no s'ha indicat res),
-% es llegeix l'arxiu existent.
-% Del contrari si no existeix l'arxiu, o si s'especifica que se'n vol fer un de 
-% nou, es crea un arxiu nou.
+% If the file exists, or if it is stated that a new file is not needed
+% (or nothing was stated), the existing file is read.
+% Otherwise, if the file does not exist, or if it is stated that a new
+% file is needed, a new file is created.
 if isfile(arxiu_output) && creacio_arxiu ~= "nou"
-    % Si existeix l'arxiu de dades
+    % If the data file exists
     
-    % Funció --- llegir_text_delimitadors.m ---
+    % Function --- llegir_text_delimitadors.m ---
     array_processos = llegir_text_delimitadors(arxiu_output, delimitador_text);
 
     
@@ -61,9 +59,9 @@ if isfile(arxiu_output) && creacio_arxiu ~= "nou"
     
 
 else
-    % Si no existeix l'arxiu de dades
+    % If the data file does not exist
 
-    % Crea nou arxiu amb l'encapçalament 'arrat_processos_nou'
+    % Creates a new file with the header 'array_processos_nou'
     array_processos_nou = {"Ordre proces" , "Tipus proces"};
     fid = fopen(arxiu_output,'w');
     separador_text = strcat("%s", delimitador_text);
@@ -74,21 +72,21 @@ else
     
 end
 
-% Fins aqui hem llegit l'arxiu 'proba_settings.txt', o bé l'hem creat.
-% Com a distintiu inicial, 'proba_settings.txt' té l'encapçalament.
+% So far we have read the file 'proba_settings.txt', or we have created it.
+% As an initial identifier, 'proba_settings.txt' has the header 'array_processos_nou'.
 
-% Ara el que es vol és ficar contingut en l'arxiu.
+% Now what we want is to put content in the file.
 
-% Nota que realment no es vol llegir l'arxiu complert, pel moment, sino
-% sols insertar-hi comandaments.
+% Note that we don't really want to read the entire file, for now, but
+% just insert commands into it.
 
-%Afegim contingut, si 
+% We add content if
 if en_blanc ~= "blanc"
 
-    % Nom Ordre proces nou
+    % Name a new Ordre proces
     num_fila_nova = string(files_text);
     
-    % Afegim contingut (tipus cell amb stirngs), a l'arxiu:
+    % Add content (type cell with strings), to the file:
     afegir_config = {num_fila_nova , proces_desenvolupat};
     fid = fopen(arxiu_output,'a+');
     separador_text = strcat("\n", "%s", delimitador_text);
@@ -97,13 +95,13 @@ if en_blanc ~= "blanc"
     fprintf(fid, strjoin(b,""));
     fclose(fid);
     
-    % Ens basem en:
+    % Based in:
     % fid = fopen(arxiu_output,'a+');
     % fprintf(fid, "\nPUESBIEN;AQUIESTAMOS");
     % fclose(fid);
 
 end
 
-% FINAL FUNCIÓ
+% END FUNCTION
 
 end

@@ -6,7 +6,7 @@ function imFinal = suma_semiBW_norm(imageArray2, image_semiBW)
 
 %imshow(image_semiBW)
 
-% Obtenim quins son zeros i quins no
+% Obtain which are zeroes and which are not
 zeros_imBW_1D = image_semiBW(:, :, 1) ~= 0 + ...
     image_semiBW(:, :, 2) ~= 0 + ...
     image_semiBW(:, :, 3) ~= 0;

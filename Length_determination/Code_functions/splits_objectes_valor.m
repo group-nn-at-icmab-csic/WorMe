@@ -1,19 +1,19 @@
 function [split_arxiu_sortida] = splits_objectes_valor(string_to_split, delimitador, valors_restants)
 
-% Donada un string, i un delimitador, es separa aquest, i s'obté el string
-% resultant de les posicions endarrerides que es vulgui (v'valors_restants') d'aquest. 
+% Given a string and a delimiter, the delimiter is separated and the string obtained.
+% It takes away however many delimiters as specified ('valors_restants'). 
 %
-% Serveix sobretot per a pre-separar carpetes.
+% It is useful to pre-separate folders in a path.
 %
-% exemple:
+% Example:
 %
 % 'C:\Users\Josep TOSHIBA\Desktop'
 %
-%  to
+% to
 %
 % 'C:\Users'
 %
-% Exemple funció
+% The function does:
 %
 % valors_restants = 1;
 % string_to_split = 'C:\Users\Josep TOSHIBA\Desktop\Length determination v2_4\_Extern\Imatges exemple\Input_images_Amanda_poques';
@@ -21,21 +21,21 @@ function [split_arxiu_sortida] = splits_objectes_valor(string_to_split, delimita
 % [split_arxiu_sortida] = splits_objectes_valor(string_to_split, delimitador, valors_restants)
 %
 %
-% See also
+% See also:
 % separar_puntfile
 
-% Split arxiu
+% Split file:
 split_arxiu = strsplit(string_to_split, delimitador);
 
 split_arxiu_nou = {};
 %[nfila, ~, ~] = size(split_arxiu)
 
-% Si es sobrepassa el valor
+% If the value is surpassed
 if valors_restants > length(split_arxiu)
     valors_restants = length(split_arxiu)-1;
 end
 
-% Obtenim la nova cell sense l'últim o últims valors (segons valors_restants)
+% We obtain the new path without the last or multiple last values (according to valors_restants)
 for cada_split = 1:length(split_arxiu) - valors_restants
     split_arxiu_nou{end+1} = split_arxiu{cada_split};    
 end

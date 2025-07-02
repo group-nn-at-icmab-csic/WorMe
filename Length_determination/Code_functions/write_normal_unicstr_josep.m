@@ -17,14 +17,14 @@ function write_normal_unicstr_josep(arxiu_text_output, dades_write)
 % See also:
 % llegir_text_delimitadors_normal
 
-% INICI FUNCIO
+% START FUNCTION
 
 fid = fopen(arxiu_text_output,'w');
 fprintf(fid,'%s', dades_write);
 fclose(fid);
 
 
-% FINAL FUNCIÓ
+% END FUNCTION
 
 
 end

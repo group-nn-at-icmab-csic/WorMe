@@ -1,20 +1,20 @@
 function sumar_un_a_txt_valor_string(arxiu_text_det, nom_det_funcio)
 
-% Donat un arxiu de text, on hi ha descrit en dos columnes el nom i el
-% valor respecteivament, es suma un al valor que equival al nom de la fila
-% determinat, o si no hi és es crea.
+% Given a text file, where the name and value are described in two columns respectively, 
+% 1 is added to the value in the row whose name has been determined,
+% and if it does not exist, it is created.
 %
-% Aquesta funció va de la mà de f'write_text_josep', donat que amb
-% f'write_text_josep'es crea l'arxiu de text amb les arrays que es vulgui.
-% També va de la mà de la funció f'obtenir_de_txt_valor_string'.
+% This function goes together with f'write_text_josep', since with
+% f'write_text_josep' the text file with the desired arrays is created.
+% It also goes together with the function f'obtenir_de_txt_valor_string'.
 %
 % Variables
-% nom_det_funcio : nom el valor del qual es vol suma 1 en un arxiu de text.
-% arxiu_text_det : nom del arxiu de text del qual es vol analitzar.
+% nom_det_funcio : name whose value we want to add 1 to in a text file.
+% arxiu_text_det : name of the text file we want to analyze.
 %
-% _Exemle funcio_
+% _Example function_
 %
-% % Dades exemple
+% % Example data
 % arxiu_text_det = "asdf.txt";
 % 
 % dades_write = []
@@ -30,20 +30,20 @@ function sumar_un_a_txt_valor_string(arxiu_text_det, nom_det_funcio)
 % 
 % nom_det_funcio = "P1011629_skel_00003_01";
 %
-% % Exemple execució funcio
+% % Example of function execution
 %  arxiu_text_det = "asdf.txt";
 % nom_det_funcio = "P1011629_skel_00003_01";
 % sumar_un_a_txt_valor_string(arxiu_text_det, nom_det_funcio)
 %
-% % Exemple execució funció 2
+% % Example of function execution 2
 % arxiu_text_det = "asdf2.txt";
 % nom_det_funcio = "P1011629_skel_00003_01";
 % sumar_un_a_txt_valor_string(arxiu_text_det, nom_det_funcio)
 
-% See also
+% See also:
 % write_text_josep, llegir_text_delimitadors, obtenir_de_txt_valor_string
 
-% INICI FUNCIO
+% START FUNCTION
 
 if ~isfile(arxiu_text_det)
     llegit_text_cell = {};
@@ -55,13 +55,13 @@ es_present_valor = false;
 
 
 
-% Si l'arxiu és vuit, es fica amb valor 1 el nom.
+% If the file does not contain the name, add it with value 1.
 if isempty(llegit_text_cell)
     llegit_text_cell = { nom_det_funcio,  '1' };
 else
-    % Si no és vuida, es suma 1 al valor present.
+    % If not empty, add 1 to the current value.
     
-    % Es fa una lectura de les dades.
+    % Read the data
     [nfiles, ~, ~] = size(llegit_text_cell);
     for cada_fila = 1:nfiles
         nom_de_fila = llegit_text_cell{cada_fila,1};
@@ -76,9 +76,9 @@ else
 end
 
 
-% Es fa un write altrament
+% Then do a write
 
-% Guardar l'arxiu output de dades
+% Save the file data output 
 fid = fopen(arxiu_text_det,'w');
 [nfiles, ~, ~] = size(llegit_text_cell);
 for var_out_dades = 1:nfiles
@@ -90,6 +90,6 @@ drawnow; % Force display to update immediately.
 
 
 
-% FINAL FUNCIO
+% END FUNCTION
 
 end

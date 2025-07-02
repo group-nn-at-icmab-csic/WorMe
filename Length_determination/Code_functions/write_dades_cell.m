@@ -1,37 +1,37 @@
 function write_dades_cell(txt_data_name, cell_dades_totals, write_values, separador_char)
 
-% Guarda les dades d'una cell, de manera que es pugui fer servir després la funció f'llegir_dades' per a poder
-% llegir en format de taula aquestes.
-% 
+% Saves the data of a cell, so that the f'llegir_dades' function can be 
+% used later to read these in table format.
+%
 %
 % Variables:
-% txt_data_name : directori i nom del arxiu.
-%           ex: "Results\main_results_josep.txt"
+% txt_data_name : directory and file name.
+%           example: "Results\main_results_josep.txt"
 %
-% cell_dades_totals : cell amb les dades
+% cell_dades_totals : cell with the data
 %
-% write_values : és el codi del fprint que s'ha d'entrar.
-%           ex: "%s%s%.3f%s%s%s%s%s" en una cell de 7 valors.
+% write_values ​​: fprint code that must be entered.
+%           example: "%s%s%.3f%s%s%s%s%s" in a cell with 7 values.
 %
-% separador_char: separador que tindràn els valors de cada cell
-%           ex: "$"
+% separador_char: separator that the values ​​of each cell will have
+%           example: "$"
 %
-% See also
+% See also:
 % llegir_dades
 % app_interf_llegir_main_dades
 % appf_split_strindex
 
-% INICI FUNCIÓ
+% START FUNCTION
 
 
-% _Pre-procés caràcters printf_
+% _printf the pre process characters_
 [C_str] = strsplit(write_values, "%");
 write_values = strcat("%", strjoin(C_str(2:end), strcat(separador_char, "%") ));
 
-% __Write de l'arxiu__
+% __Write from the file__
 if ~isfile(txt_data_name)
     % disp("New file")
-    % No se li posa espai inicial.
+    % No space at the beginning.
     fid = fopen(txt_data_name,'a+');
     fprintf(fid, write_values, cell_dades_totals{:});
     fclose(fid);    
@@ -44,7 +44,7 @@ end
 
 
 
-% FINAL FUNCIÓ
+% END FUNCTION
 
 
 end

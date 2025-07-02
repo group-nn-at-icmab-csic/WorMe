@@ -1,23 +1,23 @@
 function write_txt_enblanc(arxiu_text_output)
 
-% Crea arxiu de text en blanc. Elimina si hi ha existent.
+% Creates a blank text file. Delete if it exists.
 %
 %
 % Variables
 %   input
-%       arxiu_text_output : arxiu de text
+%       arxiu_text_output : text file
 %
 %
 % See also
 
 
-% INICI FUNCIÓ
+% START FUNCTION
 
 % arxiu_text_output = "Proba.txt"
 fid = fopen(arxiu_text_output,'w');
 fclose(fid);
 
 
-% FINAL FUNCIÓ
+% END FUNCTION
 
 end

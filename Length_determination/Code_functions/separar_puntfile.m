@@ -1,12 +1,13 @@
 function [string_file, string_final] = separar_puntfile(string1)
 
 %
-% retorna les parts del nom d'un document amb nom d'arxiu
-% ex: asdf.jpg -> "asdf" ".jpg"
+% Returns the parts of a document name as an archive name in a string
+% 
+% example:
+% asdf.jpg -> "asdf" ".jpg"
+% string1 = "asdf.jpg"
 %
-%string1 = "asdf.jpg"
-%
-% See also
+% See also:
 % separar_file_carpeta
 
 if contains(string1, ".")

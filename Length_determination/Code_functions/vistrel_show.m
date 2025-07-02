@@ -1,8 +1,8 @@
 function vistrel_show(Strel_AAA)
 
-% Visualitza un Strel (ex: SA_AAA = strel('line', 10, 75) en una imatge de
-% zeros, per a que es pugui veure bé.
-% Ara, però, es mostra.
+% Visualizes a Strel (example: SA_AAA = strel('line', 10, 75))
+% in an image made from zeroes, to be able to see it properly.
+% Now, however, it is shown.
 %
 % See also:
 % vistrel

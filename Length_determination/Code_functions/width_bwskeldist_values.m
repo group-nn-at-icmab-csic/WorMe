@@ -1,59 +1,58 @@
 function [bwdist_elem_order, indx_orders] = width_bwskeldist_values(BW_filt_crop, BW_skel)
 
-% Donada una imatge binària i la seva esqueletonització, es retornen els
-% valors de l'amplada, segons bwdist, de cada punt de la esqueletontizació,
-% de forma ordenada.
+% Given a binary image and its skeletonization, the width values at each
+% skeletonization point, according to bwdist, are returned in order.
 %
 % Variables:
 % input:
-%   BW_filt_crop : Objecte binari
-%   BW_skel : objecte esqueletonitzat
+%   BW_filt_crop : Binary object
+%   BW_skel : Skeletonized object
 % output:
-%   bwdist_elem_order: valor de l'amplada de cada element.
+%   bwdist_elem_order: Value of the width of every element
 %
-% Temps processament: Elapsed time: 0.0054757 seconds in 50 iterations.
+% Processing time: Elapsed time: 0.0054757 seconds in 50 iterations.
 %
-% Veure: 2022_09_14_Proba_amplada_valors_bwskel_en_bwdist per a millor
-% explicació.
+% See: 2022_09_14_Proba_amplada_valors_bwskel_en_bwdist for better explanation
 %
 %
-% Upgrade de: linear_bwdist_values i linear_bwdist_values_new
+% Upgrade from: linear_bwdist_values i linear_bwdist_values_new
 
-% INICI FUNCIÓ
+% START FUNCTION
 
 
-% Mirem el bwdist
+% Look at the bwdist
 BW_bwdist = bwdist(~BW_filt_crop);
 % imshow(BW_bwdist, [])
 
 
-% Si fem bwdistgeodesic
+% If we do bwdistgeodesic
 B =  bwmorph(BW_skel,'endpoints');
 indx_endpoints = find(B);
 
 if ~isempty(indx_endpoints)
     D = bwdistgeodesic(BW_skel, indx_endpoints(1),'quasi');
     
-    % Però ara tenim sols els elements que no son NaN
+    % But now we only have the elements that are not NaN
     newD = D(~isnan(D));
     newD_indx = find(~isnan(D));
-    % upgrade: Cada valor té un index. Ambdós són desordenats.
+    % upgrade: Every value has an index. Both are not in order.
+
+    % We see that it is irregular. This is because each value is not linear, but is defined 
+    % by the position on the y-axis, so some positions come before others.    
     
-    % Veiem que és irregular. Això és perquè cada valor no és lineal, sino que es definit per la posicio en l'eix y, de manera que algunes posicions passen per davant d'altres.
-    
-    % Si ho ordenem:
+    % If we sort it:
     % plot(sort(newD))
     
-    % Ho posem a variable
+    % Put it in a variable
     [~, sortIndx] = sort(newD);
     
     % plot(newD)
     % plot(sortIndx)
-    % upgrad: Cada valor té una numeració numèrica: 1, 2, 3, 4...
+    % upgrade: Every value is enumerated: 1, 2, 3, 4...
     
-    % Elements de newD_indx (index de cada valor) ordenats, es a dir, de cada
-    % element ordenat (relatiu a la consecutiva de l'esquelet, per la
-    % consecutiva del bwgesdist) el seu index, de forma ordenada.
+    % Sort elements from newD_indx (index of every value). From every
+    % sorted element (relative to the consecutive of the skeleton by the
+    % consecutive of bwgesdist), its index, sorted.
     indx_orders = newD_indx(sortIndx);
     
     bwdist_elem_order = BW_bwdist(indx_orders);
@@ -66,7 +65,7 @@ else
 end
 
 
-% FINAL FUNCIÓ
+% END FUNCTION
 
 
 end
