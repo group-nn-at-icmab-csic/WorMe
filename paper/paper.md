@@ -14,7 +14,7 @@ authors:
     affiliation: 1
   - name: Amanda Muñoz-Juan
     orcid: 0000-0001-9549-782X
-    affiliation: 1, 2
+    affiliation: "1, 2"
   - name: Anna Laromaine
     orcid: 0000-0002-4764-0780
     corresponding: true # (This is how to denote the corresponding author)
