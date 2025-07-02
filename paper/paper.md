@@ -22,7 +22,7 @@ authors:
 affiliations:
  - name: Institut de Ciencia de Materials de Barcelona (ICMAB-CSIC),Campus UAB Bellaterra, Barcelona, Spain
    index: 1
- - name: (Current: Department of Molecular Biology and Genetics, Aarhus University, Aarhus, Denmark)
+ - name: "(Current: Department of Molecular Biology and Genetics, Aarhus University, Aarhus, Denmark)"
    index: 2
 date: 
 bibliography: paper.bib
