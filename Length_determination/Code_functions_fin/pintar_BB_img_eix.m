@@ -33,7 +33,7 @@ function [img_RGB_sortida] = pintar_BB_img_eix(img_RGB, BB_prop, eixamplar_BB, e
 % pintar_BB_img_eix
 
 
-% INICI FUNCIÓ
+% START FUNCTION
     
    
     size_img = [size(img_RGB, 1) size(img_RGB, 2)];
@@ -49,6 +49,6 @@ function [img_RGB_sortida] = pintar_BB_img_eix(img_RGB, BB_prop, eixamplar_BB, e
     
     
     % imshow(img_RGB_sortida)
-% FINAL FUNCIÓ
+% END FUNCTION
 
 end

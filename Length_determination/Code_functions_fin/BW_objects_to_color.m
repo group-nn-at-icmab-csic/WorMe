@@ -1,6 +1,7 @@
 function [image_BW_colors, obj_num, imageArray_fintot] = BW_objects_to_color(BW_obj, imageArray)
 
-% Given a binary image with different objects, the objects are returned in different colors each. If an original image is added, these objects printed in the original image are also returned.
+% Given a binary image with different objects, the objects are returned in different colors each. 
+% If an original image is added, these objects printed in the original image are also returned.
 %
 % Variables
 % ---------
@@ -60,7 +61,7 @@ for cada_num = 1:length(unique(bwlabel_BW_proba))-1
     end
 
         
-    %Afegim a zeros
+    %Add to zeroes
     zeros_image = zeros_image + new_object_colored;
     
 end
@@ -75,17 +76,16 @@ obj_num = obj_num_prov(end);
 
 if exist('imageArray','var')
     
-    % COMBINACIÓ IMATGES
-    % El que fem és combinar la imatge principal v'imageArray' amb la imatge
-    % semibinària v'zeros_imatge', la qual té tres matrius i va de 0 a 255.
-    % Per a fer-ho, hem de passar la imatge principal a 'double',
-    % posar a zeros els llocs on coincideixen amb la imatge binària, i llavors
-    % sumar la imatge semibinaria, per a cada dimensió de la matriu,
-    % de manera que simplement es restin els llocs de la imatge binària i se li
-    % sumin els de la mateixa imatge binaria pero amb color.
+    % IMAGE COMBINATION
+    % What is done is combine the main image v'imageArray' with the semi-binary image
+    % v'zeros_image', which has three matrices that go from 0 to 255.
+    % To do this, we must change the main image to type 'double',
+    % set the places where it matches with the binary image to zero, and then
+    % add the semi-binary image, for each dimension of the matrix,
+    % so that the places of the binary image are subtracted and those of the
+    % same binary image but with color are added.
     
-    % Passem a double (per a poder operar matemàticament, si està a uint8 no es
-    % pot)
+    % Change to double type (to operate mathematically, if it is uint8 it cannot be done)
     imageArray = double(imageArray);
     
     imageArray_1 = imageArray(:,:,1);
@@ -101,10 +101,10 @@ if exist('imageArray','var')
     imageArray_3(BW_obj) = 0;
     imageArray_3_fin = imageArray_3 + zeros_image(:, :, 3);
     
-    % Juntem les tres matrius
+    % Combine the three matrices
     imageArray_fintot = cat(3, imageArray_1_fin, imageArray_2_fin, imageArray_3_fin);
     
-    % Tornem a passara uint8.
+    % Change the type to uint8.
     imageArray_fintot = uint8(imageArray_fintot);
     %imshow(imageArray_fintot)
 

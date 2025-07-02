@@ -6,7 +6,7 @@ function  num_objects_BW = obtenir_num_BW(imatge_entrada)
     % tipus_rgbgraybw_image
 
 
-    % INICI FUNCIO
+    % START FUNCTION
     
         % OBTENIR NOMBRE OBJECTES BINARIS
         % Funció d'obtenir el nombre d'objectes binaris en la imatge
@@ -24,6 +24,6 @@ function  num_objects_BW = obtenir_num_BW(imatge_entrada)
         num_objects_BW = string(nombre_elements);
 
 
-    % FINAL FUNCIÓ
+    % END FUNCTION
     
 end

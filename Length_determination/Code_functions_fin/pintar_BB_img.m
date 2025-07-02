@@ -23,7 +23,7 @@ function [img_RGB_out] = pintar_BB_img(img_RGB, BB_prop)
 % pintar_BB_img_eix
 
 
-% INICI FUNCIÓ
+% START FUNCTION
    
     size_img = [size(img_RGB, 1) size(img_RGB, 2)];
     
@@ -34,6 +34,6 @@ function [img_RGB_out] = pintar_BB_img(img_RGB, BB_prop)
     
     
     % imshow(img_RGB_out)
-% FINAL FUNCIÓ
+% END FUNCTION
 
 end

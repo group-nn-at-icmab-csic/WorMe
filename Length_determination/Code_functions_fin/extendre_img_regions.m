@@ -50,7 +50,7 @@ function [BW_img_final] = extendre_img_regions(BW_img_ini, regions_xywh, BW_img_
 % retallar_BWRGBimatge_BB_nou
 
 
-% INICI FUNCIÓ
+% START FUNCTION
 
 % Definim la dimensió de la imatge:
 [~, ~, dimensio] = size(BW_img_ini);
@@ -67,7 +67,7 @@ else
     msgbox("No dimension error in f' extendre_img_regions")
 end
 
-% FINAL FUNCIÓ
+% END FUNCTION
 
 
 end

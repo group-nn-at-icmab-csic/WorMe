@@ -6,7 +6,7 @@ function [imageArray_text] = graficar_text_img(imageArray)
 % See also
 % graficar_text_img_main
 
-% INICI FUNCIÓ
+% START FUNCTION
 
 % Obtneim dimensions
 [h_img, l_img, ~] = size(imageArray);
@@ -23,6 +23,6 @@ font_text = round(sqrt(sqrt(h_img * l_img)));
 imageArray_text = insertText(imageArray, pos_text, "Too many objects for skeletonization", 'FontSize', font_text, 'BoxColor', 'red', 'BoxOpacity',1);
 
 
-% FINAL FUNCIÓ
+% END FUNCTION
 
 end

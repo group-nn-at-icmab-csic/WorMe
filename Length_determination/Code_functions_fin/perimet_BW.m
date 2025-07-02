@@ -20,7 +20,7 @@ function [BW_perimeter] = perimet_BW(BW_inicial)
 % See also
 %
 
-% INICI FUNCIÓ
+% START FUNCTION
 
 % Busquem punts perimetrals
 [boundaries, ~] = bwboundaries(BW_inicial); % Elapsed time is 0.010365 seconds.
@@ -35,7 +35,7 @@ BW_perimeter(ind) = true;
 %imshow(BW_perimeter)
 
 
-% FINAL FUNCIÓ
+% END FUNCTION
 
 
 end

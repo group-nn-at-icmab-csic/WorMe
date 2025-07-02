@@ -27,7 +27,7 @@ function [imageArray_text] = graficar_text_img_main(imageArray, por_h, por_l, te
 % insertText
 
 
-% INICI FUNCIÓ
+% START FUNCTION
 
 % Obtneim dimensions
 [h_img, l_img, ~] = size(imageArray);
@@ -44,6 +44,6 @@ font_text = round(sqrt(sqrt(h_img * l_img)));
 imageArray_text = insertText(imageArray, pos_text, text_img, 'FontSize', font_text, 'BoxColor', color_box, 'BoxOpacity', box_opacity);
 
 
-% FINAL FUNCIÓ
+% END FUNCTION
 
 end

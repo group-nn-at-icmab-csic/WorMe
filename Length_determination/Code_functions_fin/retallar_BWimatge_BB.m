@@ -38,7 +38,7 @@ function [BW_ini_regio_cropped, proporcio_img] = retallar_BWimatge_BB(BW_ini_reg
 % extendre_img_regions
 % retallar_BWRGBimatge_BB_nou
 
-% INICI FUNCIO
+% START FUNCTION
 
 [x_size, y_size] = size(BW_ini_regio); %ex: 1080        1920
 
@@ -89,6 +89,6 @@ end
 % size(BW_ini_regio_cropped)
 
 
-% FINAL FUNCIO
+% END FUNCTION
 
 end

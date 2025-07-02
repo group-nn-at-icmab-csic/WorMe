@@ -31,7 +31,7 @@ function [imageArray_new] = pintar_BWindx_RGB_new(imageArray, imageArray_crop, i
 % retallar_BWRGBimatge_BB
 
 
-% INICI FUNCIÓ
+% START FUNCTION
 imageArray_new = imageArray;
 
 [x_rgbc, y_rgbc, ~] = size(imageArray_crop);
@@ -45,6 +45,6 @@ indx_BWobj_escalat_new = [indx_BWobj_escalat; indx_BWobj_escalat + rgb_perim; in
 imageArray_new(indx_BWobj_escalat_new) = imageArray_crop(indx_BWobj_new);
 %imshow(imageArray_new)
 
-% FINAL FUNCIÓ
+% END FUNCTION
 
 end

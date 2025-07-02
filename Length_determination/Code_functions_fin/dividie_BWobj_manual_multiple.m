@@ -1,14 +1,14 @@
 function [bwlabel_BW_obj_sumline, image_BW_colors, door_window_drawline, defined_line] = dividie_BWobj_manual_multiple(BWobj_image, im_original)
 
-% Given a singular binary image, manually define a line along which the binary image intersects.
-% Cropped binary image (bwlabel_BW_obj_sumline) is returned, like this
-% as the cropped color image (image_BW_colors), and the line (defined_line).
-% If a second color (3D) image is defined, it is overlaid
+% Given a singular binary image, manually define a line that cuts the binary image.
+% Returns a cropped binary image (bwlabel_BW_obj_sumline),
+% the cropped color image (image_BW_colors), and the line (defined_line).
+% This last procedure uses the function f'BW_objects_to_color'.
+% If a second color image (3D) is defined, it is overlaid
 % (f'imoverlay) on the image when selecting the line.
 %
-% Image can have more than one binary object, but must be binary.
-% This will be trimmed.
-%
+% The image can have more than one binary object, but it must be binary.
+% The image will be cropped.
 %
 %
 % Variables
@@ -19,7 +19,7 @@ function [bwlabel_BW_obj_sumline, image_BW_colors, door_window_drawline, defined
 %
 % output:
 % bwlabel_BW_obj_sumline : BW image with the line subtracted.
-% door_window_drawline : Returns whether or not the function was successfully executed.
+% door_window_drawline : Status flag to check whether or not the function was successfully executed.
 % image_BW_colors : Colorized BW image
 % defined_line : Defined line.
 %
@@ -27,36 +27,6 @@ function [bwlabel_BW_obj_sumline, image_BW_colors, door_window_drawline, defined
 % See also
 % BW_objects_to_color
 % print_RGB_indx_brush
-
-
-
-
-% (ESP)
-% -----
-% Dada una imagen binaria singular, se define de forma manual una línea con la que se corta la imagen binaria.
-% Se devuelve la imagen binaria recortada (bwlabel_BW_obj_sumline), así
-% como la imagen en color recortada (image_BW_colors), y la línea (defined_line).
-% Este último procedimiento utiliza la función f'BW_objects_to_color'.
-% Si se define una segunda imagen en color (3D), se superpone
-% (f'imoverlay) en la imagen a la hora de seleccionar la línea.
-%
-% La imagen puede tener más de un objeto binario, pero debe ser binaria.
-% Ésta se recortará.
-
-
-% (CAT)
-% -----
-% Donada una imatge binària singular, es defineix de manera manual una línia amb la qual es talla la imatge binària.
-% Es retorna la imatge binaria retallada (bwlabel_BW_obj_sumline), així
-% com la imatge en color retallada (image_BW_colors), i la línia (defined_line).
-% Aquest últim procediment empra la funció f'BW_objects_to_color'.
-% Si es defineix una segona imatge en color (3D), es superposa
-% (f'imoverlay) a la imatge a l'hora de seleccionar la línia.
-%
-% La imatge pot tenir més d'un objecte binari, però ha de ser binària.
-% Aquesta es retallarà.
-
-
 
 % START FUNCTION
 
@@ -113,30 +83,30 @@ try
     if door_window_drawline
         % DEFINITION OF THE LINE IN THE BINARY IMAGE
         
-        % Zeros image, as the original
+        % Image made from zeroes equal to the initial image
         [xd1, xd2, ~] = size(BWobj_image);
         zeros_imatge_cotxe = zeros(xd1, xd2);
         %size(zeros_imatge_cotxe)
         %imshow(zeros_imatge_cotxe)
         
-        % Draw the points in the zero image
+        % Draw the points in the image made from zeroes
         for cada_lin = 1:length(ep_rounded)
             %zeros_imatge_cotxe(ep_rounded(cada_lin,2), ep_rounded(cada_lin,1)) = 1;
             
             if cada_lin > 1
-                % We make a blank zeros image that contains the two pixels
+                % We make a blank zeros image and add the two pixels
                 zeros_imatge_cotxe_blanc = zeros(xd1, xd2);
                 
-                % Anterior point
+                % Front point
                 zeros_imatge_cotxe_blanc(ep_rounded(cada_lin-1,2), ep_rounded(cada_lin-1,1)) = 1;   
-                % Posterior point
+                % Back point
                 zeros_imatge_cotxe_blanc(ep_rounded(cada_lin,2), ep_rounded(cada_lin,1)) = 1;
                 
         
                 % Draw the line
                 zeros_imatge_cotxe_blanc_linea = bwconvhull(zeros_imatge_cotxe_blanc);
                 
-                % Sum the image to the main zeros image
+                % Add the line to the main image made from zeroes
                 zeros_imatge_cotxe = zeros_imatge_cotxe + zeros_imatge_cotxe_blanc_linea;
             end
         end
@@ -144,10 +114,10 @@ try
         % Match the values
         zeros_imatge_cotxe = zeros_imatge_cotxe>0;
         
-        % The line must be thick, otherwise a single pixel may not separate the image.
+        % The line must be thick, as a single pixel cannot separate the image.
         defined_line = bwmorph(zeros_imatge_cotxe, 'diag');
         
-        % WE SUBTRACT THE LINE TO THE INITIAL BINARY IMAGE
+        % SUBSTRACT THE LINE FROM THE INITIAL BINARY IMAGE
         bwlabel_BW_obj_sumline = BWobj_image - defined_line;
         bwlabel_BW_obj_sumline(bwlabel_BW_obj_sumline == -1) = 0;
         %unique(bwlabel_BW_obj_sumline)
@@ -167,18 +137,11 @@ try
 
 catch
 
-    % If there is a failure, such as closing the draw window,
-     % what is done is to return the port-counter as 'false'
-     % v'door_window_drawline', so that it can be advertised outside the
-     % function that there is a fault, and that it must be repeated, or not.
-     % Binary objects are returned without modification.
-
-     % (CAT)
-    % Si hi ha un fallo, com per exemple que es tanca la finestra del draw,
-    % el que es fa és retornar com a 'false' el contador-porta
-    % v'door_window_drawline', de manera que es pugui anunciar fora de la
-    % funció que hi ha el fallo, i que s'ha de repetir, o no.
-    % Els objectes binaris es retornen sense que hi hagi una modificació d'aquests.
+    % If there is an error, such as the draw window being closed,
+    % we return the status flag 'porta_window_drawline' as 'false'
+    % so that it can be announced outside the function that there
+    % is an error, so the action must be repeated if needed.
+    % The binary objects are returned without any modification.
     
     door_window_drawline = false;
 

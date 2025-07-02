@@ -16,7 +16,7 @@ function [new_object_colored] = paint_BW_color(BW_to_color, color_kind)
 
 
 
-% INICI FUNCIÓ
+% START FUNCTION
 
 % Lista valors dels colors, i dels colors.
 
@@ -45,7 +45,7 @@ end
 new_object_colored = cat(3, BW_to_color .* valor_color(1), BW_to_color .* valor_color(2),  BW_to_color .* valor_color(3));
 
 
-% FINAL FUNCIÓ
+% END FUNCTION
 
 
 end

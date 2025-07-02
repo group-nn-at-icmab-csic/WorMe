@@ -5,7 +5,7 @@ function [tipus_imatge] = tipus_rgbgraybw_image(imatge_input)
 % (CAT)
 % Donada una imatge (rgb, gray o BW), es retorna el tipus d'imatge que és('tipus_imatge'), en forma de string "rgb", "gray", o "binary".
 
-% INICI FUNCIÓ
+% START FUNCTION
 
 [~, ~, dim_im] = size(imatge_input); % Dimensions
 

@@ -51,7 +51,7 @@ function [imageArray_cropped, BW_ini_regio_cropped, BB_values, proporcio_img_new
 % correccio_sortida_dimensios
 % retallar_BB_BWimg
 
-% INICI FUNCIÓ 
+% START FUNCTION 
 
 prop_regions_BW = regionprops(BW_ini_regio,'BoundingBox');  %<--- rellevant
 [valor_percentual_imatge] = percentatge_imatge(BW_ini_regio, percentatge_img_origin);
@@ -83,6 +83,6 @@ end
 imageArray_cropped = imcrop(imageArray, proporcio_img_new);
 %imshow(imageArray_cropped)
 
-% FINAL FUNCIÓ
+% END FUNCTION
 
 end

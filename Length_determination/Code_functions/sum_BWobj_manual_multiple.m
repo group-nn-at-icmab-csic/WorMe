@@ -1,10 +1,10 @@
 function [bwlabel_BW_obj_sumatlinia, imatge_BW_colors, porta_window_drawline, zeros_imatge_cotxe_punts_units] = sum_BWobj_manual_multiple(BWobj_image, im_original, val_exampl)
 
 % Given a single binary image, a line is manually defined with which the binary image is cut.
-% The cropped binary image (bwlabel_BW_obj_sumatlinia) is returned, as well as
+% Returns a cropped binary image (bwlabel_BW_obj_sumatlinia), as well as
 % the cropped color image (imatge_BW_colors).
 % This last procedure uses the function f'BW_objects_to_color'.
-% If a second color image (3D) is defined, it is superimposed
+% If a second color image (3D) is defined, it is overlaid
 % (f'imoverlay) on the image when selecting the line.
 %
 % The image can have more than one binary object, but it must be binary.
@@ -14,7 +14,7 @@ function [bwlabel_BW_obj_sumatlinia, imatge_BW_colors, porta_window_drawline, ze
 % ---------
 % input:
 % BWobj_image : Binary image with a single binary object
-% im_original : (optional) Original image to superimpose on the binary image
+% im_original : (optional) Original image to overlay on the binary image
 %
 % output:
 % bwlabel_BW_obj_sumatlinia : BW image with the subtracted line.
@@ -93,12 +93,12 @@ try
         %size(zeros_imatge_cotxe)
         %imshow(zeros_imatge_cotxe)
         
-        % Print points in image made from zeroes
+        % Draw the points in the image made from zeroes
         for cada_lin = 1:length(ep_rounded)
             %zeros_imatge_cotxe(ep_rounded(cada_lin,2), ep_rounded(cada_lin,1)) = 1;
             
             if cada_lin > 1
-                % Make an image with zeroes in white which contains the two pixels
+                % Make a blank image with zeroes and add the two pixels
                 zeros_imatge_cotxe_blanc = zeros(xd1, xd2);
                 
                 % Front point
@@ -107,7 +107,7 @@ try
                 zeros_imatge_cotxe_blanc(ep_rounded(cada_lin,2), ep_rounded(cada_lin,1)) = 1;
                 
         
-                % Create the line
+                % Draw the line
                 zeros_imatge_cotxe_blanc_linea = bwconvhull(zeros_imatge_cotxe_blanc);
                 
                 % Add the line to the main image made from zeroes
@@ -119,7 +119,7 @@ try
         zeros_imatge_cotxe = zeros_imatge_cotxe>0;
         
         
-        % The line must be thick, as one pixel cannot separate the image
+        % The line must be thick, as a single pixel cannot separate the image.
         zeros_imatge_cotxe_punts_units = bwmorph(zeros_imatge_cotxe, 'diag');
         
         
@@ -156,11 +156,6 @@ try
     end
 
 catch
-    % Si hi ha un fallo, com per exemple que es tanca la finestra del draw,
-    % el que es fa és retornar com a 'false' el contador-porta
-    % v'porta_window_drawline', de manera que es pugui anunciar fora de la
-    % funció que hi ha el fallo, i que s'ha de repetir, o no.
-    % Els objectes binaris es retornen sense que hi hagi una modificació d'aquests.
     
     % If there is an error, such as the draw window being closed,
     % we return the status flag 'porta_window_drawline' as 'false'

@@ -30,7 +30,7 @@ function [RGB_to_color_new] = pintar_indx_to_RGB(RGB_to_color, indx_to_paint, co
 % pinten aquests d'un color determinat en una imatge RGB.
 
 
-% INICI FUNCIÓ
+% START FUNCTION
 
 % Lista valors dels colors, i dels colors.
 
@@ -68,7 +68,7 @@ RGB_to_color_new(indx_to_paint + (sup_RGB_to_color)*2) = valor_color(3);
 
 %imshow(RGB_to_color)
 
-% FINAL FUNCIÓ
+% END FUNCTION
 
 
 end

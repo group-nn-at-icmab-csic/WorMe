@@ -15,7 +15,7 @@ function [imatge_3D_sortida] = graficar_rgbgraybw_image(imatge_input)
 %   imshow(insertText(graficar_rgbgraybw_image(BW_final), [100,200], "Hola", 'FontSize',50))
 
 
-% INICI FUNCIÓ
+% START FUNCTION
 
 [~, ~, dim_im] = size(imatge_input); % Dimensions
 

@@ -6,7 +6,7 @@ function [BB_values_list, proporcio_img_list] = retallar_BB_BWimg(BW_final)
 % Donada una imatge amb varis objectes binaris, es retorna els bounding box
 % d'aquesta.
 
-% INICI FUNCIÓ
+% START FUNCTION
 
 % Variables de sortida
 BB_values_list = [];
@@ -29,6 +29,6 @@ for n_val = 1:num
 
 end
 
-% FINAL FUNCIÓ
+% END FUNCTION
 
 end
