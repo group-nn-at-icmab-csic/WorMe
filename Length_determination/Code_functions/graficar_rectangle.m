@@ -1,41 +1,42 @@
 function graficar_rectangle(indx_endpoints, size_BW, grandaria_linia)
 
-% Grafica rectangles dels index indicats d'una imatge binaria
+% Plots rectangles at the indicated indexes on a binary image
 %
 %
 % Variables:
-% indx_endpoints : index on hi anirà el rectangle.
-%                 : exemple: indx_endpoints = find(bwmorph(BW_skel_extes,'endpoints'));
-% size_BW : grandaria de la imatge
-%               : exemple : size_BW = size(BW_skel_extes)
-% grandaria_linia : gradaria del rectangle
-%                   : exemple:  grandaria_linia = 5;
+% indx_endpoints : index where the rectangle will be placed.
+%                  example: indx_endpoints = find(bwmorph(BW_skel_extes,'endpoints'));
+% size_BW : size of the image
+%           example: size_BW = size(BW_skel_extes)
+% grandaria_linia : size of the rectangle
+%                  example: grandaria_linia = 5;
 %
 % See also:
 % rectangle
 
-% % Exemple funció
+% % Example function
+
 % imshow(BW_skel_extes)
 % indx_endpoints = find(bwmorph(BW_skel_extes,'endpoints'));
 % graficar_rectangle(indx_endpoints, size(BW_skel_extes), 4)
 
-% INICI FUNCIÓ
+% START OF THE FUNCTION
 
 %imshow(BW_skel_extes)
 %indx_endpoints = find(bwmorph(BW_skel_extes,'endpoints'));
 
-% Passem de index a punts xy
+% Fomr index to xy points
 [x_endpoints, y_endpoints] = ind2sub(size_BW, indx_endpoints);
 
-% Obtenim els punts del rectangle
+% Rectangle points obtantion:
 rectangle_punts = [y_endpoints - grandaria_linia, x_endpoints-grandaria_linia, repelem(grandaria_linia+grandaria_linia, length(x_endpoints))', repelem(grandaria_linia+grandaria_linia, length(x_endpoints))'];
 
-% Grafiquem el rectangle, cada un
+% Graph the rectangle, each:
 for n_rect = 1:numel(indx_endpoints)
     rectangle("Position", rectangle_punts(n_rect,:), "EdgeColor","r", "LineWidth", 2)
 end
 
 
-% FINAL FUNCIÓ
+% FINAL OF THE FUNCIÓ
 
 end

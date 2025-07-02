@@ -1,14 +1,14 @@
 function [sortida_cell] = juntar_str_cell(celltxt)
 
-% Donat un array amb una o varies cells de strings, retorna una sola cell
-% amb el string.
+% Given an array with one or more cells of strings, return a single cell
+% with the string.
 %
 %
 % See also
 % write_normal_unicstr_josep
 % llegir_text_delimitadors_normal
 
-% INICI FUNCIO
+% START FUNCTION
 
 
 len_cell = length(celltxt);
@@ -33,6 +33,6 @@ else
 end
 
 
-% FINAL FUNCIÓ
+% FINAL FUNCTION
 
 end

@@ -1,7 +1,7 @@
 function [BW_skel_join] = esquel_multiple_BWobjects(BW_final)
 
-% Donada una imatge binària amb diferents objectes, es fa
-% l'esqueletonització de tots aquests i es retorna una imatge amb tots.
+% Given a binary image with different objects, all of them are skeletonized
+% and an image with them all is returned.
 %
 %
 % See also
@@ -9,29 +9,29 @@ function [BW_skel_join] = esquel_multiple_BWobjects(BW_final)
 % extendre_img_regions
 % retallar_BWimatge_BB_2
 
-% INICI FUNCIO
+% START OF THE FUNCTION
 
 
-% __Agafem cada objecte binaria de la imatge__
+% __We take each binary object from the image__
 [BW_label, num] = bwlabel(BW_final);
 
-% Fem imatge de referència
+% Create reference image
 BW_ref = false(size(BW_final));
 
-% Fem imatge on sumarem els esquelets
+% Create image where we will add the skeletons
 BW_skel_join = false(size(BW_final));
 
-% Per cada objecte de la imatge binaria:
+% For each object in the binary image:
 for n_val = 1:num
     
-    % Agafem un objecte
+    % Take one object
     BW_object = BW_label == n_val;
     %figure; imshow(BW_object)
 
-    % Retallem objecte
+    % Crop object
     [BW_filt_crop, ~, proporcio_img] = retallar_BWimatge_BB_2(BW_object, 5);
 
-    % Esqueletonitzem aquest:
+    % Skeletonize it:
     [BW_skel_unic, ~] = esqueletonitzacio_josep_optim(BW_filt_crop, 1, true, true);
 
     BW_img_final_sized = extendre_img_regions(BW_ref, proporcio_img, BW_skel_unic);
@@ -40,7 +40,7 @@ for n_val = 1:num
 end
 
 
-% FINAL FUNCIO
+% FINAL OF THE FUNCTION
 
 
 

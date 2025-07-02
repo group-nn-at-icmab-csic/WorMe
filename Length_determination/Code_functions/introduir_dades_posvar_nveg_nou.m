@@ -1,15 +1,14 @@
 function introduir_dades_posvar_nveg_nou(arxiu_text_output, array_introduir, nom_posicio_a_intro, n_vegades)
-
-% Donat un arxiu de text, s'introdueix una fila al text en la posició següent a la posició amb el nom descrit.
+% Given a text file, a row is inserted into the text at the position following the position with the specified name.
 %
 % Variables
-% arxiu_text_output : directori de l'arxiu de text (ex: C:\Escritorio\Josep.txt)
-% array_introduir   : array de dades a introduir, en forma de string (ex: [% "P1011629_skel_00003_01.JPG_02"    "112.7794"])
-% nom_posicio_a_intro   : Nom a partir des d'on es farà la introducció de les dades.
-% n_vegades             : (opcional) Per si es vol fer el print de manera reversa a la que es genera si s'executa la funció varies vegades.
+% arxiu_text_output : directory of the text file (e.g., C:\Escritorio\Josep.txt)
+% array_introduir   : array of data to insert, in string form (e.g., [% "P1011629_skel_00003_01.JPG_02"    "112.7794"])
+% nom_posicio_a_intro   : Name from which the data insertion will be made.
+% n_vegades             : (optional) In case the print is desired in reverse order compared to what is generated if the function is executed multiple times.
 %
-% % Exemple funció
-% % Arxius dades
+% % Function example
+% % Data files
 % arxiu_text_output = "C:\Users\Josep TOSHIBA\Desktop\Length determination v2_4\Results_out\20220305_1312_Input_images_Amanda_moltes\Filtered\dades_output.txt";
 % var_out_dades = 3
 % array_introduir = ["Worm_1" string(69)];
@@ -22,24 +21,25 @@ function introduir_dades_posvar_nveg_nou(arxiu_text_output, array_introduir, nom
 % introduir_dades
 
 
-% Lectura arxiu
+
+% File read
 cell_crua_dades = llegir_text_delimitadors(arxiu_text_output, ";");
 
 % Write
 
 [size_llargada, ~] = size(cell_crua_dades);
 
-% Busquem la posició del nom:
+% Name search position:
 fila_on_introduir = false;
 for cada_fila = 1:length(cell_crua_dades)
-    % Si coincideixen
+    % If coincide
     if strcmp(cell_crua_dades{cada_fila, 1}, nom_posicio_a_intro)
-        % Guardem la fila
+        % Save the row
         fila_on_introduir = cada_fila;
     end
 end
 
-% Possible error no coincidència valor
+% Possible error value no coincidence
 if ~isnumeric(fila_on_introduir)
     msgbox('No coincidència string', 'Error','error');
     error("en f'introduir_dades_posvar_nveg': No coincidència string")
@@ -47,26 +47,26 @@ end
 
 % Clau
 clau_nval = false;
-% contador vegades
+% count val
 n_vegades_cont = 0;
 
 
 % _Variables_
-% var_out_dades   : número de fila del total de files.
+% var_out_dades   : row number of total rows.
 
-% Guardar l'arxiu output de dades
+% Save the data output file
 fid = fopen(arxiu_text_output,'w');
 n_tot_print = 0;
 for var_out_dades = 1:size_llargada
-    % Si la posicio del write és la que volem:
+    % If the write position is what we want:
     if var_out_dades == fila_on_introduir        
-        % Copiem la fila que pertoca
+        % Copy the relevant row
         fprintf(fid,'%s \n',strcat(cell_crua_dades{var_out_dades, 1}, ";", cell_crua_dades{var_out_dades, 2}));
         clau_nval = true;
         
         n_tot_print = var_out_dades + n_vegades - 1;
         
-        % Si és l'ultim valor de l'arxiu de text.
+        % If it is the last value in the text file.
         if n_tot_print == var_out_dades
         %if n_vegades == 1 && var_out_dades == size_llargada
             
@@ -74,9 +74,9 @@ for var_out_dades = 1:size_llargada
 
         end
     else
-        % Es guarda true si coincideix. Llavors, es suma un contador per
-        % cada vegada que es passa, el qual si coincideix amb la posicio de
-        % n_vegades, es fa print a mès de la línia normal, de la línia en qüestió.
+        % True is stored if it matches. Then, a counter is added for
+        % each time it is passed, which if it matches the position of
+        % n_vegades, it prints in addition to the normal line, the line in question.
         if n_tot_print == var_out_dades
 
             fprintf(fid,'%s \n',strcat(cell_crua_dades{var_out_dades, 1}, ";", cell_crua_dades{var_out_dades, 2}));

@@ -1,18 +1,17 @@
 function [dist_max, endopint_n_fin] = dist_max_endpoints(BW_skel_image)
 
-% Donats els valors indexats dels endpoints d'una imatge
-% esqueletonitzada, el que es fa, per a cada endpoint, fer un bwdistgeodesic, el qual
-% quantifica la distancia que hi ha entre aquest endpoint vers els
-% altres punts. Per a comprovar la distancia entre tots els punts,
-% aquest procediment es fa al llarg de tots els endpoints, de manera
-% que s'obté el més gran.
+% Given the indexed values ​​of the endpoints of a skeletonized image, what is done, for each endpoint, is to make a bwdistgeodesic, which
+% quantifies the distance between this endpoint to the
+% other points. To check the distance between all the points,
+% this procedure is done along all the endpoints, so
+% that the largest is obtained.
 %
 % Input
-% BW_skel_image : Imatge esqueletonitzada
+% BW_skel_image : Skeletonized image
 %
 % Output
-% dist_max       : distància major.
-% endopint_n_fin : endpoint del punt on la llargada és major.
+% dist_max       : major distance.
+% endopint_n_fin : endpoint of the point where the length is higher.
 %
 %
 %
@@ -20,20 +19,20 @@ function [dist_max, endopint_n_fin] = dist_max_endpoints(BW_skel_image)
 % dist_max_endpoints_new
 
 
-% INICI FUNCIO
+% FUNCTION START
 
 %branques_total = find(bwmorph(BW_llistat_imatges_skel,'branchpoints'));
 
 end_points = find(bwmorph(BW_skel_image,'endpoints')); % Igual pero en valors indexats
 [endp_i,endp_j] = find(bwmorph(BW_skel_image,'endpoints'));
 
-% Comprovació que la imatge binaria sigui esquelet:
+% Checking that the binary image is a skeleton:
 I_BW_bwperim = bwperim(BW_skel_image);
 if sum(I_BW_bwperim(:)) ~= sum(BW_skel_image(:))
     msgbox("It is not binary image", "Error", "error")
 end
 
-% Inici
+% sTART
 dist_max = 0;
 
 if length(end_points) == 1; dist_max = 1; end

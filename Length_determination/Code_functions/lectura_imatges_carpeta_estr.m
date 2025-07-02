@@ -1,34 +1,35 @@
 function [theFiles] = lectura_imatges_carpeta_estr(myFolder)
 
-% Donada una carpeta, determinada per exemple en uigetdir(), ex: C/User/etc..., es retorna una estructura dels arxius (funció dir) d'aquesta.
-% Està orientat a que els arxius siguin d'imatge.
+% Given a folder, determined for example by uigetdir(), e.g. C/User/etc..., returns a structure of the files (dir function) in it.
+% It is aimed at files being images.
 %
 %
-% Imatges tipus '.gif' i '*.webp' excloses.
+% Image types '.gif' and '*.webp' are excluded.
 
 
-% INICI FUNCIO
+% START FUNCTION
+
 
 %GET A ALL IMAGE FILES LIST
 % Get a list of all files in the folder with the desired file name pattern.
 
 
-% _Varis formats d'imatge_
+% _Different image formats_
 
-% Obtenir més d'un arxiu d'imatge (ex: jpg i png)
+% Obtain more than one image file (ex: jpg i png)
 filePattern = fullfile(myFolder, {'*.jpg', '*.png', '*.jpeg', '*.tif', '*.tiff', '*.jfif', '*.bmp'}); %Excluded: '*.gif' i '*.webp'
 
 % disp('filePattern')
 % filePattern
 
-% Cada patró (.jpg, .png, etc...) genera un tipus de lectura diferent
-% (filePattern). Llaavors es veu si hi ha arxius d'aquest tipus (dir), i si
-% n'hi ha o no, s'integra a theFiles.
+% Each pattern (.jpg, .png, etc...) generates a different type of reading
+% (filePattern). Then it checks if there are files of this type (dir), and if
+% there are or not, they are added to theFiles.
 
-% Per cada patró
+% For every pattern
 for n_filep = 1:length(filePattern)
         
-    % Obtenció estructura del patró
+    % Obtain the structure of the pattern
     filePattern_tot = filePattern{n_filep};
     %filePattern_tot
     struct_fileP = dir(filePattern_tot);
@@ -38,10 +39,10 @@ for n_filep = 1:length(filePattern)
         theFiles = struct_fileP;
     else
             if isempty(theFiles)
-                % Si és vuit l'arxiu theFiles (no s'ha obtingut imatges d'aquest tipus anteriors).
+                % If theFiles file is eight (no previous images of this type were obtained).
                 theFiles = struct_fileP;
             else
-                % S'uneixen les estructures
+                % Structures are joined
                 theFiles = cell2struct([struct2cell(theFiles),struct2cell(struct_fileP)],fieldnames(theFiles),1);
 
                 
@@ -52,7 +53,7 @@ end
 % Filtratge dels elements ocults:
 [theFiles] = lectura_criba_fitxers_ocults(theFiles);
 
-% FINAL FUNCIÓ
+% FINAL OF THE FUNCTION
 
 
 end

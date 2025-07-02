@@ -1,9 +1,9 @@
 function [theFiles_2] = lectura_criba_fitxers_ocults(theFiles)
 
-% Fa el cribatge d'una estructura d'arxius (obtinguda de la funció 'dir')
-% d'aquells elements ocults.
+% It does the screening of a file structure (obtained from the 'dir' function)
+% of those hidden elements.
 %
-% Diferencial entre Windows i Mac
+% Difference between Windows and Mac
 % 
 % Temps de processament: 
 % Elapsed time: 0.00298 seconds ; 50 iterations in 4.1Gb of RAM memory used
@@ -13,7 +13,7 @@ function [theFiles_2] = lectura_criba_fitxers_ocults(theFiles)
 % 
 % 
 
-% INICI FUNCIÓ
+% START FUNCTION
 
 find_ocult = repelem(false, length(theFiles));
 
@@ -40,6 +40,6 @@ end
 
 theFiles_2 = theFiles(~find_ocult);
 
-% FINAL FUNCIÓ
+% FINAL FUNCTION
 
 end

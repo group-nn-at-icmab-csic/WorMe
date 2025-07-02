@@ -1,7 +1,8 @@
-% NOTA: 1. Cambiar funci´per la operació, 2. fer Ctrl + A i copiar a linia comandament 
+% NOTA: 1. Change the function for the opreation 
+% 2. To do Ctrl + A and copy the comandment line 
 tictoc = []; for nm = 1:50; tic; 
 
-    % Funcio
+    % Function
     % _____________________________________________________________________
        ispc
 

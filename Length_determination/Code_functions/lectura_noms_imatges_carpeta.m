@@ -1,6 +1,8 @@
 function [array_valors_noms_imatge, valor_nom_arxiu] = lectura_noms_imatges_carpeta(carpeta_output_filter)
-% Obtenim l'array de noms que volem obtenir la imatge amb els BB en color. 
-% En el nostre cas, seràn totes les imatges Filtrades.
+
+% We obtain the array of names that we want to obtain the image with the BBs in color.
+% In our case, it will be all the Filtered images.
+
 array_valors_noms_imatge = [];
 File_lectura_imatges_filtre = lectura_imatges_carpeta_estr(carpeta_output_filter);
 for cada_imatge_filtre = 1:length(File_lectura_imatges_filtre)

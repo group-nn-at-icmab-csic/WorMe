@@ -1,18 +1,18 @@
 function [theFiles] = lectura_imatges_seleccio()
 
-% Es realitza la funció manual d'una o varies imatges, i s'obté l'arxiu
-% d'estructura d'aquestes (theFiles) per a la seva possible operació.
+% The manual function of one or several images is performed, and the file
+% structure of these (theFiles) is obtained for their possible operation.
 
-% INICI FUNCIÓ
+% START FUNCTION
 
 [filename, pathname] = uigetfile({['*.jpg;*.png;*.jpeg;*.tif;*.tiff;*.jfif;*.bmp']; '*.jpg'; '*.png'; '*.jpeg'; '*.tif'; '*.tiff'; '*.jfif'; '*.bmp'; '*.*'}, 'MultiSelect','on');
 
 
 arxius_directoris = strcat(pathname, filename);
-% Per cada patró
+% For every pattern
 for n_filep = 1:length(arxius_directoris)
         
-    % Obtenció estructura del patró
+    % Obtain the pattern structure
     struct_fileP = dir(arxius_directoris{n_filep});
 
     
@@ -20,10 +20,10 @@ for n_filep = 1:length(arxius_directoris)
         theFiles = struct_fileP;
     else
             if isempty(theFiles)
-                % Si és vuit l'arxiu theFiles (no s'ha obtingut imatges d'aquest tipus anteriors).
+                % If theFiles file is eight (no previous images of this type were obtained).
                 theFiles = struct_fileP;
             else
-                % S'uneixen les estructures
+                % Joining of the structures
                 theFiles = cell2struct([struct2cell(theFiles),struct2cell(struct_fileP)],fieldnames(theFiles),1);
 
                 
@@ -33,7 +33,7 @@ for n_filep = 1:length(arxius_directoris)
 
 end
 
-% FINAL FUNCIÓ
+% FINAL OF THE FUNCTION
 
 
 end

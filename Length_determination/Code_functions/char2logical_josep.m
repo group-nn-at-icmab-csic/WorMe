@@ -1,6 +1,6 @@
 function [logical_value]= char2logical_josep(char_value)
 
-% Funció que passa de caracter a logic.
+% From character to logic (own function)
 
 if char_value == "false" || char_value == "False"
     logical_value = false;

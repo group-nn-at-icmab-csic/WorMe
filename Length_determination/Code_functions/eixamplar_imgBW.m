@@ -33,6 +33,6 @@ size_BW_objecte_skel= size(BW_img);
 BW_img_final = zeros(size(BW_img));
 BW_img_final(indx_BWskel_obj_eixamp) = true;
 
-% FINAL FUNCTION
+% FINAL OF THE FUNCTION
 
 end

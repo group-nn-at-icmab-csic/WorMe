@@ -1,12 +1,12 @@
 function [imatge_original] = imread_ifgrey(ruta_imatge_original)
 
-% Lectura la imatge: transforma a rgb si és en escala de grisos.
+% Read the image: transform to rgb if it is grayscale.
 
 imatge_original = imread(ruta_imatge_original);
 
-% Si la imatge és en blanc i negre es converteix a rgb
+% If the image is black and white it is converted to rgb
 if numel(size(imatge_original)) == 2
-    % Convertim imatge blanc i negre a RGB (no varia)
+    % Convert black and white image to RGB (does not change)
     imatge_original = cat(3, imatge_original, imatge_original, imatge_original);
 
 else

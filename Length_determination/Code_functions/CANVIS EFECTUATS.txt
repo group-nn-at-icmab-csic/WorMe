@@ -1,9 +1,0 @@
-
-
-En text2im, s'ha canviat:
-
-text=text+0;                    % converting string into Ascii-number array
-
-per:
-
-text = double(char(text));

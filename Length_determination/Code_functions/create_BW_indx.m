@@ -1,11 +1,12 @@
 function [BW_image] = create_BW_indx(indx_BW, size_BW)
 
-% Crea una imatge binaria a paritr dels index i del tamany desitjat de la
-% imatge
+
+% Create a binary image from the indexes and the desired image size
+%
 
 
 
-% INICI FUNCIÓ
+% FUNCTION START
 
 try
     BW_image = false(size_BW);
@@ -15,7 +16,7 @@ catch e %e is an MException struct
     fprintf(1,'Error in create_BW_indx. The identifier was:\n%s',e.identifier);
 end
 
-% FINAL FUNCIÓ
+% FINAL FUNCTION
 
 
 end

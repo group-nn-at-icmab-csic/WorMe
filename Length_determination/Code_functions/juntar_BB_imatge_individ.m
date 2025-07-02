@@ -1,42 +1,42 @@
 function [im_BB_rel_original_BBcol] = juntar_BB_imatge_individ(imatge_input_original,  nom_imatge_original, carpeta_BB_BW_color)
 
-% Juntar els BB a imatge original, aplicat sols a una imatge.
-% Basat amb la f'suma_semiBW_norm_millorat'
+% Merge the BB with the original image, applied only to one image.
+% Based on the function 'suma_semiBW_norm_millorat'
 %
-% Veiem les imatges de la carpeat BB BW color. 
-% Del nom de la imatge, sumem a la imatge aquelles BB que contenen el mateix nom d'origen.
-
+% We look at the images in the BB BW color folder.
+% From the image name, we add to the image those BBs that contain the same original name.
+%
 % Variables
-% imatge_input_original        : imatge a afegir els BB
-% nom_imatge_original         : nom de la imatge
-% carpeta_BB_BW_color         : carpeta amb les imatges BB en color
+% imatge_input_original        : image to add the BBs to
+% nom_imatge_original          : name of the image
+% carpeta_BB_BW_color          : folder with the BB color images
 %
-% Variables internes
-% im_BB_rel_original : imatge original pertanyent al nom de la imatge BB
-% im_BB_BW_color     : imatge BB color seleccionada pertanyent al nom
+% Internal variables
+% im_BB_rel_original : original image corresponding to the BB image name
+% im_BB_BW_color     : selected BB color image corresponding to the name
 % 
 % See also
 % suma_semiBW_norm_millorat
 % juntar_BB_imatge_nou3
 
 
-% INICI FUNCIÓ 
+% FUNCTION START
 
 
 [theFiles_imresult_BB_BW_color] = lectura_imatges_carpeta_estr(carpeta_BB_BW_color); % Lectura imatges
 llargada_theFiles_BB_BW_color = length(theFiles_imresult_BB_BW_color);
+% each loop was: cada_nom_array
 
-% cada loop era: cada_nom_array
-
-% Si suposem que donem la imatge original
+% Assuming we provide the original image
 
 
-% _Agreguem BB_
-% Per a cada imatge BB BW color que coincideixi amb el nom, li agreguem
-% el BB BW
+% _Add BB_
+% For each BB BW color image that matches the name, we add
+% the BB BW
 
-% Fem copia de la imatge original. v'im_BB_rel_original_BBcol' serà la
-% que anirà guardant els BB.
+% We make a copy of the original image. 'im_BB_rel_original_BBcol' will be
+% the one that keeps storing the BBs.
+
 im_BB_rel_original_BBcol = imatge_input_original;
 
 for cada_n_BB = 1:llargada_theFiles_BB_BW_color
@@ -44,14 +44,13 @@ for cada_n_BB = 1:llargada_theFiles_BB_BW_color
     nom_ex = theFiles_imresult_BB_BW_color(cada_n_BB).name;
     split_nom = split(nom_ex, "_skel");
     nom_orign_imBB = split_nom(1);
+    % If the name of the BB we are looking at (nom_orign_imBB) matches the
+    % name of the BB BW color image being read (nom_orign_imBB), it is the image
+    % we are interested in.
+    
+    % We normalize the names of the input images, to select and
+    % copy all those BB color images that match them.
 
-    % Si coincideix el nom del BB que estem veient (nom_orign_imBB) amb el de la
-    % imatge BB BW color de lectura (nom_orign_imBB), és la imatge que
-    % ens interessa.
-
-    % Normalitzem el nom de les imatges d'entrada, per a agafar i
-    % copiar totes aquelles imatges de BB color que coincideixen amb
-    % aquestes.
     split_nom = split(nom_imatge_original, "_skel");
     if length(split_nom) == 1
         cada_nom_array_splited = split_nom;
@@ -66,8 +65,8 @@ for cada_n_BB = 1:llargada_theFiles_BB_BW_color
         % Obtenim la imatge BW BB en color
         im_BB_BW_color = imread(fullFileName_BB); % Imatge inicial
 
-        % _Sumar BB col a original_
-        % Procedim a sumar aquesta a la original
+        % _Sum BB col a original_
+        % sum this to original
         im_BB_rel_original_BBcol = suma_semiBW_norm_millorat(im_BB_rel_original_BBcol, im_BB_BW_color);
 
 
@@ -78,6 +77,6 @@ for cada_n_BB = 1:llargada_theFiles_BB_BW_color
 end
 
 
-% FINAL FUNCIÓ
+% FINAL OF THE FUNCTION
 
 end

@@ -1,7 +1,7 @@
 function [im_3d] = im_binary_to_3d(im_binary)
 
-% Donada una imatge binaria, es converteix a 3 dimensions per a la seva
-% possible operació.
+% Given a binary image, it is converted to 3 dimensions for its
+% possible operation.
 
 % % Variables proba MATLAB Live
 % im_proba = cell_video_frames{1}

@@ -1,10 +1,10 @@
 function [cell_indx_punts] = BW_to_BBindx(BW_final)
 
-% Donada una imatge binària, retorna una cell amb els índex de cada
-% punt del bounding box d'aquesta.
+% Given a binary image, return a cell with the indices of each
+% point of its bounding box.
 %
 %
-% Temps de processament: 0.0089 (8GbRAM)
+% Processment time: 0.0089 (8GbRAM)
 % Codi: tictoc = []; for nm = 1:50; tic; [cell_indx_punts] = BW_to_BBindx(BW_final); tictoc = [tictoc, toc];end; mean(tictoc)
 %
 % See also
@@ -28,7 +28,7 @@ for n_struc = 1:length(BB_struc)
     % Elapsed time is 0.000937 seconds.
     
 
-    % Correcció possibles per sota/sobre de les dimensions de la imatge:
+    % Possible corrections for under/over image dimensions:
     punts_totals_1 = punts_totals(:, 1);
     punts_totals_1(punts_totals(:, 1) == 0) = 1;
     punts_totals(:, 1) = punts_totals_1;
@@ -38,7 +38,7 @@ for n_struc = 1:length(BB_struc)
     punts_totals(:, 2) = punts_totals_2;    
 
     index_punts = sub2ind(size(BW_final), punts_totals(:,2), punts_totals(:,1));
-    % Obtenim els punts
+    % We obtain the points
 
     cell_indx_punts{end+1} = index_punts;
 end
@@ -49,7 +49,6 @@ end
 % BW_final_BB(cell_indx_punts{1}) = true;
 % imshow(BW_final_BB)
 
-% çç veure funció que amplii els punst x i y dels BB per a que es vegin més.
 
 
 end

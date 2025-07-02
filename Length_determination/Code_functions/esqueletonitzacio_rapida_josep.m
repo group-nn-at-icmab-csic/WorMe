@@ -1,12 +1,12 @@
 function [BW_skel, sfMaskBurn_new] = esqueletonitzacio_rapida_josep(BW_img, img_example)
 
 
-% Esqueletonització d'una imatge per a retornar la visualització d'aquesta
-% amb la imatge original.
+% Skeletonization of an image to return the display of this
+% with the original image.
 %
 %
 % Variables:
-% BW_img  : imatge binaria.
+% BW_img  : Binary image.
 %
 %
 %

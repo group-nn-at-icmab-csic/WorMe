@@ -1,7 +1,7 @@
 function [proporcio_img_new] = correccio_sortida_dimensios(proporcio_img, size_final)
 
-% Donada una posicio de les mesures, si aquestes sobrepassen la imatge, es
-% corregeixen les mateixes.
+% Given a position of the measurements, if they exceed the image, they are
+% corrected.
 %
 %
 %
@@ -9,19 +9,19 @@ function [proporcio_img_new] = correccio_sortida_dimensios(proporcio_img, size_f
 % retallar_BWRGBimatge_BB_nou
 
 
-% INICI FUNCIÓ
+% START OF THE FUNCTION
 
 % size_final = size(BW_final)
 x_size = size_final(1);
 y_size = size_final(2);
 
-% _Correcció possible sortida de les mesures_
+% _Possible correction of the measurement output_
 proporcio_img_new = proporcio_img;
 
-% SI hi ha número negatius.
+% IF there are non-positive numbers.
 if ismember(1, proporcio_img_new <= 0)
-    % Es cambia el valor per 0, i es suma a la amplada/llargada d'aquest.
-    % En X:
+    % The value is changed to 0, and it is added to its width/height.
+    % In X:
     if proporcio_img_new(1) <= 0
     valor_x = proporcio_img_new(1);
     proporcio_img_new(3) = proporcio_img_new(3) + valor_x +1;
@@ -36,8 +36,8 @@ if ismember(1, proporcio_img_new <= 0)
 end
 
 
-% Si el tamany de la imatge retallada és superior a les mesures de la imatge inicial:
-% En Y
+% If the size of the cropped image is greater than the measurements of the original image:
+% In Y
 if proporcio_img_new(2) + proporcio_img_new(4) > x_size
     diferencia_x = x_size - (proporcio_img_new(2) + proporcio_img_new(4) );
     proporcio_img_new(4) = proporcio_img_new(4) + diferencia_x;
@@ -50,6 +50,7 @@ if proporcio_img_new(1) + proporcio_img_new(3) > y_size
 end
 
 
-% FINAL FUNCIÓ
+% FUNCTION FINAL
+
 
 end

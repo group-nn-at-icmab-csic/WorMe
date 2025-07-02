@@ -1,7 +1,6 @@
 function [array_sortida] = cell2array_josep(cell_entrada)
 
-% Donat una cell d'una sola fila tipus string, és a dir, una cadena de cell, es retorna
-% l'array d'aquesta.
+% Given a single-row cell of type string, that is, a string of cells, the array of it is returned
 
 array_sortida = [];
 for cada_v = 1:length(cell_entrada)

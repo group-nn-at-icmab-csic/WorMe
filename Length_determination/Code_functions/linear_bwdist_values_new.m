@@ -1,64 +1,66 @@
 function [valors_lineals_bwdist] = linear_bwdist_values_new(BW_filt_crop, BW_skel)
 
-% Donada una imatge binaria i el seu esquelet, es retorna els valors
-% lineals (ordenats) de l'amplada respecte el perímetre més proper (funcio
-% bwdist) de cada punt de l'esquelet.
-% Upgrade millorat: width_bwskeldist_values
-% 
-% See also 
+% Given a binary image and its skeleton, returns the linear (ordered) values
+% of the width relative to the nearest perimeter (using the bwdist function)
+% for each point of the skeleton.
+% Improved upgrade: width_bwskeldist_values
+%
+% See also
 % width_bwskeldist_values
 
-% INICI FUNCIÓ
+% START FUNCTION
 
-% Mirem el bwdist
+
+% We see the bwdist
 BW_bwdist = bwdist(~BW_filt_crop);
 % imshow(BW_bwdist, [])
 
 
 
-% Si fem bwdistgeodesic
+% If we do bwdistgeodesic
 
 B =  bwmorph(BW_skel,'endpoints');
 indx_endpoints = find(B);
 
 D = bwdistgeodesic(BW_skel,indx_endpoints(1),'quasi');
 
-% Però ara tenim sols els elements que no son NaN
+% But now we just have elements that are not NaN. 
 newD = D(~isnan(D));
 
-% Veiem que és irregular. Això és perquè cada valor no és lineal, sino que es definit per la posicio en l'eix y, de manera que algunes posicions passen per davant d'altres.
+% We see that it is irregular. This is because each value is not linear, but
+% defined by its position along the y-axis, so some positions come before others.
 
-% Si ho ordenem:
+% If we sort it:
 % plot(sort(newD))
 
-% Ho posem a variable
+% We assign it to a variable
 newDsort = sort(newD);
 
-% El que hem de relacionar es aquest valor amb el de la imatge esqueletonitzada.
-% (es chapuza, pero de moment es el que tiraria...)
+% What we need to relate is this value with the one from the skeletonized image.
+% (It's a bit of a quick fix, but for now this is what I'd try...)
 % find(D == newDsort(1))
 
-% Aquest és el punt 1 de la imatge esqueletonitzada.
-% Si fem aixo per a cada element
-tic
-% Tarda molt
+% This is point 1 of the skeletonized image.
+% If we do this for every element
+
+% It delays
 indx_D_ordenats = [];
 for n_D = 1:length(newDsort)
     indx_D_ordenats = [indx_D_ordenats, find(D == newDsort(n_D))];
 end
-
-% Aquests, teoricament, són els index ordenats de cada element del BWskel
+% These, theoretically, are the ordered indices of each element in BWskel
 % indx_D_ordenats
 
-% Ok, que tenim? tenim la BWskel llargada, i el bwdist d'aquesta. De la mateixa manera, tenim de forma ordenada els index de cada punt de BWskel.
-% D'aquesta manera podem obtenir el valor de bwdist per cada valor de BWskel, perque obtenim el punt del index ordenat, es a dir, el punt 1, 2, 3, 4, etc. de l'esqueletonització, i aquest en la imatge de bwdist obtenim el valor, que serà relatiu a la distancia amb l'objecte binaritzat.
+% Ok, what do we have? We have the lengthened BWskel, and its bwdist. Similarly, we have the ordered indices of each point in BWskel.
+% This way we can get the bwdist value for each BWskel value, because we take the point from the ordered index, that is, point 1, 2, 3, 4, etc. of the skeletonization,
+% and in the bwdist image we obtain the value, which will be relative to the distance to the binary object.
 % BW_bwdist(indx_D_ordenats)
 
 valors_lineals_bwdist = BW_bwdist(indx_D_ordenats);
 
 
 
-% FINAL FUNCIÓ
+% FINAL OF THE FUNCTION
 
 
 end

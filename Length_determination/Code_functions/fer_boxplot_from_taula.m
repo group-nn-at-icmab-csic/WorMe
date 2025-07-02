@@ -1,6 +1,6 @@
 function [array_dades_tot, array_repetits_categories_categorical] = fer_boxplot_from_taula(table_lect)
 
-% Donada una taula tipu:
+% Given a table in the design:
 %     x0hAmanda    x0hWM     x24hCAmanda    x24hCWM    x48hCAmanda
 %     _________    ______    ___________    _______    ___________
 % 
@@ -10,15 +10,14 @@ function [array_dades_tot, array_repetits_categories_categorical] = fer_boxplot_
 %      151.59      140.59      348.25        434.2       753.32   
 %       156.9      171.38      365.26       363.36       607.73 
 %
-% es tornen les dades per a que es pugui fer un boxplot d'aquestes, de la
-% forma:
+% the data is turned in order that the boxxplot of them can be developed, in the way:
 % boxchart(array_repetits_categories_categorical, array_dades_tot_obt)
       
 variables_names = table_lect.Properties.VariableNames;
 
 talbe_lect_array = table2array(table_lect);
 
-% Creem array amb les variables (passem de cell a array)
+% We create an array with the variables (we go from cell to array)
 variable_names_array = [];
 for names = variables_names
     if isempty(variable_names_array)
@@ -31,13 +30,13 @@ end
 
 
 
-% fem en elements
+% Make the elements
 array_repetits_categories = [];
 for n_posi = 1:length(variables_names)
     
     elems_repets = repelem(variable_names_array(n_posi), length(rmmissing(talbe_lect_array(:, n_posi))));
     
-    % Afegim al array
+    % add the array
     if isempty(array_repetits_categories)
         array_repetits_categories = [elems_repets];
     else
@@ -47,7 +46,7 @@ end
 
 
 
-% Passem la matriu a una llista:
+% From matrix to list:
 array_dades_tot = [];
 [~, cols_elm] = size(talbe_lect_array);
 for cada_elm = 1:cols_elm

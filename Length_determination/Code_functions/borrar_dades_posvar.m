@@ -1,11 +1,11 @@
 function borrar_dades_posvar(arxiu_text_output, nom_posicio_a_intro)
 
-% Donat un arxiu de text, s'elimina la fila que la primera columna de la qual coincideix amb el nom descrit.
+% Given a text file, deletes the row whose first column matches the specified name.
 %
 %
 % Variables
-% arxiu_text_output     : directori de l'arxiu de text (ex: C:\Escritorio\Josep.txt)
-% nom_posicio_a_intro   : Nom de la posicio de la qual es vol borrar la fila.
+% arxiu_text_output     : directory of the text file (e.g.: C:\Escritorio\Josep.txt)
+% nom_posicio_a_intro   : Name of the position whose row you want to delete.
 %
 %
 % % Exemple ús funció
@@ -19,22 +19,22 @@ function borrar_dades_posvar(arxiu_text_output, nom_posicio_a_intro)
 % llegir_text_delimitadors
 
 
-% Lectura arxiu
+% Read of the file
 cell_crua_dades = llegir_text_delimitadors(arxiu_text_output, ";");
 
 [size_llargada, ~] = size(cell_crua_dades);
 
-% Busquem la posició del nom:
+% We search the name position:
 fila_on_introduir = false;
 for cada_fila = 1:size_llargada
-    % Si coincideixen
+    % If coincide:
     if strcmp(cell_crua_dades{cada_fila, 1}, nom_posicio_a_intro)
-        % Guardem la fila
+        % Save the row:
         fila_on_introduir = cada_fila;
     end
 end
 
-% Possible error no coincidència valor
+% Possible error in no coincidence of the value:
 if ~isnumeric(fila_on_introduir)
     f = msgbox('No coincidència string', 'Error','error');
     error("en f'borrar_dades_posvar': No coincidència string")
@@ -42,12 +42,12 @@ if ~isnumeric(fila_on_introduir)
 end
 
 
-% Guardar l'arxiu output de dades
+% Save the output data file
 fid = fopen(arxiu_text_output,'w');
 for var_out_dades = 1:size_llargada
-    % Si la posicio del write és la que volem:
+    % If the position of write is the one we want: 
     if var_out_dades == fila_on_introduir
-        % No copiem la línea.
+        % Don't copy the line.
     else
         fprintf(fid,'%s \n',strcat(cell_crua_dades{var_out_dades, 1}, ";", cell_crua_dades{var_out_dades, 2}));
     end

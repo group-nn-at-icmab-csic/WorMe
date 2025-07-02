@@ -1,30 +1,28 @@
 function [metric_conjunts, imatge_arxi_ciru] = identify_round_objects_2(imatge_circle, threshold_circle)
+% Like identify_round_objects, but without adding text to the image,
+% and without subsequently opening it in the MATLAB GUI (and its associated performance load).
 
-% Com el identify_round_objects, però sense que afegir el text a la imatge,
-% i la subseqüent obertura d'aquesta en el GUI de MATLAB (i càrrega de
-% rendiment).
-
-% Identifica en base a 1 l'objecte o objectes d'una imatge binària.
-% La idea es fer servir per a imatge binaria singular
+% Identifies based on 1 the object or objects in a binary image.
+% The idea is to use it for a single binary image.
 
 % Variables:
 %   Input
-%               'imatge_circle' : imatge binària a analitzar
-%               'threshold_circle' : llindar en base a 1 sobre el que es
-%               volen filtrar les imatges. Simplement espeficicarà de
-%               manera gràfica quines imatges són per sobre d'aquest
-%               llindar.
+%               'imatge_circle' : binary image to analyze
+%               'threshold_circle' : threshold based on 1 to filter
+%               the images. It will simply specify graphically which
+%               images are above this threshold.
 %   Output
-%               'metric_conjnuts' :  valor o valors respecte 1 
+%               'metric_conjnuts' : value or values relative to 1
 
-% INICI FUNCIÓ
+% FUNCTION START
+
 
 
 if ~exist('threshold_circle','var')
     threshold_circle = 0;
 end
 
-% Es separa la imatge binària entre aquells objectes que no tenen forats
+% The binary image is separated between those objects that do not have holes
 [B_Bvar,~] = bwboundaries(imatge_circle,'noholes');
 
 
@@ -51,7 +49,7 @@ end
 
 
 
-% Exportem, llegim i eliminem la imatge temporal (no ho se fer d'una altre manera)
+% Export, read and delete the temporary image (it can't be done any other way)
 %exportgraphics(gca, 'tempraryFile_image_round_identif.png');
 %imatge_arxi_ciru = imread("tempraryFile_image_round_identif.png");
 %delete tempraryFile_image_round_identif.png
@@ -60,4 +58,5 @@ imatge_arxi_ciru = ficar_text_imatge(imatge_circle, "Circularity: ", string(roun
 
 % imshow(imatge_arxi_ciru)
 
-% FINAL FUNCIÓ
+% FINAL OF THE FUNCTION
+

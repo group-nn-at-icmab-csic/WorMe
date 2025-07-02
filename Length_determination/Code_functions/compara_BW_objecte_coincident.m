@@ -1,58 +1,59 @@
 function [llist_BW_identif, BW_bwselect_igual_punts, imatge_montatge_sortida] = compara_BW_objecte_coincident(BW_conjuntes_comparar, BW_aillar)
 
-% Funcio sobre comparar una imatge binària amb una carpeta d'imatges, per a
-% obtenir la imatge coincident binàriament. Llavors s'obté el nom d'aquesta
-% imatge. (aquest es l'objectiu final).
-% S'empra la f'identifica_pump_anterior_nou'. 
+% Function on comparing a binary image with a folder of images, to
+% obtain the binary matching image. Then the name of this
+% image is obtained. (this is the final goal).
+% The f'identifica_pump_anterior_nou' is used.
 %
-% Condicions: ambdós imatges han d'estar binaritzades.
+% Conditions: both images must be binarized.
 %
 % Variables
-% BW_aillar              :  Imatge binària d'objecte singular, el qual es vol aïllar.
-% BW_conjuntes_comparar  :  Imatge binària amb varis objectes binaris. A comparar amb la BW_aillar.
+% BW_aillar              :  Binary image of a singular object, which you want to isolate.
+% BW_conjuntes_comparar  :  Binary image with several binary objects. To be compared with the BW_aillar.
 %
 % See also
 % identifica_pump_anterior_nou
 
 
-% INICI FUNCIO
+% START OF THE FUNCTION
 
-% Esqueletonitzem la nostra imatge d'entrada (estalviar problemes)
+% We skeletonize our input image (save trouble)
 BW_aillar_skel = bwskel(BW_aillar);
 %imshow(BW_aillar_skel)
 
 
-% Controls prèvis
-% Si alguna de les dos imatges no és binària
+% Preliminary checks
+% If either of the two images is not binary
 if length(unique(BW_aillar(:)))>2 || length(unique(BW_conjuntes_comparar(:)))>2
     f = msgbox('Non binary image', 'Error','error');
 end
 
-% Veiem el nombre d'elements de la BW de varis objectes.
+% Check the number of elements in the BW of multiple objects.
 [~, nombre_elements] = bwlabel(BW_conjuntes_comparar);
 
-% Control que hi hagi elements
+% Check that there are elements
 if nombre_elements == 0
     f = msgbox("No hi ha elements binaris", 'Error','error');
 end
 
 
-% Identifica pump anterior
+% Identify previous pump
 [llist_BW_identif, BW_bwselect_igual_punts, imatge_montatge_sortida] = identifica_pump_anterior_nou(BW_conjuntes_comparar, BW_aillar_skel, "", false, "");
 
 
-% Notes: si no hi ha imatge coincident, la v'llist_BW_identif' és vuida (empty).
-% Això servirà per a emprar aquesta opció per a filtrar les imatges.
-% % Exemple si la imatge és zeros
+% Notes: if there is no matching image, the variable 'llist_BW_identif' is empty.
+% This will be useful for using this option to filter the images.
+% % Example if the image is all zeros
 % BW_zero = zeros(size(BW_aillar));
 % [llist_BW_identif, BW_bwselect_igual_punts, imatge_montatge_sortida] = identifica_pump_anterior_nou(BW_conjuntes_comparar, BW_zero, "", false, "");
 
 
-% Control més d'una imatge detectada.
+% Check for more than one detected image.
 if length(llist_BW_identif) > 1
     f = msgbox("More than a image", 'Error','error');
 end
 
-% FINAL FUNCIÓ
+
+% END OF FUNCTION
 
 end

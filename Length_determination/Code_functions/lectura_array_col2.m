@@ -1,10 +1,9 @@
 function [array_dades_est_col_2, array_dades_est_col_1] = lectura_array_col2(array_text)
 
 
-% Donat una cell de dos columnes, es retorna la primera i segona columna sense encapçalament, com a cells apart.
+% Given a two-column cell, return the first and second columns without headings, as separate cells.
 
-
-% Si no hi ha sols una fila.
+% If there is not just one row.
 [n_files, ~] = size(array_text);
 
 if n_files > 1

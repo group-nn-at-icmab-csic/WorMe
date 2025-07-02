@@ -1,6 +1,6 @@
-function [] = plantilla_funcio()
+function [] = template_function()
 
-% Aqui va la descripció
+% Here the description
 %
 %
 % Variables
@@ -14,17 +14,18 @@ function [] = plantilla_funcio()
 %       .
 %       .
 %
-% Exemple
+% Example
 %
 %
 % See also
 %
 
 
-% INICI FUNCIÓ
+
+% START OF THE FUNCTION
 
 
-% FINAL FUNCIÓ
+% END OF THE FUNCTION
 
 
 end

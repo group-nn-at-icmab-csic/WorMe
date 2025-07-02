@@ -1,7 +1,7 @@
 function [sum_punts] = ditancia_varis_punts(punts_xy_nou)
 
-% Donats diferents punts d'una imatge, es retorna la distància en pixels
-% d'aquests.
+% Given different points in an image, the distance in pixels
+% of these is returned.
 %
 %
 %
@@ -11,10 +11,10 @@ function [sum_punts] = ditancia_varis_punts(punts_xy_nou)
 % draw_line_length
 
 
-% INICI FUNCIO
+% START OF THE FUNCTION
 
 
-% _Obtencio dels punts_
+% _Points obtantion_
 sum_punts = 0;
 for cada_punt = 1:height(punts_xy_nou) -1
 
@@ -56,7 +56,7 @@ end
 
 
 
-% FINAL FUNCIO
+% FINAL OF THE FUNCTION
 
 
 end

@@ -1,17 +1,17 @@
 function [array_dades_est] = lectura_dades_arxiu(arxiu_text_output_manually)
 
-% Definit un arxiu 'txt', de 2 columnes, es retorna l'array de la segona
-% columna.
+% Defined a 'txt' file, with 2 columns, the array of the second
+% column is returned.
 
-% Llegir arxiu dades
+% Read data file
 cell_dades_estad = llegir_text_delimitadors(arxiu_text_output_manually, ";");
 
-% Si no hi ha sols una fila.
+% If there is just a row: 
 [n_files, n_columnes] = size(cell_dades_estad);
 
 if n_files > 1
     
-    % Obtenir sols les dades
+    % Obtain just hte data.
     array_dades_est_prov = cell_dades_estad(2:end, 2:end);
     [n_files_cell, ~] = size(array_dades_est_prov);
 

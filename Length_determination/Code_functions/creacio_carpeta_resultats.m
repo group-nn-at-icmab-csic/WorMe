@@ -1,8 +1,8 @@
 function [carpeta_output] = creacio_carpeta_resultats(userSavedDocuments, nom_carpeta_input)
 
-% Crea la carpeta de resultats 
+% cREATE THE RESULTS FOLDER
 
-% INICI FUNCIÓ
+% START OF THE FUNCTION
     
     %Data
     data_temps = clock;
@@ -22,6 +22,6 @@ function [carpeta_output] = creacio_carpeta_resultats(userSavedDocuments, nom_ca
         mkdir(strcat(carpeta_output, "\Processment_parameters"))
     end
 
-% FINAL FUNCIÓ
+% FINAL OF THE FUNCTION
 
 end

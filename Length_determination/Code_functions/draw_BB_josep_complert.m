@@ -1,15 +1,15 @@
 function [index_punts, BW_img_new, mask_BB] = draw_BB_josep_complert(BW_img)
 
-% Donada una imatge binària, retorna els índexs del punts del bounding box
-% d'aquesta i la imatge amb el Bounding box. D'aquesta manera es pot graficar la imatge.
+% Given a binary image, return the indices of the points in the bounding box
+% of this and the image with the Bounding box. In this way the image can be graphed.
 %
-% ES UNA FORMA NO- OPTIMITZADA: forma optimitzada es BW_to_BBindx (%Elapsed time is 0.005428 seconds.)
+% THIS IS A NON-OPTIMISED FORM: optimized form is BW_to_BBindx (%Elapsed time is 0.005428 seconds.)
 %
-% Per a graficar els punts en la imatge binària:
+% To graph the points in the binary image:
 % BW_img_new(index_punts) = true;
 % imshow(BW_img_new)
 %
-% Temps de processament
+% Processing time
 % tic; [index_punts] = draw_BB_josep(BW_img); toc
 % >>> Elapsed time is 0.007276 seconds.
 %
@@ -40,13 +40,13 @@ end
 
 
 index_punts = sub2ind(BW_img_size, punts_totals(:,2), punts_totals(:,1));
-% Obtenim els punts
+% We get the points
 
-% Per graficar en la imatge inicial
+% To graph in the initial image
 BW_img_new = BW_img;
 BW_img_new(index_punts) = true;
 
-% Print de la imatge amb sols el bounding box
+% Print the image with only the bounding box
 mask_BB = false(size(BW_img));
 mask_BB(index_punts) = true;
 

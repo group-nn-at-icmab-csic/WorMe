@@ -1,26 +1,25 @@
 function [metric_conjunts, imatge_arxi_ciru] = identify_round_objects(imatge_circle, threshold_circle)
-
-% Identifica en base a 1 l'objecte o objectes d'una imatge binària.
-% La idea es fer servir per a imatge binaria singular
+% Identifies based on 1 the object or objects in a binary image.
+% The idea is to use it for a single binary image.
 
 % Variables:
 %   Input
-%               'imatge_circle' : imatge binària a analitzar
-%               'threshold_circle' : llindar en base a 1 sobre el que es
-%               volen filtrar les imatges. Simplement espeficicarà de
-%               manera gràfica quines imatges són per sobre d'aquest
-%               llindar.
+%               'imatge_circle' : binary image to analyze
+%               'threshold_circle' : threshold based on 1 for filtering
+%               the images. It will simply specify graphically which
+%               images are above this threshold.
 %   Output
-%               'metric_conjnuts' :  valor o valors respecte 1 
+%               'metric_conjnuts' : value or values relative to 1
 
-% INICI FUNCIÓ
+% FUNCTION START
+
 
 
 if ~exist('threshold_circle','var')
     threshold_circle = 0;
 end
 
-% Es separa la imatge binària entre aquells objectes que no tenen forats
+% The binary image is separated between those objects that do not have holes
 [B_Bvar,~] = bwboundaries(imatge_circle,'noholes');
 
 

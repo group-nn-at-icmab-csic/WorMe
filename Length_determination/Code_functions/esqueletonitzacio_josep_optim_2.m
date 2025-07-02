@@ -68,41 +68,41 @@ function [BW_skel, dades_imatge_row, dades_imatge_manual_corrected] = esqueleton
 % INICI SCRIPT
 
 
-% Esqueletonització general
+% General skeletonization
 BW_skel = bwskel(BW_final);
 
-% Agafem els endpoints
+% We take the endpoints
 endpoints_BW = find(bwmorph(BW_skel,'endpoints'));
 %find(bwmorph(BWskel_1,'branchpoints'));
 
 
-if reduce_line % Si s'aplica reducció de la línia:
+if reduce_line % If line reduction is applied:
     if numel(endpoints_BW)>2
         % vell: [BW_skel, ~] = longestConstrainedPath_Josep(BW_final, "thinOpt", "thin");
         % [BW_skel] = large_skel(BW_skel);
         [BW_skel] = large_skel_iter(BW_skel); % Upgrade josep 11/09/2022
     else
-        % Res, ja tenim definit el BW_skel
+        % Nothing, we have defined already the BW_skel
     end
 else
-    % Res, ja tenim definit el BW_skel
+    % Nothing, we have defined already the BW_skel
 end
 
 
-% Extensió esqueletonització
+% Skeletonization extension
 if extendre_skel_opcio
-    % La imatge esqueletonitzada ha de ser superior a 1, sinó la imatge
-    % no pot ser esqueletonitzada.
+% The skeletonized image must be greater than 1, otherwise the image
+% cannot be skeletonized.
     if sum(BW_skel(:)) > 1
         [BW_skel] = extendre_skel_estes_nou(BW_final, BW_skel, "prop", 5);
     end
 end
 
 
-% _Obtenció de la llargada numèrica_
+% _Getting the numeric length_
 % disp("[Area_Josep] = llargada_josep(BW_skel);")
 
-% _Dades amb correcció error manual_
+% _Data with manual error correction_
 [Area_Josep] = llargada_josep_Fiji(BW_skel, n_pixel_margin);
 
 Area_Josep_scaled = Area_Josep / escala_imatge; %Es multiplica pel ratio de l'escala (pixels / unitat)
@@ -110,17 +110,17 @@ Area_Josep_scaled = Area_Josep / escala_imatge; %Es multiplica pel ratio de l'es
 dades_imatge_manual_corrected = Area_Josep_scaled;
 
 
-% _Dades sense correcció error manual_
+% _Data without manual error correction_
 
 [Area_Josep] = llargada_josep(BW_skel);
 
-Area_Josep_scaled = Area_Josep / escala_imatge; %Es multiplica pel ratio de l'escala (pixels / unitat)
+Area_Josep_scaled = Area_Josep / escala_imatge; % Multiplies by the scale ratio (pixels / unit)
 
 dades_imatge_row = Area_Josep_scaled;
 
-% % _Comprovació comparació entre ambdós distancies:_
-% Nota: l'error és de 1 pixel, a causa de la metodologia. Es subsceptible
-% de no ser considerat.
+% % _Check comparison between both distances:_
+% Note: the error is 1 pixel, due to the methodology. It is susceptible
+% to not being considered.
 % [Area_Josep_1] = llargada_josep_Fiji(BW_skel, 1)
 % [Area_Josep_2] = llargada_josep(BW_skel)
 % if isequal(Area_Josep_1, Area_Josep_2); disp("Equal length"); end

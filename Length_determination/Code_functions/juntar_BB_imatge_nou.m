@@ -1,35 +1,36 @@
 function juntar_BB_imatge_nou(carpeta_input, carpeta_BB_BW_color, carpeta_BB_merge_original, array_noms_im)
-% Juntar els BB a imatge original
-% Basat amb la f'suma_semiBW_norm_millorat'
-%
-% Veiem les carpetes de les imatge BB BW color, i les originals. 
-% De l'array de noms originals que tenim, mirem si ccoincideixen les
-% imatges. Obtenim er una banda la imatge original i per altra totes les BB
-% BW en color que coincideixen amb el nom, i juntem les unes amb les
-% altres.
-%
-% carpetes:
-% carpeta_input             : carpeta imatges originals
-% carpeta_BB_BW_color       : carpeta BB BW color
-% carpeta_BB_merge_original : carpeta imatges orginals i BB en color combinades.
 
+% Merge the BB with the original image
+% Based on the function 'suma_semiBW_norm_millorat'
+%
+% We look at the folders of the BB BW color images, and the originals.
+% From the array of original names we have, we check if the
+% images match. On one hand, we get the original image and on the other all the BB
+% BW color images that match the name, and we merge them together.
+%
+% Folders:
+% carpeta_input             : original images folder
+% carpeta_BB_BW_color       : BB BW color folder
+% carpeta_BB_merge_original : folder of combined original and BB color images.
+%
 % Variables
-% carpeta_input             : carpeta entrada imatges originals
-%                               ex:  'C:\Users\Josep TOSHIBA\Desktop\Length determination v2_5\_Extern\Imatges exemple\Input_images_Amanda_poques'
-% carpeta_BB_BW_color       : carpeta entrada imatges Bounding Box en color.
-%                               ex  ' "C:\Users\Josep TOSHIBA\Desktop\Length determination v2_5\Results_out\20220318_0958_Input_images_Amanda_poques\Processades\Conjunt_BB_BW_color"'
+% carpeta_input             : input folder for original images
+%                               e.g., 'C:\Users\Josep TOSHIBA\Desktop\Length determination v2_5\_Extern\Imatges exemple\Input_images_Amanda_poques'
+% carpeta_BB_BW_color       : input folder for Bounding Box color images.
+%                               e.g., ' "C:\Users\Josep TOSHIBA\Desktop\Length determination v2_5\Results_out\20220318_0958_Input_images_Amanda_poques\Processades\Conjunt_BB_BW_color"'
 %
-% carpeta_BB_merge_original : carpeta on es guarden les imatges processades
-%                               ex: "C:\Users\Josep TOSHIBA\Desktop\Length determination v2_5\Results_out\20220318_0958_Input_images_Amanda_poques\Processades\Conjunt_BB_aplicat"
+% carpeta_BB_merge_original : folder where processed images are saved
+%                               e.g., "C:\Users\Josep TOSHIBA\Desktop\Length determination v2_5\Results_out\20220318_0958_Input_images_Amanda_poques\Processades\Conjunt_BB_aplicat"
 %
-% array_noms_im             : array amb els noms de les imatges que es volen obtenir.
-%                               ex:   "P1011624"    "P1011625"    "P1011629"    "P1011630"    "P1011655"
+% array_noms_im             : array with the names of the images to be obtained.
+%                               e.g., "P1011624"    "P1011625"    "P1011629"    "P1011630"    "P1011655"
 %
-% Variables internes
-% im_BB_rel_original : imatge original pertanyent al nom de la imatge BB
-% im_BB_BW_color     : imatge BB color seleccionada pertanyent al nom
+% Internal variables
+% im_BB_rel_original : original image corresponding to the BB image name
+% im_BB_BW_color     : selected BB color image corresponding to the name
+%
+% FUNCTION START
 
-% INICI FUNCIÓ 
 
 [theFiles_imresult_original] = lectura_imatges_carpeta_estr(carpeta_input); % Lectura imatges
 llargada_theFiles_original = length(theFiles_imresult_original);
@@ -38,14 +39,14 @@ llargada_theFiles_original = length(theFiles_imresult_original);
 llargada_theFiles_BB_BW_color = length(theFiles_imresult_BB_BW_color);
 
 
-% Per imatge original de les BB BW en color
+% For imatge original of BB BW in color
 for cada_nom_array = array_noms_im
     
-    % Mostrem percentatge procés
+    % Whoe percentage of the process
     [~ , posicio_nomarray] = ismember(cada_nom_array, array_noms_im', 'rows');
     disp(strcat("Processing: ", string(posicio_nomarray), "/", string(length(array_noms_im)), " images"))
     
-    % Obtenim imatge original
+    % Obtain original image
     for cada_n_original = 1:llargada_theFiles_original
         nom_ex = theFiles_imresult_original(cada_n_original).name;
         strsplit(nom_ex, "_skel")
@@ -62,21 +63,21 @@ for cada_nom_array = array_noms_im
         
             fullFileName_origin = fullfile(theFiles_imresult_original(cada_n_original).folder, baseFileName_origin);
 
-            % Obtenim la imatge original
+            % Obtain original image
             im_BB_rel_original = imread(fullFileName_origin); % Imatge inicial
             
-            % Obtenim el nom de la imatge original
+            % Obtain name of the original image
             nom_im_orig_unic_bo = nom_im_orig_unic;
             file_im_original_bo = file_im_original;
         end
     end
+        % _Add BB_
+    % For each BB BW color image that matches the name, we add
+    % the BB BW
     
-    % _Agreguem BB_
-    % Per a cada imatge BB BW color que coincideixi amb el nom, li agreguem
-    % el BB BW
-    
-    % Fem copia de la imatge original. v'im_BB_rel_original_BBcol' serà la
-    % que anirà guardant els BB.
+    % We make a copy of the original image. 'im_BB_rel_original_BBcol' will be
+    % the one that keeps storing the BBs.
+
     im_BB_rel_original_BBcol = im_BB_rel_original; 
     
     for cada_n_BB = 1:llargada_theFiles_BB_BW_color
@@ -89,9 +90,10 @@ for cada_nom_array = array_noms_im
             nom_ex = split_nom(1);
         end
 
-        % Si coincideix el nom del BB que estem veient (nom_orign_imBB) amb el de la
-        % imatge BB BW color de lectura (nom_orign_imBB), és la imatge que
-        % ens interessa.
+        % If the name of the BB we are viewing (nom_orign_imBB) matches the
+        % name of the BB BW color image being read (nom_orign_imBB), it is the image
+        % we are interested in.
+
         if strcmp(nom_orign_imBB, cada_nom_array)
             baseFileName_BB = theFiles_imresult_BB_BW_color(cada_n_BB).name;
             fullFileName_BB = fullfile(theFiles_imresult_BB_BW_color(cada_n_BB).folder, baseFileName_BB);
@@ -107,8 +109,8 @@ for cada_nom_array = array_noms_im
             
         end
         
-        % GUARDEM LA IMATGE
-        % Definim el nom
+        % SAVE LA IMATGE
+        % Definim el name
         nom_BB_merge_original = strcat(nom_im_orig_unic_bo, file_im_original_bo);         
         write_josep(im_BB_rel_original_BBcol, carpeta_BB_merge_original, 1, nom_BB_merge_original);
         %imshow(im_BB_rel_original_BBcol)
@@ -118,6 +120,6 @@ for cada_nom_array = array_noms_im
 
 end
 
-% FINAL FUNCIÓ
+% FINAL FUNCtion
 
 end

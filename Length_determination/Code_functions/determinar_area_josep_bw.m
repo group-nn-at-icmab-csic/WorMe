@@ -1,15 +1,15 @@
 function [Area_Josep] = determinar_area_josep_bw(BW_skel)
 
-% Es retorna l'àrea d'una línea, o conjunt.
-% La imatge binària no pot tenir volum, doncs s'analitza l'area de la línea. 
+% The area of ​​a line, or set, is returned.
+% The binary image cannot have volume, so the area of ​​the line is analyzed.
 
 % %Variables exemple
 % BW_skel = bwskel(imatge_primera_retallada);
 % imshow(BW_skel, 'InitialMagnification','fit')
 
-% Agrandim la línia d'esqueletonització, per a una millor graficació.
-% La opció 'diag' el que fa és unir aquells pixels que tenen una separació
-% diagonal entre sí.
+% We enlarge the skeletonization line, for better graphics.
+% The 'diag' option does is join those pixels that have a diagonal separation
+% between them.
 %      0  1  0           0  1  0 
 %      1  0  0  becomes  1  1  0 
 %      0  0  0           0  0  0
@@ -20,22 +20,22 @@ BW_skel_diag = bwmorph(BW_skel, 'diag');
 % BW_skel_diag_show = BW_skel - BW_skel_diag;
 % BW_final_skel = imoverlay(BW_skel, BW_skel_diag_show, 'r');
 % imshow(BW_final_skel, 'InitialMagnification','fit')
-% Recordem, que aquesta imatge és per a graficar, no és vàlida per a ser
-% emprada per a anàlisis.
+% Remember, this image is for graphics, it is not valid to be
+% used for analysis.
 
 
-%Area de la imatge esqueletonitzada
+%Area of the skeletonized image
 Area_skel = sum(BW_skel(:));
 
-%Area de la imatge esqueletonitzada, i modificada angles pixels
+%Area of the skeletonized image, and modified the pixels angles 
 Area_skel_diag = sum(BW_skel_diag(:));
 
-%Area de la imatge esqueletonitzada, segons teoria Josep
-% 1. de l'esqueletonització inicial, es resten el valor dels pixels singulars diagonals, i es suma aquell mateix valor multiplicat per arrel cuadrada de 2,
-% lo qual pertany a la distancia diagonal de dos rectes de distancia 1.
-% 2. cada un dels dos pixels de 'diag' que s'atribueixen a cada pixel diagonal.
+%Area of ​​the skeletonized image, according to Josep's theory
+% 1. from the initial skeletonization, the value of the diagonal singular pixels is subtracted, and that same value multiplied by the square root of 2 is added,
+% which belongs to the diagonal distance of two straight lines of distance 1.
+% 2. each of the two pixels of 'diag' that are attributed to each diagonal pixel.
 
-Area_diag = (Area_skel_diag - Area_skel)/2; % piels diagonals. Es divideix per 2 perque per a cada cantonada es generen dos pixels. Això ocórre, pero, sol en imatges de píxels linears, esqueletonitzades.
+Area_diag = (Area_skel_diag - Area_skel)/2; % diagonal pixels. Divide by 2 because two pixels are generated for each corner. This only happens, however, in linear, skeletonized pixel images.
 Area_Josep = Area_skel - Area_diag + Area_diag * sqrt(2);
 
 

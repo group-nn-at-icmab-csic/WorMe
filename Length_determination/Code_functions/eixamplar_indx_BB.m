@@ -1,16 +1,16 @@
 function [total_indx_fin] = eixamplar_indx_BB(total_indx, val_exampl, size_BW)
 
-% Donada una llista de index d'un Bounding Box, es retorna els index del
-% mateix Bounding Box examplat horitzontal i verticalment.
+% Given a list of indices of a Bounding Box, the indices of the
+% same Bounding Box sampled horizontally and vertically are returned.
 %
 % Variables:
-% val_exampl - Valor a eixamplar. Si és 1, s'eixamplarà 1 pixel.
-% total_indx - index totals, en una sola columna.
-% size_BW - size de la imatge, ha de ser 2D.
+% val_exampl - Value to be widened. If it is 1, it will be widened by 1 pixel.
+% total_indx - total indices, in a single column.
+% size_BW - size of the image, must be 2D.
 %
-% total_indx_fin - index totals finals
+% total_indx_fin - final total indices
 %
-% Temps de processament: 0.0017 (50 loops, 8Gb RAM)
+% Processing time: 0.0017 (50 loops, 8Gb RAM)
 %
 %
 % Exemple:
@@ -28,14 +28,13 @@ function [total_indx_fin] = eixamplar_indx_BB(total_indx, val_exampl, size_BW)
 
 % A x,y
 [x_values, y_values] = ind2sub(size_BW, total_indx);
+% Now we are going to add 1, and subtract 1 from each value of X and Y, and we will save them all, so that we will have more
+% widened the Bounding Box.
+% Many elements will be repeated, because they will overlap in the same
+% position.
 
-% Ara anem a sumar 1, i restar 1 a cada valor de X i Y, i els guardarem tots, de manera que tindrem més
-% aixamplat els Bounding Box.
-% Molts elements es veuràn repetits, perquè es superposaràn en la mateixa
-% posició.
-
-% Mirem que no es sobresurtin de la imatge. Si es així, treurem els valors
-% que sobresurtin.
+% We make sure that they do not protrude from the image. If so, we will remove the values
+% that protrude.
 
 % size_BW(1) %1080 (Y)
 % size_BW(2) % 1920 (X)
@@ -49,7 +48,7 @@ function [total_indx_fin] = eixamplar_indx_BB(total_indx, val_exampl, size_BW)
 % x_values_fin = [x_values; x_values - val_exampl; x_values + val_exampl; x_values    ; x_values    ];
 % y_values_fin = [y_values; y_values;     y_values;     y_values - val_exampl; y_values + val_exampl];
 % 
-% Per a cada valor s'eixampla, sinó simplement es creen línies:
+% For each value it is expanded, otherwise lines are simply created:
 x_values_fin = [];
 y_values_fin = [];
 
@@ -59,8 +58,8 @@ for val_exampl_temp = 1:val_exampl
 end
 
 
-% Si algún valor és superat de la dimensió de la imatge, o bé és menor
-% d'aquesta, es treu:
+% If any value is exceeded by the image dimension, or is less
+% than it, it is removed:
 indxlog_xy_values_fin = (x_values_fin > size_BW(1) ) | ( x_values_fin <= 0 ) | ( y_values_fin > size_BW(2) ) | ( y_values_fin <= 0);
 
 y_values_fin = y_values_fin(~indxlog_xy_values_fin);
@@ -68,12 +67,12 @@ x_values_fin = x_values_fin(~indxlog_xy_values_fin);
 
 
 
-% Tornem a passar a índex:
+% Let's go back to index:
 total_indx_fin_t = sub2ind(size_BW, x_values_fin, y_values_fin);
 
 total_indx_fin = unique(total_indx_fin_t);
 
-% % Comprovació
+% % Comprove
 % unique(ismember(total_indx_fin_t, total_indx_fin))
 % ismember("A", ["D" "A"])
 

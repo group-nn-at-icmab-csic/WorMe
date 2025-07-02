@@ -1,5 +1,5 @@
 function [dades_imatge] = ficar_marges(BW_verticalized_marges)
-%% Donada una imatge binària 'verticalitzada', defineix els seus laterals i hi grafica una línea.
+% Given a 'verticalized' binary image, define its sides and plot a line on them.
 
 % imshow(BW_verticalized_marges);
 

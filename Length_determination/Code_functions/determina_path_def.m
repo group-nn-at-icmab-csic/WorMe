@@ -1,6 +1,6 @@
 function determina_path_def(path_definit)
 
-% Determina el path del programa a partir de la definició d'aquest.
+%Determines the program path from its definition.
 % 
 % 
 % See also

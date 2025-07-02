@@ -1,14 +1,14 @@
 function borrar_dades(arxiu_text_output, posicio_a_borrar)
 
-% Donat un arxiu de text, s'elimina una fila determinada d'aquest.
+% Given a text file, a specific row is deleted from it.
 %
 %
 % Variables
-% arxiu_text_output : directori de l'arxiu de text (ex: C:\Escritorio\Josep.txt)
-% posicio_a_borrar   : Posicio del arxiu de text on es borrarà la fila de dades.
+% arxiu_text_output : directori of the text file (ex: C:\Escritorio\Josep.txt)
+% posicio_a_borrar   : Position of the text file where the row is going to be deleted. 
 %
 %
-% % Exemple ús funció
+% % Example function
 % carpeta_borr = "C:\Users\Josep TOSHIBA\Desktop\Length determination v2_4\Results_out\20220309_1209_Input_images_Amanda_poques\Filtered\dades_output.txt";
 % linia_bor = 2
 % 
@@ -19,19 +19,19 @@ function borrar_dades(arxiu_text_output, posicio_a_borrar)
 % llegir_text_delimitadors
 
 
-% Lectura arxiu
+% Read of the file
 cell_crua_dades = llegir_text_delimitadors(arxiu_text_output, ";");
 
 % Write
 
 [size_llargada, ~] = size(cell_crua_dades);
 
-% Guardar l'arxiu output de dades
+% Save the output file of data
 fid = fopen(arxiu_text_output,'w');
 for var_out_dades = 1:size_llargada
-    % Si la posicio del write és la que volem:
+    % If the write position is the one we want:
     if var_out_dades == (posicio_a_borrar)
-        % No copiem la línea.
+        % We don't copy the line.
     else
         fprintf(fid,'%s \n',strcat(cell_crua_dades{var_out_dades, 1}, ";", cell_crua_dades{var_out_dades, 2}));
     end

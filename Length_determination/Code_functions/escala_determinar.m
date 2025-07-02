@@ -1,28 +1,29 @@
 function [escala_imatge] = escala_determinar(imatge_crop_josep, valor_nums)
 
-    % GUI per a determinar la escala d'una imatge.
+    % GUI to determine the scale of an image.
 
-    % INICI FUNCIÓ
+    % START OF THE FUNCTION
 
-    % detemrinem si volem que es llegeixin les lletres.
+    % Determine if we want thath the letters are readed.
     operacio_lletres = false;
+        
+    % __mini_function__ Determine pixels
     
-    % __mini_funcio__ Determinar píxels
+    % Given an initial image, the scale of this is determined in an
+    % interactive way, either by entering the scale value or
+    % determining it from the image.
     
-    % Donada una imatge inicial, es determina l'escala d'aquesta de manera
-    % interactiva, ja sigui introduïnt el valor de l'escala o bé
-    % determinant-lo per la imatge.
-    
-    % En un principi, el valor serà determinat en micrometres, així com el
-    % valor de la imatge serà també en micrometres.
+    % Initially, the value will be determined in micrometers, as well as the
+    % value of the image will also be in micrometers.
     
     % variables:
-    % input: imatge inicial
-    % interactiu: introduccio escala ; si/no{imatge seleccio cropping}
-    % output: escala imatge [escala_imatge]
+    % input: initial image
+    % interactive: enter scale; yes/no{image select cropping}
+    % output: image scale [image_scale]
     
-    % 'clau' per a sortir del while, quan tot estigui correcte. Sinó es torna a
-    % introduïr les dades.
+    % 'key' to exit the while, when everything is correct. Otherwise, the data is
+    % entered again.
+
     corrector_tot_be = 1; %<- true
     
     
@@ -71,8 +72,8 @@ function [escala_imatge] = escala_determinar(imatge_crop_josep, valor_nums)
                     
                     answer_introd = inputdlg(prompt,dlgtitle,dims,definput);
                     
-                    % Si el resultat conté una coma ',' retorna a introduïr
-                    % dades
+                    % If the result contains a comma ',' return to input
+                    % data
                     
                    
                     if contains(answer_introd{1}, ",")
@@ -100,7 +101,7 @@ function [escala_imatge] = escala_determinar(imatge_crop_josep, valor_nums)
             end
     
             
-        % SELECCIONAR IMATGE
+        % SELECT IMAGE
         elseif answer == "Select automatically"
 
             % App app_escala_auto
@@ -108,81 +109,35 @@ function [escala_imatge] = escala_determinar(imatge_crop_josep, valor_nums)
             waitfor(app_escala_auto(imatge_crop_josep, carpeta_out_app))            
 
             
-            % Assignar el valor de escala_determinar
+            % Asssign the value of escala_determinar
             
-            % Llegir text
+            % Read text 
             arxiu_text_output = "Results_out\Internal_code_files\escale_line.txt";
             [escala_imatge_prov, ~] = llegir_text_delimitadors(arxiu_text_output, ";");
             escala_imatge = str2double(escala_imatge_prov(2));
             
-            % Sortida
+            % Output
             corrector_tot_be  = false;
-%                 
-%             if operacio_lletres
-%                 % -variable lletres- BW_bwa_lletra
-%                 BW_bwa_lletra = BW_bwa - BW_bwa_metro;
-%                 imshow(BW_bwa_lletra)
-% 
-%                 % Operació lletres %
-% 
-% 
-% 
-%                 % A avantpriori, s'ha de definir el Computer Vision Toolbox OCR
-%                 % language, per a poder detectar les lletres gregues, donat que la
-%                 % versió predeterminada sols és en anglès i japonès.
-% 
-%                 %visionSupportPackages 
-% 
-%                 % Perform OCR.
-%                 results = ocr(BW_bwa_lletra, "Language","Catalan");
-%                 %results = ocr(BW_bwa_lletra, "Language","Greek");
-% 
-% 
-%                 % Display one of the recognized words.
-%                 word = results.Words{1};
-% 
-%                 % Seleccionem sols el valor numèric
-%                 word_num = regexp(word,'[0-9]','match');
-%                 word_num = strcat(word_num);
-%                 word_num = [word_num{:}];
-%                 word_num = str2num(word_num);
-% 
-%             else
-%                 % Si el valor numèric no es determina automàticament, fem
-%                 % que s'introdueixi.
-%                 imshow(BW_bwa_metro_BB)
-%                                
-%                 %Quadre diàleg
-%                 prompt = "Determine the scale units value:";
-%                 dlgtitle = 'Input';
-%                 dims = [1 35];
-%                 definput = {''};
-%                 answer = inputdlg(prompt,dlgtitle,dims,definput);
-% 
-%                 word_num = str2double(answer{1});
-%             end
-            
+
 
         elseif answer == "Select by a line"
-            % ññññ
+            
             carpeta_out_app = "Results_out\Internal_code_files";
             waitfor(app_escala_linia(imatge_crop_josep, carpeta_out_app))
             
+                      
+            % Assign the value of escala_determinar
             
-            % ÑÑÑ Llegir el valor
-            
-            % Assignar el vaor de escala_determinar
-            
-            % Llegir text
+            % Read text
             arxiu_text_output = "Results_out\Internal_code_files\escale_line.txt";
             [escala_imatge_prov, ~] = llegir_text_delimitadors(arxiu_text_output, ";");
             escala_imatge = str2double(escala_imatge_prov(2));
             
-            % Sortida
+            % output
             corrector_tot_be  = false;
 
             
-        % SORTIR
+        % TO LEAVE
         else
             %waitfor(msgbox('Sisplau, esculli una opció'));
             answer_sortida = questdlg('Do you want to exit?', '', 'Yes','No', 'No');
@@ -192,12 +147,13 @@ function [escala_imatge] = escala_determinar(imatge_crop_josep, valor_nums)
                     answer_sortida = 1;
                 case 'No'
                     answer_sortida = 0;
-            % Si es vol sortir, true
+            % If want to quit, true
                     
             end
             
-            % Si resposta és "Si", és true (1) i es surt (corrector tot be
-            % false)
+        
+        % If the answer is "Yes", it is true (1) and exits (corrector all be
+        % false)            
             if answer_sortida
                 corrector_tot_be = 0;
             else
@@ -210,11 +166,10 @@ function [escala_imatge] = escala_determinar(imatge_crop_josep, valor_nums)
         
     
     end
-    
-    % Mostrar la escala en un box final
-    %msgbox(strcat('Escala:', "  ", num2str(escala_imatge), '  pixels / unit'));
-    % Nota: s'ha tret el waitfor()
-    
+
+  % Show the scale in a final box
+%msgbox(strcat('Scale:', " ", num2str(image_scale), ' pixels / unit'));
+% Note: waitfor() has been removed
     
     
     
@@ -222,7 +177,7 @@ function [escala_imatge] = escala_determinar(imatge_crop_josep, valor_nums)
 %     escala_imatge
    
     
-    % FINAL FUNCIÓ
+    % FINAL OF THE FUNCTION
 
     
 end
