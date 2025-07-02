@@ -12,7 +12,7 @@ authors:
     orcid: 0009-0007-5552-613X
     equal-contrib: true
     affiliation: 1
-  - name: Amanda Muñoz Juan
+  - name: Amanda Muñoz-Juan
     orcid: 0000-0001-9549-782X
     affiliation: 2
   - name: Anna Laromaine
@@ -64,6 +64,6 @@ The user manual provides a more detailed explanation and examples of use. This d
 
 We acknowledge discussions with the ICMAB-CSIC Nanoparticles and Nanocomposites group working with *C. elegans*, Dr. Jordi Faraudo (ICMAB) for his help in the GitHub repository and M.D. Míriam Vidal for the initial tests of the software.
 
-This project has been supported financially by the Spanish Government through the XX grant and the Becas de introducción a la investigación JAE Intro in CSIC institutes grants awarded to Josep Llobet Lladó, , and Núria Garriga-Alonso, JAEINT_24_01745.
+This project has been supported financially by the Spanish Government through the XX grant and the Becas de introducción a la investigación JAE Intro in CSIC institutes grants awarded to Josep Llobet Lladó, JAEIntroICU-2021-ICMAB-01, and Núria Garriga-Alonso, JAEINT_24_01745.
 
 # References
