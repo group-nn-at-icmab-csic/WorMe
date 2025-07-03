@@ -1,9 +1,0 @@
-Ordre proces;Tipus proces
-1;Im2gray
-2;imadjust_croped(0.89492, 0.054781)
-3;binarize_by_value(7.7273)
-4;bwareaopen(0.5)
-5;close_disc(1)
-6;bwareaopen(3.5)
-7;Imclearborder
-8;imfill
