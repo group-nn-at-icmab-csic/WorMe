@@ -16,7 +16,7 @@ function [img_RGB_sortida] = pintar_BB_img_eix(img_RGB, BB_prop, eixamplar_BB, e
 %   img_RGB_out - RGB image with the bounding box.
 %
 %
-% % Exemple:
+% % Example:
 % img_RGB = imageArray_escala;
 % imshow(img_RGB)
 % [img_RGB_retall, BB_prop] = imcrop(img_RGB); close
@@ -40,7 +40,7 @@ function [img_RGB_sortida] = pintar_BB_img_eix(img_RGB, BB_prop, eixamplar_BB, e
     
     [BB_index_punts] = BBxy_to_BBindx(floor(BB_prop), size_img);
     
-    % Eixamplem els index:
+    % Widen the indices:
     if eixamplar_BB
         BB_index_punts = eixamplar_indx_BB(BB_index_punts, eixamplar_BB_value, size_img);
     end

@@ -6,12 +6,6 @@ function [imatge_primera_retallada] = retallar_imatges_punts(imatge_primera_a_re
 %
 % Important to floor if you want to see the imcrop points used.
 %
-% (CAT)
-% Es retalla una imatge en funció als punts determinats. 
-% Els punts són provinents, per exemple, d'un imcrop().
-% Aquests punts són automaticament arrodonits a l'alça, amb la funció ceil().
-%
-% Important fer floor si es volen ver servir els punts del imcrop.
 %
 % Example:
 % [BW_final_crop, xy_punts_a_retall] = imcrop(BW_final); close

@@ -4,7 +4,7 @@ function [cell_indx_punts] = BW_to_BBindx(BW_final)
 % point of its bounding box.
 %
 %
-% Processment time: 0.0089 (8GbRAM)
+% Processment time: 0.0089 (8GBRAM)
 % Codi: tictoc = []; for nm = 1:50; tic; [cell_indx_punts] = BW_to_BBindx(BW_final); tictoc = [tictoc, toc];end; mean(tictoc)
 %
 % See also

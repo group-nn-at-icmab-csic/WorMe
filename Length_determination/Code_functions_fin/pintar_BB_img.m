@@ -6,7 +6,7 @@ function [img_RGB_out] = pintar_BB_img(img_RGB, BB_prop)
 % ---------
 % Input
 %   img_RGB - RGB image
-%   BB_prop - values of bounding box (provinent from imcrop for example).
+%   BB_prop - values of bounding box (coming from imcrop for example).
 %           ex: 69.5000  683.5000  991.0000  308.0000
 % Output
 %   img_RGB_out - RGB image with the bounding box.

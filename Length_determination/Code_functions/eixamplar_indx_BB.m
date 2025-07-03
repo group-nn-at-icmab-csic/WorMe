@@ -10,7 +10,7 @@ function [total_indx_fin] = eixamplar_indx_BB(total_indx, val_exampl, size_BW)
 %
 % total_indx_fin - final total indices
 %
-% Processing time: 0.0017 (50 loops, 8Gb RAM)
+% Processing time: 0.0017 (50 loops, 8GB RAM)
 %
 %
 % Exemple:

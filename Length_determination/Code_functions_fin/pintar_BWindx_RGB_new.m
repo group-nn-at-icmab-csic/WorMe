@@ -2,10 +2,9 @@ function [imageArray_new] = pintar_BWindx_RGB_new(imageArray, imageArray_crop, i
 
 % Given a region of an image, as RGB and binary, this section is introduced to the original image.
 %
-% This function is useful for to process regions of a whole image and then
-% re-introduce that in the original one, optimizing the process by this
-% way.
-% Methodology based on the object indexs, and the scaled image.
+% This function is useful to process regions of a whole image and then
+% re-introduce that in the original one, optimizing the process.
+% Methodology based on the object indices, and the scaled image.
 %
 % Variables
 % ---------
@@ -14,12 +13,12 @@ function [imageArray_new] = pintar_BWindx_RGB_new(imageArray, imageArray_crop, i
 %   input
 %       imageArray      - RGB original image
 %       imageArray_crop - RGB cropped image
-%       indx_BWobj      - index of the binary objects in retailed image
+%       indx_BWobj      - index of the binary object in cropped image
 %       indx_BWobj_escalat - index of the binary object, scaled in the original image. 
 %   output
 %       imageArray_new - original image modified by the rgb region
 %
-% Processment time: 0.0065s (50 loops, 8Gb Ram)
+% Processing time: 0.0065s (50 loops, 8GB Ram)
 % 
 % Example:
 % montage({BW_filt, BW_filt_crop, imageArray, imageArray_crop_new})

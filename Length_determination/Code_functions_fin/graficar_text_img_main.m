@@ -1,6 +1,6 @@
 function [imageArray_text] = graficar_text_img_main(imageArray, por_h, por_l, text_img, color_box, box_opacity)
 
-% Given an image and a text, it is drawed into it as characteristics are descrived.
+% Given an image and a text, draw the text into it as described.
 %
 % Note: It uses mainly the insertText MATLAB function.
 %
@@ -8,7 +8,8 @@ function [imageArray_text] = graficar_text_img_main(imageArray, por_h, por_l, te
 % Variables
 %   input:
 %       imageArray: main RGB image
-%       por_h & por_l: relative positions of the box. ex: 0.1, 0.6. Means from the initial or final proportion.
+%       por_h & por_l: relative positions of the box. 
+%           ex: 0.1, 0.6. Means from the initial or final proportion.
 %           ex: 0.5 and 0.5 the text will be in the middle of the image.
 %       text_img: text to write in the image.
 %           ex: "Hello little worm"
@@ -29,20 +30,19 @@ function [imageArray_text] = graficar_text_img_main(imageArray, por_h, por_l, te
 
 % START FUNCTION
 
-% Obtneim dimensions
+% Obtain dimensions
 [h_img, l_img, ~] = size(imageArray);
-% Amb aquestes ens basarem per a graficar el text de manera proporcional.
+% We will use these as a base to graph the text proportionally.
 
 
-% Obtenim posicio
+% Obtain position
 pos_text = [h_img * por_h, l_img * por_l];
 
-% Obtenim la grandaria de la font
+% Obtain font size
 font_text = round(sqrt(sqrt(h_img * l_img)));
-% Nota: ens basem en l'arrel cuarta de l'àrea de la imatge.
+% Note: based on the fourth root of the image area
 
 imageArray_text = insertText(imageArray, pos_text, text_img, 'FontSize', font_text, 'BoxColor', color_box, 'BoxOpacity', box_opacity);
-
 
 % END FUNCTION
 

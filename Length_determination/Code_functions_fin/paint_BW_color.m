@@ -18,7 +18,7 @@ function [new_object_colored] = paint_BW_color(BW_to_color, color_kind)
 
 % START FUNCTION
 
-% Lista valors dels colors, i dels colors.
+% List colors and their values
 
 colors_llista = [255 255 0; ... %yellow
     255 0 255; ... %magenta
@@ -31,7 +31,7 @@ colors_llista = [255 255 0; ... %yellow
 
 color_strings = ["yellow", "magenta", "cyan", "red", "green", "blue", "white", "orange"];
 
-% Mirem si el color determinat és en la llista.
+% Check if the color is in the list
 [is_memb, posicio_memb] = ismember(color_kind, color_strings);
 
 if is_memb
@@ -41,7 +41,7 @@ else
 end
 
 
-% Pintem el color
+% Paint
 new_object_colored = cat(3, BW_to_color .* valor_color(1), BW_to_color .* valor_color(2),  BW_to_color .* valor_color(3));
 
 

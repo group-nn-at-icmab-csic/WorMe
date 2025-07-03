@@ -8,17 +8,17 @@ function [imageArray_text] = graficar_text_img(imageArray)
 
 % START FUNCTION
 
-% Obtneim dimensions
+% Obtain dimensions
 [h_img, l_img, ~] = size(imageArray);
-% Amb aquestes ens basarem per a graficar el text de manera proporcional.
+% We will use these as a base to graph the text proportionally.
 
 
-% Obtenim posicio
+% Obtain position
 pos_text = [h_img*0.1, l_img*0.1];
 
-% Obtenim la grandaria de la font
+% Obtain font size
 font_text = round(sqrt(sqrt(h_img * l_img)));
-% Nota: ens basem en l'arrel cuarta de l'àrea de la imatge.
+% Note: based on the fourth root of the image area
 
 imageArray_text = insertText(imageArray, pos_text, "Too many objects for skeletonization", 'FontSize', font_text, 'BoxColor', 'red', 'BoxOpacity',1);
 

@@ -25,7 +25,7 @@ function [RGB_to_color_new] = print_RGB_indx_brush(RGB_to_color, indx_to_paint, 
 
 % START FUNCTION
 
-% We paint the color
+% Paint
 size_RGB_to_color = size(RGB_to_color);
 sup_RGB_to_color = size_RGB_to_color(1) * size_RGB_to_color(2); % Image area (w*h)
 

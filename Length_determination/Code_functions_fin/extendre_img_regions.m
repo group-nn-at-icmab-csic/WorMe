@@ -1,26 +1,21 @@
 function [BW_img_final] = extendre_img_regions(BW_img_ini, regions_xywh, BW_img_ajunt)
 
-% Given an original image, and an image to be joined within it, in certain positions, joins the regional image with the general image.
+% Given an original image, and an image to be joined within it, 
+% in certain positions, combines the regional image with the general image.
 %
-% (CAT)
-% Donada una imatge original, i una imatge a juntar dins d'aquesta, en unes unes posicions
-% determinades, ajunta la imatge regional amb la imatge general.
 %
-% Temps de processament
+% Processing time
 % Elapsed time is 0.004980 seconds.
-%
 %
 %
 % _Variables_
 % input:
-% BW_img_ini   : imatge binaria original
-% regions_xywh : regions de juntar
-% BW_img_ajunt : imatge binaria a juntar
+% BW_img_ini   : original binary image
+% regions_xywh : regions to combine
+% BW_img_ajunt : binary image to combine
 %
 %
-%
-%
-% Exemple retallat i re-escalat de la imatge retallada:
+% Example: cropping and re-scaling of the cropped image:
 % imshow(BW_final_object)
 % [imageArray_crop, BW_filt_crop, prop_BB, proporcio_img] = retallar_BWRGBimatge_BB_nou(imageArray, BW_final_object, 5);
 % imshow(BW_filt_crop)
@@ -29,8 +24,7 @@ function [BW_img_final] = extendre_img_regions(BW_img_ini, regions_xywh, BW_img_
 % unique(BW_img_final_sized == BW_final_object)
 %
 %
-%
-% Exemple 2:
+% Example 2:
 % I_rice = imread("rice.png"); imshow(I_rice)
 % BW_rice = imbinarize(I_rice); imshow(BW_rice)
 % BW_rice_singular = bwpropfilt(BW_rice, "Area", 1, "largest");
@@ -52,15 +46,15 @@ function [BW_img_final] = extendre_img_regions(BW_img_ini, regions_xywh, BW_img_
 
 % START FUNCTION
 
-% Definim la dimensió de la imatge:
+% Define the dimensions of the image:
 [~, ~, dimensio] = size(BW_img_ini);
 
 if dimensio == 1
-    % En imatges binàries o grisos:
+    % In binary images or grayscale
     BW_img_ini(regions_xywh(2) : (regions_xywh(2) + regions_xywh(4)) , regions_xywh(1) : (regions_xywh(1) + regions_xywh(3)) ) = BW_img_ajunt;
     BW_img_final = BW_img_ini;
 elseif dimensio == 3
-    % En imatges RGB
+    % In RGB images
     BW_img_ini(regions_xywh(2) : (regions_xywh(2) + regions_xywh(4)) , regions_xywh(1) : (regions_xywh(1) + regions_xywh(3)), : ) = BW_img_ajunt;
     BW_img_final = BW_img_ini;
 else

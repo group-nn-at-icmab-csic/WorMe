@@ -1,27 +1,21 @@
 function [BW_ini_regio_cropped, proporcio_img] = retallar_BWimatge_BB(BW_ini_regio, percentatge_img_origin)
 
-% Given a binary image with just an object, bounding box is generated and
-% is obtained the main cropped region, and their data (proportions,
-% coordinates).
-% This function is very useful for optimize process.
+% Given a binary image with just one binary object, a bounding box is generated and
+% we obtain the cropped region, and its data (proportions, coordinates).
+% Function used for optimization
 %
 % Like retallar_BWimatge_BB_2
 %
-% Donada una imatge on sols hi ha un objecte binari, es fa un bounding box
-% d'aquesta i s'obté la imatge original d'aquesta. 
-% OPTIMITZABLE si es treuen els retorns de les imatges.
 %
 % Variables 
+% BW_ini_regio : binary image with one binary object
 %
-% BW_ini_regio : imatge binaria amb sols l'objecte binari
+% percentatge_img_origin :  percentage by which the bounding box of the binary object will be enlarged. 
+%                           It needs to be larger if you want to obtain regions outside the initial 
+%                           bounding box (for example, when the tail is not selected).
 %
-% percentatge_img_origin :  percentatge en que s'agrandarà el bounding box
-%                           de l'objecte binari. Necessari que sigui major si es volen obtenir
-%                           regións externes al bounding box inicial (ex: no es selecciona la cua).
-%                           ex: 5
-% 
 % Output
-% BW_ini_regio_cropped : imatge binària retallada
+% BW_ini_regio_cropped : cropped binary image
 %
 %
 % Funcions relacionades
@@ -84,7 +78,7 @@ if proporcio_img(1) + proporcio_img(3) > y_size
 end
 
 
-[BW_ini_regio_cropped] = imcrop(BW_ini_regio, proporcio_img);        %Es retalla la imatge basant-se amb el BoundingBox.
+[BW_ini_regio_cropped] = imcrop(BW_ini_regio, proporcio_img);        %Cut the image based in the BoundingBox.
 % imshow(BW_ini_regio_cropped)
 % size(BW_ini_regio_cropped)
 

@@ -2,7 +2,7 @@ function [RGB_to_color_new] = pintar_indx_to_RGB(RGB_to_color, indx_to_paint, co
 
 % Given an RGB image, the indices of the 
 % first matrix of the image are printed, based on a given color.
-% For example, given some BoundingBox indices of a binary image, 
+% For example, given BoundingBox indices of a binary image, 
 % these are painted with a certain color in an RGB image.
 %
 %
@@ -23,16 +23,9 @@ function [RGB_to_color_new] = pintar_indx_to_RGB(RGB_to_color, indx_to_paint, co
 % BW_to_BBindx
 % eixamplar_indx_BB
 
-% (CAT)
-% Donada una imatge RGB, es printa els index de la primera matriu de la
-% imatge, en funció d'un color determinat. 
-% Per exemple, donat uns index de BoundingBox d'una imatge binaria, es
-% pinten aquests d'un color determinat en una imatge RGB.
-
-
 % START FUNCTION
 
-% Lista valors dels colors, i dels colors.
+% List colors and their values
 
 colors_llista = [255 255 0; ... %yellow
     255 0 255; ... %magenta
@@ -46,7 +39,7 @@ colors_llista = [255 255 0; ... %yellow
 
 color_strings = ["yellow", "magenta", "cyan", "red", "green", "blue", "white", "orange", "black"];
 
-% Mirem si el color determinat és en la llista.
+% Check if the color is in the list
 [is_memb, posicio_memb] = ismember(color_determinat, color_strings);
 
 if is_memb
@@ -56,9 +49,9 @@ else
 end
 
 
-% Pintem el color
+% Paint
 size_RGB_to_color = size(RGB_to_color);
-sup_RGB_to_color = size_RGB_to_color(1) * size_RGB_to_color(2); % Superficie de la imatge (w*h)
+sup_RGB_to_color = size_RGB_to_color(1) * size_RGB_to_color(2); % Area of the image (w*h)
 
 RGB_to_color_new = RGB_to_color;
 

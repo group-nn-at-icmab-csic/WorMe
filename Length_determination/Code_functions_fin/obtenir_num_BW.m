@@ -8,21 +8,17 @@ function  num_objects_BW = obtenir_num_BW(imatge_entrada)
 
     % START FUNCTION
     
-        % OBTENIR NOMBRE OBJECTES BINARIS
-        % Funció d'obtenir el nombre d'objectes binaris en la imatge
-        % Lectura tipologia imatge ("rgb", "grey" o "binary")
+        % Read image typology ("rgb", "grey" o "binary")
         [tipus_imatge] = tipus_rgbgraybw_image(imatge_entrada);
-        % Mirem si es binaria:
-        % Si es binària
+        % If it is binary
         if strcmp(tipus_imatge, "binary")
-            % Obtenim numero d'elements
+            % Obtain number of elements
             [~, nombre_elements] = bwlabel(imatge_entrada);
-        % Si no es binaria
+        % If it is not binary
         else
             nombre_elements = "Not determined";
         end
         num_objects_BW = string(nombre_elements);
-
 
     % END FUNCTION
     

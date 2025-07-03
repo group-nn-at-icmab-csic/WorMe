@@ -9,7 +9,7 @@ function [indx_BW_scal] = escalar_indx(indx_BWcrop, size_BW, size_BWcrop, propor
 % proporcio_img - Proportion measurements of the cropping (obtained from the function retallar_BWRGBimatge_BB)
 %
 %
-% Processing timet: 0.0018s (50 loops, 8Gb Ram)
+% Processing time: 0.0018s (50 loops, 8GB Ram)
 %
 % Example:
 % montage({BW_filt, BW_filt_crop, imageArray, imageArray_crop_new})
