@@ -156,6 +156,9 @@ In the first step, the program will prompt the user to select the image or image
 _Figure 3: Scale determination options. The input value for the first two options is 200. The scale value is seen in the first two options to be 0.855 pixels per unit, which is the number to input for the last option. The units, in this case, will be &mu;m._
 </div>
 
+The selection of the scale main function can be found in `scale_determination_main()`, executed from the main script `WM_length_determination.m`.  
+
+
 > [!TIP]
 > The last used scale numerical value can be found at `Documents/WorMe_Length_Results/Results_out/Internal_code_files/escale_line.txt` 
 
