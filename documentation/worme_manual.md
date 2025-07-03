@@ -163,7 +163,9 @@ _Figure 3: Scale determination options. The input value for the first two option
 
 After setting the scale, WorMe shows the image processing panel, shown in Figure 4 below. In it, the user determines the modifications that will be done to all images. 
 
-The aim of this panel is to isolate each worm as a binary object. This means applying the right filters until the background is black and the worms are white and separate from each other, and there are no other white areas. The white area is also known as a mask.
+The aim of this panel is to isolate each worm as a binary object. This means applying the right filters until the background is black and the worms are white and separate from each other, and there are no other white areas. The white area is also known as a mask.  
+
+The image processing panel can be found in `app_image_processment()` app, executed from the main script `WM_length_determination.m`.
 
 <div align="center"> <img src="images/use_of_the_program/WM_processing.png" alt="Image Processing Panel" width="65%">
 
@@ -409,7 +411,7 @@ Some of the image functions mainly used in the program are:
 `imadjust()`:   Automatically adjust and normalize the greyscale values of the image.  
 `imbinarize()`:   Binarize the image from a threshold, which might be statistically determined.  
 `bwareaopen()`:   Easy and fast cleaning of the small objects in the image.  
-`imopen()` and `imclose()`:   Reduce or expand the binarized objects, in order to reduce or increase their properties (ex: worm tail and profile).  
+`imopen()` and `imclose()`:   Reduce or expand the binarized objects, in order to improve the shape of the binary object.  
 `imclearborder()`:   Automatically deletes the objects that touch the edges of the image.  
 `imfill()`:   Automatically fills the binary objects.  
 `bwskel()`: Skeletonization of the binary image. Useful to obtain the main central line of *C. elegans*.
@@ -466,7 +468,7 @@ _Figure 15: Detail of a *C. elegans* head's skeletonization line before (left) a
   <img src="images/methodology/skeletonize/branch7.png" alt="Image 1" width="25%" style="margin-right: 2%;">
   <img src="images/methodology/skeletonize/branch8.png" alt="Image 2" width="25%">
 
-_Figure 16:_
+_Figure 16: Endline elongation process_
 </div>
 
 
@@ -674,7 +676,7 @@ In order to optimize the program, useful functions in MATLAB are the `tic` and `
 <div align="center">
   <img src="images/methodology/optimization/Elapsed_times.png">
 
-_Figure 31:_
+_Figure 31: Example of processing times testing_
 </div>
 
 The functions offered in MATLAB toolboxes and packages are already fully optimized. Therefore, they are used as much as possible for the program. Examples of these are `imbinarize()`, `imread()`, `imopen()`, among others.
@@ -687,11 +689,11 @@ _Figure 32: Example of time analysis in the use of the program._
 
 In the selection panel, the whole image is processed and each object is isolated in a MATLAB file, saved as indexed coordinates. Then, the operations of skeletonization, branch reduction, endline elongation are done only for the selected binary object, and saved when the user confirms them.
 
-For an 8GB RAM i5 CPU, the elapsed time for processing one object in the selection panel is 0.03 seconds. (← approximate, must validate).
+For an 8GB RAM, Intel Core i5-1135G7 CPU, the elapsed time for processing one object in the selection panel is around 0.03 seconds.
 
 #### Image analysis and processing
 
-One of the most time-consuming processes in the software is the acquisition, operation and analysis of the images. For example, in an 8GB RAM i5 CPU (2022) computer, the time elapsed to open an image using `imread()` is 0.03 seconds, to transform the image to grayscale with `im2gray()` it is 0.002 seconds, and to `imbinarize()` 0.03 seconds.
+One of the most time-consuming processes in the software is the acquisition, operation and analysis of the images. For example, in an 8GB RAM Intel Core i5-1135G7 CPU computer, the time elapsed to open an image using `imread()` is 0.03 seconds, to transform the image to grayscale with `im2gray()` it is 0.002 seconds, and to `imbinarize()` 0.03 seconds.
 
 When these functions are applied for one image or object, it does not cause much delay even if they are applied consecutively. However, when they are applied to the entire stack of images, the time span is too long, and there is a long delay when using the program. For this reason, WorMe has reduced the use of some functions as much as possible.
 
@@ -720,7 +722,7 @@ _Figure 33: Example of data saved to the_ `main_data_analysis.txt` _file._
 WorMe, as a result of its optimized computational operations and its software architecture, operates many of its functions by indexes. An index is the location of a pixel in the image, using one-dimensional coordinates. Indexation is done in the binary images, which saves the position of the mask obtained from the original image. These indexes are the basis of many of the functions, both the functions from MATLAB and the ones developed for WorMe. The use of indexes to save, open and operate with the images reduces memory usage and wall clock processing times. 
 
 <div align="center">
-  <img src="images/use_of_the_program/indexed.png">
+  <img src="images/methodology/optimization/indexed.png">
 
 _Figure 34: Indexation of a binary image._ 
 </div>
