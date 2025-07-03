@@ -13,3 +13,4 @@ Ordre proces;Tipus proces
 12;close_disc(1)
 13;bwareaopen(1)
 14;open_disc(1)
+15;Imclearborder

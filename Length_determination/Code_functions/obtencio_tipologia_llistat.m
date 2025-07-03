@@ -3,7 +3,7 @@ function [tipus_im_modif, processament_im] = obtencio_tipologia_llistat(tipologi
 % Donat un tipus de modificació últim d'una imatge (tipologia_input), es retorna 
 % el tipus d'imatge que aquesta modificació genera. En exemple: rgb, gray o binary.
 %
-% La utilitat és en app_processament_imatge per a filtrar les
+% La utilitat és en app_image_processment per a filtrar les
 % modificacions.
 %
 % Variables

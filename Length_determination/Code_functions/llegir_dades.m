@@ -1,7 +1,7 @@
 function [S_textscan_table] = llegir_dades(txt_data_name, write_values, separador_char, variable_names)
 
 % Llegeix i guarda en una taula (S_textscan_table) l'arxiu de text "main_data_analysis.txt"
-% Funció de la app 'app_nova_interfaz_nova_funcions'.
+% Funció de la app 'app_selection_pannel'.
 % NOTA: El nombre màxim d'elements és 10 (ampliable)
 %
 % Variables

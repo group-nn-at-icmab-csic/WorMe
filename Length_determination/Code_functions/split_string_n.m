@@ -5,7 +5,7 @@ function [str_rute_redef] = split_string_n(str_rute, n_restant)
     %
     % See also:
     % determina_path_def
-    % determinacio_path
+    % path_determination in WorMe_length_determination_v2_17 (local function)
 
 
     % START FUNCTION

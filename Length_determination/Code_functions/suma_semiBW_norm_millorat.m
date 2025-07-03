@@ -27,7 +27,7 @@ function imageArray_fintot = suma_semiBW_norm_millorat(imageArray, BW_semi)
 %
 % % See also
 % BW_objects_to_color
-% suma_semiBW_norm
+
 
 % START FUNCTION
 

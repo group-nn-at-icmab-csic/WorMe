@@ -1,1 +1,1 @@
-escala;3.4393
+escala;1.17

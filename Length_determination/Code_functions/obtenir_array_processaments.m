@@ -3,7 +3,7 @@ function [array_processaments] = obtenir_array_processaments(field_set)
 % Forma resumida per a obtenir l'array amb els processaments, per a
 % aplicar-lo.
 %
-% Exemple: field_set = strcat("Apps\app_processament_imatge\Internal code files\Image processing settings\", string(value));
+% Exemple: field_set = strcat("Apps\app_image_processment\Internal code files\Image processing settings\", string(value));
 
 % obtneim l'array de la lectura del document de text i el printem
 [array_sortida_modifs, ~] = llegir_text_delimitadors(field_set, ";");

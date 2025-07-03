@@ -4,7 +4,7 @@ function determina_path_def(path_definit)
 % 
 % 
 % See also
-% determinacio_path (funció local)
+% path_determination in WorMe_length_determination_v2_17 (local function)
 % split_string_n
 
 % INICI FUNCIÓ
