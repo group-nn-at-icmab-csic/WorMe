@@ -164,7 +164,8 @@ _Figure 3: Scale determination options. The input value for the first two option
 After setting the scale, WorMe shows the image processing panel, shown in Figure 4 below. In it, the user determines the modifications that will be done to all images. 
 
 The aim of this panel is to isolate each worm as a binary object. This means applying the right filters until the background is black and the worms are white and separate from each other, and there are no other white areas. The white area is also known as a mask.  
-This MATLAB App can be found in `app_image_processment()`app, from the main script.
+
+The image processing panel can be found in `app_image_processment()` app, executed from the main script `WM_length_determination.m`.
 
 <div align="center"> <img src="images/use_of_the_program/WM_processing.png" alt="Image Processing Panel" width="65%">
 
