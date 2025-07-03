@@ -9,3 +9,6 @@ codi total en anglès:
 open app_tutorial_alfarel
 open box_correccio_Fiji
 open box_explicacio_IA
+
+
+multiWaitbar
