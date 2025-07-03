@@ -215,6 +215,9 @@ The aim of this panel is to select the binary objects that correctly depict a wo
 
 The manual selection is time consuming, but it ensures the quality of the measurement data, as the user is aware of what is being measured and how. Furthermore, the computational time of the process has been optimized by working with indexated data, which can be seen in [Data architecture and computational optimization](#data-architecture-and-computational-optimization).
 
+The selection panel function can be found in `app_selection_pannel()` app, executed from the main script `WM_length_determination.m`.  
+
+
 <div align="center"> <img src="images/use_of_the_program/WM_selection.png" alt="Image Selection Panel" width="65%">
 
 _Figure 5: Image selection panel, with (1) the main panel, (2) Filters, (3) Tools, (4) Selection and (5) Image properties_
