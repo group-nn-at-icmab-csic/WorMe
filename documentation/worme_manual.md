@@ -41,7 +41,7 @@ _Figure 1: Use of the program_
 
 WorMe is a MATLAB based software that **does not require a MATLAB licence**. It can be easily installed and executed in one of these two options:  
 - Install as local software from the [executable file](https://github.com/group-nn-at-icmab-csic/WorMe/releases) (.exe). This does not require a MATLAB licence, because the program is compiled.
-- Execute [the source code](https://github.com/group-nn-at-icmab-csic/WorMe/releases) from the MATLAB Desktop environment software (version >2021b). This requires a MATLAB licence but it has a slightly faster execution time.
+- Execute [the source code](https://github.com/group-nn-at-icmab-csic/WorMe/Length_determination/WM_length_determination.m) from the MATLAB Desktop environment software (version >2021b). This requires a MATLAB licence but it has a slightly faster execution time.
 
 The program requires at least 4GB of available disk space, as well as a Windows Operating System. 
 
