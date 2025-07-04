@@ -1,5 +1,8 @@
 
 
+
+POSAR CONDICIONAL EN APP SELECCIÓ EN SHORTKEYS NOMÈS SI ELS BOTONS DE SELECCIÓ SÓN PRESENTS (app.Button.Visible)
+
 # Notes sobre la modificació del codi
 
 https://code.visualstudio.com/docs/languages/markdown
