@@ -7,16 +7,9 @@ POSAR CONDICIONAL EN APP SELECCIÓ EN SHORTKEYS NOMÈS SI ELS BOTONS DE SELECCI�
 
 https://code.visualstudio.com/docs/languages/markdown
 
-
-
-Paquets MATLAB emprats al llarg del codi:
-
-- Computer Vision Toolbox
-- Image Processing Toolbox
-- Image Acquisition Toolbox
-- Statistics and Machine Learning Toolbox
-
-
+## Millora codi programa  
+- [ ] Si hi ha seleccionat  modificacions guardades, no es puguin modificar.
+- [] Mirar si esquelet hi ha més d'un branchpoint: error de que es selecciona cadena de més
 
 ### ! Vigilar al modificar el codi! 👀
 
@@ -65,15 +58,29 @@ Paquets MATLAB emprats al llarg del codi:
 ## Comprovacións pendents
 
 #### Esquelet múltiples branchpoints
-- [] Mirar si esquelet hi ha més d'un branchpoint: error de que es selecciona cadena de més
- 
-#### Circularitat
-- [] Mirar que circularitat sigui un bon numero... (no sempre dona bé i moltes rodones dona com que no ho son!)
 
+ 
 #### Temps post-instalació
 - [] Quan es compila el programa i s'instala, cada vegada va més ràpid. Determinar l'agilitat percentual d'iniciació i ús del programa., és a dir, quantes vegades tarda menys temps en funcionar. 
 A què es deu? Suposem que a l'us en el Runtime.
 Millora en noves versións de MATLAB? En teoria hauria de millorar, sí.
 
 
+
+## Canvi funcions
+
+REVISAR EN DOCUMENTACIÓ (Ctrl F de tota la carpeta GitHub) I EN LES APPS
+
+Canviat noms funcions:
+
+llargada_josep -> worm_lenght
+llargada_josep_Fiji -> worm_length_manual
+esqueletonitzacio_josep_optim -> worm_skeletonization
+esqueletonitzacio_josep_optim_2 -> worm_skeletonization_manual
+write_josep -> write_img_dir
+write_text_josep -> write_text_array
+extendre_skel_estes_nou -> skel_elongate
+play_music_josep -> play_music
+edge_canny_josep -> edge_canny_own
+cell2array_josep -> cell2array_own
 
