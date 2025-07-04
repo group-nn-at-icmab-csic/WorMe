@@ -57,8 +57,6 @@ https://code.visualstudio.com/docs/languages/markdown
 
 ## Comprovacións pendents
 
-#### Esquelet múltiples branchpoints
-
  
 #### Temps post-instalació
 - [] Quan es compila el programa i s'instala, cada vegada va més ràpid. Determinar l'agilitat percentual d'iniciació i ús del programa., és a dir, quantes vegades tarda menys temps en funcionar. 
