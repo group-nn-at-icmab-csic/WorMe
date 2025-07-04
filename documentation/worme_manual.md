@@ -454,7 +454,7 @@ _Figure 13: Skeletonization, branch reduction and endline elongation process_
 ### Endline elongation
 The length of a *C. elegans* should be measured from the beginning of the head to the end of the tail. Therefore, in order to increase the accuracy of the measurements, the beginning and the end of the branch-reduced skeletonization line needs to be elongated until it touches the border of the binarized object.
 
-This is performed by the function `extendre_skel_estes_nou()` inside `esqueletonitzacio_josep_optim()`.  
+This is performed by the function `skel_elongate()` inside `worm_skeletonization()`.  
 
 <div align="center">
   <img src="images/methodology/skeletonize/branch2.png" alt="Image 1" width="45%" style="margin-right: 2%;">
