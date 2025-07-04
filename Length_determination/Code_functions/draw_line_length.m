@@ -102,8 +102,8 @@ try
     % ___Obtaining the numerical length___
     
     % _By sum of pixels of the defined skeletonized image_
-    [Area_Josep] = llargada_josep(zeros_imatge_cotxe); % LLargada Josep de la imatge esqueletonitzada
-    % You could incorporate: llargada_josep_Fiji, but it is more accurate to
+    [Area_Josep] = worm_length(zeros_imatge_cotxe); % LLargada Josep de la imatge esqueletonitzada
+    % You could incorporate: worm_length_manual, but it is more accurate to
     % determine by the points defined in the draw, how it is done and obtained
     % dades_imagte_2
 

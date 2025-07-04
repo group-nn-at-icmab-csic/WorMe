@@ -7,7 +7,7 @@ function [sum_punts] = ditancia_varis_punts(punts_xy_nou)
 %
 %
 % See also:
-% llargada_josep_Fiji
+% worm_length_manual
 % draw_line_length
 
 

@@ -15,7 +15,7 @@ function [main_table_actual_last_modif, main_table_actual_last_modiftable, indx_
     
     % Skel
     [BW_ini_regio_cropped, proporcio_img] = retallar_BWimatge_BB(BW_object, 1);
-    [BW_skel_crop, dades_imatge, ~] = esqueletonitzacio_josep_optim(BW_ini_regio_cropped, app.appv_escala_img, true, true);    
+    [BW_skel_crop, dades_imatge, ~] = worm_skeletonization(BW_ini_regio_cropped, app.appv_escala_img, true, true);    
 
     % Escalem els index
     [indx_BW_skel_scal] = escalar_indx(find(BW_skel_crop), size(BW_object), size(BW_ini_regio_cropped), proporcio_img);

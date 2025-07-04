@@ -61,19 +61,19 @@ function app_escala_linia_boto_draw(app)
     
     % Obtenim la llargada a partir de la imatge de punts:
     % llargada horitzontal
-    distancia_punts = llargada_josep(BW_final_convull) -1;
+    distancia_punts = worm_length(BW_final_convull) -1;
     % Restem 1 perque suposem que la llargada és del punt mig del
     % pixel seleccionat al punt mig del altre pixel seleccionat.
     % Sinó, el valor seria entre el punt inicial del pixel al punt
     % inicial, és a dir, que si la llargada fos d'un pixel seria de
     % 1, mentre que realment hauria de tenir valor de 0.
     % És a dir, la distància entre dos pixels junts no és 2, sinó
-    % 1, per aixo la funció llargada_josep donaria valor de 2, i se
+    % 1, per aixo la funció worm_length donaria valor de 2, i se
     % li aplica la correcció de -1.
     
     % Guardem el valor
     app.distancia_pixelsLabel.Text = string(distancia_punts);
-    % [Area_Josep] = llargada_josep(BW_skel) ÑÑÑÑÑ
+    % [Area_Josep] = worm_length(BW_skel) ÑÑÑÑÑ
 
     imatge_final_punts = imoverlay(imatge_a_draw, BW_final_convull, "r");
     

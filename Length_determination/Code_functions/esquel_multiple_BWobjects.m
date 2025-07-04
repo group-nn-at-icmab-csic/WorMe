@@ -5,7 +5,7 @@ function [BW_skel_join] = esquel_multiple_BWobjects(BW_final)
 %
 %
 % See also
-% esqueletonitzacio_josep_optim
+% worm_skeletonization
 % extendre_img_regions
 % retallar_BWimatge_BB_2
 
@@ -32,7 +32,7 @@ for n_val = 1:num
     [BW_filt_crop, ~, proporcio_img] = retallar_BWimatge_BB_2(BW_object, 5);
 
     % Skeletonize it:
-    [BW_skel_unic, ~] = esqueletonitzacio_josep_optim(BW_filt_crop, 1, true, true);
+    [BW_skel_unic, ~] = worm_skeletonization(BW_filt_crop, 1, true, true);
 
     BW_img_final_sized = extendre_img_regions(BW_ref, proporcio_img, BW_skel_unic);
 

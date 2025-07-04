@@ -1,0 +1,15 @@
+
+
+REVISAR EN DOCUMENTACIÓ (Ctrl F de tota la carpeta GitHub) I EN LES APPS
+
+
+Falta canviar:
+
+llargada_josep -> worm_lenght
+
+llargada_josep_Fiji -> worm_length_manual
+
+esqueletonitzacio_josep_optim -> worm_skeletonization
+
+esqueletonitzacio_josep_optim_2 -> worm_skeletonization_manual
+
