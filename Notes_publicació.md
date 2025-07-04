@@ -16,18 +16,13 @@
 - [ ] Provar-ho en Linux i Mac
 - [ ] Fer públic el repositori
 
-### Altres punts importants
-- Llibreries Matlab
-    - [ ] [imbinarize](https://es.mathworks.com/help/images/ref/imbinarize.html)
-    - [ ] [im2gray](https://es.mathworks.com/help/matlab/ref/im2gray.html)
-    - [ ] [bwskel](https://es.mathworks.com/help/images/ref/bwskel.html)
 
 ---
 
 ## Incloure o no incloure? i a on?
 - Contribution Guidelines (Chitin builder inclou un document de com contribuir. Ho volem fer així o escriure-ho directament al readme, o no escriure-ho?)
-- Length correction (Manual)
-- Export graphic data per IA (Manual)
+- ~~Length correction (Manual)~~
+- ~~Export graphic data per IA (Manual)~~
 - Comparar Wormachine, ImageJ, WorMe (Manual? Document suplementari? Article?)
 
 ## Requirements

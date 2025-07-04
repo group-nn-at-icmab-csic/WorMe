@@ -440,7 +440,7 @@ _Figure 12: Selection of the regions of interest (worms) of the initial image._
 
 Once the worm as a binary object is obtained, the next step is measuring its length. The image is skeletonized, then the branches are pruned and the endpoints are extended. With this, we obtain a line along the center of the nematode, which is analogous to a line drawn manually.
 
-Skeletonization is the reduction from a binary object to a line. It consists on gradually reducing the binary object's surroundings until it becomes a line. In WorMe, the main function that conducts the skeletonization and obtains the length of the worm object is `esqueletonitzacio_josep_optim()`, with the MATLAB `bwskel()` function.
+Skeletonization is the reduction from a binary object to a line. It consists on gradually reducing the binary object's surroundings until it becomes a line. In WorMe, the main function that conducts the skeletonization and obtains the length of the worm object is `worm_skeletonization()`, with the MATLAB `bwskel()` function.
 
 Pruning the short branches in the skeleton is done by the function `large_skel_iter()`, a function developed for this program. This cuts off all the branches except for the main branch.
 
@@ -454,7 +454,7 @@ _Figure 13: Skeletonization, branch reduction and endline elongation process_
 ### Endline elongation
 The length of a *C. elegans* should be measured from the beginning of the head to the end of the tail. Therefore, in order to increase the accuracy of the measurements, the beginning and the end of the branch-reduced skeletonization line needs to be elongated until it touches the border of the binarized object.
 
-This is performed by the function `extendre_skel_estes_nou()` inside `esqueletonitzacio_josep_optim()`.  
+This is performed by the function `skel_elongate()` inside `worm_skeletonization()`.  
 
 <div align="center">
   <img src="images/methodology/skeletonize/branch2.png" alt="Image 1" width="45%" style="margin-right: 2%;">
@@ -490,7 +490,7 @@ WorMe performs an equivalent methodology for length determination. In WorMe, a l
 _Figure 17: Manual length measurement with FIJI (left) and automatic length measurement with WorMe (right)._
 </div>
 
-*C. elegans* length is obtained in the function `esqueletonitzacio_josep_optim()`. Length is obtained through the function `llargada_josep()`, and the corrected length (see: [Manual length error correction](#manual-length-error-correction)), from `llargada_josep_Fiji()`.  
+*C. elegans* length is obtained in the function `worm_skeletonization()`. Length is obtained through the function `worm_lenght()`, and the corrected length (see: [Manual length error correction](#manual-length-error-correction)), from `worm_length_manual()`.  
 
 <div align="center">
   <img src="images/methodology/length/Fiji_measure.png" width="50%">
@@ -519,7 +519,7 @@ $ n:$ number of points
 _Equation 1: Euclidean distance_
 </div>
 
-In order to simplify and optimize the algorithm, the distance between pixels is obtained directly from the inferred Euclidean distance of pixels. This corresponds to 1 for vertical or horizontal distance, or $\sqrt{2}$ for diagonal distance (see: `llargada_josep()` function).
+In order to simplify and optimize the algorithm, the distance between pixels is obtained directly from the inferred Euclidean distance of pixels. This corresponds to 1 for vertical or horizontal distance, or $\sqrt{2}$ for diagonal distance (see: `worm_lenght()` function).
 
 <div align="center">
   <img src="images/methodology/length/i1.png" width="35%">
@@ -588,7 +588,7 @@ Using these corrected values, we were able to test the reliability of WorMe meas
 _Figure 27: t-test between means of FIJI-ImageJ and WorMe_ C. elegans _measurements, with WorMe measurements done every 5 pixels_
 </div>
 
-In WorMe, the function `llargada_josep_Fiji()` obtains the length of the skeleton line applying the manual error correction, measuring one every five pixels. The function `llargada_josep()` obtains the length for every pixel. Both can be found in the main function for length and skeletonization from the mask image, `esqueletonitzacio_josep_optim()`.  
+In WorMe, the function `worm_length_manual()` obtains the length of the skeleton line applying the manual error correction, measuring one every five pixels. The function `worm_lenght()` obtains the length for every pixel. Both can be found in the main function for length and skeletonization from the mask image, `worm_skeletonization()`.  
 
 #### Examples of length data export
 
