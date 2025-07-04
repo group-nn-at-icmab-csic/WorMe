@@ -15,7 +15,6 @@
 - [ ] Traduir comentaris del codi
 - [ ] Provar-ho en Linux i Mac
 - [ ] Fer públic el repositori
-- [ ] Complir el [Community guideliness](https://joss.readthedocs.io/en/latest/review_criteria.html#community-guidelines): donar criteris per a que 3es persones contribueixin al software, avisin d'errors, i hi hagi el contacte per a si volen i necessiten suport. 
 
 
 ---
