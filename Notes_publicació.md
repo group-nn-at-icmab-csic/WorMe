@@ -15,12 +15,8 @@
 - [ ] Traduir comentaris del codi
 - [ ] Provar-ho en Linux i Mac
 - [ ] Fer públic el repositori
+- [ ] Complir el [Community guideliness](https://joss.readthedocs.io/en/latest/review_criteria.html#community-guidelines): donar criteris per a que 3es persones contribueixin al software, avisin d'errors, i hi hagi el contacte per a si volen i necessiten suport. 
 
-### Altres punts importants
-- Llibreries Matlab
-    - [ ] [imbinarize](https://es.mathworks.com/help/images/ref/imbinarize.html)
-    - [ ] [im2gray](https://es.mathworks.com/help/matlab/ref/im2gray.html)
-    - [ ] [bwskel](https://es.mathworks.com/help/images/ref/bwskel.html)
 
 ---
 
