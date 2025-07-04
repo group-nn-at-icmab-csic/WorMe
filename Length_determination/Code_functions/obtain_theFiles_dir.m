@@ -56,7 +56,7 @@ if ~isequal(carpeta_input, 0)
     % We obtain the same string from the folder, defined a folder previous to the last one defined.
     [split_arxiu_sortida] = splits_objectes_valor(carpeta_input, "\", 1); % Exemple: 'C:\Users\Josep TOSHIBA\Desktop' -to-> 'C:\Users\Josep TOSHIBA'
     array_write_folder = ["Folder", split_arxiu_sortida];
-    write_text_josep(predefined_folder_input, array_write_folder, ";"); clear split_arxiu_sortida array_write_folder
+    write_text_array(predefined_folder_input, array_write_folder, ";"); clear split_arxiu_sortida array_write_folder
     
     %_Obtain the directory name_
     % Name of the entry folder

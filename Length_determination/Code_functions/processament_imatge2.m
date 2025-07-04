@@ -55,7 +55,7 @@ I1grey = im2gray(imatge_input);
 txt_seg(field_set, "Im2gray") % seguiment config.
 % ________seguiment graficació________
 if seguiment_graficacio
-    write_josep( ficar_text_imatge(I1grey, "im2gray", "", "auto"), carpeta_output_imseguiment, 1, nom_file, "_0_", string(contador_process) );
+    write_img_dir( ficar_text_imatge(I1grey, "im2gray", "", "auto"), carpeta_output_imseguiment, 1, nom_file, "_0_", string(contador_process) );
     contador_process = contador_process + 1;
 end
 
@@ -67,7 +67,7 @@ txt_seg(field_set, "imadjust") % seguiment config.
 
 % ________seguiment graficació________
 if seguiment_graficacio
-    write_josep( ficar_text_imatge(I1greyAdj, "imadjust", "", "auto"), carpeta_output_imseguiment, 1, nom_file, "_0_", string(contador_process) );
+    write_img_dir( ficar_text_imatge(I1greyAdj, "imadjust", "", "auto"), carpeta_output_imseguiment, 1, nom_file, "_0_", string(contador_process) );
     contador_process = contador_process + 1;
 end
 
@@ -81,7 +81,7 @@ txt_seg(field_set, "Imbinarize_adaptative_Foreground_dark") % seguiment config.
 
 % ________seguiment graficació________
 if seguiment_graficacio
-    write_josep( ficar_text_imatge(BW, "imbinarize", "", "auto"), carpeta_output_imseguiment, 1, nom_file, "_0_", string(contador_process) );
+    write_img_dir( ficar_text_imatge(BW, "imbinarize", "", "auto"), carpeta_output_imseguiment, 1, nom_file, "_0_", string(contador_process) );
     contador_process = contador_process + 1;
 end
 
@@ -94,7 +94,7 @@ txt_seg(field_set, "bwareaopen(2)") % seguiment config.
 
 % ________seguiment graficació________
 if seguiment_graficacio
-    write_josep( ficar_text_imatge(BW_bwa, "bwareaopen(2)", "", "auto"), carpeta_output_imseguiment, 1, nom_file, "_0_", string(contador_process) );
+    write_img_dir( ficar_text_imatge(BW_bwa, "bwareaopen(2)", "", "auto"), carpeta_output_imseguiment, 1, nom_file, "_0_", string(contador_process) );
     contador_process = contador_process + 1;
 end
 
@@ -106,7 +106,7 @@ txt_seg(field_set, "Imclearborder") % seguiment config.
 
 % ________seguiment graficació________
 if seguiment_graficacio
-    write_josep( ficar_text_imatge(BW_bwa_imcl, "imclearborder()", "", "auto"), carpeta_output_imseguiment, 1, nom_file, "_0_", string(contador_process) );
+    write_img_dir( ficar_text_imatge(BW_bwa_imcl, "imclearborder()", "", "auto"), carpeta_output_imseguiment, 1, nom_file, "_0_", string(contador_process) );
     contador_process = contador_process + 1;
 end
 
@@ -119,7 +119,7 @@ txt_seg(field_set, "imfill") % seguiment config.
 
 % ________seguiment graficació________
 if seguiment_graficacio
-    write_josep( ficar_text_imatge(BW_bwa_imcl, "imfill()", "", "auto"), carpeta_output_imseguiment, 1, nom_file, "_0_", string(contador_process) );
+    write_img_dir( ficar_text_imatge(BW_bwa_imcl, "imfill()", "", "auto"), carpeta_output_imseguiment, 1, nom_file, "_0_", string(contador_process) );
     contador_process = contador_process + 1;
 end
 
@@ -133,7 +133,7 @@ txt_seg(field_set, "open_disc(4)") % seguiment config.
 
 % ________seguiment graficació________
 if seguiment_graficacio
-    write_josep( ficar_text_imatge(BW_bwa_imcl, "open(disk, 4)", "", "auto"), carpeta_output_imseguiment, 1, nom_file, "_0_", string(contador_process) );
+    write_img_dir( ficar_text_imatge(BW_bwa_imcl, "open(disk, 4)", "", "auto"), carpeta_output_imseguiment, 1, nom_file, "_0_", string(contador_process) );
     contador_process = contador_process + 1;
 end
 
@@ -147,7 +147,7 @@ txt_seg(field_set, "close_disc(3)") % seguiment config.
 
 % ________seguiment graficació________
 if seguiment_graficacio
-    write_josep( ficar_text_imatge(BW_bwa_imcl, "close(disk, 3)", "", "auto"), carpeta_output_imseguiment, 1, nom_file, "_0_", string(contador_process) );
+    write_img_dir( ficar_text_imatge(BW_bwa_imcl, "close(disk, 3)", "", "auto"), carpeta_output_imseguiment, 1, nom_file, "_0_", string(contador_process) );
     contador_process = contador_process + 1;
 end
 
@@ -161,7 +161,7 @@ txt_seg(field_set, "close_disc(3)") % seguiment config.
 
 % ________seguiment graficació________
 if seguiment_graficacio
-    write_josep( ficar_text_imatge(BW_bwa_imcl, "close(disk, 3)", "", "auto"), carpeta_output_imseguiment, 1, nom_file, "_0_", string(contador_process) );
+    write_img_dir( ficar_text_imatge(BW_bwa_imcl, "close(disk, 3)", "", "auto"), carpeta_output_imseguiment, 1, nom_file, "_0_", string(contador_process) );
     contador_process = contador_process + 1;
 end
 
@@ -173,7 +173,7 @@ txt_seg(field_set, "imfill") % seguiment
 
 % ________seguiment graficació________
 if seguiment_graficacio
-    write_josep( ficar_text_imatge(BW_bwa_imcl, "imfill()", "", "auto"), carpeta_output_imseguiment, 1, nom_file, "_0_", string(contador_process) );
+    write_img_dir( ficar_text_imatge(BW_bwa_imcl, "imfill()", "", "auto"), carpeta_output_imseguiment, 1, nom_file, "_0_", string(contador_process) );
     contador_process = contador_process + 1;
 end
 
@@ -186,7 +186,7 @@ txt_seg(field_set, "bwareaopen(3.5)") % seguiment
 
 % ________seguiment graficació________
 if seguiment_graficacio
-    write_josep( ficar_text_imatge(BW_bwa_imcl, "bwareaopen(3.5)", "", "auto"), carpeta_output_imseguiment, 1, nom_file, "_0_", string(contador_process) );
+    write_img_dir( ficar_text_imatge(BW_bwa_imcl, "bwareaopen(3.5)", "", "auto"), carpeta_output_imseguiment, 1, nom_file, "_0_", string(contador_process) );
     contador_process = contador_process + 1;
 end
 
@@ -200,7 +200,7 @@ txt_seg(field_set, "bwareaopen(2)") % seguiment
 
 % ________seguiment graficació________
 if seguiment_graficacio
-    write_josep( ficar_text_imatge(BW_bwa_imcl, "bwareaopen(2)", "", "auto"), carpeta_output_imseguiment, 1, nom_file, "_0_", string(contador_process) );
+    write_img_dir( ficar_text_imatge(BW_bwa_imcl, "bwareaopen(2)", "", "auto"), carpeta_output_imseguiment, 1, nom_file, "_0_", string(contador_process) );
     contador_process = contador_process + 1;
 end
 
@@ -211,7 +211,7 @@ BW_final_conjunts = BW_bwa_imcl;
 
 % ________seguiment graficació________
 if seguiment_graficacio
-    write_josep( BW_final_conjunts, carpeta_output_imseguiment, 1, nom_file, "_0_", string(contador_process) );
+    write_img_dir( BW_final_conjunts, carpeta_output_imseguiment, 1, nom_file, "_0_", string(contador_process) );
     contador_process = contador_process + 1;
 end
 

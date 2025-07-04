@@ -48,7 +48,7 @@ function [predef_folder_carpeta] = predef_carpeta_import_export(app, str_tipu_ex
             % Definim l'arxiu:
             array_write_folder = ["Folder", ruta_write];
             % Fem el .txt
-            write_text_josep(predefined_folder_input, array_write_folder, ";");
+            write_text_array(predefined_folder_input, array_write_folder, ";");
 
             predef_folder_carpeta = '';
         else

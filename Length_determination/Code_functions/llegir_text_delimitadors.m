@@ -18,10 +18,10 @@ function [array_processos, string_total] = llegir_text_delimitadors(arxiu_output
 %     "P1011655_skel_00005_01"    "208.8975";
 %     "P1011655_skel_00005_03"    "205.9703"]
 % 
-% % Creació text, amb f'write_text_josep': 
-% write_text_josep("asdf.txt", dades_write, ";")
+% % Creació text, amb f'write_text_array': 
+% write_text_array("asdf.txt", dades_write, ";")
 % 
-% % Lectura del text creat, amb la funció f'write_text_josep'
+% % Lectura del text creat, amb la funció f'write_text_array'
 % [cell_text, string_total] = llegir_text_delimitadors("asdf.txt", ";")
 %
 %
@@ -29,13 +29,13 @@ function [array_processos, string_total] = llegir_text_delimitadors(arxiu_output
 % % Crear text
 % arxiu_text_output = "C:\Users\Josep TOSHIBA\Desktop\Length determination v2_8\Results_out\_Internal_code_files\escale_line.txt";
 % escala_write = ["escala", "654.23"];
-% write_text_josep(arxiu_text_output, escala_write, ";")
+% write_text_array(arxiu_text_output, escala_write, ";")
 % 
 % % Llegir text
 % [array_text, string_total] = llegir_text_delimitadors(arxiu_text_output, ";");
 %
 % See also:
-% write_text_josep
+% write_text_array
 
 % INICI FUNCIO
 

@@ -7,3 +7,4 @@ Ordre proces;Tipus proces
 6;imfill
 7;bwareaopen(2.5)
 8;bwareaopen(6)
+9;Imclearborder

@@ -34,7 +34,7 @@ function [escala_imatge] = scale_determination_main(userSavedDocuments, theFiles
     
     % _Write predefined scale_
     array_write_imatge = ["Escala", string(escala_imatge)];
-    write_text_josep(text_escala_internal_code_files, array_write_imatge, ";")
+    write_text_array(text_escala_internal_code_files, array_write_imatge, ";")
     
     save(strcat(carpeta_output, "\escala_imatge"), "escala_imatge")
     

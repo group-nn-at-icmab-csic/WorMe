@@ -14,7 +14,7 @@ function app_escala_auto_boto_done(app)
     % Guardar l'escala:
     arxiu_text_output = strcat(carpeta_out, "\escale_line.txt");
     escala_write = ["escala", distancia_valor];
-    write_text_josep(arxiu_text_output, escala_write, ";")
+    write_text_array(arxiu_text_output, escala_write, ";")
 
     % Llegir text
     %[array_text, string_total] = llegir_text_delimitadors(arxiu_text_output, ";");

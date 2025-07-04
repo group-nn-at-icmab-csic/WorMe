@@ -215,7 +215,7 @@ function app_interf_startupFcn(app)
             dir_text_config_parameters = strcat(dir_output, "\Processment_parameters\", text_config_parameters);
             [array_sortida_modifs, ~] = llegir_text_delimitadors(dir_text_config_parameters, ";"); % obtneim l'array de la lectura del document de text i el printem
             cell_cont = array_sortida_modifs(2:end, 2); % Operem
-            array_processaments = cell2array_josep(cell_cont);
+            array_processaments = cell2array_own(cell_cont);
 
             
             if ismember(text_config_parameters, app.ModificacionsguardadesListBox.Items)

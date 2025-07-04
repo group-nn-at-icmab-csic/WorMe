@@ -23,7 +23,7 @@ function [array_processaments, tipus_im_modif] = app_proc_obtenir_array_modifica
 
     % Operem
     cell_cont = array_sortida_modifs(2:end, 2);
-    array_processaments = cell2array_josep(cell_cont);
+    array_processaments = cell2array_own(cell_cont);
     if ~isempty(array_processaments)
         app.Modificacions_actuals.Value = array_processaments';
     else

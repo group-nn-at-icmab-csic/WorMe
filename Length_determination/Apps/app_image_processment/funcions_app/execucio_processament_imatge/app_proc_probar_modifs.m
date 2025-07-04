@@ -12,7 +12,7 @@ try
     
     % Operem
     cell_cont = array_sortida_modifs(2:end, 2);
-    array_processaments = cell2array_josep(cell_cont);
+    array_processaments = cell2array_own(cell_cont);
 
      % Modifiquem la imatge original i la mostrem:
      imatge_original = imread(app.vapp_ruta_img_origin);

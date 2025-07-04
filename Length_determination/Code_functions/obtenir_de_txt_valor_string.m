@@ -4,8 +4,8 @@ function [valor_de_fila_out] = obtenir_de_txt_valor_string(arxiu_text_det, nom_d
 % valor respecteivament, es retorna el valor que equival al nom de la fila
 % determinat, o bé 'false' si aquest no hi és.
 %
-% Aquesta funció va de la mà de f'write_text_josep', donat que amb
-% f'write_text_josep'es crea l'arxiu de text amb les arrays que es vulgui.
+% Aquesta funció va de la mà de f'write_text_array', donat que amb
+% f'write_text_array'es crea l'arxiu de text amb les arrays que es vulgui.
 % També va de la mà de la funció f'sumar_un_a_txt_valor_string'.
 %
 % Variables
@@ -26,7 +26,7 @@ function [valor_de_fila_out] = obtenir_de_txt_valor_string(arxiu_text_det, nom_d
 %     "P1011655_skel_00005_01"    "208.8975";
 %     "P1011655_skel_00005_03"    "205.9703"]
 % 
-% write_text_josep(arxiu_text_det, dades_write, ";")
+% write_text_array(arxiu_text_det, dades_write, ";")
 % 
 % nom_det_funcio = "P1011629_skel_00003_01";
 %
@@ -36,7 +36,7 @@ function [valor_de_fila_out] = obtenir_de_txt_valor_string(arxiu_text_det, nom_d
 % [valor_de_fila_out] = obtenir_de_txt_valor_string(arxiu_text_det, nom_det_funcio)
 %
 % See also
-% write_text_josep, llegir_text_delimitadors, sumar_un_a_txt_valor_string
+% write_text_array, llegir_text_delimitadors, sumar_un_a_txt_valor_string
 
 % INICI FUNCIO
 

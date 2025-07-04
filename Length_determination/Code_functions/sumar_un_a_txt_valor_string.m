@@ -4,8 +4,8 @@ function sumar_un_a_txt_valor_string(arxiu_text_det, nom_det_funcio)
 % 1 is added to the value in the row whose name has been determined,
 % and if it does not exist, it is created.
 %
-% This function goes together with f'write_text_josep', since with
-% f'write_text_josep' the text file with the desired arrays is created.
+% This function goes together with f'write_text_array', since with
+% f'write_text_array' the text file with the desired arrays is created.
 % It also goes together with the function f'obtenir_de_txt_valor_string'.
 %
 % Variables
@@ -26,7 +26,7 @@ function sumar_un_a_txt_valor_string(arxiu_text_det, nom_det_funcio)
 %     "P1011655_skel_00005_01"    "208.8975";
 %     "P1011655_skel_00005_03"    "205.9703"]
 % 
-% write_text_josep(arxiu_text_det, dades_write, ";")
+% write_text_array(arxiu_text_det, dades_write, ";")
 % 
 % nom_det_funcio = "P1011629_skel_00003_01";
 %
@@ -41,7 +41,7 @@ function sumar_un_a_txt_valor_string(arxiu_text_det, nom_det_funcio)
 % sumar_un_a_txt_valor_string(arxiu_text_det, nom_det_funcio)
 
 % See also:
-% write_text_josep, llegir_text_delimitadors, obtenir_de_txt_valor_string
+% write_text_array, llegir_text_delimitadors, obtenir_de_txt_valor_string
 
 % START FUNCTION
 
