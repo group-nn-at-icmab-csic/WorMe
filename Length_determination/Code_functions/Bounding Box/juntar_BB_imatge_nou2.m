@@ -28,31 +28,31 @@ function juntar_BB_imatge_nou2(carpeta_input, carpeta_BB_BW_color, carpeta_BB_me
 % im_BB_rel_original : original image corresponding to the BB image name
 % im_BB_BW_color     : selected BB color image corresponding to the name
 %
-% FUNCTION START
+% START FUNCTION
 
 
-[theFiles_imresult_original] = lectura_imatges_carpeta_estr(carpeta_input); % Lectura imatges
+[theFiles_imresult_original] = lectura_imatges_carpeta_estr(carpeta_input); % Read the images
 llargada_theFiles_original = length(theFiles_imresult_original);
 
-[theFiles_imresult_BB_BW_color] = lectura_imatges_carpeta_estr(carpeta_BB_BW_color); % Lectura imatges
+[theFiles_imresult_BB_BW_color] = lectura_imatges_carpeta_estr(carpeta_BB_BW_color); % Read the images
 llargada_theFiles_BB_BW_color = length(theFiles_imresult_BB_BW_color);
 
 
-% Per imatge original de les BB BW en color
+% For original BB BW image in color
 for cada_nom_array = array_noms_im
     
-    % Mostrem percentatge procés
+    % Show process percentage
     [~ , posicio_nomarray] = ismember(cada_nom_array, array_noms_im', 'rows');
     disp(strcat("Processing: ", string(posicio_nomarray), "/", string(length(array_noms_im)), " images"))
 
-    % Obtenim imatge original
+    % Obtain original image
     for cada_n_original = 1:llargada_theFiles_original
         nom_ex = theFiles_imresult_original(cada_n_original).name;
         [nom_im_orig_unic, file_im_original] = separar_puntfile(nom_ex);
         
-                % Modificar v'nom_im_orig_unic' si escau. Això ocórre perquè els
-        % noms tant de les imatges originals com de les dels bounding box,
-        % han de poder coincidir en el nom original.
+        % Modify v'nom_im_orig_unic' if needed. This is because the
+        % names of the original images and the bounding box
+        % could be the same.
         split_nom = split(nom_im_orig_unic, "_skel");
         if length(split_nom) == 1
             nom_im_orig_unic = split_nom;
@@ -60,13 +60,13 @@ for cada_nom_array = array_noms_im
             nom_im_orig_unic = split_nom(1);
         end
 
-        % Comparation 
+        % Comparison 
         if strcmp(cada_nom_array, nom_im_orig_unic)
             baseFileName_origin = theFiles_imresult_original(cada_n_original).name;
             fullFileName_origin = fullfile(theFiles_imresult_original(cada_n_original).folder, baseFileName_origin);
 
             % Obtain original image
-            im_BB_rel_original = imread(fullFileName_origin); % Imatge inicial
+            im_BB_rel_original = imread(fullFileName_origin); % Initial image
             
             % Obtain name of the original image
             nom_im_orig_unic_bo = nom_im_orig_unic;
@@ -74,42 +74,42 @@ for cada_nom_array = array_noms_im
         end
     end
     
-   % _Add BB_
+    % _Add BB_
     % For each BB BW color image that matches the name, we add
     % the BB BW
-    
+
     % We make a copy of the original image. 'im_BB_rel_original_BBcol' will be
     % the one that keeps storing the BBs.
 
     im_BB_rel_original_BBcol = im_BB_rel_original; 
     
     for cada_n_BB = 1:llargada_theFiles_BB_BW_color
-        % Obtenim nom original
+        % Obtain original name
         nom_ex = theFiles_imresult_BB_BW_color(cada_n_BB).name;
         split_nom = split(nom_ex, "_skel");
         nom_orign_imBB = split_nom(1);
 
         % If the name of the BB we are viewing (nom_orign_imBB) matches the
-        % name of the BB BW color image being read (nom_orign_imBB), it is the image
-        % we are interested in.
+        % name of the BB BW color image being read (nom_orign_imBB),
+        % it is the image we are interested in.
 
         if strcmp(nom_orign_imBB, cada_nom_array)
             baseFileName_BB = theFiles_imresult_BB_BW_color(cada_n_BB).name;
             fullFileName_BB = fullfile(theFiles_imresult_BB_BW_color(cada_n_BB).folder, baseFileName_BB);
 
-            % Obtenim la imatge BW BB en color
-            im_BB_BW_color = imread(fullFileName_BB); % Imatge inicial
+            % Obtain BW BB image in color
+            im_BB_BW_color = imread(fullFileName_BB); % Initial image
             
-            % _Sumar BB col a original_
-            % Procedim a sumar aquesta a la original
+            % _Sum BB col to original_
+            % Add this to the original
             im_BB_rel_original_BBcol = suma_semiBW_norm_millorat(im_BB_rel_original_BBcol, im_BB_BW_color);
             
 
             
         end
         
-        % GUARDEM LA IMATGE
-        % Definim el nom
+        % SAVE THE IMAGE
+        % Define the name
         nom_BB_merge_original = strcat(nom_im_orig_unic_bo, file_im_original_bo);         
         write_img_dir(im_BB_rel_original_BBcol, carpeta_BB_merge_original, 1, nom_BB_merge_original);
         %imshow(im_BB_rel_original_BBcol)
@@ -119,6 +119,6 @@ for cada_nom_array = array_noms_im
 
 end
 
-% FINAL OF THE FUNCTION
+% END FUNCTION
 
 end
