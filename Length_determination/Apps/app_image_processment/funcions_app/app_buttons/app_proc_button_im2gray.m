@@ -14,7 +14,7 @@ function app_proc_button_im2gray(app)
     
     % _Add the modification_
     [field_set] = app_proc_obten_fieldset(app);
-    txt_seg(field_set, "Im2gray", ";") % config. following
+    txt_seg(field_set, "Im2gray", ";") % config tracking
 
 
     % Visualization of the modifications

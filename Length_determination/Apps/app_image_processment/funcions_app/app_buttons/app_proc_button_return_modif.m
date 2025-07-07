@@ -10,101 +10,99 @@ function app_proc_button_return_modif(app)
 
 
 % START OF THE FUNCTION
+    % "Back" button, which returns the modification.
 
-    % Botó "back", sobre que fa un return de la modificació.
-
-
-    % Veure botó % Botó "imadjust"
-    % Guardar en arxiu de text i printar en pantalla
-    % Agafem el text seleccionat del ListBox, segons el tipus de modificació seleccionat (temporal o guardat)
+    % See button % "imadjust" button
+    % Save to text file and print on screen
+    % We take the selected text from the ListBox, according to the type of modification selected (temporary or saved)
     if ~isempty(app.ModificacionstemporalsListBox.Value)
         value_listbox = app.ModificacionstemporalsListBox.Value;
         field_set = strcat("Results_out\Internal_code_files\Image_processing_settings\temporals\", string(value_listbox));
-    % Si es pre-selecciona en guardats
+    % If pre-selected in saved
     elseif ~isempty(app.ModificacionsguardadesListBox.Value)
         value_listbox = app.ModificacionsguardadesListBox.Value;
-        % Llegir arxiu i mostrar en Label Modificacions
+        % Read file and display in Modificacions Label
         field_set = strcat("Results_out\Internal_code_files\Image_processing_settings\", string(value_listbox));
     end
 
-    % Borrem la última línia del text:
-    % Nota: Codi adaptat exclusivament per a combinació amb f'txt_seg'
+    % Delete the last line of the text:
+    % Note: Code adapted exclusively for combination with f'txt_seg'
     [array_processos, ~] = llegir_text_delimitadors(field_set, ";");
     
     [files_ar, ~] = size(array_processos);
     
     delete(field_set)
-    txt_seg(field_set, "", ";", "nou", "blanc") % seguiment config.
+    txt_seg(field_set, "", ";", "nou", "blanc") % tracking config.
     for cada_proces = 2:(files_ar-1)
-        % Obtenim cada procés
+        % Get each process
         proces_print = array_processos{cada_proces, 2};
         txt_seg(field_set, proces_print, ";")
     end 
     
     
-    % LECTURA IMATGE BOTÓ
+    % IMAGE READING BUTTON
     fullFileName = app.vapp_ruta_img_origin;
     imatge_original = imread_ifgrey(fullFileName);            
     
 
-    % __Printar en Modificacions__
-    % Obtenir array lectura del document de text i printar aquest            
+    % __Print in Modificacions__
+    % Get array reading from text document and print it            
     [array_sortida_modifs, ~] = llegir_text_delimitadors(field_set, ";");
     [x_rows_arrayproc, ~] = size(array_sortida_modifs);
-    % Si no hi ha modificacions:
+    % If there are no modifications:
     if x_rows_arrayproc < 2
-        % Graficació
+        % Plotting
         app.Image.ImageSource = imatge_original;
         
-        % Obtenir num objectes binaris:
+        % Get number of binary objects:
         app.num_objectes_binarisLabel.Text = "Indef.";
         
         app.Modificacions_actuals.Value = "";
         array_processaments = {};
-    % Si hi ha modificacions
+    % If there are modifications
     
     else
         cell_cont = array_sortida_modifs(2:end, 2);
         array_processaments = cell2array_own(cell_cont);
-        % Mostrem les modificacións
+        % Show the modifications
         app.Modificacions_actuals.Value = array_processaments';
         
-        % MODIFICACIÓ DE LA IMATGE
-        % Processament imatge
+        % IMAGE MODIFICATION
+        % Image processing
         [BW_final, ~] = processament_imatge_llistat(imatge_original, array_processaments);
         
-        % Graficació
+        % Plotting
         [imatge_3D_sortida] = graficar_rgbgraybw_image(BW_final);
         app.Image.ImageSource = imatge_3D_sortida;
         
-        % Obtenir num objectes binaris:
-        app.num_objectes_binarisLabel.Text = obtenir_num_BW(BW_final);                        
+        % Get number of binary objects:
+        app.num_objectes_binarisLabel.Text = obtenir_num_BW(BW_final);                         
     
     end
 
-    % OBTENIM TIPOLOGIA DE LA IMATGE
+    % GET IMAGE TYPOLOGY
     if isempty(array_processaments)
-        % La imatge és rgb
+        % The image is rgb
         tipus_im_modif = "rgb";
         % 
     else
-        % Obtenim la última modificació
+        % Get the last modification
         ultima_modificacio = array_processaments(end);
         
-        % Obtenim el nom d'aquesta
+        % Get its name
         [tipus_im_modif, ~] = obtencio_tipologia_llistat(ultima_modificacio);
     end
     
     
-    % _Mostrar imatge rellotge_
+    % _Show clock image_
     app.Image2.Visible = 'off';
     
     
     
-    % DESACTIVACIÓ/ACTIVACIÓ BOTÓNS MODIFICACIÓ IMATGE SEGONS
-    % TIPOLOGIA IMATGE
+    % DISABLE/ENABLE IMAGE MODIFICATION BUTTONS ACCORDING TO
+    % IMAGE TYPOLOGY
     app_proc_desact_act_buttons(app, tipus_im_modif)
-             
+
     
 
 % END OF THE FUNCTION

@@ -9,7 +9,7 @@ function app_proc_button_tutorial_imadjust(app)
 
 % START OF THE FUNCTION
 
-    % Cambiem la imatge per la imatge del tutorial:
+    % Change the image for the tutorial image: 
     imatge_ex_tutorial = imread("Apps\app_image_processment\Internal code files\Images_tutorial\imadjust.png");
     app.Image.ImageSource = imatge_ex_tutorial;
 

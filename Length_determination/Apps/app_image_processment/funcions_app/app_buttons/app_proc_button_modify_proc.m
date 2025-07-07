@@ -12,39 +12,37 @@ function app_proc_button_modify_proc(app)
 % START OF THE FUNCTION
     
     %item_modificar = app.ModificacionsguardadesListBox.Value
-    
-    % Simplement obrim els botóns per a que sigui operable la seva
-    % modificació.
+        % Simply open the buttons so that its modification is operable.
     
     value_listbox = app.ModificacionsguardadesListBox.Value;
     app.ImatgeLabel.Text = string(value_listbox);
     
-    % Llegir arxiu i mostrar en Label Modificacions
+    % Read file and display in Modifications Label
     field_set = strcat("Results_out\Internal_code_files\Image_processing_settings\", string(value_listbox));
 
-    % obtneim l'array de la lectura del document de text i el printem
+    % Obtain the array from reading the text document and print it
     [array_sortida_modifs, ~] = llegir_text_delimitadors(field_set, ";");
 
-
                 
-    % LECTURA TIPOLOGIA MODIFICACIONS IMATGE
+    % READ IMAGE MODIFICATIONS TYPOLOGY
     cell_cont = array_sortida_modifs(2:end, 2);
     array_processaments = cell2array_own(cell_cont);
 
-    % Obtenim tipologia de la imatge
+    % Obtain the image typology
     if isempty(array_processaments)
-        % La imatge és rgb
+        % The image is rgb
         tipus_im_modif = "rgb";
     else
-        % Obtenim la última modificació
+        % Obtain the last modification
         ultima_modificacio = array_processaments(end);
         
-        % Obtenim el nom d'aquesta
+        % Obtain its name
         [tipus_im_modif, ~] = obtencio_tipologia_llistat(ultima_modificacio);
     end
     
-    % Cambiem botóns
+    % Change buttons
     app_proc_desact_act_buttons(app, tipus_im_modif) 
+
 
     
     

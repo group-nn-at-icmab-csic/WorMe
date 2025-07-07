@@ -2,6 +2,7 @@ function app_proc_button_skeletonize_change(app)
 
 % In app_image_processing App, the button of skeletonize the image (EsqueletonitzarButtonValueChanged).
 %
+% Skeletonize the image, for to see how it is with the filer.
 %
 % See also
 % app_image_processment
@@ -10,9 +11,7 @@ function app_proc_button_skeletonize_change(app)
 % START OF THE FUNCTION
 
     %value = app.EsqueletonitzarButton.Value;
-    
-    % Esqueletonitzar la imatge, per a veure cóm es amb el filtre.
-
+ 
     if app.EsqueletonitzarButton.Value
         app.EsqueletonitzarButton.BackgroundColor = 'y';
     else

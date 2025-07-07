@@ -11,24 +11,23 @@ function app_proc_button_to_right_img(app)
 
     app.Image2.Visible = 'on';
     
-
-    % __Cambiem contador imatge__
-    % Contador imatge
+    % __Change image counter__
+    % Image counter
     numero_dreta = str2num(app.contador_numimLabel.Text);
     numero_dreta = numero_dreta + 1;
     
-    % definim contador
+    % define counter
     app.contador_numimLabel.Text = string(numero_dreta);
 
 
-    % DEFINICIÓ DE LA IMATGE
+    % IMAGE DEFINITION
     theFiles = app.theFiles_arxiu;
     
-    % Obtencio imatge
+    % Get image
     baseFileName = theFiles(numero_dreta).name;
     fullFileName = fullfile(theFiles(numero_dreta).folder, baseFileName);
     
-    % CAMBIEM RUTA IMATGE
+    % CHANGE IMAGE PATH
      app.vapp_ruta_img_origin = fullFileName;
 
    
@@ -36,14 +35,14 @@ function app_proc_button_to_right_img(app)
     app_proc_visual_modif(app)
 
 
-    % Grafiquem la imatge original nova
+    % Plot the new original image
     app.Image3.ImageSource = app.vapp_ruta_img_origin;
 
 
-    % _Aparició/amagat botóns_
+    % _Show/hide buttons_
 
-    % Llargada imatges
-    llargada_ims = length(theFiles); % Contador imatges totals
+    % Length of images
+    llargada_ims = length(theFiles); % Total image count
     
     if numero_dreta > 1
         app.Button_12.Visible = 'on';

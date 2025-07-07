@@ -12,12 +12,12 @@ function app_proc_button_binarize(app)
 
     app.Image2.Visible = 'on';
     
-    % _Afegim la modificació_
+    % _Add the modification_
     [field_set] = app_proc_obten_fieldset(app);
-    txt_seg(field_set, "Imbinarize_adaptative_Foreground_dark", ";") % seguiment config.
+    txt_seg(field_set, "Imbinarize_adaptative_Foreground_dark", ";") % configuration following
 
 
-    % VISUALIZATION OF THE MODIFICATIONS
+    % Visualization of the modifications
     app_proc_visual_modif(app)
 
     app.Image2.Visible = 'off';

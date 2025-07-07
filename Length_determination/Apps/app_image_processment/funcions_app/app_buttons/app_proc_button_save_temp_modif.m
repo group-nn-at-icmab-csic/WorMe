@@ -8,13 +8,12 @@ function app_proc_button_save_temp_modif(app)
 
 
 % START OF THE FUNCTION
-
     arxiu_guardar_copiar = app.ModificacionstemporalsListBox.Value;
     arxiu_borrar = strcat("Results_out\Internal_code_files\Image_processing_settings\temporals\", arxiu_guardar_copiar);
     arxiu_nou_copiar = strcat("Results_out\Internal_code_files\Image_processing_settings\", arxiu_guardar_copiar);
     
-    % Mirar si ja existeix. 
-    % Si l'objecte no existeix:
+    % Check if it already exists.
+    % If the object does not exist:
     if ~ismember(arxiu_guardar_copiar, app.ModificacionsguardadesListBox.Items)
         movefile(arxiu_borrar, arxiu_nou_copiar);                
         
@@ -25,9 +24,9 @@ function app_proc_button_save_temp_modif(app)
 
     
     
-    % Actualitzar modificacions
+    % Update modifications
     
-    % Llegir arxius Modificacions guardades
+    % Read saved Modificacions files
     myFolder_input = "Results_out\Internal_code_files\Image_processing_settings\";
     patro_tipus_image = ".txt";
     [llistat_string_im] = llegir_arxius_tipologia(myFolder_input, patro_tipus_image);
@@ -35,7 +34,7 @@ function app_proc_button_save_temp_modif(app)
     app.ModificacionsguardadesListBox.Items = llistat_string_im;
     
     
-    % Automatització Drop Roll Modificacions temporals
+    % Automate Drop Roll Modificacions temporals
     myFolder_input = "Results_out\Internal_code_files\Image_processing_settings\temporals\";
     patro_tipus_image = ".txt";
     [llistat_string_im] = llegir_arxius_tipologia(myFolder_input, patro_tipus_image);

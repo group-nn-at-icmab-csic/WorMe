@@ -9,8 +9,8 @@ function app_proc_button_edgecanny_aprox(app)
 
 % START OF THE FUNCTION
 
-    % Afegim al text la modificació
-    txt_seg(field_set, "edge_approxcanny", ";") % seguiment config.
+    % Add text to the modification
+    txt_seg(field_set, "edge_approxcanny", ";");
 
 
 % END OF THE FUNCTION

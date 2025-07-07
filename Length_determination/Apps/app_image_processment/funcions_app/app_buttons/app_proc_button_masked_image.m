@@ -17,7 +17,7 @@ function app_proc_button_masked_image(app)
         app.ModifiedButton.Value = false;
     end
 
-    % Cambiem color botó segons seleccionat
+    % Change the color of the button if selected:
     if app.OriginalButton.Value
         app.OriginalButton.BackgroundColor = 'y';
     else

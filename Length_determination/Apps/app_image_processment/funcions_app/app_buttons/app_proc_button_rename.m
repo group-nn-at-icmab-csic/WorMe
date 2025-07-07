@@ -10,13 +10,12 @@ function app_proc_button_rename(app)
 
 
 % START OF THE FUNCTION
-
-    % _Obtenim el nom nou_
+    % _Get the new name_
     
-    % Modificacions guardades és vuit, es modificarà la carpeta de modificacións temporals
+    % Saved modifications is empty, the temporary modifications folder will be modified
     if isempty(app.ModificacionsguardadesListBox.Value)
         rename_cont = "temporals";
-    % Modificacions temporals és vuit, es modificarà la carpeta de modificacións guardades
+    % Temporary modifications is empty, the saved modifications folder will be modified
     elseif isempty(app.ModificacionstemporalsListBox.Value)   
         rename_cont = "guardades";
     else
@@ -35,17 +34,17 @@ function app_proc_button_rename(app)
         definput_t = split(definput, ".txt");
         definput = definput_t(1);
     end
-
-    % Obrir cuadre dialeg per entrada nom arxiu
+    
+    % Open dialog box for file name input
     prompt = "Nom de l'arxiu:";
     dlgtitle = 'Input';
     dims = [1 35];
     answer_resposta = inputdlg(prompt,dlgtitle,dims,definput);
-
-    % Si no es cancela
+    
+    % If not cancelled
     if ~isempty(answer_resposta)
         
-        % Si conté ".txt" es torna a fer.
+        % If it contains ".txt" ask again.
         if contains(answer_resposta{1}, ".txt")
             waitfor(msgbox("File cannot have '.txt' "))
             while contains(answer_resposta{1}, ".txt")
@@ -54,7 +53,7 @@ function app_proc_button_rename(app)
                 dims = [1 35];
                 answer_resposta = inputdlg(prompt,dlgtitle,dims,definput);
                 
-                % si es cancela
+                % if cancelled
                 if isempty(answer_resposta)
                     break
                 end
@@ -63,28 +62,28 @@ function app_proc_button_rename(app)
     end
     
     
-    % Si hi ha text en la resposta
+    % If there is text in the response
     if ~isempty(answer_resposta)
         
-        % Si existeixen arxius amb el mateix nom
+        % If files with the same name exist
         [llistat_string_im] = [...
             llegir_arxius_tipologia("Results_out\Internal_code_files\Image_processing_settings\temporals\", ".txt"), ...
             llegir_arxius_tipologia("Results_out\Internal_code_files\Image_processing_settings\", ".txt")];
         
         splitat_arxius = split(llistat_string_im, ".txt");
         
-
-        si_no_son_iguals = true; % Si aquest no varia, significa que no hi ha arxius iguals.
+    
+        si_no_son_iguals = true; % If this doesn't change, it means there are no files with the same name.
         for cada_arxiu = 1:length(llistat_string_im)
             if splitat_arxius(cada_arxiu) == answer_resposta
                 si_no_son_iguals = false;
             end
         end
-
-        % Si existeixen o no
+    
+        % Whether they exist or not
         if si_no_son_iguals
-            % Es crea l'arxiu nou
-            % answer_resposta : Resposta del nou nom, que no existeix.
+            % Create the new file
+            % answer_resposta : Response with the new name, which does not exist.
             
             if rename_cont == "temporals"
                 nom_arxiu_anterior = strcat("Results_out\Internal_code_files\Image_processing_settings\temporals\",app.ModificacionstemporalsListBox.Value);
@@ -94,35 +93,35 @@ function app_proc_button_rename(app)
                 nom_arxiu_guardar = strcat("Results_out\Internal_code_files\Image_processing_settings\",answer_resposta,".txt");                        
             end
             
-            % Creem un arxiu nou i borrem l'anterior
+            % Create a new file and delete the previous one
             movefile(nom_arxiu_anterior, nom_arxiu_guardar);
             % copyfile(nom_arxiu_anterior, nom_arxiu_guardar);
             
-
-            % _Actualitzem els ListBox_
+    
+            % _Update the ListBoxes_
             if rename_cont == "temporals"
-                % Actualitzem les llsites:
-                % Llegir arxius Modificacions guardades
+                % Update the lists:
+                % Read saved modifications files
                 myFolder_input = "Results_out\Internal_code_files\Image_processing_settings\temporals\";
                 patro_tipus_image = ".txt";
                 [llistat_string_im] = llegir_arxius_tipologia(myFolder_input, patro_tipus_image);
-
-                % Actualitzem el listbox
+    
+                % Update the listbox
                 app.ModificacionstemporalsListBox.Items = llistat_string_im;    
-
-                % Seleccionar el que té el nom cambiat:
+    
+                % Select the one with the changed name:
                 app.ModificacionstemporalsListBox.Value = strcat(answer_resposta, ".txt");
             elseif rename_cont == "guardades"
-                % Actualitzem les llsites:
-                % Llegir arxius Modificacions guardades
+                % Update the lists:
+                % Read saved modifications files
                 myFolder_input = "Results_out\Internal_code_files\Image_processing_settings\";
                 patro_tipus_image = ".txt";
                 [llistat_string_im] = llegir_arxius_tipologia(myFolder_input, patro_tipus_image);
-
-                % Actualitzem el listbox
+    
+                % Update the listbox
                 app.ModificacionsguardadesListBox.Items = llistat_string_im;    
-
-                % Seleccionar el que té el nom cambiat:
+    
+                % Select the one with the changed name:
                 app.ModificacionsguardadesListBox.Value = strcat(answer_resposta, ".txt");                    
             end
         
@@ -134,8 +133,7 @@ function app_proc_button_rename(app)
     else
         waitfor(msgbox('No name defined', 'Error','error'));
     end
-    
-         
+
 
 % END OF THE FUNCTION
 

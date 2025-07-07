@@ -11,7 +11,7 @@ function app_proc_button_imadjust(app)
 
     app.Image2.Visible = 'on';
     
-    % _Afegim la modificació_
+    % _Add the modification_
     [field_set] = app_proc_obten_fieldset(app);
     txt_seg(field_set, "imadjust", ";")
 

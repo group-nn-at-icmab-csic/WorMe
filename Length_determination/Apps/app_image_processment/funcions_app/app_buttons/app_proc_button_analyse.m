@@ -8,12 +8,11 @@ function app_proc_button_analyse(app)
 
 
 % START OF THE FUNCTION
-
-    % Tancament del loop
+    % Loop closure
     app.vapp_tancament_loop = "tancar";
     
-    % Fa una copia de la modificacio a la ubicacio en es llegirà en
-    % el programa.
+    % Makes a copy of the modification in the location
+    % from which it will be read in the program.
     
 
     dir_save_txt = app.vapp_carpeta_output;
@@ -21,36 +20,37 @@ function app_proc_button_analyse(app)
     if ~isempty(app.ModificacionstemporalsListBox.Value)
         value_listbox = app.ModificacionstemporalsListBox.Value;
         field_set = strcat("Results_out\Internal_code_files\Image_processing_settings\temporals\", string(value_listbox));
-    % Si es pre-selecciona en guardats
+    % If it is pre-selected in saved
     elseif ~isempty(app.ModificacionsguardadesListBox.Value)
         value_listbox = app.ModificacionsguardadesListBox.Value;
-        % Llegir arxiu i mostrar en Label Modificacions
+        % Read file and display in Modificacions Label
         field_set = strcat("Results_out\Internal_code_files\Image_processing_settings\", string(value_listbox));
     end
     
     
-    copyfile(field_set, strcat(dir_save_txt, "\Processment_parameters\", value_listbox)); % <- temporal el strcat
+    copyfile(field_set, strcat(dir_save_txt, "\Processment_parameters\", value_listbox)); % <- temporal the strcat
 
     
-    % _Preselecció modificació_
-    % Fer que es guardi el nom de l'arxiu, de manera que la proxima
-    % vegada que s'executi el programa, sigui aquesta modificació
-    % la que es pre-seleccioni de foroma automàtica.
+    % _Modification pre-selection_
+    % Make it so that the filename is saved, so that the next
+    % time the program is run, this modification is automatically
+    % pre-selected.
     % value_listbox % '48_C.txt'
 
-    % _Write arxiu predefinit_
-    % Guardem el valor de la modificació en un txt, per a llegir-lo
-    % quan es torni a obrir el programa
+    % _Write predefined file_
+    % We save the value of the modification in a txt file, to read it
+    % when the program is reopened
     array_write_folder = ["Folder", value_listbox];
     write_text_array("Results_out\Internal_code_files\predefined_modif.txt", array_write_folder, ";");
 
     
     
-    %close force 
-    % En teoria el close force hauria d'anar aqui, però el loop del
-    % StartupFcn (while) si es fa tancar la GUI aquest 'peta' i fa petar el prorgama.
-    % D'aquesta manera, es posa close force fora del while, i es
-    % surt d'aquest amb el botó analyse.
+    % close force 
+    % In theory, close force should go here, but the loop in
+    % StartupFcn (while) crashes if the GUI is closed here and
+    % crashes the program.
+    % This way, close force is placed outside the while, and we
+    % exit it with the analyse button.
 
 % END OF THE FUNCTION
 

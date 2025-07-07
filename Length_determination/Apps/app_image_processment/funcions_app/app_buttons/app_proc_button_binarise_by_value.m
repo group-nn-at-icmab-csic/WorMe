@@ -9,19 +9,18 @@ function app_proc_button_binarise_by_value(app)
 
 
 % START OF THE FUNCTION
-            
-    % Valor del Slider:
+            % Value of the Slider:
     binarize_value = app.BinarizeSlider.Value;
    
     
     
     app.Image2.Visible = 'on';
     
-    % _Afegim la modificació_
+    % _Add the modification_
     [field_set] = app_proc_obten_fieldset(app);
-    % Afegim al text la modificació
+    % Add the modification to the text
     text_modific = strcat("binarize_by_value(", string(binarize_value), ")");
-    txt_seg(field_set, text_modific, ";") % seguiment config.           
+    txt_seg(field_set, text_modific, ";") % configuration tracking           
 
 
     % VISUALIZATION OF THE MODIFICATIONS

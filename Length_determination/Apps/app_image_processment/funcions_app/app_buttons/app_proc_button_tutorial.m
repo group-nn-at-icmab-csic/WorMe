@@ -12,58 +12,57 @@ function app_proc_button_tutorial(app)
 
     value_tutorial = app.TutorialButton.Value;
 
-
-    % COPIA de APP_NOVA_INTERFAZ
+    % COPY of APP_NOVA_INTERFAZ
 
 
     if value_tutorial
 
-        % __Activació/Desactivacio botons__
-        % #Funcio activacio desactivacio botons
+        % __Activation/Deactivation of buttons__
+        % #Function to activate/deactivate buttons
         app_proc_activardesactivar_botons_tutorial(app, 'on')
 
-        % __Descripció del color de les figures de la App__
-        % Agafem tots els objectes:
+        % __Description of the color of the App figures__
+        % Get all objects:
         obj_h = findobj(app.UIFigure);
-        % Obtenim les propietats del botó.
+        % Get the properties of the button.
         h_determin_button = findobj(app.UIFigure,'Type', 'figure');
         h_determin_button.Color = h_determin_button.Color - 0.2;
-        % ÇÇ No canvia el color...
+        % Does not change the color...
 
 
-        % Cambi color botó tutorial:
+        % Change tutorial button color:
         app.TutorialButton.BackgroundColor = [0.9290 0.6940 0.1250];
                 % Normal: [0.9600    0.9600    0.9600]
-                % Tronja fosc: [0.8500 0.3250 0.0980]
-                % Tronja clar: [0.9290 0.6940 0.1250]
+                % Dark orange: [0.8500 0.3250 0.0980]
+                % Light orange: [0.9290 0.6940 0.1250]
 
 
-        % Correccio que no surti ultim frame
+        % Correction to avoid showing the last frame
         %imshow("Apps\app_nova_interfaz_nova\Imatges_utilitat\imatge_background_fosc.png", 'Parent', app.UIAxes2);            
 
 
-    % Si està activat el botó de Tutorial (sortir) = Com sempre
+    % If the Tutorial button is activated (exit) = As usual
     else
 
 
-        % _Activem/Desactivem botóns tutorial_
+        % _Activate/Deactivate tutorial buttons_
         app_proc_activardesactivar_botons_tutorial(app, 'off')
 
 
-        % __Descripció del color de les figures de la App__
-        % Agafem tots els objectes:
+        % __Description of the color of the App figures__
+        % Get all objects:
         obj_h = findobj(app.UIFigure);
         figure_objects_names_filtr = unique(get(obj_h,'Type'));
 
-        % Si volem filtar els objectes:
+        % If we want to filter the objects:
         %figure_objects_names_filtr_BackgroundColor = unique(figure_objects_names_filtr(ismember(figure_objects_names_filtr, ["uibutton"])));
         figure_objects_names_filtr_Color = unique(figure_objects_names_filtr(ismember(figure_objects_names_filtr, ["figure"])));            
             
-        % Per cada objecte:
+        % For each object:
         for n_figure_object = 1:length(figure_objects_names_filtr_Color)
             figure_object = figure_objects_names_filtr_Color{n_figure_object};
 
-            % Obtenim les propietats del botó.
+            % Get the properties of the button.
             h_determin_button = findobj(app.UIFigure,'Type', figure_object);
             h_determin_button.Color = [0.9400 0.9400 0.9400];
 
@@ -71,17 +70,17 @@ function app_proc_button_tutorial(app)
         % [0.9400 0.9400 0.9400]
 
 
-        % Cambi color botó tutorial:
+        % Change tutorial button color:
         app.TutorialButton.BackgroundColor = [0.9600    0.9600    0.9600];
                 % Normal: [0.9600    0.9600    0.9600]
-                % Tronja fosc: [0.8500 0.3250 0.0980]
-                % Tronja clar: [0.9290 0.6940 0.1250]                
+                % Dark orange: [0.8500 0.3250 0.0980]
+                % Light orange: [0.9290 0.6940 0.1250]                
 
     end
 
 
 
-    % Actualitzem figura per capacitar shortkey
+    % Update figure to enable shortkey
     figure(app.UIFigure)  
 
 % END OF THE FUNCTION

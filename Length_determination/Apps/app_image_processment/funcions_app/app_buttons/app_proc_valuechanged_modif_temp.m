@@ -8,13 +8,12 @@ function app_proc_valuechanged_modif_temp(app)
 
 
 % START OF THE FUNCTION
-
-    % ACTUALITZACIÓ DE LES MODIFICACIÓNS
-    % Agafem el text seleccionat del ListBox:
+    % UPDATE OF THE MODIFICATIONS
+    % Get the selected text from the ListBox:
     value_listbox = app.ModificacionstemporalsListBox.Value;
     app.ImatgeLabel.Text = string(value_listbox);
     
-    % Agafem el text seleccionat del ListBox:
+    % Get the selected text from the ListBox:
     [array_processaments, ~] = app_proc_obtenir_array_modificacions(app);
 
     if ~isempty(array_processaments)
@@ -23,14 +22,15 @@ function app_proc_valuechanged_modif_temp(app)
         app.Modificacions_actuals.Value = "";
     end
     
-    % Desseleccionar modificacions guardades, al seleccionar
-    % modificacions guardades.
+    % Deselect saved modifications when selecting
+    % saved modifications.
     app.ModificacionsguardadesListBox.Value = {};
     app.ModificarButton.Visible = 'off';            
     
 
     % VISUALIZATION OF THE MODIFICATIONS
     app_proc_visual_modif(app)
+
 
 % END OF THE FUNCTION
 

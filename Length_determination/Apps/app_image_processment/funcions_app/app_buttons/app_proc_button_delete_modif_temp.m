@@ -9,10 +9,9 @@ function app_proc_button_delete_modif_temp(app)
 
 % START OF THE FUNCTION
 
-
-    % Borra les modificacions temporals, i en crea una de nova en blanc
+    % Deletes the temporary modifications, and creates a new blank one
     
-    % Condicional si hi ha valor agafat:
+    % Conditional if there is a selected value:
     if ~isempty(app.ModificacionstemporalsListBox.Value)            
         
         answer_del = questdlg('Delete the temporal setting?', ...
@@ -26,14 +25,13 @@ function app_proc_button_delete_modif_temp(app)
         end 
         
 
-
-        valor_modif_perm = separar_puntfile(app.ModificacionstemporalsListBox.Value); %Valor de la modificació permanent.
+        valor_modif_perm = separar_puntfile(app.ModificacionstemporalsListBox.Value); % Value of the permanent modification.
         
         
-        % Si es diu que sí es vol eliminar, s'executa:
+        % If it is confirmed that it should be deleted, execute:
         if answer_msgebox
 
-            % Es borren tant arxius com imatges temporals
+            % Both temporary files and images are deleted
             myFolder_input = "Results_out\Internal_code_files\Image_processing_settings\temporals\";
            
             string_delete = strcat(myFolder_input, valor_modif_perm, ".txt");
@@ -42,15 +40,15 @@ function app_proc_button_delete_modif_temp(app)
         end
 
 
-        % Actualitzem elements:
+        % Update elements:
         [llistat_string_im] = llegir_arxius_tipologia("Results_out\Internal_code_files\Image_processing_settings\temporals\", ".txt");
         app.ModificacionstemporalsListBox.Items = llistat_string_im;
         
-        % Es fa com si s'apretés el botó 'Original'
+        % Act as if the 'Original' button was pressed
         app.OriginalButton
 
 
-        % Si és vuida modificacions temporals, però no guardades:
+        % If temporary modifications are empty, but not saved ones:
         if isempty(app.ModificacionstemporalsListBox.Items)
             if ~isempty(app.ModificacionsguardadesListBox.Items)
                 modif_guardades_items = app.ModificacionsguardadesListBox.Items;
@@ -63,35 +61,6 @@ function app_proc_button_delete_modif_temp(app)
 
     end
 
-
-
-
-%             % BORRAT DE TOTS
-%             % Si es diu que sí es vol eliminar, s'executa:
-%             if answer_msgebox
-%                 
-%                 % Es borren tant arxius com imatges temporals
-%                 patrons_imatge = [".txt", ".png"];
-%                 for patro_n = 1:length(patrons_imatge)
-%                     patro_tipus_image = patrons_imatge(patro_n);
-%                     
-%                     if patro_tipus_image == ".txt"
-%                         myFolder_input = "Results_out\Internal_code_files\Image_processing_settings\temporals\";
-%                     elseif patro_tipus_image == ".png"
-%                         myFolder_input = "Apps\app_image_processment\Internal code files\Image processing settings\temporals\settings_imatges\";
-%                     end
-%                     [llistat_string_im] = llegir_arxius_tipologia(myFolder_input, patro_tipus_image);
-%                     
-%                    
-%                     for cada_arxiu = 1:length(llistat_string_im)
-%                     
-%                         string_delete = strcat(myFolder_input, llistat_string_im(cada_arxiu) );
-%                         delete(string_delete)
-%                         
-%                     end
-%                     
-%                 end
-%             end
 
 
 % END OF THE FUNCTION

@@ -9,21 +9,16 @@ function app_proc_button_region_imopen(app)
 
 % START OF THE FUNCTION
 
-    % COPIA adaptada de imopen:
+    % COPIA adaptaded from imopen:
     
     % Button Open
-    
-    
-    % "open_disc(valor)"
-    % "close_disc(valor)"
-    
-    
-    % Valor del imopen regio
+   
+    % Value of the imopen region
     valor_modif = app.Spinner_4.Value;
     
-    % Afegim al text la modificació
+    % Add the modification to the text
     text_modific = strcat("region_imopen(", string(valor_modif), ")");
-    txt_seg(field_set, text_modific, ";") % seguiment config.
+    txt_seg(field_set, text_modific, ";") % config. tracking
 
 
 % END OF THE FUNCTION

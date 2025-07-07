@@ -10,18 +10,19 @@ function app_proc_button_close(app)
 % START OF THE FUNCTION
 
     app.Image2.Visible = 'on';
-    
-    % _Afegim la modificació_
+
+    % _Add the modification_
     [field_set] = app_proc_obten_fieldset(app);
-    % Valor del bwareaopen
+    % Value of bwareaopen
     valor_modif = app.Spinner_3.Value;
-    % Afegim al text la modificació
+    % Add the modification to the text
     text_modific = strcat("close_disc(", string(valor_modif), ")");
-    txt_seg(field_set, text_modific, ";") % seguiment config.
+    txt_seg(field_set, text_modific, ";") % configuration tracking
 
 
     % VISUALIZATION OF THE MODIFICATIONS
     app_proc_visual_modif(app)
+
 
 
     app.Image2.Visible = 'off';   

@@ -11,10 +11,10 @@ function app_proc_button_imfill(app)
 
     app.Image2.Visible = 'on';
     
-    % _Afegim la modificació_
+    % _Add the modification_
     [field_set] = app_proc_obten_fieldset(app);
-    % Afegim al text la modificació
-    txt_seg(field_set, "imfill", ";") % seguiment config.
+    % Add the text to the modification
+    txt_seg(field_set, "imfill", ";") % config. tracking
 
 
     % VISUALIZATION OF THE MODIFICATIONS

@@ -12,15 +12,16 @@ function app_proc_button_flip(app)
 
     app.Image2.Visible = 'on';
     
-    % _Afegim la modificació_
+    % _Add the modification_
     [field_set] = app_proc_obten_fieldset(app);
-    % Afegim al text la modificació
-    txt_seg(field_set, "Flip", ";") % seguiment config.
+    % Add the modification to the text
+    txt_seg(field_set, "Flip", ";") % config tracking.
 
     % VISUALIZATION OF THE MODIFICATIONS
     app_proc_visual_modif(app)
 
     app.Image2.Visible = 'off';
+
 
 
 % END OF THE FUNCTION

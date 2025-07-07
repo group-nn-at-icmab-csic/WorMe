@@ -9,8 +9,7 @@ function app_proc_button_del_all_temp_modifs(app)
 
 
 % START OF THE FUNCTION
-
-    % Condicional si hi ha valor agafat:
+    % Conditional if there is a selected value:
     if ~isempty(app.ModificacionsguardadesListBox.Value)
         
         answer_del = questdlg('Delete the setting?', ...
@@ -23,14 +22,14 @@ function app_proc_button_del_all_temp_modifs(app)
                 answer_msgebox = 0;
         end 
         
-        valor_modif_perm = separar_puntfile(app.ModificacionsguardadesListBox.Value); %Valor de la modificació permanent.
+        valor_modif_perm = separar_puntfile(app.ModificacionsguardadesListBox.Value); % Value of the permanent modification.
         
         
-        % Si es diu que sí es vol eliminar, s'executa:
+        % If it is confirmed that the setting should be deleted, execute:
         if answer_msgebox
             
             
-            % Es borren tant arxius com imatges temporals
+            % Both temporary files and images are deleted
             patrons_imatge = [".txt", ".png"];
             for patro_n = 1:length(patrons_imatge)
                 patro_tipus_image = patrons_imatge(patro_n);
@@ -47,16 +46,16 @@ function app_proc_button_del_all_temp_modifs(app)
                 
             end
             
-%                 % Fem un nou arxiu en blanc
+%                 % Create a new blank file
 %                 nom_arxiu_guardar = "Apps\app_image_processment\Internal code files\Image processing settings\temporals\setting0.txt";
-%                 txt_seg(nom_arxiu_guardar, "", ";", "nou", "blanc") % seguiment config.
+%                 txt_seg(nom_arxiu_guardar, "", ";", "nou", "blanc") % config tracking.
 %     
 %                 
-            % Actualitzem elements:
+            % Update elements:
             [llistat_string_im] = llegir_arxius_tipologia("Results_out\Internal_code_files\Image_processing_settings\", ".txt");
             app.ModificacionsguardadesListBox.Items = llistat_string_im;
             
-            % Es fa com si s'apretés el botó 'Original'
+            % Act as if the 'Original' button was pressed
             app.ButtonVideoTutorialPushed
 
         end

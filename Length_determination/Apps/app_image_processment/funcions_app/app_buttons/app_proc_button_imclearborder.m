@@ -11,9 +11,10 @@ function app_proc_button_imclearborder(app)
 
     app.Image2.Visible = 'on';
     
-    % _Afegim la modificació_
+    % _Add the modification_
     [field_set] = app_proc_obten_fieldset(app);
-    % Afegim al text la modificació
+
+    % Add the text to the modification
     txt_seg(field_set, "Imclearborder", ";") % seguiment config.
     
     % VISUALIZATION OF THE MODIFICATIONS

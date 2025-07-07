@@ -14,14 +14,14 @@ function app_proc_button_original_img(app)
             
     value_OriginalButton = app.OriginalButton.Value;
     
-    % Desseleccionem botons
+    % Unselect buttons
     if value_OriginalButton
         app.MaskedButton.Value = false;
         app.ModifiedButton.Value = false;
     end
 
 
-    % Cambiem color botó segons seleccionat
+    % Change of the button if selected
     if app.OriginalButton.Value
         app.OriginalButton.BackgroundColor = 'y';
     else
@@ -29,7 +29,7 @@ function app_proc_button_original_img(app)
     end
 
                 
-    % LECTURA IMATGE BOTÓ
+    % Reading of the image button
     fullFileName = app.vapp_ruta_img_origin;
     imatge_original = imread_ifgrey(fullFileName);
     app.Image.ImageSource = imatge_original;

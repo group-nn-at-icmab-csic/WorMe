@@ -9,30 +9,28 @@ function app_proc_button_import_modif(app)
 
 
 % START OF THE FUNCTION
-
     % Get the file
-    [filename, pathname, porta_uigetfile] = uigetfile({'*.txt'}, 'MultiSelect','on'); % pathname: ruta. filename: cells amb els noms (ex:  {'200120GrowC.txt'}    {'Nota.txt'})
-
+    [filename, pathname, porta_uigetfile] = uigetfile({'*.txt'}, 'MultiSelect','on'); % pathname: path. filename: cells with the names (ex:  {'200120GrowC.txt'}    {'Nota.txt'})
 
     if porta_uigetfile
 
-        % Si en la selecció hi ha varis arxius:
+        % If the selection has multiple files:
         if iscell(filename)                
-            % Per cada arxiu seleccionat
+            % For each selected file
             for n_cada_file = 1:length(filename)
 
-                % Arxiu a copiar
+                % File to copy
                 arxiu_copiar = strcat(pathname, filename{n_cada_file});
                 directori_nou_copiar = strcat("Results_out\Internal_code_files\Image_processing_settings\", filename{n_cada_file});
 
-                % Si l'objecte no existeix:
+                % If the object does not exist:
                 if ~ismember(arxiu_copiar, app.ModificacionsguardadesListBox.Items)
 
-                    % Mirem si l'arxiu és una modificació.
+                    % Check if the file is a modification.
                     [porta_lect_correct] = app_proc_probar_modifs(app, arxiu_copiar);
 
                     if porta_lect_correct
-                        % Copiem l'arxiu
+                        % Copy the file
                         copyfile(arxiu_copiar, directori_nou_copiar)
                     else
                         msgbox(strcat("The file", filename{n_cada_file}, ", have not correct modifications."))
@@ -42,21 +40,21 @@ function app_proc_button_import_modif(app)
                 end
             end
 
-        % Si en la selecció sols hi ha un arxiu:
+        % If the selection is only one file:
         elseif ischar(filename)
 
-            % Arxiu a copiar
+            % File to copy
             arxiu_copiar = strcat(pathname, filename);
             directori_nou_copiar = strcat("Results_out\Internal_code_files\Image_processing_settings\", filename);
 
-            % Si l'objecte no existeix:
+            % If the object does not exist:
             if ~ismember(arxiu_copiar, app.ModificacionsguardadesListBox.Items)
 
-                % Mirem si l'arxiu és una modificació.
+                % Check if the file is a modification.
                 [porta_lect_correct] = app_proc_probar_modifs(app, arxiu_copiar);
 
                 if porta_lect_correct
-                    % Copiem l'arxiu
+                    % Copy the file
                     copyfile(arxiu_copiar, directori_nou_copiar)
                 else
                     msgbox(strcat("The file", filename, ", have not correct modifications."))
@@ -65,22 +63,18 @@ function app_proc_button_import_modif(app)
                 msgbox(strcat("The name of the file", filename, ", already exist"))
             end
 
-            
-
-        % Fallo
+        % Failure
         else
             msgbox("Error in import modification", "Error", "error")
         end
-
-
 
     else
             disp("UIGetfile cancelled in Import modification")
     end
 
-    % Actualitzar modificacions
+    % Update modifications
     
-    % Llegir arxius Modificacions guardades
+    % Read saved modifications files
     myFolder_input = "Results_out\Internal_code_files\Image_processing_settings\";
     patro_tipus_image = ".txt";
     [llistat_string_im] = llegir_arxius_tipologia(myFolder_input, patro_tipus_image);
@@ -88,12 +82,13 @@ function app_proc_button_import_modif(app)
     app.ModificacionsguardadesListBox.Items = llistat_string_im;
     
     
-    % Automatització Drop Roll Modificacions temporals
+    % Automate Drop Roll Temporary Modifications
     myFolder_input = "Results_out\Internal_code_files\Image_processing_settings\temporals\";
     patro_tipus_image = ".txt";
     [llistat_string_im] = llegir_arxius_tipologia(myFolder_input, patro_tipus_image);
                 
     app.ModificacionstemporalsListBox.Items = llistat_string_im;
+
 
 
 % END OF THE FUNCTION

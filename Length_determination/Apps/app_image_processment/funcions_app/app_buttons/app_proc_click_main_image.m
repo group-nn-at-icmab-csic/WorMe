@@ -9,8 +9,7 @@ function app_proc_click_main_image(app)
 
 % START OF THE FUNCTION
 
-    % Es canvien les posicións de la imatge 1 per la imatge 3, i
-    % viceversa.
+   % Positions of the image 1 for image 3 is changed, and vice versa. 
 
     pos_img3 = app.Image3.Position;
     pos_img = app.Image.Position;
