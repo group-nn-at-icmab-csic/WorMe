@@ -20,10 +20,10 @@ function [im_BB_rel_original_BBcol] = juntar_BB_imatge_individ(imatge_input_orig
 % juntar_BB_imatge_nou3
 
 
-% FUNCTION START
+% START FUNCTION
 
 
-[theFiles_imresult_BB_BW_color] = lectura_imatges_carpeta_estr(carpeta_BB_BW_color); % Lectura imatges
+[theFiles_imresult_BB_BW_color] = lectura_imatges_carpeta_estr(carpeta_BB_BW_color); % Read images
 llargada_theFiles_BB_BW_color = length(theFiles_imresult_BB_BW_color);
 % each loop was: cada_nom_array
 
@@ -40,7 +40,7 @@ llargada_theFiles_BB_BW_color = length(theFiles_imresult_BB_BW_color);
 im_BB_rel_original_BBcol = imatge_input_original;
 
 for cada_n_BB = 1:llargada_theFiles_BB_BW_color
-    % Obtenim nom original
+    % Obtain original name
     nom_ex = theFiles_imresult_BB_BW_color(cada_n_BB).name;
     split_nom = split(nom_ex, "_skel");
     nom_orign_imBB = split_nom(1);
@@ -62,11 +62,11 @@ for cada_n_BB = 1:llargada_theFiles_BB_BW_color
         baseFileName_BB = theFiles_imresult_BB_BW_color(cada_n_BB).name;
         fullFileName_BB = fullfile(theFiles_imresult_BB_BW_color(cada_n_BB).folder, baseFileName_BB);
 
-        % Obtenim la imatge BW BB en color
-        im_BB_BW_color = imread(fullFileName_BB); % Imatge inicial
+        % Obtain BW BB image in color
+        im_BB_BW_color = imread(fullFileName_BB); % Initial image
 
-        % _Sum BB col a original_
-        % sum this to original
+        % _Sum BB col to original_
+        % Add this to the original
         im_BB_rel_original_BBcol = suma_semiBW_norm_millorat(im_BB_rel_original_BBcol, im_BB_BW_color);
 
 
@@ -77,6 +77,6 @@ for cada_n_BB = 1:llargada_theFiles_BB_BW_color
 end
 
 
-% FINAL OF THE FUNCTION
+% END FUNCTION
 
 end

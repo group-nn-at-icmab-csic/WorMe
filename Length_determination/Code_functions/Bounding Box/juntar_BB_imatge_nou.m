@@ -5,8 +5,9 @@ function juntar_BB_imatge_nou(carpeta_input, carpeta_BB_BW_color, carpeta_BB_mer
 %
 % We look at the folders of the BB BW color images, and the originals.
 % From the array of original names we have, we check if the
-% images match. On one hand, we get the original image and on the other all the BB
-% BW color images that match the name, and we merge them together.
+% images match. On one hand, we get the original image and on 
+% the other all the BB BW color images that match the name,
+% and we merge them together.
 %
 % Folders:
 % carpeta_input             : original images folder
@@ -29,20 +30,20 @@ function juntar_BB_imatge_nou(carpeta_input, carpeta_BB_BW_color, carpeta_BB_mer
 % im_BB_rel_original : original image corresponding to the BB image name
 % im_BB_BW_color     : selected BB color image corresponding to the name
 %
-% FUNCTION START
+% START FUNCTION
 
 
-[theFiles_imresult_original] = lectura_imatges_carpeta_estr(carpeta_input); % Lectura imatges
+[theFiles_imresult_original] = lectura_imatges_carpeta_estr(carpeta_input); % Read the images
 llargada_theFiles_original = length(theFiles_imresult_original);
 
-[theFiles_imresult_BB_BW_color] = lectura_imatges_carpeta_estr(carpeta_BB_BW_color); % Lectura imatges
+[theFiles_imresult_BB_BW_color] = lectura_imatges_carpeta_estr(carpeta_BB_BW_color); % Read the images
 llargada_theFiles_BB_BW_color = length(theFiles_imresult_BB_BW_color);
 
 
-% For imatge original of BB BW in color
+% For original BB BW image in color
 for cada_nom_array = array_noms_im
     
-    % Whoe percentage of the process
+    % Show process percentage
     [~ , posicio_nomarray] = ismember(cada_nom_array, array_noms_im', 'rows');
     disp(strcat("Processing: ", string(posicio_nomarray), "/", string(length(array_noms_im)), " images"))
     
@@ -64,24 +65,24 @@ for cada_nom_array = array_noms_im
             fullFileName_origin = fullfile(theFiles_imresult_original(cada_n_original).folder, baseFileName_origin);
 
             % Obtain original image
-            im_BB_rel_original = imread(fullFileName_origin); % Imatge inicial
+            im_BB_rel_original = imread(fullFileName_origin); % Initial image
             
             % Obtain name of the original image
             nom_im_orig_unic_bo = nom_im_orig_unic;
             file_im_original_bo = file_im_original;
         end
     end
-        % _Add BB_
+    % _Add BB_
     % For each BB BW color image that matches the name, we add
     % the BB BW
-    
+
     % We make a copy of the original image. 'im_BB_rel_original_BBcol' will be
     % the one that keeps storing the BBs.
 
     im_BB_rel_original_BBcol = im_BB_rel_original; 
     
     for cada_n_BB = 1:llargada_theFiles_BB_BW_color
-        % Obtenim nom original
+        % Obtain original name
         nom_ex_temp = theFiles_imresult_BB_BW_color(cada_n_BB).name;
         split_nom = split(nom_ex_temp, "_skel");
         if length(split_nom) == 1
@@ -91,26 +92,26 @@ for cada_nom_array = array_noms_im
         end
 
         % If the name of the BB we are viewing (nom_orign_imBB) matches the
-        % name of the BB BW color image being read (nom_orign_imBB), it is the image
-        % we are interested in.
+        % name of the BB BW color image being read (nom_orign_imBB),
+        % it is the image we are interested in.
 
         if strcmp(nom_orign_imBB, cada_nom_array)
             baseFileName_BB = theFiles_imresult_BB_BW_color(cada_n_BB).name;
             fullFileName_BB = fullfile(theFiles_imresult_BB_BW_color(cada_n_BB).folder, baseFileName_BB);
 
-            % Obtenim la imatge BW BB en color
-            im_BB_BW_color = imread(fullFileName_BB); % Imatge inicial
+            % Obtain BW BB image in color
+            im_BB_BW_color = imread(fullFileName_BB); % Initial image
             
-            % _Sumar BB col a original_
-            % Procedim a sumar aquesta a la original
+            % _Sum BB col to original_
+            % Add this to the original
             im_BB_rel_original_BBcol = suma_semiBW_norm_millorat(im_BB_rel_original_BBcol, im_BB_BW_color);
             
 
             
         end
         
-        % SAVE LA IMATGE
-        % Definim el name
+        % SAVE THE IMAGE
+        % Define the name
         nom_BB_merge_original = strcat(nom_im_orig_unic_bo, file_im_original_bo);         
         write_img_dir(im_BB_rel_original_BBcol, carpeta_BB_merge_original, 1, nom_BB_merge_original);
         %imshow(im_BB_rel_original_BBcol)
@@ -120,6 +121,6 @@ for cada_nom_array = array_noms_im
 
 end
 
-% FINAL FUNCtion
+% END FUNCTION
 
 end

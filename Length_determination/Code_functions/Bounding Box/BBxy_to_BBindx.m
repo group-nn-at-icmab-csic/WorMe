@@ -1,9 +1,10 @@
 function [index_punts] = BBxy_to_BBindx(BB_punts, BW_size)
 
-% Given a point (x,y) from a bounding box, return the indexed values of each of the connected regions that form a square.
-% This is made for graph the bounding box in the image.
+% Given a point (x,y) from a bounding box, return the indexed values 
+% of each of the connected regions that form a square.
+% This is made to graph the bounding box on the image.
 %
-% Processming time:
+% Processing time:
 % Elapsed time is 0.000764 seconds.
 %
 % Example
@@ -14,8 +15,6 @@ function [index_punts] = BBxy_to_BBindx(BB_punts, BW_size)
 %
 % See also:
 % pintar_indx_to_RGB
-% pintar_BW_color
-% BW_to_BBindx
 
 
 % START FUNCTION
@@ -23,20 +22,19 @@ function [index_punts] = BBxy_to_BBindx(BB_punts, BW_size)
 % _Correcting measurements if they are out of the image_
 [BB_punts] = correccio_sortida_dimensios(BB_punts, BW_size); %ex: 1080        1920
 
-% MODIF JOSEP UPGRADE 12/01/2023: x_punt = ceil(BB_punts(1)); y_punt = ceil(BB_punts(2)); w_punt = BB_punts(3); h_punt = BB_punts(4);
 x_punt = ceil(BB_punts(1)); y_punt = ceil(BB_punts(2)); w_punt = ceil(BB_punts(3)); h_punt = ceil(BB_punts(4));
 
 
 % Apply correction if it goes over the image dimensions.
 if x_punt + w_punt > BW_size(2)
-    %disp("Correccio BBxy_to_BBindx 1")
+    %disp("Correction BBxy_to_BBindx 1")
 %     x_punt
 %     w_punt
 %     BW_size
     w_punt = w_punt - 1;
 end
 if y_punt + h_punt > BW_size(1)
-    %disp("Correccio BBxy_to_BBindx 2")
+    %disp("Correction BBxy_to_BBindx 2")
 %     y_punt
 %     h_punt
 %     BW_size(1)

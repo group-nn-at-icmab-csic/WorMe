@@ -1,17 +1,17 @@
 function [UIFigure_position_new] = centered_GUI_screen(UIFigure_position, screensize_position)
 
-% Donada la posició de la GUI i de la pantalla, es retorna la posició de la
-% GUI de manera que aquesta quedi en la meitat de la pantalla.
+% Given the position of the GUI and the screen, returns the position of the
+% GUI so that it is in the middle of the screen.
 %
+% The positions can be obtained in the following way:
 %
-% Les posicions es poden obtenir de la següent forma:
+% To obtain the position of the GUI:
+% UIFigure_position = app.UIFigure.Position; 
+% 100       100     602     389
+% start     end     width   length
 %
-% Per a obtenir la posició de la figura:
-% UIFigure_position = app.UIFigure.Position; %100   100   602      389
-%                                             inici final amplada  llargada
-%
-% Per a obtenir la posició de la pantalla:
-% screensize_position = get(0, 'ScreenSize'); %         1           1        1920        1080
+% To obtain the position of the screen:
+% screensize_position = get(0, 'ScreenSize'); % 1 1 1920 1080
 
 amplada_new = ceil(screensize_position(3)/2 - UIFigure_position(3)/2);
 
