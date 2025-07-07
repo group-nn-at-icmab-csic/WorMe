@@ -2,7 +2,7 @@ function [S_textscan_table_row_main] = consol_S_textscan_modifs(BW_final_2, isce
 
 % Ajunta la taula generada en 
 
-% INICI FUNCIÓ
+% START FUNCTION
 
     % Creació del main de dades:
     [BW_final_lab, n_bwlab] = bwlabel(BW_final_2);
@@ -21,7 +21,7 @@ function [S_textscan_table_row_main] = consol_S_textscan_modifs(BW_final_2, isce
 
 
 
-% FINAL FUNCIÓ
+% END FUNCTION
 
 
 end

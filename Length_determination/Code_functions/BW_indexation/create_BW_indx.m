@@ -6,7 +6,7 @@ function [BW_image] = create_BW_indx(indx_BW, size_BW)
 
 
 
-% FUNCTION START
+% START FUNCTION
 
 try
     BW_image = false(size_BW);
@@ -16,7 +16,7 @@ catch e %e is an MException struct
     fprintf(1,'Error in create_BW_indx. The identifier was:\n%s',e.identifier);
 end
 
-% FINAL FUNCTION
+% END FUNCTION
 
 
 end

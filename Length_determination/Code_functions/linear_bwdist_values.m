@@ -10,7 +10,7 @@ function [valors_lineals_bwdist, BW_skel_large] = linear_bwdist_values(BW_filt_c
 % See also 
 % width_bwskeldist_values
  
-% FUNCTION START
+% START FUNCTION
 
 % Object skeletonization
 BW_skel = bwskel(BW_filt_crop);

@@ -18,9 +18,7 @@ function [RGB_to_color_new] = pintar_indx_to_RGB(RGB_to_color, indx_to_paint, co
 % 
 %
 % See also
-% pintar_BW_color
 % BBxy_to_BBindx
-% BW_to_BBindx
 % eixamplar_indx_BB
 
 % START FUNCTION

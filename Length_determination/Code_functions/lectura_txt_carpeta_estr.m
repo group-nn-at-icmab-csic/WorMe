@@ -6,7 +6,7 @@ function [theFiles] = lectura_txt_carpeta_estr(myFolder)
 % See also
 % lectura_imatges_carpeta_estr
 
-% START OF THE FUNCTION
+% START FUNCTION
 
 %GET A ALL IMAGE FILES LIST
 % Get a list of all files in the folder with the desired file name pattern.

@@ -12,7 +12,7 @@ function [PascalVOC_prop] = MATLAB_BB_to_Pascal_VOC_prop(MATLAB_prop)
 % comprove_Pascal_VOC
 
 
-% INICI FUNCIÓ
+% START FUNCTION
 
     xmin_PascVOC = MATLAB_prop(1); % xmin 
     ymin_PascVOC = MATLAB_prop(2); % ymin
@@ -22,6 +22,6 @@ function [PascalVOC_prop] = MATLAB_BB_to_Pascal_VOC_prop(MATLAB_prop)
     PascalVOC_prop = [xmin_PascVOC ymin_PascVOC xmax_PascVOC ymax_PascVOC];
 
 
-% FINAL FUNCIÓ
+% END FUNCTION
 
 end

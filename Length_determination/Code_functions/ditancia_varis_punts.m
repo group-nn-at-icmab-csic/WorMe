@@ -11,7 +11,7 @@ function [sum_punts] = ditancia_varis_punts(punts_xy_nou)
 % draw_line_length
 
 
-% START OF THE FUNCTION
+% START FUNCTION
 
 
 % _Points obtantion_

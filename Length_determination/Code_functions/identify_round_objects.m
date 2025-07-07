@@ -11,7 +11,7 @@ function [metric_conjunts, imatge_arxi_ciru] = identify_round_objects(imatge_cir
 %   Output
 %               'metric_conjnuts' : value or values relative to 1
 
-% FUNCTION START
+% START FUNCTION
 
 
 
@@ -53,4 +53,4 @@ delete tempraryFile_image_round_identif.png
 
 % imshow(imatge_arxi_ciru)
 
-% FINAL FUNCIÓ
+% END FUNCTION

@@ -2,7 +2,7 @@ function msgbox_sel_images(userSavedDocuments)
 
 % Descriu un msgbox fins a 7 vegades de l'execució del programa.
 
-% INICI FUNCIÓ
+% START FUNCTION
 
     file_contadors = strcat(userSavedDocuments, "\Results_out\Internal_code_files\cont_started.mat");
     if ~isfile(file_contadors)
@@ -19,6 +19,6 @@ function msgbox_sel_images(userSavedDocuments)
         waitfor(msgbox("Please, select the images to analyse.", "Select images", 'custom', ms_g));
     end
 
-% FINAL FUNCIÓ
+% END FUNCTION
 
 end

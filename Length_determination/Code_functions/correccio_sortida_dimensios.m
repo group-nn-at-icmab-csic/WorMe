@@ -9,7 +9,7 @@ function [proporcio_img_new] = correccio_sortida_dimensios(proporcio_img, size_f
 % retallar_BWRGBimatge_BB_nou
 
 
-% START OF THE FUNCTION
+% START FUNCTION
 
 % size_final = size(BW_final)
 x_size = size_final(1);

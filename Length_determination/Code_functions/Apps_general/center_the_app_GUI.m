@@ -7,7 +7,7 @@ function center_the_app_GUI(app)
 % centered_GUI_screen
 
 
-% FUNCTION START
+% START FUNCTION
 
     UIFigure_position = app.UIFigure.Position;  %   100    100   602    389
                                                 %   start  end   width  length
@@ -16,6 +16,6 @@ function center_the_app_GUI(app)
     app.UIFigure.Position = UIFigure_position_new;
 
 
-% FUNCTION END
+% END FUNCTION
 
 end

@@ -18,7 +18,7 @@ function [dir_carpetes_tot_sorted, date_sorted, dir_carpetes_tot, data_carpetes]
 % cell_insert_valors
 
 
-% INICI FUNCIÓ
+% START FUNCTION
 
 
 
@@ -43,7 +43,7 @@ end
 dir_carpetes_tot_sorted = dir_carpetes_tot(indxsort);
 
 
-% FINAL FUNCIÓ
+% END FUNCTION
 
 
 

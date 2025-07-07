@@ -21,7 +21,7 @@ function create_Pascal_VOC_label(ruta_img, BB_props, cell_label_props, ruta_writ
 % comprove_Pascal_VOC
 
 
-% INICI FUNCIÓ
+% START FUNCTION
 
 % Lectura imatge
 img_RGB = imread(ruta_img);
@@ -82,6 +82,6 @@ pascal_VOC_MATLAB = struct("folder", field_folder, ... % folder
 writestruct(pascal_VOC_MATLAB, ruta_write_xml, 'FileType','xml', 'StructNodeName', "annotation")
 
 
-% FINAL FUNCIÓ
+% END FUNCTION
 
 end

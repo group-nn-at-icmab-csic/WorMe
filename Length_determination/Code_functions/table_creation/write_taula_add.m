@@ -26,7 +26,7 @@ function write_taula_add(arxiu_dir, table_main, separador)
 
 
 
-% INICI FUNCIÓ
+% START FUNCTION
 
 % Borrem la taula:
 fid = fopen(arxiu_dir);
@@ -69,6 +69,6 @@ end
 
 
 
-% FINAL FUNCIÓ
+% END FUNCTION
 
 end

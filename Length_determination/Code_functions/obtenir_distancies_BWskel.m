@@ -43,7 +43,7 @@ function [dades_imatge_row, dades_imatge_manual_corrected] = obtenir_distancies_
 
 
 
-% INICI SCRIPT
+% START SCRIPT
 
 
 % _Obtenció de la llargada numèrica_
@@ -73,7 +73,7 @@ dades_imatge_row = Area_Josep_scaled;
 % if isequal(Area_Josep_1, Area_Josep_2); disp("Equal length"); end
 
 
-% FINAL SCRIPT
+% END SCRIPT
 
 
 end

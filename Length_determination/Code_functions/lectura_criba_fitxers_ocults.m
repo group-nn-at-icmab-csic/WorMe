@@ -40,6 +40,6 @@ end
 
 theFiles_2 = theFiles(~find_ocult);
 
-% FINAL FUNCTION
+% END FUNCTION
 
 end

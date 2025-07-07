@@ -48,7 +48,7 @@ function [tipus_im_modif, processament_im] = obtencio_tipologia_llistat(tipologi
 % processament_imatge_llistat
 % app_proc_obtenir_array_modificacions
 
-% INICI FUNCIÓ
+% START FUNCTION
 
 % _Variables internes_
 % imatge_input_modif : imatge a modificar en processament.

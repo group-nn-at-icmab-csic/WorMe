@@ -34,7 +34,7 @@ function [nom_im_carpeta_coincident] = compara_en_carpeta_nom_BW_coincident(BW_a
 % compara_BW_objecte_coincident
 
 
-% START OF THE FUNCTION
+% START FUNCTION
 
 % control of the coincident images number.
 cont_contrl_im_coincid = 0;

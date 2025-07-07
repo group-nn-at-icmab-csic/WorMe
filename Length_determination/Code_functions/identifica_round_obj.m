@@ -6,7 +6,7 @@ function [circul_filtrats, indx_objects, BB_objects] = identifica_round_obj(imat
 % See also
 % identify_round_objects
 
-% START OF THE FUNCTION
+% START FUNCTION
 
 
 % The binary image is separated between those objects that do not have holes

@@ -114,6 +114,6 @@ else
 end
 
 
-% FINAL FUNCTION
+% END FUNCTION
 
 end

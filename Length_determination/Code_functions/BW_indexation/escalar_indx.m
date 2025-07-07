@@ -1,6 +1,7 @@
 function [indx_BW_scal] = escalar_indx(indx_BWcrop, size_BW, size_BWcrop, proporcio_img)
 
-% Given a cropped binary image, this function returns the indices of this image in the scaled image.
+% Given a cropped binary image, this function returns
+% the indices of this image in the scaled image.
 %
 % Variables
 % indx_BWcrop - Indices of the object(s) in the cropped binary image
@@ -25,10 +26,10 @@ function [indx_BW_scal] = escalar_indx(indx_BWcrop, size_BW, size_BWcrop, propor
 % [BW_ini_regio_cropped, BB_values, proporcio_img_new] = retallar_BWimatge_BB_2(BW_final, 4);
 % imshow(BW_ini_regio_cropped)
 % 
-% % Obtain the indexs
+% % Obtain the indices
 % [indx_BW_scal] = escalar_indx(find(BW_ini_regio_cropped), size(BW_final), size(BW_ini_regio_cropped), proporcio_img_new);
 % 
-% % Compare indexs:
+% % Compare indices:
 % unique(find(BW_final) == indx_BW_scal)
 % 
 % % Visual comparison:
@@ -37,7 +38,7 @@ function [indx_BW_scal] = escalar_indx(indx_BWcrop, size_BW, size_BWcrop, propor
 % imshowpair(BW_scaled, BW_final)
 %
 % See also
-% retallar_BWRGBimatge_BB
+% retallar_BWRGBimatge_BB_nou
 % pintar_BWindx_RGB_new
 
 % START FUNCTION
@@ -49,7 +50,7 @@ function [indx_BW_scal] = escalar_indx(indx_BWcrop, size_BW, size_BWcrop, propor
 x_BWobj_nou = x_BWobj + proporcio_img(2) -1; %Substract 1 to correct the sum.
 y_BWobj_nou = y_BWobj + proporcio_img(1) -1; %Substract 1 to correct the sum.
 
-% Obtain the indexs
+% Obtain the indices
 indx_BW_scal = sub2ind(size_BW, x_BWobj_nou, y_BWobj_nou);
 
 % END FUNCTION

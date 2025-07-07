@@ -9,7 +9,7 @@ function [Area_final] = worm_length_manual(BW_skel, cada_nx)
 % punts).
 
 
-% INICI FUNCIÓ
+% START FUNCTION
 
 % Obtenim els index ordenats>
 [~, indx_orders] = width_bwskeldist_values(BW_skel, BW_skel);
@@ -45,6 +45,6 @@ else
     Area_final = 1;
 end
 
-% FINAL FUNCIÓ
+% END FUNCTION
 
 end

@@ -19,7 +19,7 @@ function write_taula(arxiu_dir, table_main, separador)
 
 
 
-% INICI FUNCIÓ
+% START FUNCTION
 
 % Borrem la taula:
 fid = fopen(arxiu_dir,'w');
@@ -59,6 +59,6 @@ end
 % Variablenames_taula = table_main.Properties.VariableNames;
 
 
-% FINAL FUNCIÓ
+% END FUNCTION
 
 end

@@ -2,7 +2,7 @@ function [escala_imatge] = scale_determination_main(userSavedDocuments, theFiles
 
 % Scale determination
 
-% FUNCTION START
+% START FUNCTION
 
     
     % Obtain the image

@@ -9,7 +9,7 @@ function [BW_skel_join] = esquel_multiple_BWobjects(BW_final)
 % extendre_img_regions
 % retallar_BWimatge_BB_2
 
-% START OF THE FUNCTION
+% START FUNCTION
 
 
 % __We take each binary object from the image__

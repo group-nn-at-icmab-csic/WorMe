@@ -56,7 +56,7 @@ function [BW_skel, dades_imatge, dades_imatge_corrected] = worm_skeletonization(
 
 
 
-% START OF THE FUNCTION
+% START FUNCTION
 
 
 % general skeletonization
@@ -112,7 +112,7 @@ dades_imatge = Area_Josep_scaled;
 
 
 
-% FINAL SCRIPT
+% END SCRIPT
 
 
 end

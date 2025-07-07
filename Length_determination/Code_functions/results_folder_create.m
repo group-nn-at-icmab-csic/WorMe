@@ -2,7 +2,7 @@ function [carpeta_output] = results_folder_create(userSavedDocuments, nom_carpet
 
 % Create the results folder
 
-% START OF THE FUNCTION
+% START FUNCTION
     
     % Date
     data_temps = clock;
