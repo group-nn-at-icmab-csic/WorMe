@@ -1,32 +1,31 @@
 function [porta_lect_correct] = app_proc_probar_modifs(app, field_set)
 
-% Botó per a probar la correcta lectura d'un arxiu de modificacións.
-% Si aquest arxiu no és obert correctament, es fa patent al respecte.
-% Emprat en Import de modificacións.
+% Button to test the correct reading of a modification file.
+% If this file is not opened correctly, a warning is issued.
+% Used in Import of modifications.
 
-% INICI FUNCIÓ
-
+% START FUNCTION
 try
-    % obtneim l'array de la lectura del document de text i el printem
+    % we obtain the array from reading the text document and print it
     [array_sortida_modifs, ~] = llegir_text_delimitadors(field_set, ";");
     
-    % Operem
+    % Operate
     cell_cont = array_sortida_modifs(2:end, 2);
     array_processaments = cell2array_own(cell_cont);
 
-     % Modifiquem la imatge original i la mostrem:
+     % Modify the original image and we show it:
      imatge_original = imread(app.vapp_ruta_img_origin);
      [BW_final, ~] = processament_imatge_llistat(imatge_original, array_processaments);
 
         porta_lect_correct = true;
 
-% Si dona algún tipus d'error:
+% If it gives some kind of error:
 catch
     porta_lect_correct = false;
 
 end
 
-% FINAL FUNCIÓ
+% FINAL OF THE FUNCTION
 
 
 end

@@ -1,73 +1,72 @@
 function app_proc_graficar_segons_boto(app, imatge_original, BW_final, tipus_im_modif)
 
-% Segons algúns botóns estiguin o no apretats (skeletonització,
-% modificacio, mask, etc.) es grafica o no la imatge d'una manera u altre.
+% Depending on whether some buttons are pressed or not (skeletonization, 
+% modification, mask, etc.) the image is displayed in one way or another.
 % 
-% Tipologies de la imatge:
+% Image typologies:
 % "rgb", "gray", "binary"
 % 
 % See also
 % app_proc_visual_modif
 
-    % INICI FUNCIÓ
+    % START OF FUNCTION
 
      if app.OriginalButton.Value
-         % Imatge original
+         % Original image
         imatge_3D_sortida = imatge_original;
 
     elseif app.MaskedButton.Value
-        % Mascara de la imatge
+        % Mask of the image
 
-        % Si és una imatge binària
+        % If it is a binary image
         if tipus_im_modif == "binary"
             imoverlay_imatge = imoverlay(imatge_original, BW_final, "red");
             [imatge_3D_sortida] = graficar_rgbgraybw_image(imoverlay_imatge);
 
-        % Si és rgb o grisa
+        % If it is rgb or grayscale
         else
             [imatge_3D_sortida] = graficar_rgbgraybw_image(BW_final);
         end
 
     elseif app.ModifiedButton.Value
-        % Imatge modificada
+        % Modified image
         [imatge_3D_sortida] = graficar_rgbgraybw_image(BW_final);
      end
 
 
      if app.EsqueletonitzarButton.Value && ~app.OriginalButton.Value
-         % Esqueletonització
+         % Skeletonization
 
-         % Si la imatge és binària:
+         % If the image is binary:
          if tipus_im_modif == "binary"
-             % _Comprovació nombre objectes_
+             % _Check number of objects_
              [~, num] = bwlabel(BW_final);
     
-             % Si hi ha menys de 50 objectes (es pot processar)
+             % If there are fewer than 50 objects (can be processed)
              if num < 50
     
-        
-                 % Esqueletonització:
+                 % Skeletonization:
                 [BW_skel_join] = esquel_multiple_BWobjects(BW_final);
         
-                % Extenem els indx
+                % Extend the indices
                 indx_endpoints_BWskel = find(bwmorph(BW_skel_join, 'endpoints'));
                 [indx_BWskel_obj_fin] = eixamplar_indx_noendpoints(find(BW_skel_join), indx_endpoints_BWskel, size(BW_skel_join));
-                % Pintar els indx
+                % Paint the indices
                 BW_skel_join_extend = false(size(BW_skel_join));
                 BW_skel_join_extend(indx_BWskel_obj_fin) = true;
     
                 if app.MaskedButton.Value
-                    % Printem la imatge
+                    % Display the image
                     imatge_3D_sortida = imoverlay(imoverlay(imatge_original, BW_final, "k"), BW_skel_join_extend, "r");
                 elseif app.ModifiedButton.Value
                     imatge_3D_sortida = imoverlay(BW_final, BW_skel_join_extend, "r");
                 end
     
-            % Si hi ha masses objectes, no s'executen aquests:
+            % If there are too many objects, these are not executed:
              else
-                         %[imageArray_text] = graficar_text_img(imageArray)
+                % [imageArray_text] = graficar_text_img(imageArray)
                 if app.MaskedButton.Value
-                    % Printem la imatge
+                    % Display the image
                     imatge_3D_sortida = imoverlay(imatge_original, BW_final, "k");
                     [imatge_3D_sortida] = graficar_text_img(imatge_3D_sortida);
     
@@ -77,7 +76,7 @@ function app_proc_graficar_segons_boto(app, imatge_original, BW_final, tipus_im_
                 end
              end
     
-         % Si la imatge és original o gris
+         % If the image is original or grayscale
          else
             [imatge_3D_sortida] = graficar_rgbgraybw_image(BW_final);
 
@@ -86,35 +85,17 @@ function app_proc_graficar_segons_boto(app, imatge_original, BW_final, tipus_im_
      end
     
 
-     % Graficació en la imatge resultant
+     % Display in the resulting image
     app.Image.ImageSource = imatge_3D_sortida;
     
 
-    %Obtenir num objectes binaris:
+    % Obtain number of binary objects:
     app.num_objectes_binarisLabel.Text = obtenir_num_BW(BW_final);
 
 
 
-% Codi antic:
-%     if app.OriginalMaskedModified_typeLabel.Text == "Original"
-%         app.Image.ImageSource = imatge_original;
-%     elseif app.OriginalMaskedModified_typeLabel.Text == "Masked"
-%         imoverlay_imatge = imoverlay(imatge_original, BW_final, "red");
-%         [imatge_3D_sortida] = graficar_rgbgraybw_image(imoverlay_imatge);
-%         app.Image.ImageSource = imatge_3D_sortida;
-%     elseif app.OriginalMaskedModified_typeLabel.Text == "Modified"
-%         [imatge_3D_sortida] = graficar_rgbgraybw_image(BW_final);
-%         app.Image.ImageSource = imatge_3D_sortida;            
-%     elseif app.OriginalMaskedModified_typeLabel.Text == "Skeletized"
-%         [~, sfMaskBurn_new] = esqueletonitzacio_rapida_josep(BW_final, imatge_original);
-%         [imatge_3D_sortida] = graficar_rgbgraybw_image(sfMaskBurn_new);
-%         app.Image.ImageSource = imatge_3D_sortida;
-%      end
-% 
+    % END OF FUNCTION
 
-
-
-    % FINAL FUNCIÓ
 
 
 

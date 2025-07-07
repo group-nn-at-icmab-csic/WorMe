@@ -1,22 +1,21 @@
 function [field_set] = app_proc_obten_fieldset(app)
 
-% S'obté el field_set: ruta del arxiu txt de la modificació.
+% The field_set is obtained: path of the txt file of the modification.
 
-% INICI FUNCIO
+% START OF FUNCTION
 
 
-% Agafem el text seleccionat del ListBox, segons el tipus de modificació seleccionat (temporal o guardat)
+% Get the text selected from the ListBox, depending on the type of modification selected (temporary or saved)
 if ~isempty(app.ModificacionstemporalsListBox.Value)
     value_listbox = app.ModificacionstemporalsListBox.Value;
     field_set = strcat("Results_out\Internal_code_files\Image_processing_settings\temporals\", string(value_listbox));
-% Si es pre-selecciona en guardats
+% If it is pre-selected in saved modifications
 elseif ~isempty(app.ModificacionsguardadesListBox.Value)
     value_listbox = app.ModificacionsguardadesListBox.Value;
-    % Llegir arxiu i mostrar en Label Modificacions
+    % Read file and display in Label Modificacions
     field_set = strcat("Results_out\Internal_code_files\Image_processing_settings\", string(value_listbox));
 end
 
-% FINAL FUNCIO
-
+% END OF FUNCTION
 
 end

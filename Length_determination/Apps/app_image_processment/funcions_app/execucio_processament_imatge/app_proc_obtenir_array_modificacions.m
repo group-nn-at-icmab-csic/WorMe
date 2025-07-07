@@ -1,16 +1,15 @@
 function [array_processaments, tipus_im_modif] = app_proc_obtenir_array_modificacions(app)
 
-% Obté l'array de processaments i el tipus d'imatge, per al seu ús
-% posterior en la app.
+% Gets the processing array and image type, for later use in the app.
 
 
-% INICI FUNCIO
+% START OF THE FUNCTION
 
 
     if ~isempty(app.ModificacionstemporalsListBox.Value)
         value_listbox = app.ModificacionstemporalsListBox.Value;                
         app.ImatgeLabel.Text = string(value_listbox);                
-        % Llegir arxiu i mostrar en Label Modificacions
+        % Read file and display in Label Modifications
         field_set = strcat("Results_out\Internal_code_files\Image_processing_settings\temporals\", string(value_listbox));
     else
         value_listbox = app.ModificacionsguardadesListBox.Value;                
@@ -18,10 +17,10 @@ function [array_processaments, tipus_im_modif] = app_proc_obtenir_array_modifica
         field_set = strcat("Results_out\Internal_code_files\Image_processing_settings\", string(value_listbox));
     end
 
-    % obtneim l'array de la lectura del document de text i el printem
+    % we obtain the array from reading the text document and print it
     [array_sortida_modifs, ~] = llegir_text_delimitadors(field_set, ";");
 
-    % Operem
+    % Operate
     cell_cont = array_sortida_modifs(2:end, 2);
     array_processaments = cell2array_own(cell_cont);
     if ~isempty(array_processaments)
@@ -32,21 +31,21 @@ function [array_processaments, tipus_im_modif] = app_proc_obtenir_array_modifica
 
 
 
-    % Obtenim tipologia de la imatge
+    % We obtain the typology of the image
     if isempty(array_processaments)
         % La imatge és rgb
         tipus_im_modif = "rgb";
     else
-        % Obtenim la última modificació
+        % We get the last modification
         ultima_modificacio = array_processaments(end);
         
-        % Obtenim el nom d'aquesta
+        % We get the name of this
         [tipus_im_modif, ~] = obtencio_tipologia_llistat(ultima_modificacio);
     end          
 
 
 
-% FINAL FUNCIO
+% FINAL OF THE FUNCTION
 
 
 end

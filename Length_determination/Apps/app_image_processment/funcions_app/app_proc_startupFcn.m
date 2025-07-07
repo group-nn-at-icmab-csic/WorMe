@@ -24,22 +24,19 @@ function app_proc_startupFcn(app)
 
 % START OF THE FUNCTION
 
-
-
-
-    % ____Lectura imatge per carpeta____
+    % ____Image reading by folder____
     
-    % LECTURA IMATGES .jpg i .png de la carpeta:
+    % READING .jpg and .png IMAGES from the folder:
     % [theFiles] = lectura_imatges_carpeta_estr(carpeta_imatges);
     
 
     theFiles = app.theFiles_arxiu;
     
-    % Llargada total imatges
-    %llargada_ims = length(theFiles); % Contador imatges totals
+    % Total image length
+    %llargada_ims = length(theFiles); % Total image counter
     
-    % __Determinació escala__
-    % Obtencio 1a imatge
+    % __Scale determination__
+    % Get 1st image
     baseFileName = theFiles(1).name;
     %disp(baseFileName)
     fullFileName = fullfile(theFiles(1).folder, baseFileName);
@@ -47,40 +44,40 @@ function app_proc_startupFcn(app)
     
     app.Image.ImageSource = imatge_original;
 
-    % Grafiquem la imatge original en petit
+    % Plot the original image small
     app.Image3.ImageSource = imatge_original;               
 
-    % _Guardem ruta de la imatge original_
+    % _Save path of the original image_
     app.vapp_ruta_img_origin = fullFileName;
     
     
 
-    % ____Definim les modificacions____
-    % Definim la Box de Modificacions, a partir dels documents existents:
+    % ____Define the modifications____
+    % Define the Modifications Box, based on existing documents:
     
-    % Llegir arxius Modificacions temporals
+    % Read temporary modifications files
     myFolder_input = "Results_out\Internal_code_files\Image_processing_settings\temporals\";
     [llistat_string_im_temp] = llegir_arxius_tipologia(myFolder_input, ".txt");          
     app.ModificacionstemporalsListBox.Items = llistat_string_im_temp;
 
-    % Llegir arxius Modificacions guardades
+    % Read saved modifications files
     myFolder_input = "Results_out\Internal_code_files\Image_processing_settings\"; 
     [llistat_string_im_guard] = llegir_arxius_tipologia(myFolder_input, ".txt");
     app.ModificacionsguardadesListBox.Items = llistat_string_im_guard;
     
 
 
-    % _Preselecció modificació_
-    % Fer que es guardi el nom de l'arxiu, de manera que la proxima
-    % vegada que s'executi el programa, sigui aquesta modificació
-    % la que es pre-seleccioni de foroma automàtica.
-    % _Obtenció (o no) valor de la carpeat predefinit
+    % _Preselection of modification_
+    % Save the name of the file, so that the next
+    % time the program is run, this modification
+    % is automatically preselected.
+    % _Get (or not) predefined folder value_
     predefined_file_input = "Results_out\Internal_code_files\predefined_modif.txt";
     
     if isfile(predefined_file_input)
-        % Si existeix un arxiu de text que contingui l'escala
+        % If there exists a text file containing the scale
         predef_modif_llegida = llegir_text_delimitadors(predefined_file_input, ";");
-        predef_modif = predef_modif_llegida{2}; clear predef_modif_llegida  % es defineix la carpeat predefinida
+        predef_modif = predef_modif_llegida{2}; clear predef_modif_llegida  % defines the predefined folder
         
         if ismember(predef_modif, app.ModificacionstemporalsListBox.Items)
             app.ModificacionstemporalsListBox.Value = predef_modif;
@@ -91,45 +88,45 @@ function app_proc_startupFcn(app)
         end
 
 
-    % _No modificació preseleccionada_
+    % _No preselected modification_
     else
         
-        % Si les modificacions gaurdades són vuides
+        % If the saved modifications are empty
         if isempty(app.ModificacionsguardadesListBox.Items)
             
-            % Si també ho és vuida les modificacions temporals
+            % If the temporary modifications are also empty
             if isempty(app.ModificacionstemporalsListBox.Items)
-                % Fem que es faci una nova modificació
+                % Force the creation of a new modification
                 % app.NovamodificaciButtonPushed;
 
-                % Es crea un arxiu nou de zero.
+                % Create a new file from scratch.
                 nom_arxiu_guardar = strcat("Results_out\Internal_code_files\Image_processing_settings\temporals\Modif_img_01.txt");
-                txt_seg(nom_arxiu_guardar, "", ";", "nou", "blanc") % seguiment config.
+                txt_seg(nom_arxiu_guardar, "", ";", "nou", "blanc") % configuration tracking
 
-                % _Actualitzem els ListBox_
-                % Modifs Temporals
+                % _Update the ListBox_
+                % Temporary Mods
                 myFolder_input = "Results_out\Internal_code_files\Image_processing_settings\temporals\";
                 [llistat_string_im] = llegir_arxius_tipologia(myFolder_input, ".txt");
-                % Actualitzem el listbox
+                % Update the listbox
                 app.ModificacionstemporalsListBox.Items = llistat_string_im;       
                 
                 
-                % Seleccionar el que té el nom cambiat:
+                % Select the renamed one:
                 app.ModificacionstemporalsListBox.Value = llistat_string_im(end);
                 
-            % Si hi ha modificacións temporals
+            % If there are temporary modifications
             else
-                % Sinó, que es seleccioni les modificacions
+                % Otherwise, select the modifications
                 app.ModificacionsguardadesListBox.Items = llistat_string_im_temp;                    
                 app.ModificacionstemporalsListBox.Value = llistat_string_im_temp(1);
             end
 
-        % Si sí que hi ha modificacións guardades
+        % If there are saved modifications
         else
             app.ModificacionsguardadesListBox.Items = llistat_string_im_guard;
             app.ModificacionsguardadesListBox.Value = llistat_string_im_guard(end);
 
-            % Si hi ha modificacions temporals
+            % If there are temporary modifications
             if ~isempty(app.ModificacionstemporalsListBox.Items)
                 app.ModificacionstemporalsListBox.Value = {}; % llistat_string_im_temp(1);  
             end
@@ -145,28 +142,29 @@ function app_proc_startupFcn(app)
     
 
     % NOTES
-    % - arquitectura modificacions -
-    % Fer que les modificacions guardades no es puguin modificar,
-    % sino que per a ser modificades d'hagin de copiar a
-    % modificacions temporals, i tornar a ser guardades a
-    % Modificacions guardades. D'aquesta manera s'evita que la
-    % modificació sigui alterada de maner fàcil, sino que si es vol
-    % alterar s'hagi de tornar a copiar i tornar a borrar, o
-    % guardar amb un altre nom, lo qual promou la permanència de
-    % les configuracións primeres.
+    % - modifications architecture -
+    % Ensure that saved modifications cannot be modified,
+    % but must be copied to
+    % temporary modifications and saved again as
+    % Saved Modifications. This prevents the
+    % modification from being easily altered; if one
+    % wants to alter it, it has to be copied again and deleted
+    % or saved with another name, which promotes the permanence
+    % of the initial configurations.
     
-    % - guardar imatges - 
-    % Les imatges seràn guardades paral·lelament amb les
-    % modificacións, en la mateixa carpeta (carpeta imatges, ja
-    % siguin o no temporals). D'aquesta manera si s'agafa una u
-    % altre modificació, es veurà amb la imatge amb que s'ha fet, i
-    % si aquesta imatge es continua modificant, es veurà llavors en
-    % tal modificació.
+    % - saving images - 
+    % Images will be saved in parallel with the
+    % modifications, in the same folder (image folder,
+    % whether temporary or not). This way, if one or another
+    % modification is selected, it will be seen along with the
+    % image with which it was created, and if that image
+    % continues to be modified, it will be seen under
+    % that modification.
     
     
-    % Definició variables i contadors
+    % Definition of variables and counters
     
-    % Valor contador numero imatge
+    % Counter value for image number
     app.contador_numimLabel.Text = "0";
 
     
@@ -175,12 +173,12 @@ function app_proc_startupFcn(app)
 
 
     
-    % DESACTIVACIÓ/ACTIVACIÓ BOTÓNS MODIFICACIÓ IMATGE SEGONS
-    % TIPOLOGIA IMATGE
+    % DEACTIVATION/ACTIVATION OF IMAGE MODIFICATION BUTTONS
+    % ACCORDING TO IMAGE TYPE
     
     if ~isempty(app.ModificacionsguardadesListBox.Value)
         
-        % Descativació dels botons
+        % Deactivation of buttons
         app.Im2greyButton.Enable = 'off';
         % gray
         app.imadjustButton.Enable = 'off';
@@ -203,9 +201,9 @@ function app_proc_startupFcn(app)
     end
     
     
-    % __Activació/Desactivació altres botóns inicials__
+    % __Activation/Deactivation of other initial buttons__
 
-    % Visió botons
+    % Button visibility
     app.Button_12.Visible = 'off';
     app.Button_11.Visible = 'on';
 
@@ -213,51 +211,48 @@ function app_proc_startupFcn(app)
     app.ModificarButton.Visible = 'off';
     app.num_objectes_binarisLabel.Text = "Not determined";
     
-    % Contador numero imatge
+    % Image number counter
     app.contador_numimLabel.Text = "1";
     app.Button_12.Visible = "off";
     
     
-    % Text Requeriments
+    % Text Requirements
     app.RequirmentAnalysisText.Visible = 'off';
     
     
 
-    % __Iniciació inicial del programa__
-    % En aquest s'executa el tutorial i modificacions exemple,
-    % entre d'altres.
+    % __Initial program startup__
+    % Here the tutorial and example modifications are run,
+    % among other things.
 
-    % _Iniciació tutorial_
-    % D'inici que s'executi el tutorial.
-    % ÑÑÑ app.TutorialButtonValueChanged
-    % ÇÇÇ: Que el valor del tutorial es guardi, de manera que no
-    % sempre surti com a inicial.
+    % _Tutorial startup_
+
 
     
-    % _Copia modificacions exemple_
-    % Es copien les modificacions de app_image_processment\Internal code files\Modifications_examples a 
-    file_porta_modifs = "Results_out\Internal_code_files\first_modifications.txt"; % Arxiu porta copia modifs exemple
+    % _Copy example modifications_
+    % The modifications from app_image_processment\Internal code files\Modifications_examples are copied to 
+    file_porta_modifs = "Results_out\Internal_code_files\first_modifications.txt"; % File carrying copy of example mods
     %waitfor(msgbox(file_porta_modifs))
     if ~isfile(file_porta_modifs)
-        % Si no hi ha arxiu, significa que es la primera vegada que
-        % s'inicia. Es copien les modif guardades temporals.
+        % If there is no file, it means it’s the first time
+        % the program runs. Saved temporary mods are copied.
 
-        % Per cada arxiu exemple, es copia:
+        % For each example file, copy:
         for n_va = 1:6
             arxiu_copiar = which(strcat("Modif_Example_", string(n_va), ".txt"));
-            % NOTA: el nom de l'arxiu no s'especifica la ruta,
-            % perquè aquest és dins del programa innicial. Donat
-            % que s'ha canviat la ruta del programa, la obtenció
-            % dels arxius definits inicialment en el programa s'ha
-            % de realitzar a partir del seu nom directe, i no del
-            % seu directori, donat que es intern.
-            % Altrament, si no funcionés, es faria un which
-            % d'aquest per obtenir la ruta interna de l'arxiu.
+            % NOTE: the file name does not specify the path,
+            % because it is inside the initial program. Since
+            % the program path has changed, obtaining
+            % the initially defined files in the program has
+            % to be done from their direct name, not from
+            % their directory, since it’s internal.
+            % Otherwise, if it does not work, a which
+            % is done to get the internal path of the file.
             directori_nou_copiar = strcat("Results_out\Internal_code_files\Image_processing_settings\Modif_Example_", string(n_va), ".txt");
             copyfile(arxiu_copiar, directori_nou_copiar)
         end
 
-        % Creem arxiu contador
+        % Create counter file
         write_text_array(file_porta_modifs, ["first_modif", "true"], ";");
 
     end
@@ -265,9 +260,9 @@ function app_proc_startupFcn(app)
 
 
 
-    % __Actualitzar modificacions__
+    % __Update modifications__
     
-    % Llegir arxius Modificacions guardades
+    % Read saved modifications files
     myFolder_input = "Results_out\Internal_code_files\Image_processing_settings\";
     patro_tipus_image = ".txt";
     [llistat_string_im] = llegir_arxius_tipologia(myFolder_input, patro_tipus_image);
@@ -275,14 +270,12 @@ function app_proc_startupFcn(app)
     app.ModificacionsguardadesListBox.Items = llistat_string_im;
     
     
-    % Automatització Drop Roll Modificacions temporals
+    % Automation Drop Roll Temporary Modifications
     myFolder_input = "Results_out\Internal_code_files\Image_processing_settings\temporals\";
     patro_tipus_image = ".txt";
     [llistat_string_im] = llegir_arxius_tipologia(myFolder_input, patro_tipus_image);
                 
     app.ModificacionstemporalsListBox.Items = llistat_string_im;
-    
-
 
 
 % END OF THE FUNCTION

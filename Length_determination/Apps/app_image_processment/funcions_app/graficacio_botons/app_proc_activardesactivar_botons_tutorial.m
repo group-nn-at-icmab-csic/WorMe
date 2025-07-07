@@ -1,14 +1,14 @@
 function app_proc_activardesactivar_botons_tutorial(app, onoff)
 
-% Activa o desactiva els botóns de la app per a que es mostrin els tutorials.
+% Enables or disables the app buttons to display tutorials.
 
-% INICI FUNCIO
+% START OF THE FUNCTION
 
-% Cambiem botóns:
+% Change the buttons:
 app.InfoIcon.Visible = onoff;
 app.InfoIcon_imadjust.Visible = onoff;
 
-% FINAL FUNCIO
+% FINAL OF THE FUNCTION
 
 end
 
