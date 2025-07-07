@@ -10,7 +10,7 @@ n_yes = 0;
 n_no = 0;
 % n_empty = 0;
 
-taula_operar = app.global_temps_total_inici; % Taula principal
+taula_operar = app.table_main_sel; % Taula principal
 
 % taula_operar
 

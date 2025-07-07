@@ -16,7 +16,7 @@ app.Thick_Button_little.Visible = enable_cod;
 app.RightButton.Visible = 'off';
 
 % Si hi ha o no objectes, es mostra o no el return.
-if numel(app.global_temps_total_inici(app.global_temps_total_inici.Image == string(app.img_original_nomLabel.Text), :).nModif) >= 1
+if numel(app.table_main_sel(app.table_main_sel.Image == string(app.img_original_nomLabel.Text), :).nModif) >= 1
     app.ReturnButton.Visible = 'on';
 else
     app.ReturnButton.Visible = 'off';

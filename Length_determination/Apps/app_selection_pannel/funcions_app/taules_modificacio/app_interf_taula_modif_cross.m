@@ -31,7 +31,7 @@ function app_interf_taula_modif_cross(app)
     main_table_actual_last_new.ModifTable = {main_table_actual_last_modiftable}; % Actualitzem la taula dels objectes modificats
 
     % Incorporem a la taula_main
-    app.global_temps_total_inici = [app.global_temps_total_inici; main_table_actual_last_new];
+    app.table_main_sel = [app.table_main_sel; main_table_actual_last_new];
 
     % Renovació objecte anterior
     % Retallem l'objecte

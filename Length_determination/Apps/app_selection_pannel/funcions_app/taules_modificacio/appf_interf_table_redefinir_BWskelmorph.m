@@ -2,7 +2,7 @@ function [main_table_actual_last_modif, main_table_actual_last_modiftable, indx_
 
 % Com appf_interf_table_incorporar_BWskelmorph, però l'objecte que es
 % defineix no es re-integra en la taula_main
-% (app.global_temps_total_inici), sinó que simplement es re-defineixen les taules.
+% (app.table_main_sel), sinó que simplement es re-defineixen les taules.
 %
 % Obté i determina les propietats morfologiques de esqueletonització i
 % ampalda de l'objecte binari, i les re-descriu a la taula table_main.
@@ -59,12 +59,12 @@ function [main_table_actual_last_modif, main_table_actual_last_modiftable, indx_
     main_table_actual_last_modiftable(indx_object_operate,:) = no_modified_object_modificada;
 
 %     % Incorporem a la taula_main
-%     % INdex: app.global_temps_total_inici.Image == main_table_actual_last.Image & app.global_temps_total_inici.nModif == main_table_actual_last.nModif
-% 
+%     % Index: app.table_main_sel.Image == main_table_actual_last.Image & app.table_main_sel.nModif == main_table_actual_last.nModif
+
     main_table_actual_last_modif = main_table_actual_last;
     main_table_actual_last_modif.ModifTable = {main_table_actual_last_modiftable};
 %     
-%     app.global_temps_total_inici( app.global_temps_total_inici.Image == main_table_actual_last.Image & app.global_temps_total_inici.nModif == main_table_actual_last.nModif, : ) = main_table_actual_last_modif;
+%     app.table_main_sel( app.table_main_sel.Image == main_table_actual_last.Image & app.table_main_sel.nModif == main_table_actual_last.nModif, : ) = main_table_actual_last_modif;
 %  
 
     % % Comprovem:

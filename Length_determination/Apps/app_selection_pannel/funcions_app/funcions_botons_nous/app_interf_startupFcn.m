@@ -72,11 +72,7 @@ function app_interf_startupFcn(app)
             % finalitzat_contLabel: Contador de finalització de totes les imatges.
             % n_objecte_Label : nombre d'objectes en la imatge.
             
-%             % Contador temps _contTemps_
-%             % Temps inicial
-%             app.global_temps_total_inici = datetime("now");
-% 
-%             app.global_control_temps_1
+
 
 
             % _Contadors noms i directoris_

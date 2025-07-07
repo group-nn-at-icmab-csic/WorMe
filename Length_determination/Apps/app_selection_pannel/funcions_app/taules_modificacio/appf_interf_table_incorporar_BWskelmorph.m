@@ -65,12 +65,12 @@ function [main_table_actual_last_modif, main_table_actual_last_modiftable, indx_
     
 
     % Incorporem a la taula_main
-    % INdex: app.global_temps_total_inici.Image == main_table_actual_last.Image & app.global_temps_total_inici.nModif == main_table_actual_last.nModif
+    % INdex: app.table_main_sel.Image == main_table_actual_last.Image & app.table_main_sel.nModif == main_table_actual_last.nModif
 
     main_table_actual_last_modif = main_table_actual_last;
     main_table_actual_last_modif.ModifTable = {main_table_actual_last_modiftable};
     
-    app.global_temps_total_inici( app.global_temps_total_inici.Image == main_table_actual_last.Image & app.global_temps_total_inici.nModif == main_table_actual_last.nModif, : ) = main_table_actual_last_modif;
+    app.table_main_sel( app.table_main_sel.Image == main_table_actual_last.Image & app.table_main_sel.nModif == main_table_actual_last.nModif, : ) = main_table_actual_last_modif;
  
 
     % % Comprovem:

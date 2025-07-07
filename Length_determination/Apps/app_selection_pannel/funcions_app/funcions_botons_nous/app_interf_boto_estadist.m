@@ -3,7 +3,7 @@ function app_interf_boto_estadist(app)
 % Com clicar sobre el botó Done.
 % Mostra tot el preàmbul estadístic.
 
-% Ens basem en el filtratge de app.global_temps_total_inici,
+% Ens basem en el filtratge de app.table_main_sel,
 % Per a obtenir i guardar les dades en un compendi d'una sola taula
 % (S_textscan_table).
 
@@ -37,10 +37,10 @@ app.Image6.Visible = 'on';
 % Podem gaurdar les dades per a una re-incorporació possible.
 %guardar les mateixes.
 % Ens basem en l'arquitectura d'obtenció de dades similar a: app_interf_table_obtenir_main_table_actual
-% disp("app.global_temps_total_inici")
-% app.global_temps_total_inici
+% disp("app.table_main_sel")
+% app.table_main_sel
 
-nom_imatges = unique(app.global_temps_total_inici.Image);
+nom_imatges = unique(app.table_main_sel.Image);
 
 % Taula S_textscan creació nova, partir de la table_main.
 S_textscan_table = table(); 
@@ -48,7 +48,7 @@ S_textscan_table = table();
 for n_img = nom_imatges'
     
     % Per cada imatge, obtenim la taula final?
-    main_table_actual = app.global_temps_total_inici(app.global_temps_total_inici.Image == n_img, :);
+    main_table_actual = app.table_main_sel(app.table_main_sel.Image == n_img, :);
 
     % Modificació ultima
     main_table_actual_last = main_table_actual(main_table_actual.nModif == max(main_table_actual.nModif),:);

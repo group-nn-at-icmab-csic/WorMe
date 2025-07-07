@@ -8,18 +8,18 @@ function app_interf_taula_modif_return(app)
 
 % INICI FUNCIÓ
 
-    % app.global_temps_total_inici
+    % app.table_main_sel
     
     % Modificacions de la imatge actual
-    main_table_actual = app.global_temps_total_inici(app.global_temps_total_inici.Image == string(app.img_original_nomLabel.Text), :);
+    main_table_actual = app.table_main_sel(app.table_main_sel.Image == string(app.img_original_nomLabel.Text), :);
     
 
     % Treiem la última modif de la taula_main
-    app.global_temps_total_inici = app.global_temps_total_inici( ~(app.global_temps_total_inici.Image == string(app.img_original_nomLabel.Text) & app.global_temps_total_inici.nModif == max(main_table_actual.nModif)), :);
+    app.table_main_sel = app.table_main_sel( ~(app.table_main_sel.Image == string(app.img_original_nomLabel.Text) & app.table_main_sel.nModif == max(main_table_actual.nModif)), :);
 
     % Mirem si hem disminuit la imatge:
     
-    if isequal(sum(app.global_temps_total_inici.Image == string(app.img_original_nomLabel.Text)), 0)
+    if isequal(sum(app.table_main_sel.Image == string(app.img_original_nomLabel.Text)), 0)
         % restem 1 al contador.
         % ___Actualitzacions___
         % _contador imatge_
@@ -38,21 +38,21 @@ function app_interf_taula_modif_return(app)
         
         % Si hem tirat enrrere, tornem a restar 1:
         % Modificacions de la imatge actual
-        main_table_actual = app.global_temps_total_inici(app.global_temps_total_inici.Image == string(app.img_original_nomLabel.Text), :);
+        main_table_actual = app.table_main_sel(app.table_main_sel.Image == string(app.img_original_nomLabel.Text), :);
 
-        % app.global_temps_total_inici
-        app.global_temps_total_inici = app.global_temps_total_inici( ~(app.global_temps_total_inici.Image == string(app.img_original_nomLabel.Text) & app.global_temps_total_inici.nModif == max(main_table_actual.nModif)), :);
+        % app.table_main_sel
+        app.table_main_sel = app.table_main_sel( ~(app.table_main_sel.Image == string(app.img_original_nomLabel.Text) & app.table_main_sel.nModif == max(main_table_actual.nModif)), :);
         
         
     end
     
-    % app.global_temps_total_inici
+    % app.table_main_sel
     
     
 %     % _Comprovació_
 %     % Modificació ultima
 %     main_table_actual_last = main_table_actual(main_table_actual.nModif == max(main_table_actual.nModif),:);    
-%     isequal(main_table_actual_last, app.global_temps_total_inici( (app.global_temps_total_inici.Image == string(app.img_original_nomLabel.Text) & app.global_temps_total_inici.nModif == max(main_table_actual.nModif)), :))
+%     isequal(main_table_actual_last, app.table_main_sel( (app.table_main_sel.Image == string(app.img_original_nomLabel.Text) & app.table_main_sel.nModif == max(main_table_actual.nModif)), :))
     
     % Mirem si la dada actual és la de la imatge present, o anterior. Si és
     % anterior re-definirem 

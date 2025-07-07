@@ -31,8 +31,20 @@ function app_interf_taula_modif_thick(app)
     main_table_actual_last_new.ModifTable = {main_table_actual_last_modiftable}; % Actualitzem la taula dels objectes modificats
 
     % Incorporem a la taula_main
-    app.global_temps_total_inici = [app.global_temps_total_inici; main_table_actual_last_new];
+    app.table_main_sel = [app.table_main_sel; main_table_actual_last_new];
 
+
+    % disp("Showing data")
+    % disp(app.table_main_sel)
+    % disp(app.table_main_sel(1, :))
+
+    % table1 = app.table_main_sel.ModifTable(end);
+    % disp(table1{:,1})
+    % disp(table1{1,:})
+    % disp(class(table1))
+    % save("table1.mat", "table1")
+    % disp("saved!")
+    
 
     % Comprovació:
     % [main_table_actual_last, main_table_actual_last_modiftable, indx_object_operate, no_modified_object] = app_interf_table_obtenir_main_table_actual(app)

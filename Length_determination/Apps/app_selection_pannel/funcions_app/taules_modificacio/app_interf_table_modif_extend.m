@@ -57,7 +57,7 @@ function app_interf_table_modif_extend(app)
 
 
             % Incorporem a la taula_main
-            app.global_temps_total_inici = [app.global_temps_total_inici; main_table_actual_last_new];
+            app.table_main_sel = [app.table_main_sel; main_table_actual_last_new];
         end
     end
 

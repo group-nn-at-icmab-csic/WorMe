@@ -4,15 +4,9 @@ function app_interf_boto_thick(app)
 
 % INICI FUNCIÓ
 
-    % FER
-    %
-    % Integrar el canvi de botóns quan s'avanci o no d'imatge.
+
     app.ReturnButton.Visible = 'on';
     app.ReturnButton.Enable = 'on';
-
-
-    % FER
-    % Canviar: app.global_temps_total_inici per app.taula_main 
 
     
     % % _Activació/Desactivació Botóns_ 

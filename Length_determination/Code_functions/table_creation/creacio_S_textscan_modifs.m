@@ -44,9 +44,9 @@ resol_string = strjoin(string([size(BW_label_1, 1), size(BW_label_1, 2)]), ";");
 
 
 
-BWskel_indx_string  = "Pikatchu";
-BWwidth_string = "Pikatchu";
-dades_imatge = "Pikatchu";
+BWskel_indx_string  = "No_data_yet";
+BWwidth_string = "No_data_yet";
+dades_imatge = "No_data_yet";
 
 
 BB = regionprops(BW_label_1, 'BoundingBox', "Circularity", 'MajorAxisLength', 'Area');

@@ -107,7 +107,7 @@ else
     % abans per no fer-ho de cada objecte) i l'adherim a la taula de
     % moficiacions actual.
     
-    if isequal(no_modified_object(1,:).Length, "Pikatchu")
+    if isequal(no_modified_object(1,:).Length, "No_data_yet")
         [main_table_actual_last, main_table_actual_last_modiftable, indx_object_operate, no_modified_object] = appf_interf_table_incorporar_BWskelmorph(app, main_table_actual_last, main_table_actual_last_modiftable, indx_object_operate, no_modified_object);
     end
     

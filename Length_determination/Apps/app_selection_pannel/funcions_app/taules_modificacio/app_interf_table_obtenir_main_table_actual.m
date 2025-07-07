@@ -9,14 +9,14 @@ function [main_table_actual_last, main_table_actual_last_modiftable, indx_object
     
     % ___Taula general___
 
-    % app.global_temps_total_inici = table();
+    % app.table_main_sel = table();
 
     % _Obtenim el nombre de modificacions_
     % Ens basem amb el nom de la imatge.
     
     
-    if ~isempty(app.global_temps_total_inici)
-        n_modifs = height(app.global_temps_total_inici(app.global_temps_total_inici.Image == string(app.img_original_nomLabel.Text), :));
+    if ~isempty(app.table_main_sel)
+        n_modifs = height(app.table_main_sel(app.table_main_sel.Image == string(app.img_original_nomLabel.Text), :));
     else
         n_modifs = 0;
     end
@@ -129,8 +129,8 @@ function app_inter_table_incorporar_BW_table(app, S_textscan_table_row_main)
 
     % INICI FUNCIÓ
 
-    if ~isempty(app.global_temps_total_inici)
-        n_modifs = height(app.global_temps_total_inici(app.global_temps_total_inici.Image == string(app.img_original_nomLabel.Text), :));
+    if ~isempty(app.table_main_sel)
+        n_modifs = height(app.table_main_sel(app.table_main_sel.Image == string(app.img_original_nomLabel.Text), :));
     else
         n_modifs = 0;
     end
@@ -138,10 +138,10 @@ function app_inter_table_incorporar_BW_table(app, S_textscan_table_row_main)
     % _Creació i incorporació de la taula nova_
     taula_modif_sing = table(string(app.img_original_nomLabel.Text), n_modifs+1, {S_textscan_table_row_main}, 'VariableNames', {'Image', 'nModif', 'ModifTable'});
 
-    if isempty(app.global_temps_total_inici)
-        app.global_temps_total_inici = taula_modif_sing;
+    if isempty(app.table_main_sel)
+        app.table_main_sel = taula_modif_sing;
     else
-        app.global_temps_total_inici = [app.global_temps_total_inici; taula_modif_sing]; 
+        app.table_main_sel = [app.table_main_sel; taula_modif_sing]; 
     end
 
     % FINAL FUNCIÓ
@@ -163,7 +163,7 @@ function [main_table_actual_last, main_table_actual_last_modiftable, indx_object
     
     % _Selecció ultima modificacio_
     % Modificacions de la imatge actual
-    main_table_actual = app.global_temps_total_inici(app.global_temps_total_inici.Image == string(app.img_original_nomLabel.Text), :);
+    main_table_actual = app.table_main_sel(app.table_main_sel.Image == string(app.img_original_nomLabel.Text), :);
 
     
     % Modificació ultima

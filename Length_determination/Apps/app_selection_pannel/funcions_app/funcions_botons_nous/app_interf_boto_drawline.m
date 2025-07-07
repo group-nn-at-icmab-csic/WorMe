@@ -4,7 +4,7 @@ function app_interf_boto_drawline(app)
 
 % % INICI FUNCIÓ (PROBES)
 % 
-% app.global_temps_total_inici
+% app.table_main_sel
 % 
 % [main_table_actual_last, main_table_actual_last_modiftable, indx_object_operate, no_modified_object] = app_interf_table_obtenir_main_table_actual(app)
 % 

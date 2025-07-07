@@ -45,9 +45,6 @@ function [main_table_actual_last_modiftable_nofilter, indx_filtre_tots] = app_in
 %     main_table_actual_last_modiftable.Morph_majoraxis
 %     main_table_actual_last_modiftable.Morph_area
 %     
-%     app.global_control_temps_3
-%     app.global_control_temps_4
-%     app.global_control_temps_5
 
     main_table_actual_last_modiftable_nofilter = main_table_actual_last_modiftable(~indx_filtre_tots, :);
     
