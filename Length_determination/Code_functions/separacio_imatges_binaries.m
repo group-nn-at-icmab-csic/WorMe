@@ -3,7 +3,7 @@ function [llistat_imatges] = separacio_imatges_binaries(BW_final_conjunts)
 % D'una imatge binaria, retorna una cell amb la imatge on apareix cada
 % objecte.
 
-% INICI FUNCIÓ
+% START FUNCTION
 
 % -- input: BW_final_conjunts
 % -- output: llistat_imatges
@@ -45,7 +45,7 @@ end
 % El resultat de la funció és una cell amb varies imatges. A partir d'aquí,
 % s'hauria de llegir i filtrar cada una d'aquestes imatges.
 
-% FINAL FUNCIÓ
+% END FUNCTION
 
 
 end

@@ -24,7 +24,7 @@ function [S_textscan_table] = llegir_dades(txt_data_name, write_values, separado
 % app_interf_descriure_dades
 
 
-% INICI FUNCIÓ
+% START FUNCTION
 
 
 % _Obtenim la lectura_
@@ -377,7 +377,7 @@ S_textscan_table = table(string(S_textscan{1}), ...
 end
 
 
-% FINAL FUNCIÓ
+% END FUNCTION
 
 
 end

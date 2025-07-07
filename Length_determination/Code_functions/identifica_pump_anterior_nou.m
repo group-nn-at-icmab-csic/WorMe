@@ -71,7 +71,7 @@ function [llist_BW_identif, BW_bwselect_igual_punts, imatge_montatge_sortida] = 
 
 
 
-% START OF THE FUNCTION
+% START FUNCTION
 
 % If it is not defined whether or not the graphical extension of the test is done, it is understood that it is not done.
 if test_ext_si_no == 1 % ~exist('test_ext_si_no','var')

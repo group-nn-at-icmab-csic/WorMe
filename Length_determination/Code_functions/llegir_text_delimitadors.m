@@ -37,7 +37,7 @@ function [array_processos, string_total] = llegir_text_delimitadors(arxiu_output
 % See also:
 % write_text_array
 
-% INICI FUNCIO
+% START FUNCTION
 
 if ~exist('delimitador_text','var')
     delimitador_text = ";;";
@@ -84,6 +84,6 @@ end
 
 
 
-% FINAL FUNCIÓ
+% END FUNCTION
 
 end

@@ -19,8 +19,6 @@ function [RGB_to_color_new] = print_RGB_indx_brush(RGB_to_color, indx_to_paint, 
 % 
 % See also
 % pintar_indx_to_RGB
-% pintar_BW_color
-% pintar_BWindx_RGB_new
 
 
 % START FUNCTION
@@ -37,7 +35,7 @@ RGB_to_color_new(indx_to_paint + sup_RGB_to_color) = RGB_to_color_new(indx_to_pa
 RGB_to_color_new(indx_to_paint + (sup_RGB_to_color)*2) = RGB_to_color_new(indx_to_paint + (sup_RGB_to_color)*2) + value_color(3);
 
 
-% FINAL FUNCTION
+% END FUNCTION
 
 
 end

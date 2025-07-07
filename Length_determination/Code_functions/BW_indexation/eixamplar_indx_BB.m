@@ -13,28 +13,26 @@ function [total_indx_fin] = eixamplar_indx_BB(total_indx, val_exampl, size_BW)
 % Processing time: 0.0017 (50 loops, 8GB RAM)
 %
 %
-% Exemple:
+% Example:
 % tic; total_indx_fin = eixamplar_indx_BB(total_indx', 1, size(BW_final)); toc
 % [RGB_to_color_new] = pintar_indx_to_RGB(imageArray, total_indx_fin, "red"); %Elapsed time is 0.003674 seconds.
 % imshow(RGB_to_color_new)
 %
 % See also
 % pintar_indx_to_RGB
-% pintar_BW_color
 % BBxy_to_BBindx
-% BW_to_BBindx
 % correccio_sortida_dimensios
 
 
 % A x,y
 [x_values, y_values] = ind2sub(size_BW, total_indx);
-% Now we are going to add 1, and subtract 1 from each value of X and Y, and we will save them all, so that we will have more
-% widened the Bounding Box.
+% Now we are going to add 1, and subtract 1 from each value of X and Y, 
+% and we will save them all, so that we will have widened the Bounding Box.
 % Many elements will be repeated, because they will overlap in the same
 % position.
 
-% We make sure that they do not protrude from the image. If so, we will remove the values
-% that protrude.
+% We make sure that they do not go out of bounds of the image. 
+% If so, we will remove the values.
 
 % size_BW(1) %1080 (Y)
 % size_BW(2) % 1920 (X)
@@ -72,7 +70,7 @@ total_indx_fin_t = sub2ind(size_BW, x_values_fin, y_values_fin);
 
 total_indx_fin = unique(total_indx_fin_t);
 
-% % Comprove
+% % Check
 % unique(ismember(total_indx_fin_t, total_indx_fin))
 % ismember("A", ["D" "A"])
 

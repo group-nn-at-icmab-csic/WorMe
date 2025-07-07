@@ -9,7 +9,7 @@ function [formatSpec] = tipologia_formatspec_table(table_dades_totals)
 % write_dades_cell
 % creacio_S_textscan
  
-% INICI FUNCIÓ
+% START FUNCTION
 
 % tipus_dades = []; % Control-comprovació
 formatSpec = "";
@@ -27,6 +27,6 @@ end
 
 
 % unique(tipus_dades) % Control-comprovació
-% FINAL FUNCIÓ
+% END FUNCTION
 
 end

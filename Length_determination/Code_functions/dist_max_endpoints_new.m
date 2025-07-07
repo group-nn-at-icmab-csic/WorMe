@@ -25,7 +25,7 @@ function [dist_max ,endppoints_max] = dist_max_endpoints_new(BW_skel_image)
 % dist_max_endpoints
 
 
-% START OF THE FUNCTION
+% START FUNCTION
 
 end_points = find(bwmorph(BW_skel_image,'endpoints')); % Igual pero en valors indexats
 [endp_i,endp_j] = find(bwmorph(BW_skel_image,'endpoints'));

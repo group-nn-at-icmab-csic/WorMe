@@ -25,7 +25,7 @@ function [S_textscan_table_row, variables_noms] = creacio_S_textscan_modifs(BW_l
 % See also
 % creacio_S_textscan
 
-% INICI FUNCIÓ
+% START FUNCTION
 
 
 
@@ -99,6 +99,6 @@ S_textscan_table_row = cell2table(cell_dades_totals, 'VariableNames', variables_
 
 
 
-% FINAL FUNCIÓ
+% END FUNCTION
 
 end

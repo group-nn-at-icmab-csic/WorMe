@@ -15,7 +15,7 @@ function [llist_BW_identif, BW_bwselect_igual_punts, imatge_montatge_sortida] = 
 % identifica_pump_anterior_nou
 
 
-% START OF THE FUNCTION
+% START FUNCTION
 
 % We skeletonize our input image (save trouble)
 BW_aillar_skel = bwskel(BW_aillar);
@@ -54,6 +54,6 @@ if length(llist_BW_identif) > 1
 end
 
 
-% END OF FUNCTION
+% END FUNCTION
 
 end

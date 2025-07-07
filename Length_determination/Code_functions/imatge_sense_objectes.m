@@ -13,7 +13,7 @@ nonobj_imageArray = imageArray - mean(imageArray(:))/2;
 
 % imshow(nonobj_imageArray_ambtext)
 
-% FINAL FUNCIÓ
+% END FUNCTION
 
 
 end

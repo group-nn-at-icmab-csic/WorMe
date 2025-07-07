@@ -64,7 +64,7 @@ function [BW_skel, dades_imatge_row, dades_imatge_manual_corrected] = worm_skele
 
 
 
-% INICI SCRIPT
+% START SCRIPT
 
 
 % General skeletonization
@@ -125,7 +125,7 @@ dades_imatge_row = Area_Josep_scaled;
 % if isequal(Area_Josep_1, Area_Josep_2); disp("Equal length"); end
 
 
-% FINAL SCRIPT
+% END SCRIPT
 
 
 end

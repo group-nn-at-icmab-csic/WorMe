@@ -25,7 +25,7 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
 % - Arxiu noms rutes imatges
 % Comprimirho tot.
 
-% INICI FUNCIÓ
+% START FUNCTION
 
 
     % Modificacio ruta inicials
@@ -578,7 +578,7 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
     
     end % end isfolder()
 
-% FINAL FUNCIÓ
+% END FUNCTION
 
 
 

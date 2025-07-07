@@ -25,7 +25,7 @@ function [BW_final] = processament_imatge2(imatge_input, carpeta_configs, seguim
 %
 % Nota: S'ha probat el filtre per gradient d'imatge, sense resultar eficaç.
 
-% INICI FUNCIÓ
+% START FUNCTION
 %--------------
 
 % contador seguiment processament imatge
@@ -226,7 +226,7 @@ BW_final = BW_final_conjunts;
 
 
 
-% FINAL FUNCIÓ
+% END FUNCTION
 
 
 end

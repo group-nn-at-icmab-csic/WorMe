@@ -19,7 +19,7 @@ function [img_RGB_sortida] = comprove_Pascal_VOC(xml_file_2, img_ex)
 % MATLAB_BB_to_Pascal_VOC_prop
 
 
-% INICI FUNCIÓ
+% START FUNCTION
 
 if isfile(xml_file_2)
 
@@ -42,6 +42,6 @@ if isfile(xml_file_2)
 
 end
 
-% FINAL FUNCIÓ
+% END FUNCTION
 
 end

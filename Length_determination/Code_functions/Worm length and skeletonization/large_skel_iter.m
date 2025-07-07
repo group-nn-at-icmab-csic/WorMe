@@ -7,7 +7,7 @@ function [BW_skel_final_unic] = large_skel_iter(BW_skel_image)
 % See also
 % large_skel
 
-% INICI FUNCIÓ
+% START FUNCTION
 
 % Apply of lare_skel function
 [BW_skel_final_unic] = large_skel(BW_skel_image);

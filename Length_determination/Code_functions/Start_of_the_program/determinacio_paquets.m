@@ -8,13 +8,13 @@ function determinacio_paquets()
 % See also
 % veure_si_instalat
 
-% INICI FUNCIÓ
+% START FUNCTION
 
     % Determinació per Image Processing Toolbox
     %veure_si_instalat("vision", "Computer Vision Toolbox")
     veure_si_instalat("stats", "Statistics and Machine Learning Toolbox")
     veure_si_instalat('images', 'Image Processing Toolbox')
 
-% FINAL FUNCIÓ
+% END FUNCTION
 
 end

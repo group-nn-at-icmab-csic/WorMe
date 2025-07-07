@@ -12,7 +12,7 @@ function initial_folder_creation(userSavedDocuments)
 %                               This is stored in Documents if the
 %                               program is executable, and in the main folder if running from MATLAB.
 
-% START OF THE FUNCTION
+% START FUNCTION
 
     % INITIAL FOLDER MAIN RESULTS FOLDER
     if ~isfolder(strcat(userSavedDocuments, "\Results_out"))

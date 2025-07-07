@@ -54,7 +54,7 @@ function [BW_final, beono] = processament_imatge_llistat(imatge_input, array_pro
 % See also
 % processament_imatge2
 
-% INICI FUNCIÓ
+% START FUNCTION
 
 % _Variables internes_
 % imatge_input_modif : imatge a modificar en processament.
@@ -175,7 +175,7 @@ beono = true; % ççç a definim de moment així, perquè encara no entrem a des
 
 BW_final = imatge_input_modif;
 
-% FINAL FUNCIÓ
+% END FUNCTION
 
 % ANNEX NOTES FINALS
 % ##################

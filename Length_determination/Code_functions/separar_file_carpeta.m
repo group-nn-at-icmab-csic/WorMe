@@ -13,7 +13,7 @@ function [string_file, string_folder, string_folder_file] = separar_file_carpeta
 % See also
 % separar_puntfile
 
-% INICI FUNCIÓ
+% START FUNCTION
 
     if contains(string1, "\")
         splited_string1 = split(string1, "\");
@@ -28,6 +28,6 @@ function [string_file, string_folder, string_folder_file] = separar_file_carpeta
 
 
 
-% FINAL FUNCIÓ
+% END FUNCTION
 
 end

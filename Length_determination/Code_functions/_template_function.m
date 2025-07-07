@@ -22,10 +22,10 @@ function [] = template_function()
 
 
 
-% START OF THE FUNCTION
+% START FUNCTION
 
 
-% END OF THE FUNCTION
+% END FUNCTION
 
 
 end

@@ -39,7 +39,7 @@ function write_taula_fun(arxiu_dir, table_main, var_disc)
 % See also
 % app_sel_computar_dades_manual_file
 
-% INICI FUNCIÓ
+% START FUNCTION
 
 if height(table_main) > 1
     disp("More than a row!")
@@ -73,6 +73,6 @@ else
     
 end
 
-% FINAL FUNCIÓ
+% END FUNCTION
 
 end

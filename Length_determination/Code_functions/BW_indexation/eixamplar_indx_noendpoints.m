@@ -1,6 +1,6 @@
 function  [indx_BWskel_obj_fin] = eixamplar_indx_noendpoints(indx_BWskel_obj, indx_endpoints_BWskel, size_BW_objecte_skel)
 
-% Given a skeletonized image, the eixamlar_indx_BB is done, but the endpoints of the image are not widened.
+% Given a skeletonized image, the eixamplar_indx_BB is done, but the endpoints of the image are not widened.
 %
 %
 % Processing time: Elapsed time is 0.001236 seconds.
@@ -10,7 +10,7 @@ function  [indx_BWskel_obj_fin] = eixamplar_indx_noendpoints(indx_BWskel_obj, in
 % pintar_indx_to_RGB
 
 
-% START OF THE FUNCTION
+% START FUNCTION
 
 [~, pos_ismemb] = ismember(indx_endpoints_BWskel, indx_BWskel_obj);
 
@@ -22,7 +22,7 @@ indx_BWskel_obj(pos_ismemb) = [];
 % Add endpoints:
 indx_BWskel_obj_fin = [indx_BWskel_obj_eixamp; indx_endpoints_BWskel];
 
-% FINAL OF THE FUNTCION
+% END FUNCTION
 
 
 end

@@ -2,7 +2,7 @@ function [escala_imatge] = escala_determinar(imatge_crop_josep, valor_nums)
 
     % GUI to determine the scale of an image.
 
-    % START OF THE FUNCTION
+    % START FUNCTION
 
     % Determine if we want thath the letters are readed.
     operacio_lletres = false;

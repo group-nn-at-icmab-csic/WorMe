@@ -38,7 +38,7 @@ function [valor_de_fila_out] = obtenir_de_txt_valor_string(arxiu_text_det, nom_d
 % See also
 % write_text_array, llegir_text_delimitadors, sumar_un_a_txt_valor_string
 
-% INICI FUNCIO
+% START FUNCTION
 
 es_present_valor = false;
 
@@ -71,7 +71,7 @@ if ~es_present_valor
     valor_de_fila_out = false;
 end
 
-% FINAL FUNCIO
+% END FUNCTION
 
 
 end
