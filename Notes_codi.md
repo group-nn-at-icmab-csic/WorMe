@@ -9,7 +9,8 @@ https://code.visualstudio.com/docs/languages/markdown
 
 ## Millora codi programa  
 - [ ] Si hi ha seleccionat  modificacions guardades, no es puguin modificar.
-- [] Mirar si esquelet hi ha més d'un branchpoint: error de que es selecciona cadena de més
+- [ ] Mirar si esquelet hi ha més d'un branchpoint: error de que es selecciona cadena de més
+- [ ] Variable de la app de selecció *global_temps_total_inici* definir origen i funció.
 
 ### ! Vigilar al modificar el codi! 👀
 
