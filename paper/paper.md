@@ -48,7 +48,7 @@ However, despite the wide range of software available for the image analysis of 
 In this work we present WorMe, a *Caenorhabditis elegans* length determination software. WorMe is a MATLAB Runtime software that automates the nematode's length measurements from compound microscopy images. It is open-source and user-friendly, since it works from a graphical user interface. WorMe is also versatile, because it has a wide range of settings to process many kinds of images, and it ensures data reliability since the user selects the worms to be analysed. It is also fast, as the process is computationally optimized.
 
 # Brief Description of the Program Use and Features
-WorMe is a software program implemented in *MATLAB version 9.11 (R2021b)* [@matlab], using the *Image Processing Toolbox* [@matlabimages], *Computer Vision Toolbox* [@matlabvision], *Image Acquisition Toolbox* [@matlabimaq], and *Statistics and Machine Learning Toolbox* [@matlabstats]. It is deployed as an executable using MATLAB Runtime, so it can be installed and run without a MATLAB license. It is also possible to visualize and run the code from the main script `WM_length_determination.m` from the MATLAB Desktop interface.
+WorMe is a software program implemented in *MATLAB version 9.11 (R2021b)* [@matlab], using the *Image Processing Toolbox* [@matlabimages], *Computer Vision Toolbox* [@matlabvision], *Image Acquisition Toolbox* [@matlabimaq], and *Statistics and Machine Learning Toolbox* [@matlabstats]. It is deployed as an executable using MATLAB Runtime, so it can be installed and run without a MATLAB license in a Windows Operating System. It is also possible to visualize and run the code from the main script `WM_length_determination.m` from the MATLAB Desktop interface.
 
 When the program is started, it prompts the user to provide the images for analysis, where one or multiple images can be selected. The scale is then set by selecting the scale bar or writing the scale value in pixels per unit.
 
@@ -66,6 +66,7 @@ The user manual provides a more detailed explanation and examples of use. This d
 
 We acknowledge discussions with the ICMAB-CSIC Nanoparticles and Nanocomposites group working with *C. elegans*, Dr. Jordi Faraudo (ICMAB) for his help in the GitHub repository and M.D. Míriam Vidal for the initial tests of the software.
 
-This project has been supported financially by the Spanish Government through the XX grant and the Becas de introducción a la investigación JAE Intro in CSIC institutes grants awarded to Josep Llobet Lladó, JAEIntroICU-2021-ICMAB-01, and Núria Garriga-Alonso, JAEINT_24_01745.
+The work has been supported partially with RTI2018-096273-B100, PID2021-122645OB-100  funded by MCIN/AEI//10.13039/501100011033/FEDER “Una manera de hacer Europa”;  the “Severo Ochoa” Programme for Centres of Excellence, in R&D  CEX2019-000917-S (FUNFUTURE), CEX2023-001263-S (MATRANS42), and European Union’s Horizon Europe research and innovation program under grant agreement No 101057527 (NextGEM). JLL acknowledges ayudas JAE ICU, Consejo Superior de Investigaciones Científicas (CSIC), JAEICU-21-ICMAB01 (2021) in the framework of the Master of Bioinformatics and Biostatistics  (UOC, 2021),  NGA acknowledges ayudas JAEIntro, Consejo Superior de Investigaciones Científicas (CSIC),  JAEINT-24-01745, (2024), AMJ acknowledges the Ph.D. scholarship (FPU18/05190).
+
 
 # References
