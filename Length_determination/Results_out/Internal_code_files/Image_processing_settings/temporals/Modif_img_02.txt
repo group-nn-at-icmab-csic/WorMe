@@ -7,3 +7,4 @@ Ordre proces;Tipus proces
 6;close_disc(3)
 7;bwareaopen(0.5)
 8;imfill
+9;Flip

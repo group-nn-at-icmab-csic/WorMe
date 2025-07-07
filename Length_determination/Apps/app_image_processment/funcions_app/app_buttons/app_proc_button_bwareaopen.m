@@ -1,0 +1,34 @@
+function app_proc_button_bwareaopen(app)
+
+% In app_image_processing App, the button of bwareaopen (AreaOpenButtonPushed).
+%
+%
+% See also
+% app_image_processment
+
+
+% START OF THE FUNCTION
+
+    app.Image2.Visible = 'on';
+    
+    % _Afegim la modificació_
+    [field_set] = app_proc_obten_fieldset(app);
+
+    % Valor del bwareaopen
+    valor_modif = app.Spinner.Value;
+    
+    % Afegim al text la modificació
+    text_modific = strcat("bwareaopen(", string(valor_modif), ")");
+    txt_seg(field_set, text_modific, ";") % seguiment config.
+
+    % VISUALIZATION OF THE MODIFICATIONS
+    app_proc_visual_modif(app)
+
+    app.Image2.Visible = 'off'; 
+
+
+
+% END OF THE FUNCTION
+
+
+end

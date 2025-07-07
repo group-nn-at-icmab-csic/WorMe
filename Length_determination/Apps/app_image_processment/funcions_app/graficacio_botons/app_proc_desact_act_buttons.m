@@ -23,7 +23,6 @@ function app_proc_desact_act_buttons(app, tipus_im_modif)
         app.Spinner_3.Enable = 'off';
         app.imadjust_selectButton.Enable = 'on';
         app.edgeapproxcannyButton.Enable = 'off';
-        app.DropDown.Enable = 'off';
         app.EsqueletonitzarButton.Enable = 'off';
         app.AnalyseButton.Enable = 'off'; 
         app.RequirmentAnalysisText.Visible = 'on';
@@ -49,7 +48,6 @@ function app_proc_desact_act_buttons(app, tipus_im_modif)
         app.Spinner_3.Enable = 'off';
         app.imadjust_selectButton.Enable = 'on';
         app.edgeapproxcannyButton.Enable = 'off';        
-        app.DropDown.Enable = 'on';
         app.EsqueletonitzarButton.Enable = 'off';
         app.AnalyseButton.Enable = 'off';
         app.RequirmentAnalysisText.Visible = 'on';
@@ -75,7 +73,6 @@ function app_proc_desact_act_buttons(app, tipus_im_modif)
         app.Spinner_3.Enable = 'on';
         app.imadjust_selectButton.Enable = 'off';
         app.edgeapproxcannyButton.Enable = 'on';        
-        app.DropDown.Enable = 'off';
         app.EsqueletonitzarButton.Enable = 'on';
         app.AnalyseButton.Enable = 'on';    
         app.RequirmentAnalysisText.Visible = 'off';
