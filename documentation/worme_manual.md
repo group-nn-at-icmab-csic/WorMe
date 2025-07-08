@@ -47,7 +47,7 @@ The program requires at least 4GB of available disk space, as well as a Windows 
 
 ### Installation and use from the executable (.exe)
 
-WorMe Length determination can be **easily installed from the [executable file](https://github.com/group-nn-at-icmab-csic/WorMe/releases)** as a local software in Windows. **It does not require a MATLAB licence**.  
+WorMe Length determination can be **easily installed from the [executable file](https://github.com/group-nn-at-icmab-csic/WorMe/releases)** as a local software in Windows. **It does not require a MATLAB licence**. A [brief installation guide](https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/WM_ld_Installation_guide.pdf) was developed.  
 The step-by-step installation will automatically download and install MATLAB Runtime R2021b (9.11) and WorMe Length determination as system software. [MATLAB Runtime](https://mathworks.com/products/compiler/matlab-runtime.html) is a collection of the libraries required to run MATLAB aplications, in this case WorMe Length determination.
 
 <div align="center">
@@ -671,7 +671,7 @@ You can find examples of exported graphic data in the examples folder, for the [
 
 ### Data architecture and computational optimization
 
-WorMe is a software designed for users. Therefore, there must not be many delays during its use, to improve user experience.
+WorMe is a user-based designed software. Therefore, there must not be many delays during its use, to improve user experience.
 
 Image processing and image data analysis have a considerable computational time. For example, when analysing or operating on the matrix of a whole image such as opening the image with the function `imread()` or binarizing the whole image by `imbinarize()`, the computer will need time to develop this task. The time consumption is also considerable when saving or opening data.
 
