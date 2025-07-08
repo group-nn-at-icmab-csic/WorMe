@@ -671,7 +671,7 @@ You can find examples of exported graphic data in the examples folder, for the [
 
 ### Data architecture and computational optimization
 
-WorMe is a software designed for users. Therefore, there must not be many delays during its use, to improve user experience.
+WorMe is a user-based designed software. Therefore, there must not be many delays during its use, to improve user experience.
 
 Image processing and image data analysis have a considerable computational time. For example, when analysing or operating on the matrix of a whole image such as opening the image with the function `imread()` or binarizing the whole image by `imbinarize()`, the computer will need time to develop this task. The time consumption is also considerable when saving or opening data.
 
