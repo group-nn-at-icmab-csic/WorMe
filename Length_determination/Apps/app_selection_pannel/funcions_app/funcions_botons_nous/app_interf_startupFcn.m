@@ -138,7 +138,7 @@ function app_interf_startupFcn(app)
             
 
             % LECTURA IMATGES .jpg i .png de la carpeta:
-            % [theFiles] = lectura_imatges_carpeta_estr(dir_img_originals);
+            % [theFiles] = read_imgs_folder_structure(dir_img_originals);
             % Nota: les imatges no són ordeandes d'igual manera que ho fa Windows, els patróns d'ordenament són lleugerament diferents.
 
             theFiles = app.theFiles_arxiu;
@@ -173,14 +173,14 @@ function app_interf_startupFcn(app)
             myFolder_input = "Results_out\Internal_code_files\Image_processing_settings\temporals\";
             patro_tipus_image = ".txt";
 
-            [llistat_string_im_temp] = llegir_arxius_tipologia(myFolder_input, patro_tipus_image);          
+            [llistat_string_im_temp] = read_files_typology(myFolder_input, patro_tipus_image);          
                         
             app.ModificacionstemporalsListBox.Items = llistat_string_im_temp;
             
             % Llegir arxius Modificacions guardades
             myFolder_input = "Results_out\Internal_code_files\Image_processing_settings\";
             patro_tipus_image = ".txt";
-            [llistat_string_im_guard] = llegir_arxius_tipologia(myFolder_input, patro_tipus_image);
+            [llistat_string_im_guard] = read_files_typology(myFolder_input, patro_tipus_image);
             app.ModificacionsguardadesListBox.Items = llistat_string_im_guard;
             
             % Si les modificacions gaurdades són vuides
@@ -206,10 +206,10 @@ function app_interf_startupFcn(app)
             
             
             % _Llegim la modificació guardada_
-            filestxt = lectura_txt_carpeta_estr(strcat(dir_output, "\Processment_parameters"));
+            filestxt = read_txt_folder_structure(strcat(dir_output, "\Processment_parameters"));
             text_config_parameters = filestxt.name;
             dir_text_config_parameters = strcat(dir_output, "\Processment_parameters\", text_config_parameters);
-            [array_sortida_modifs, ~] = llegir_text_delimitadors(dir_text_config_parameters, ";"); % obtneim l'array de la lectura del document de text i el printem
+            [array_sortida_modifs, ~] = read_text_delimiters(dir_text_config_parameters, ";"); % obtneim l'array de la lectura del document de text i el printem
             cell_cont = array_sortida_modifs(2:end, 2); % Operem
             array_processaments = cell2array_own(cell_cont);
 

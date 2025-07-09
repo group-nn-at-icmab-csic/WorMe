@@ -422,7 +422,7 @@ Some of the image functions mainly used in the program are:
 `imfill()`:   Automatically fills the binary objects.  
 `bwskel()`: Skeletonization of the binary image. Useful to obtain the main central line of *C. elegans*.
 
-These functions are executed in the `processament_imatge_llistat` function in the program, which works based in the list described in the Image modification of the Processing panel and its values.  
+These functions are executed in the `processment_img_list` function in the program, which works based in the list described in the Image modification of the Processing panel and its values.  
 
 <div align="right">
   <img src="images/Logos/Matlab_Logo.png" width="15%">
@@ -715,7 +715,7 @@ The program saves the image paths in the `theFiles` variable of the main script.
 
 In the `Results_out` folder, the `Internal_code_files` folder saves the predetermined image modification filters and settings. Then, the data for the specific analysis is saved in a new folder in `Results_out`, created with the date, a number, and the folder where the images to analyse were saved (for example `20250617_1057_C_72`). In here, the `escala_imatge.mat` saves the defined scale, `Processment_parameters` saves the image processing parameters, and `main_data_analysis.txt` saves the image data.
 
-The `main_data_analysis.txt` is the file where all the data known of the image is saved, such as ROI locations, bounding box coordinates, index of the skeleton, index of the mask, worm length, etc. The acquisition and operation to and from this file was fully optimized in order to reduce delays, with the function `llegir_dades()`. 
+The `main_data_analysis.txt` is the file where all the data known of the image is saved, such as ROI locations, bounding box coordinates, index of the skeleton, index of the mask, worm length, etc. The acquisition and operation to and from this file was fully optimized in order to reduce delays, with the function `read_data()`. 
 
 <div align="center">
   <img src="images/methodology/optimization/a2fin.png" width="100%">

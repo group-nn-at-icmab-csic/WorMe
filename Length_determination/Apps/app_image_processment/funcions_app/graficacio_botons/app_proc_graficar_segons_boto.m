@@ -21,16 +21,16 @@ function app_proc_graficar_segons_boto(app, imatge_original, BW_final, tipus_im_
         % If it is a binary image
         if tipus_im_modif == "binary"
             imoverlay_imatge = imoverlay(imatge_original, BW_final, "red");
-            [imatge_3D_sortida] = graficar_rgbgraybw_image(imoverlay_imatge);
+            [imatge_3D_sortida] = graph_rgbgraybw_image(imoverlay_imatge);
 
         % If it is rgb or grayscale
         else
-            [imatge_3D_sortida] = graficar_rgbgraybw_image(BW_final);
+            [imatge_3D_sortida] = graph_rgbgraybw_image(BW_final);
         end
 
     elseif app.ModifiedButton.Value
         % Modified image
-        [imatge_3D_sortida] = graficar_rgbgraybw_image(BW_final);
+        [imatge_3D_sortida] = graph_rgbgraybw_image(BW_final);
      end
 
 
@@ -46,11 +46,11 @@ function app_proc_graficar_segons_boto(app, imatge_original, BW_final, tipus_im_
              if num < 50
     
                  % Skeletonization:
-                [BW_skel_join] = esquel_multiple_BWobjects(BW_final);
+                [BW_skel_join] = skel_multiple_BWobjects(BW_final);
         
                 % Extend the indices
                 indx_endpoints_BWskel = find(bwmorph(BW_skel_join, 'endpoints'));
-                [indx_BWskel_obj_fin] = eixamplar_indx_noendpoints(find(BW_skel_join), indx_endpoints_BWskel, size(BW_skel_join));
+                [indx_BWskel_obj_fin] = wide_indx_nonendpoints(find(BW_skel_join), indx_endpoints_BWskel, size(BW_skel_join));
                 % Paint the indices
                 BW_skel_join_extend = false(size(BW_skel_join));
                 BW_skel_join_extend(indx_BWskel_obj_fin) = true;
@@ -64,21 +64,21 @@ function app_proc_graficar_segons_boto(app, imatge_original, BW_final, tipus_im_
     
             % If there are too many objects, these are not executed:
              else
-                % [imageArray_text] = graficar_text_img(imageArray)
+                % [imageArray_text] = graph_text_img(imageArray)
                 if app.MaskedButton.Value
                     % Display the image
                     imatge_3D_sortida = imoverlay(imatge_original, BW_final, "k");
-                    [imatge_3D_sortida] = graficar_text_img(imatge_3D_sortida);
+                    [imatge_3D_sortida] = graph_text_img(imatge_3D_sortida);
     
                 elseif app.ModifiedButton.Value
                     imatge_3D_sortida = (BW_final);
-                    [imatge_3D_sortida] = graficar_text_img(graficar_rgbgraybw_image(imatge_3D_sortida));                
+                    [imatge_3D_sortida] = graph_text_img(graph_rgbgraybw_image(imatge_3D_sortida));                
                 end
              end
     
          % If the image is original or grayscale
          else
-            [imatge_3D_sortida] = graficar_rgbgraybw_image(BW_final);
+            [imatge_3D_sortida] = graph_rgbgraybw_image(BW_final);
 
          end
 
@@ -90,7 +90,7 @@ function app_proc_graficar_segons_boto(app, imatge_original, BW_final, tipus_im_
     
 
     % Obtain number of binary objects:
-    app.num_objectes_binarisLabel.Text = obtenir_num_BW(BW_final);
+    app.num_objectes_binarisLabel.Text = obtain_num_BW(BW_final);
 
 
 

@@ -81,13 +81,13 @@ function app_interf_boto_estadist(app)
     % Ara guardariem la taula. A la ruta:
     write_taula(strcat(app.appv_dir_output, "\main_data_analysis.txt"), S_textscan_table, "$");
     
-    % tipologia_formatspec_table(S_textscan_table) % "%s%s%s%s%s%s%s%s%s"
+    % typology_formatspec_table_norm(S_textscan_table) % "%s%s%s%s%s%s%s%s%s"
     
     % S_textscan_table.Properties.VariableNames
     % % Comprovació
     % disp("Comprovació")
-    % tipologia_formatspec_table(S_textscan_table)
-    % [S_textscan_table] = llegir_dades(strcat(app.appv_dir_output, "\main_data_analysis.txt"), tipologia_formatspec_table(S_textscan_table), "$", S_textscan_table.Properties.VariableNames)
+    % typology_formatspec_table_norm(S_textscan_table)
+    % [S_textscan_table] = read_data(strcat(app.appv_dir_output, "\main_data_analysis.txt"), typology_formatspec_table_norm(S_textscan_table), "$", S_textscan_table.Properties.VariableNames)
     
     % Podem exportar les dades a un excel, tal i com indica.
     

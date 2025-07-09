@@ -17,7 +17,7 @@ function app_interf_button_export(app)
             % _LECTURA DE DADES_
             tipus_lectura = "%s%s%s%s%s%s%s%s%s";
             variable_names = {'IsCeleg', 'NomWorm', 'Length', 'Bounding', 'Modifs', 'Indx_skel', 'Indx_BW', 'WidthValues', 'Resolution'};
-            [S_textscan_table] = llegir_dades(strcat(app.appv_dir_output, "\main_data_analysis.txt"), tipus_lectura, "$", variable_names);
+            [S_textscan_table] = read_data(strcat(app.appv_dir_output, "\main_data_analysis.txt"), tipus_lectura, "$", variable_names);
 
             % [S_textscan_table] = app_interf_llegir_main_dades(dir_output);
             
@@ -40,7 +40,7 @@ function app_interf_button_export(app)
                     % Obtenció de l'esquelet
                     [BW_skel] = create_BW_indx(appf_split_strindex(S_textscan_table_yes(n_row,:).Indx_skel), appf_split_strindex(S_textscan_table_yes(n_row,:).Resolution)');
 
-                    [dades_imatge_row, dades_imatge_manual_corrected] = obtenir_distancies_BWskel(BW_skel, app.appv_escala_img, 5);                    
+                    [dades_imatge_row, dades_imatge_manual_corrected] = obtain_distances_BWskel(BW_skel, app.appv_escala_img, 5);                    
                     
                     
                     length_correction = [length_correction; dades_imatge_manual_corrected];

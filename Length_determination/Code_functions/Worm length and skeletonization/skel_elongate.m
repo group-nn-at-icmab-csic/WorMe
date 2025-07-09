@@ -104,11 +104,11 @@ for n_endpoint = 1:length(x_endpoint)
     
     % Add to this the value to extend (val_ext_mat)
     % Perimeter BW matrix
-    [matriu_nova_perimetral, ~, ~, matsort_perimetral, punt_centr_perimetral] = matriu_nova(BW_perimeter, round(double(valors_endopints(n_endpoint)))+1 +val_ext_mat, x_endpoint(n_endpoint), y_endpoint(n_endpoint));
+    [matriu_nova_perimetral, ~, ~, matsort_perimetral, punt_centr_perimetral] = matrix_new(BW_perimeter, round(double(valors_endopints(n_endpoint)))+1 +val_ext_mat, x_endpoint(n_endpoint), y_endpoint(n_endpoint));
     % figure; imshow(matriu_nova_perimetral, 'InitialMagnification','fit')
     
     % The same, with the skeletonized image
-    [matriu_nova_skel, ~, ~, ~, ~] = matriu_nova(BW_skel, round(double(valors_endopints(n_endpoint)))+1 +val_ext_mat, x_endpoint(n_endpoint), y_endpoint(n_endpoint));
+    [matriu_nova_skel, ~, ~, ~, ~] = matrix_new(BW_skel, round(double(valors_endopints(n_endpoint)))+1 +val_ext_mat, x_endpoint(n_endpoint), y_endpoint(n_endpoint));
     % figure; imshow(matriu_nova_skel, 'InitialMagnification','fit')
     
     %imshow(imoverlay(matriu_nova_perimetral, matriu_nova_skel, "r"))

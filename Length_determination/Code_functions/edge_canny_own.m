@@ -10,14 +10,14 @@ BW_edge_approxcanny_cropped = edge(imadjust(im2gray(imageArray_cropped)), "appro
 %imshow(BW_edge_approxcanny_cropped)
 
 for cada_valor = (0.5:2:100)
-    BW_proba = bwareaopen_percentatge(BW_edge_approxcanny_cropped, cada_valor);
+    BW_proba = bwareaopen_percentage(BW_edge_approxcanny_cropped, cada_valor);
     if unique(BW_proba) == 0
         cada_valor_final = cada_valor_anterior;
         break
     end
     cada_valor_anterior = cada_valor;
 end
-BW_edge_approxcanny_cropped_f = bwareaopen_percentatge(BW_edge_approxcanny_cropped, cada_valor_final);
+BW_edge_approxcanny_cropped_f = bwareaopen_percentage(BW_edge_approxcanny_cropped, cada_valor_final);
 %imshow(BW_edge_approxcanny_cropped_f)
 
 BW_edge_canny_cropped = edge(imadjust(im2gray(imageArray_cropped)), "Canny");
@@ -53,7 +53,7 @@ BW_edges_final_p = bwpropfilt(BW_edges_final_p, "Area", 1, "largest");
 
 % If we only take the largest element of this image:
 % (with the function bwconncomp(BW_edges_final_p, 4) )
-[BW_edges_final_p] = obtenir_major_conected(BW_edges_final_p, 4);
+[BW_edges_final_p] = obtain_major_connected(BW_edges_final_p, 4);
 %imshow(BW_edges_final_p)
 %imshowpair(imageArray_cropped, BW_edges_final_p, "montage")
 

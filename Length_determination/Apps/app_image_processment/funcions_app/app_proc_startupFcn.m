@@ -27,7 +27,7 @@ function app_proc_startupFcn(app)
     % ____Image reading by folder____
     
     % READING .jpg and .png IMAGES from the folder:
-    % [theFiles] = lectura_imatges_carpeta_estr(carpeta_imatges);
+    % [theFiles] = read_imgs_folder_structure(carpeta_imatges);
     
 
     theFiles = app.theFiles_arxiu;
@@ -57,12 +57,12 @@ function app_proc_startupFcn(app)
     
     % Read temporary modifications files
     myFolder_input = "Results_out\Internal_code_files\Image_processing_settings\temporals\";
-    [llistat_string_im_temp] = llegir_arxius_tipologia(myFolder_input, ".txt");          
+    [llistat_string_im_temp] = read_files_typology(myFolder_input, ".txt");          
     app.ModificacionstemporalsListBox.Items = llistat_string_im_temp;
 
     % Read saved modifications files
     myFolder_input = "Results_out\Internal_code_files\Image_processing_settings\"; 
-    [llistat_string_im_guard] = llegir_arxius_tipologia(myFolder_input, ".txt");
+    [llistat_string_im_guard] = read_files_typology(myFolder_input, ".txt");
     app.ModificacionsguardadesListBox.Items = llistat_string_im_guard;
     
 
@@ -76,7 +76,7 @@ function app_proc_startupFcn(app)
     
     if isfile(predefined_file_input)
         % If there exists a text file containing the scale
-        predef_modif_llegida = llegir_text_delimitadors(predefined_file_input, ";");
+        predef_modif_llegida = read_text_delimiters(predefined_file_input, ";");
         predef_modif = predef_modif_llegida{2}; clear predef_modif_llegida  % defines the predefined folder
         
         if ismember(predef_modif, app.ModificacionstemporalsListBox.Items)
@@ -106,7 +106,7 @@ function app_proc_startupFcn(app)
                 % _Update the ListBox_
                 % Temporary Mods
                 myFolder_input = "Results_out\Internal_code_files\Image_processing_settings\temporals\";
-                [llistat_string_im] = llegir_arxius_tipologia(myFolder_input, ".txt");
+                [llistat_string_im] = read_files_typology(myFolder_input, ".txt");
                 % Update the listbox
                 app.ModificacionstemporalsListBox.Items = llistat_string_im;       
                 
@@ -265,7 +265,7 @@ function app_proc_startupFcn(app)
     % Read saved modifications files
     myFolder_input = "Results_out\Internal_code_files\Image_processing_settings\";
     patro_tipus_image = ".txt";
-    [llistat_string_im] = llegir_arxius_tipologia(myFolder_input, patro_tipus_image);
+    [llistat_string_im] = read_files_typology(myFolder_input, patro_tipus_image);
     
     app.ModificacionsguardadesListBox.Items = llistat_string_im;
     
@@ -273,7 +273,7 @@ function app_proc_startupFcn(app)
     % Automation Drop Roll Temporary Modifications
     myFolder_input = "Results_out\Internal_code_files\Image_processing_settings\temporals\";
     patro_tipus_image = ".txt";
-    [llistat_string_im] = llegir_arxius_tipologia(myFolder_input, patro_tipus_image);
+    [llistat_string_im] = read_files_typology(myFolder_input, patro_tipus_image);
                 
     app.ModificacionstemporalsListBox.Items = llistat_string_im;
 

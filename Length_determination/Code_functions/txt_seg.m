@@ -50,8 +50,8 @@ end
 if isfile(arxiu_output) && creacio_arxiu ~= "nou"
     % If the data file exists
     
-    % Function --- llegir_text_delimitadors.m ---
-    array_processos = llegir_text_delimitadors(arxiu_output, delimitador_text);
+    % Function --- read_text_delimiters.m ---
+    array_processos = read_text_delimiters(arxiu_output, delimitador_text);
 
     
     [files_text, columnes_text] = size(array_processos);

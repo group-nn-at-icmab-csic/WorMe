@@ -30,7 +30,7 @@ for n_obj = 1:numel(BB_props)
     % Passem a una sola cell, amb la forma d'estructura:
     field_obj_bndbox = struct("xmin", PascalVOC_prop(1), "ymin", PascalVOC_prop(2), "xmax", PascalVOC_prop(3), "ymax", PascalVOC_prop(4));
 
-    [cell_Pascal_VOC_props] = cell_insert_valors(cell_Pascal_VOC_props, field_obj_bndbox);
+    [cell_Pascal_VOC_props] = cell_insert_values(cell_Pascal_VOC_props, field_obj_bndbox);
 end
 
 % Nº objectes
@@ -50,7 +50,7 @@ struct_all_obj = struct("name", cellstr(repelem(field_obj_name, n_obj)), ...
                     %  'SecondField',num2cell(1:100))
 
 
-[field_filename, field_folder, ~] = separar_file_carpeta(ruta_img);
+[field_filename, field_folder, ~] = divide_file_folder(ruta_img);
 field_path = ruta_img;
 
 

@@ -11,7 +11,7 @@ predefined_folder_input = strcat(userSavedDocuments, "\Results_out\Internal_code
 
 if isfile(predefined_folder_input)
     % If there is a text file that contains the scale
-    predef_folder_llegida = llegir_text_delimitadors(predefined_folder_input, ";");
+    predef_folder_llegida = read_text_delimiters(predefined_folder_input, ";");
     predef_folder_carpeta = predef_folder_llegida{2}; clear predef_folder_llegida  % define the predefined folder
 else
     % If there is not a defined scale, it is saved without a value.

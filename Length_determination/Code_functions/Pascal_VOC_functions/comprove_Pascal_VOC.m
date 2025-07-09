@@ -34,7 +34,7 @@ if isfile(xml_file_2)
     
         BB_prop = pascal_VOC_to_MATLAB_BB_prop(xml_struct.object(n_object).bndbox); % BB en notació MATLAB
     
-        [img_RGB_sortida] = pintar_BB_img_eix(img_RGB_sortida, BB_prop, true, 1);
+        [img_RGB_sortida] = paint_BB_img_axis(img_RGB_sortida, BB_prop, true, 1);
     end
         
     % imshow(img_RGB_sortida)

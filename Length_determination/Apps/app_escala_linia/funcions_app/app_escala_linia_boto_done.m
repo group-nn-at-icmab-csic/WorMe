@@ -15,7 +15,7 @@ function app_escala_linia_boto_done(app)
     write_text_array(arxiu_text_output, escala_write, ";")
 
     % Llegir text
-    %[array_text, string_total] = llegir_text_delimitadors(arxiu_text_output, ";");
+    %[array_text, string_total] = read_text_delimiters(arxiu_text_output, ";");
 
     close all force
 

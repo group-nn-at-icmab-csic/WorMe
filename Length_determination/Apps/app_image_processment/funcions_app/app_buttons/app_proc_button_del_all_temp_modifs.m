@@ -22,7 +22,7 @@ function app_proc_button_del_all_temp_modifs(app)
                 answer_msgebox = 0;
         end 
         
-        valor_modif_perm = separar_puntfile(app.ModificacionsguardadesListBox.Value); % Value of the permanent modification.
+        valor_modif_perm = divide_pointfile(app.ModificacionsguardadesListBox.Value); % Value of the permanent modification.
         
         
         % If it is confirmed that the setting should be deleted, execute:
@@ -52,7 +52,7 @@ function app_proc_button_del_all_temp_modifs(app)
 %     
 %                 
             % Update elements:
-            [llistat_string_im] = llegir_arxius_tipologia("Results_out\Internal_code_files\Image_processing_settings\", ".txt");
+            [llistat_string_im] = read_files_typology("Results_out\Internal_code_files\Image_processing_settings\", ".txt");
             app.ModificacionsguardadesListBox.Items = llistat_string_im;
             
             % Act as if the 'Original' button was pressed

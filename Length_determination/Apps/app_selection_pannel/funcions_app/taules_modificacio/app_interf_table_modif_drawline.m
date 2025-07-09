@@ -45,7 +45,7 @@ function app_interf_table_modif_drawline(app)
 
 
         % ___Definició propietats objecte BW___
-        % Nota: veure creacio_S_textscan_modifs
+        % Nota: veure create_S_textscan_modifs
         
         BW_indx_string = strjoin(string(find(BW_draw)), ";");
         % Nota: BW_indx_string és index de BW objecte i BW skeleton.

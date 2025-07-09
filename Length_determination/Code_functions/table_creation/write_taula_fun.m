@@ -31,7 +31,7 @@ function write_taula_fun(arxiu_dir, table_main, var_disc)
 % write_taula_fun(arxiu_dir, table_S_textscan_tracking_new, "Frame")
 % 
 % % Lectura taula actual per comprovació
-% [S_textscan_table_new] = llegir_dades(arxiu_dir, tipologia_formatspec_table(table_S_textscan_tracking_new), "$", table_S_textscan_tracking_new.Properties.VariableNames);
+% [S_textscan_table_new] = read_data(arxiu_dir, typology_formatspec_table_norm(table_S_textscan_tracking_new), "$", table_S_textscan_tracking_new.Properties.VariableNames);
 % 
 % S_textscan_table_new
 %
@@ -48,7 +48,7 @@ end
 if isfile(arxiu_dir)
     
     % Lectura taula actual
-    [S_textscan_table] = llegir_dades(arxiu_dir, tipologia_formatspec_table(table_main), "$", table_main.Properties.VariableNames);
+    [S_textscan_table] = read_data(arxiu_dir, typology_formatspec_table_norm(table_main), "$", table_main.Properties.VariableNames);
     
     % Si no hi és en la taula, afegeix (add):
     if ~ismember(double(table_main.(var_disc)), double(S_textscan_table.(var_disc)))

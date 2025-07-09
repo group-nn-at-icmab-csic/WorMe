@@ -14,7 +14,7 @@ function app_proc_button_add_modif(app)
     
     n_Modif_img = 1; % Number of names containing 'n_Modif_img'.
     for cada_item = total_items
-        item_n = cada_item{1}; item_n_nom = separar_puntfile(item_n);
+        item_n = cada_item{1}; item_n_nom = divide_pointfile(item_n);
         if contains(item_n_nom, 'Modif_img'); n_Modif_img = n_Modif_img +1; end % If it contains the modification name
     end
     
@@ -54,8 +54,8 @@ function app_proc_button_add_modif(app)
         if ~isempty(answer_resposta) && answer_resposta ~= ""
             % If there are files with the same name
             [llistat_string_im] = [... 
-                llegir_arxius_tipologia("Results_out\Internal_code_files\Image_processing_settings\temporals\", ".txt"), ...
-                llegir_arxius_tipologia("Results_out\Internal_code_files\Image_processing_settings\", ".txt")];
+                read_files_typology("Results_out\Internal_code_files\Image_processing_settings\temporals\", ".txt"), ...
+                read_files_typology("Results_out\Internal_code_files\Image_processing_settings\", ".txt")];
             
             splitat_arxius = split(llistat_string_im, ".txt");
             
@@ -96,7 +96,7 @@ function app_proc_button_add_modif(app)
     
     if write_arxiu_txt
         % Update List box
-        [llistat_string_im] = llegir_arxius_tipologia("Results_out\Internal_code_files\Image_processing_settings\temporals\", ".txt");
+        [llistat_string_im] = read_files_typology("Results_out\Internal_code_files\Image_processing_settings\temporals\", ".txt");
         app.ModificacionstemporalsListBox.Items = llistat_string_im;
     
         resposta_answer_list = strcat(answer_resposta, ".txt");

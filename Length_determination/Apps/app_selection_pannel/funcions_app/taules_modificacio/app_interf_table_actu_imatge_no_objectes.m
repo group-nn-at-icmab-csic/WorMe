@@ -5,7 +5,7 @@ function app_interf_table_actu_imatge_no_objectes(app)
 
 
     [imatge_original, ~] = app_interf_obtain_original(app, str2double(app.img_contLabel.Text)); %  imatge original
-    app.Image.ImageSource = imatge_sense_objectes(imatge_original);
+    app.Image.ImageSource = image_without_objects(imatge_original);
 
     % Actu botons
     app_interf_table_actu_botons_objectes(app, false)

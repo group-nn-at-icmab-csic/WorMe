@@ -27,7 +27,7 @@ function app_proc_button_return_modif(app)
 
     % Delete the last line of the text:
     % Note: Code adapted exclusively for combination with f'txt_seg'
-    [array_processos, ~] = llegir_text_delimitadors(field_set, ";");
+    [array_processos, ~] = read_text_delimiters(field_set, ";");
     
     [files_ar, ~] = size(array_processos);
     
@@ -47,7 +47,7 @@ function app_proc_button_return_modif(app)
 
     % __Print in Modificacions__
     % Get array reading from text document and print it            
-    [array_sortida_modifs, ~] = llegir_text_delimitadors(field_set, ";");
+    [array_sortida_modifs, ~] = read_text_delimiters(field_set, ";");
     [x_rows_arrayproc, ~] = size(array_sortida_modifs);
     % If there are no modifications:
     if x_rows_arrayproc < 2
@@ -69,14 +69,14 @@ function app_proc_button_return_modif(app)
         
         % IMAGE MODIFICATION
         % Image processing
-        [BW_final, ~] = processament_imatge_llistat(imatge_original, array_processaments);
+        [BW_final, ~] = processment_img_list(imatge_original, array_processaments);
         
         % Plotting
-        [imatge_3D_sortida] = graficar_rgbgraybw_image(BW_final);
+        [imatge_3D_sortida] = graph_rgbgraybw_image(BW_final);
         app.Image.ImageSource = imatge_3D_sortida;
         
         % Get number of binary objects:
-        app.num_objectes_binarisLabel.Text = obtenir_num_BW(BW_final);                         
+        app.num_objectes_binarisLabel.Text = obtain_num_BW(BW_final);                         
     
     end
 
@@ -90,7 +90,7 @@ function app_proc_button_return_modif(app)
         ultima_modificacio = array_processaments(end);
         
         % Get its name
-        [tipus_im_modif, ~] = obtencio_tipologia_llistat(ultima_modificacio);
+        [tipus_im_modif, ~] = obtain_list_typology(ultima_modificacio);
     end
     
     

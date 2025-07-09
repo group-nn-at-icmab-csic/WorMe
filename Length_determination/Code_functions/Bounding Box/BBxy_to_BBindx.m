@@ -14,13 +14,13 @@ function [index_punts] = BBxy_to_BBindx(BB_punts, BW_size)
 %
 %
 % See also:
-% pintar_indx_to_RGB
+% paint_indx_to_RGB
 
 
 % START FUNCTION
 
 % _Correcting measurements if they are out of the image_
-[BB_punts] = correccio_sortida_dimensios(BB_punts, BW_size); %ex: 1080        1920
+[BB_punts] = dimension_output_correction(BB_punts, BW_size); %ex: 1080        1920
 
 x_punt = ceil(BB_punts(1)); y_punt = ceil(BB_punts(2)); w_punt = ceil(BB_punts(3)); h_punt = ceil(BB_punts(4));
 

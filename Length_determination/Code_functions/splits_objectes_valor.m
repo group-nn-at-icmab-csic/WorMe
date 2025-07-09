@@ -22,7 +22,7 @@ function [split_arxiu_sortida] = splits_objectes_valor(string_to_split, delimita
 %
 %
 % See also:
-% separar_puntfile
+% divide_pointfile
 
 % Split file:
 split_arxiu = strsplit(string_to_split, delimitador);

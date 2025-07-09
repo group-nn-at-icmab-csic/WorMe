@@ -20,7 +20,7 @@ function app_escala_auto_boto_zoom(app)
         close
         xy_punts_a_retall = floor(xy_punts_a_retall);
         
-        [imatge_primera_retallada] = retallar_imatges_punts(imatge_principal, xy_punts_a_retall);
+        [imatge_primera_retallada] = cut_imgs_points(imatge_principal, xy_punts_a_retall);
         
         app.Image.ImageSource = imatge_primera_retallada;
         % imshow(imatge_primera_retallada, 'Parent', app.UIAxes);

@@ -11,7 +11,7 @@ function [imatge_original, nom_img_original] = app_interf_obtain_original(app, n
 carpeta_imatges = app.dir_imgs_orig;
 
 % LECTURA IMATGES .jpg i .png de la carpeta:
-% [theFiles] = lectura_imatges_carpeta_estr(carpeta_imatges);
+% [theFiles] = read_imgs_folder_structure(carpeta_imatges);
 theFiles = app.theFiles_arxiu;
 
 % Obtencio imatge

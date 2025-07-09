@@ -30,7 +30,7 @@ function app_interf_table_modif_tisores(app)
 %         % __Possible retallat imatge__
 %     if ~isempty(app.imcrop_value)
 %        % Retallem la imatge
-%         [RGB_to_color_new] = retallar_imatges_punts(RGB_to_color_new, app.imcrop_value);
+%         [RGB_to_color_new] = cut_imgs_points(RGB_to_color_new, app.imcrop_value);
     
 
 

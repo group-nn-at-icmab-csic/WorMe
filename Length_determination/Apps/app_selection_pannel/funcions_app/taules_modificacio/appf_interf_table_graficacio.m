@@ -25,9 +25,9 @@ function appf_interf_table_graficacio(app, main_table_actual_last, main_table_ac
         % RGB_to_color_new = imoverlay(RGB_to_color_new, BW_object, "r");
 
         indx_endpoints_BWskel = find(bwmorph(BW_skel, 'endpoints'));
-        [indx_BWskel_obj_fin] = eixamplar_indx_noendpoints(find(BW_skel), indx_endpoints_BWskel, size(BW_skel));
+        [indx_BWskel_obj_fin] = wide_indx_nonendpoints(find(BW_skel), indx_endpoints_BWskel, size(BW_skel));
         % Pintar els indx
-        [RGB_to_color_new] = pintar_indx_to_RGB(RGB_to_color_new, indx_BWskel_obj_fin, "black");
+        [RGB_to_color_new] = paint_indx_to_RGB(RGB_to_color_new, indx_BWskel_obj_fin, "black");
 
         % __Objecte principal__
         BB_BWproces = appf_split_strindex_BB(no_modified_object.Bounding); % Bounding Box    
@@ -35,8 +35,8 @@ function appf_interf_table_graficacio(app, main_table_actual_last, main_table_ac
         % Bounding Box
         BB_BWproces = BB_BWproces + [-prop_ext_BB -prop_ext_BB +prop_ext_BB*2 +prop_ext_BB*2];
         [BB_index_punts] = BBxy_to_BBindx(BB_BWproces, size(BW_object));
-        indx_BB_BW_objecte_eixmp = eixamplar_indx_BB(BB_index_punts, 2, size(BW_object));    % Eixamplem els index:
-        [RGB_to_color_new] = pintar_indx_to_RGB(RGB_to_color_new, indx_BB_BW_objecte_eixmp, "red");
+        indx_BB_BW_objecte_eixmp = wide_indx_BB(BB_index_punts, 2, size(BW_object));    % Eixamplem els index:
+        [RGB_to_color_new] = paint_indx_to_RGB(RGB_to_color_new, indx_BB_BW_objecte_eixmp, "red");
 
         % Dades llargada
         BB_val_xy = [BB_BWproces(:,1) + BB_BWproces(:,3), BB_BWproces(:,2) - 20]; % BB Text dades
@@ -45,9 +45,9 @@ function appf_interf_table_graficacio(app, main_table_actual_last, main_table_ac
         RGB_to_color_new = insertText(RGB_to_color_new, BB_val_xy, strcat("Length: ", string(length_dades_graficar)), 'BoxColor', "yellow", 'FontSize', round((prop_ext_BB)^(2/3)));
         
         % Grafiquem imatge objecte BW
-        [BW_ini_regio_cropped, ~] = retallar_BWimatge_BB(BW_object, 3);
+        [BW_ini_regio_cropped, ~] = cut_BB_BW_image_1(BW_object, 3);
         app.Image4.Visible = 'on';
-        app.Image4.ImageSource = graficar_rgbgraybw_image(BW_ini_regio_cropped);
+        app.Image4.ImageSource = graph_rgbgraybw_image(BW_ini_regio_cropped);
         app.BW_img_extend = BW_object;
         app.BW_img_cuted = BW_ini_regio_cropped;
     else
@@ -67,8 +67,8 @@ function appf_interf_table_graficacio(app, main_table_actual_last, main_table_ac
         RGB_to_color_new = insertText(RGB_to_color_new, BB_values_read_xy, strcat("Length: ", string(round(str2double(main_table_isyes.Length)))), 'BoxColor', "green", 'FontSize', round((prop_ext_BB)^(2/3)) ); % Elapsed time is 0.002617 seconds.
        
         % Esquel
-        [indx_Skel_eix] = eixamplar_indx_BB(appf_split_strindex(main_table_isyes.Indx_skel), 1, appf_split_strindex(main_table_isyes(1,:).Resolution)');
-        [RGB_to_color_new] = pintar_indx_to_RGB(RGB_to_color_new, indx_Skel_eix, "black");
+        [indx_Skel_eix] = wide_indx_BB(appf_split_strindex(main_table_isyes.Indx_skel), 1, appf_split_strindex(main_table_isyes(1,:).Resolution)');
+        [RGB_to_color_new] = paint_indx_to_RGB(RGB_to_color_new, indx_Skel_eix, "black");
         % Elapsed time is 0.004696 seconds.
 
 
@@ -124,14 +124,14 @@ function appf_interf_table_graficacio(app, main_table_actual_last, main_table_ac
             indx_tot_BB = [indx_tot_BB; BB_index_punts];
         end
        
-        [RGB_to_color_new] = pintar_indx_to_RGB(RGB_to_color_new, indx_tot_BB, "red");
+        [RGB_to_color_new] = paint_indx_to_RGB(RGB_to_color_new, indx_tot_BB, "red");
         
     end
 
     % __Possible retallat imatge__
     if ~isempty(app.imcrop_value)
        % Retallem la imatge
-        [RGB_to_color_new] = retallar_imatges_punts(RGB_to_color_new, app.imcrop_value);
+        [RGB_to_color_new] = cut_imgs_points(RGB_to_color_new, app.imcrop_value);
     else
         app.LupaReturnButton.Visible = 'off';
     end

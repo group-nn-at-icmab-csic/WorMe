@@ -124,7 +124,7 @@ try
         
         
         % Widen the pixels of the line
-        [total_indx_fin] = eixamplar_indx_BB(find(zeros_imatge_cotxe_punts_units), val_exampl, size(zeros_imatge_cotxe_punts_units));
+        [total_indx_fin] = wide_indx_BB(find(zeros_imatge_cotxe_punts_units), val_exampl, size(zeros_imatge_cotxe_punts_units));
         zeros_imatge_cotxe_punts_units(total_indx_fin) = 1;
         
         

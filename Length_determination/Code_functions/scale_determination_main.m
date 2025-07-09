@@ -21,7 +21,7 @@ function [escala_imatge] = scale_determination_main(userSavedDocuments, theFiles
     
     if isfile(text_escala_internal_code_files)
         % If a text file exists that contains the scale
-        escala_llegida = llegir_text_delimitadors(text_escala_internal_code_files, ";");
+        escala_llegida = read_text_delimiters(text_escala_internal_code_files, ";");
         escaL = escala_llegida{1,2}; % es defineix la escala predefinida
     else
         % If there is no defined scale, it is saved without a value.
@@ -29,7 +29,7 @@ function [escala_imatge] = scale_determination_main(userSavedDocuments, theFiles
     end
     
     % __Scale obtention__
-    escala_imatge = escala_determinar(imageArray_escala, escaL);
+    escala_imatge = scale_determine(imageArray_escala, escaL);
     % escala_imatge = 1.14  %pixels/unit
     
     % _Write predefined scale_

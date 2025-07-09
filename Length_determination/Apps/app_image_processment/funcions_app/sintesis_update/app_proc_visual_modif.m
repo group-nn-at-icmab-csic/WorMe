@@ -32,7 +32,7 @@ function app_proc_visual_modif(app)
 % 
 % See also:
 % app_proc_obtenir_array_modificacions
-% processament_imatge_llistat
+% processment_img_list
 
 
 
@@ -45,7 +45,7 @@ function app_proc_visual_modif(app)
 
     % Modify the original image and display it:
     imatge_original = imread(app.vapp_ruta_img_origin);
-    [BW_final, ~] = processament_imatge_llistat(imatge_original, array_processaments);
+    [BW_final, ~] = processment_img_list(imatge_original, array_processaments);
 
     % Plot the image
     app_proc_graficar_segons_boto(app, imatge_original, BW_final, tipus_im_modif)

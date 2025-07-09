@@ -36,7 +36,7 @@ function app_interf_table_modif_extend(app)
 
             % Modifiquem objecte actual:
             no_modified_object_modificada(1,:).Indx_BW = strjoin(string(find(bwlabel_BW_obj_sumatlinia)), ";"); %find(bwlabel_BW_obj_sumatlinia)
-            % Nota: veure f'creacio_S_textscan_modifs'
+            % Nota: veure f'create_S_textscan_modifs'
 
 
             % Re-definim els valors morfològics de la imatge

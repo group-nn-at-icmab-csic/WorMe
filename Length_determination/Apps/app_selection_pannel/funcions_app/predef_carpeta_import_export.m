@@ -36,7 +36,7 @@ function [predef_folder_carpeta] = predef_carpeta_import_export(app, str_tipu_ex
     
             if isfile(predefined_folder_input)
                 % Si existeix un arxiu de text que contingui l'escala
-                predef_folder_llegida = llegir_text_delimitadors(predefined_folder_input, ";");
+                predef_folder_llegida = read_text_delimiters(predefined_folder_input, ";");
                 predef_folder_carpeta = predef_folder_llegida{2}; % es defineix la carpeat predefinida
             else
                 % Si no existeix una escala definida, es guarda sense valor.

@@ -57,9 +57,9 @@ function app_interf_taula_modif_thick(app)
     app_interf_determinar_ultim_object(app, BB_values, "thick")
 
 
-%     [imageArray_crop, BW_filt_crop, BB_values, proporcio_img] = retallar_BWRGBimatge_BB_nou(imatge_original, BW_final_object, 5);
+%     [imageArray_crop, BW_filt_crop, BB_values, proporcio_img] = cut_BB_BW_RGB_image(imatge_original, BW_final_object, 5);
 %     % Mostrem en imatge inferior:
-%     app.Image4.ImageSource = graficar_rgbgraybw_image(BW_filt_crop);
+%     app.Image4.ImageSource = graph_rgbgraybw_image(BW_filt_crop);
 
 
 

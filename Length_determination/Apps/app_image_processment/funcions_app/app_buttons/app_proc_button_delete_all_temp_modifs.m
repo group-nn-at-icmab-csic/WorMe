@@ -37,7 +37,7 @@ function app_proc_button_delete_all_temp_modifs(app)
             elseif patro_tipus_image == ".png"
                 myFolder_input = "Apps\app_image_processment\Internal code files\Image processing settings\temporals\settings_imatges\";
             end
-            [llistat_string_im] = llegir_arxius_tipologia(myFolder_input, patro_tipus_image);
+            [llistat_string_im] = read_files_typology(myFolder_input, patro_tipus_image);
             
            
             for cada_arxiu = 1:length(llistat_string_im)
@@ -55,7 +55,7 @@ function app_proc_button_delete_all_temp_modifs(app)
 
     % Update the List de modificacions
     % Update elements:
-    [llistat_string_im] = llegir_arxius_tipologia("Results_out\Internal_code_files\Image_processing_settings\temporals\", ".txt");
+    [llistat_string_im] = read_files_typology("Results_out\Internal_code_files\Image_processing_settings\temporals\", ".txt");
     app.ModificacionstemporalsListBox.Items = llistat_string_im;
     
 

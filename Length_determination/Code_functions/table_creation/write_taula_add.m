@@ -16,13 +16,13 @@ function write_taula_add(arxiu_dir, table_main, separador)
 % write_taula_sense_ultima_fila("Josep_proba.txt", taula_ex , "$");
 % 
 % % Comprovació
-% [S_textscan_table_newJosep] = llegir_dades("Josep_proba.txt", tipologia_formatspec_table(taula_ex ), "$", taula_ex .Properties.VariableNames);
+% [S_textscan_table_newJosep] = read_data("Josep_proba.txt", typology_formatspec_table_norm(taula_ex ), "$", taula_ex .Properties.VariableNames);
 % S_textscan_table_newJosep
 %
 % See also
 % write_taula_sense_ultima_fila
-% llegir_dades
-% tipologia_formatspec_table
+% read_data
+% typology_formatspec_table_norm
 
 
 
@@ -48,14 +48,14 @@ if line == -1
 
     % No se li posa espai inicial.
     fid = fopen(arxiu_dir,'a+');
-    fprintf(fid, tipologia_formatspec_table_separador(table_main, separador), table_celled{:});
-    % Nota: sino funciona fer servir funció f'tipologia_formatspec_table'
+    fprintf(fid, typology_formatspec_table_sep(table_main, separador), table_celled{:});
+    % Nota: sino funciona fer servir funció f'typology_formatspec_table_norm'
     fclose(fid);    
     
 else
 
     fid = fopen(arxiu_dir,'a+');
-    fprintf(fid, strcat("\n", tipologia_formatspec_table_separador(table_main, separador)), table_celled{:});
+    fprintf(fid, strcat("\n", typology_formatspec_table_sep(table_main, separador)), table_celled{:});
     fclose(fid);    
     
 end
@@ -64,7 +64,7 @@ end
 
 
 % % Obtenim propietats de la taula:
-% formatSpec_arxiu = tipologia_formatspec_table(table_main);
+% formatSpec_arxiu = typology_formatspec_table_norm(table_main);
 % Variablenames_taula = table_main.Properties.VariableNames;
 
 

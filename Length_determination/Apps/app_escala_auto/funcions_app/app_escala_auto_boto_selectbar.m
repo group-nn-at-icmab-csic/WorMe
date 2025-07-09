@@ -127,7 +127,7 @@ function app_escala_auto_boto_selectbar(app)
             
             
             % Ficar text pixels
-            %[imatge_final_punts_amb_text] = ficar_text_imatge(imatge_final_punts, "Horizontal Pixel distance: ", llargada_metro, "rescale");
+            %[imatge_final_punts_amb_text] = put_txt_to_img(imatge_final_punts, "Horizontal Pixel distance: ", llargada_metro, "rescale");
             app.Image.ImageSource = imatge_final_punts;
             % imshow(imatge_final_punts, 'Parent', app.UIAxes);
             

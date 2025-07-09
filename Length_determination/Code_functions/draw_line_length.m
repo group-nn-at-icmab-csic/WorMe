@@ -112,7 +112,7 @@ try
     dades_imatge = Area_Josep_scaled;
 
     % _By sum of the distance between the defined points (Fiji error)_
-    [Area_Josep2] = ditancia_varis_punts(ep_rounded); % Legth of the defined points.    
+    [Area_Josep2] = distance_many_points(ep_rounded); % Legth of the defined points.    
 
     Area_Josep_scaled_2 = Area_Josep2 / escala_imatge; % Multiplies by the scale ratio (pixels / unit)
     

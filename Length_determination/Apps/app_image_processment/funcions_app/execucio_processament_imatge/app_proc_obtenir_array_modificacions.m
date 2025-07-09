@@ -18,7 +18,7 @@ function [array_processaments, tipus_im_modif] = app_proc_obtenir_array_modifica
     end
 
     % we obtain the array from reading the text document and print it
-    [array_sortida_modifs, ~] = llegir_text_delimitadors(field_set, ";");
+    [array_sortida_modifs, ~] = read_text_delimiters(field_set, ";");
 
     % Operate
     cell_cont = array_sortida_modifs(2:end, 2);
@@ -40,7 +40,7 @@ function [array_processaments, tipus_im_modif] = app_proc_obtenir_array_modifica
         ultima_modificacio = array_processaments(end);
         
         % We get the name of this
-        [tipus_im_modif, ~] = obtencio_tipologia_llistat(ultima_modificacio);
+        [tipus_im_modif, ~] = obtain_list_typology(ultima_modificacio);
     end          
 
 

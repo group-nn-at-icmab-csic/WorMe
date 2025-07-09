@@ -45,7 +45,7 @@ for cada_x = 1:length(x_branch)
     y_branch_point = y_branch(cada_x);
     
     % Obtain the surrounding matrix to the specific pixel of the branchpoint
-    [matriu_nova_v, ~, ~, ~, punt_centr] = matriu_nova(BW_skel_image, 1, x_branch_point, y_branch_point);
+    [matriu_nova_v, ~, ~, ~, punt_centr] = matrix_new(BW_skel_image, 1, x_branch_point, y_branch_point);
     
     % % With central point
     % matriu_nova_v
@@ -77,7 +77,7 @@ for cada_x = 1:length(x_branch)
         n_three_nonconnpx = n_three_nonconnpx +1;
 
         % Graph
-        % [BW_retallada_skel, ~, ~, ~, ~] = matriu_nova(BW_skel_image, 5, x_branch_point, y_branch_point);
+        % [BW_retallada_skel, ~, ~, ~, ~] = matrix_new(BW_skel_image, 5, x_branch_point, y_branch_point);
         % BW_retallada_skel_indx = false(size(BW_retallada_skel)); BW_retallada_skel_indx(6,6) = true;
         % figure; imshow(imoverlay(BW_retallada_skel, BW_retallada_skel_indx, "r"), 'InitialMagnification','fit')
         %BW_label_matrix = labelmatrix(bwconncomp(BW_new_branch_lit_new, 8));
@@ -128,8 +128,8 @@ for cada_x = 1:length(x_branch)
     % BW_zeros_BWskel = false(size(BW_skel_image)); BW_zeros_BWskel(indx_new_branch) = true;
     %imshow(BW_zeros_BWskel, 'InitialMagnification','fit')
     % Si hol volem graficar millor
-    % [BW_retallada_skel, ~, ~, ~, ~] = matriu_nova(BW_skel_image, 5, x_branch_point, y_branch_point);
-    % [BW_retallada_skel_indx, ~, ~, ~, ~] = matriu_nova(BW_zeros_BWskel, 5, x_branch_point, y_branch_point);
+    % [BW_retallada_skel, ~, ~, ~, ~] = matrix_new(BW_skel_image, 5, x_branch_point, y_branch_point);
+    % [BW_retallada_skel_indx, ~, ~, ~, ~] = matrix_new(BW_zeros_BWskel, 5, x_branch_point, y_branch_point);
     % BW_imoverlay = imoverlay(BW_retallada_skel, BW_retallada_skel_indx, "r");
     % BW_imoverlay(6,6,:) = [0, 255, 0];
     % figure; imshow(BW_imoverlay, 'InitialMagnification','fit')

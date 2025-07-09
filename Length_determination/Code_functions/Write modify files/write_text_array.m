@@ -21,20 +21,20 @@ function write_text_array(arxiu_text_output, dades_write, separador)
 % % Create the text, with f'write_text_array': 
 % write_text_array("asdf.txt", dades_write, ";")
 % 
-% % Read the created text, with  f'llegir_text_delimitadors'
-% [cell_text, string_total] = llegir_text_delimitadors("asdf.txt", ";")
+% % Read the created text, with  f'read_text_delimiters'
+% [cell_text, string_total] = read_text_delimiters("asdf.txt", ";")
 %
-% Example 2: with llegir_text_delimitadors
+% Example 2: with read_text_delimiters
 % % Create text
 % arxiu_text_output = "C:\Users\Josep TOSHIBA\Desktop\Length determination v2_8\Results_out\_Internal_code_files\escale_line.txt";
 % escala_write = ["escala", "654.23"];
 % write_text_array(arxiu_text_output, escala_write, ";")
 % 
 % % Read text
-% [array_text, string_total] = llegir_text_delimitadors(arxiu_text_output, ";");
+% [array_text, string_total] = read_text_delimiters(arxiu_text_output, ";");
 %
 % See also:
-% llegir_text_delimitadors
+% read_text_delimiters
 
 % START FUNCTION
 

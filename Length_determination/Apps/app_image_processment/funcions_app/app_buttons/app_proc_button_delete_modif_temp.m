@@ -25,7 +25,7 @@ function app_proc_button_delete_modif_temp(app)
         end 
         
 
-        valor_modif_perm = separar_puntfile(app.ModificacionstemporalsListBox.Value); % Value of the permanent modification.
+        valor_modif_perm = divide_pointfile(app.ModificacionstemporalsListBox.Value); % Value of the permanent modification.
         
         
         % If it is confirmed that it should be deleted, execute:
@@ -41,7 +41,7 @@ function app_proc_button_delete_modif_temp(app)
 
 
         % Update elements:
-        [llistat_string_im] = llegir_arxius_tipologia("Results_out\Internal_code_files\Image_processing_settings\temporals\", ".txt");
+        [llistat_string_im] = read_files_typology("Results_out\Internal_code_files\Image_processing_settings\temporals\", ".txt");
         app.ModificacionstemporalsListBox.Items = llistat_string_im;
         
         % Act as if the 'Original' button was pressed

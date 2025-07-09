@@ -54,7 +54,7 @@ end
 %imatge_arxi_ciru = imread("tempraryFile_image_round_identif.png");
 %delete tempraryFile_image_round_identif.png
 
-imatge_arxi_ciru = ficar_text_imatge(imatge_circle, "Circularity: ", string(round(metric_conjunts, 2)), "auto");
+imatge_arxi_ciru = put_txt_to_img(imatge_circle, "Circularity: ", string(round(metric_conjunts, 2)), "auto");
 
 % imshow(imatge_arxi_ciru)
 

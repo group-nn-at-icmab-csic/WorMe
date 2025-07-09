@@ -128,7 +128,7 @@ if proc_BW && num==0
     % Mostrar la imatge però sols es poden passar els botóns. Que no hi hagi thick o cross.
 
     app.RightButton.Visible = 'on';
-    [nonobj_imageArray_ambtext] = imatge_sense_objectes(imatge_original);
+    [nonobj_imageArray_ambtext] = image_without_objects(imatge_original);
     app.Image.ImageSource = nonobj_imageArray_ambtext;
 
     % No es guarda ni es mostra el contingut del següent objecte, això passarà una vegada la següent imatge.

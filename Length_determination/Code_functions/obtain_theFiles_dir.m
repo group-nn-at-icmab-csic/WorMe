@@ -39,7 +39,7 @@ predefined_folder_input = strcat(userSavedDocuments, "\Results_out\Internal_code
 
 if isfile(predefined_folder_input)
     % If a text file exists that contains the scale
-    predef_folder_llegida = llegir_text_delimitadors(predefined_folder_input, ";");
+    predef_folder_llegida = read_text_delimiters(predefined_folder_input, ";");
     predef_folder_carpeta = predef_folder_llegida{2}; clear predef_folder_llegida  % es defineix la carpeat predefinida
 else
     % If there is no defined scale, it is saved without a value.
@@ -67,7 +67,7 @@ if ~isequal(carpeta_input, 0)
     myFolder = carpeta_input;
     
     % IMAGES LECTURE .jpg and .png of the folder:
-    [theFiles] = lectura_imatges_carpeta_estr(myFolder);  %Elapsed time is 0.005087 seconds
+    [theFiles] = read_imgs_folder_structure(myFolder);  %Elapsed time is 0.005087 seconds
     
     if isempty(theFiles)
         errordlg('There is no images on the selected folder');

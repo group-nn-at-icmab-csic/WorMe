@@ -39,7 +39,7 @@ else
         carpeta_imatges = app.dir_imgs_orig;
 
         % LECTURA IMATGES .jpg i .png de la carpeta:
-        [theFiles] = lectura_imatges_carpeta_estr(carpeta_imatges);
+        [theFiles] = read_imgs_folder_structure(carpeta_imatges);
 
         % Obtencio imatge
         baseFileName = theFiles(n_imatge).name;
@@ -53,10 +53,10 @@ else
 
         % _Processem la imatge_            
         % Llegir arxiu i mostrar en Label Modificacions
-        [array_processaments] = obtenir_array_processaments(strcat("Apps\app_image_processment\Internal code files\Image processing settings\", string(app.ModificacionsguardadesListBox.Value)));
+        [array_processaments] = obtain_array_processments(strcat("Apps\app_image_processment\Internal code files\Image processing settings\", string(app.ModificacionsguardadesListBox.Value)));
 
         % Modifiquem la imatge original i la mostrem: 
-         [BW_final, ~] = processament_imatge_llistat(imatge_original, array_processaments); 
+         [BW_final, ~] = processment_img_list(imatge_original, array_processaments); 
          % Guardem la imatge en PNG:
          imwrite(BW_final, strcat(dir_output, "\imgBWtemp.png"));
 

@@ -18,7 +18,7 @@ function [RGB_to_color_new] = print_RGB_indx_brush(RGB_to_color, indx_to_paint, 
 % imshow(imageArray_new)
 % 
 % See also
-% pintar_indx_to_RGB
+% paint_indx_to_RGB
 
 
 % START FUNCTION

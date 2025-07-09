@@ -67,8 +67,8 @@ function app_proc_button_rename(app)
         
         % If files with the same name exist
         [llistat_string_im] = [...
-            llegir_arxius_tipologia("Results_out\Internal_code_files\Image_processing_settings\temporals\", ".txt"), ...
-            llegir_arxius_tipologia("Results_out\Internal_code_files\Image_processing_settings\", ".txt")];
+            read_files_typology("Results_out\Internal_code_files\Image_processing_settings\temporals\", ".txt"), ...
+            read_files_typology("Results_out\Internal_code_files\Image_processing_settings\", ".txt")];
         
         splitat_arxius = split(llistat_string_im, ".txt");
         
@@ -104,7 +104,7 @@ function app_proc_button_rename(app)
                 % Read saved modifications files
                 myFolder_input = "Results_out\Internal_code_files\Image_processing_settings\temporals\";
                 patro_tipus_image = ".txt";
-                [llistat_string_im] = llegir_arxius_tipologia(myFolder_input, patro_tipus_image);
+                [llistat_string_im] = read_files_typology(myFolder_input, patro_tipus_image);
     
                 % Update the listbox
                 app.ModificacionstemporalsListBox.Items = llistat_string_im;    
@@ -116,7 +116,7 @@ function app_proc_button_rename(app)
                 % Read saved modifications files
                 myFolder_input = "Results_out\Internal_code_files\Image_processing_settings\";
                 patro_tipus_image = ".txt";
-                [llistat_string_im] = llegir_arxius_tipologia(myFolder_input, patro_tipus_image);
+                [llistat_string_im] = read_files_typology(myFolder_input, patro_tipus_image);
     
                 % Update the listbox
                 app.ModificacionsguardadesListBox.Items = llistat_string_im;    

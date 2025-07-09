@@ -29,7 +29,7 @@ function app_proc_button_imadjust_select(app)
     fullFileName = app.vapp_ruta_img_origin;
     imatge_original = imread_ifgrey(fullFileName);
     % Image processing
-    [BW_final, ~] = processament_imatge_llistat(imatge_original, array_processaments);
+    [BW_final, ~] = processment_img_list(imatge_original, array_processaments);
 
     % Crop
     img_example_crop = imcrop(BW_final); close

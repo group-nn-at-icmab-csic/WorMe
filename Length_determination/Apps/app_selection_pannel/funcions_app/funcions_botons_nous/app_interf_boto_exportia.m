@@ -18,7 +18,7 @@ function app_interf_boto_exportia(app)
             % Carpeta imatges (sols per guardar el path d'aquestes)
             dir_img_originals = app.dir_imgs_orig;
             str_folder_t = strsplit(dir_img_originals, "\"); str_folder = str_folder_t{end};
-            [dir_main_save_folder, indx_decisio] = determina_path_zip(predef_folder_carpeta, str_folder);
+            [dir_main_save_folder, indx_decisio] = determine_path_zip(predef_folder_carpeta, str_folder);
 
             if indx_decisio
 %             % Si es selecciona algo:
@@ -34,7 +34,7 @@ function app_interf_boto_exportia(app)
                 % _LECTURA DE DADES_
                 tipus_lectura = "%s%s%s%s%s%s%s%s%s";
                 variable_names = {'IsCeleg', 'NomWorm', 'Length', 'Bounding', 'Modifs', 'Indx_skel', 'Indx_BW', 'WidthValues', 'Resolution'};
-                [S_textscan_table] = llegir_dades(strcat(app.appv_dir_output, "\main_data_analysis.txt"), tipus_lectura, "$", variable_names);
+                [S_textscan_table] = read_data(strcat(app.appv_dir_output, "\main_data_analysis.txt"), tipus_lectura, "$", variable_names);
                 
                 % Exportació de les dades
                 % dir_img_originals : 'C:\Users\jllobet\Desktop\Length determination v2_15\_Imatges exemple\Amanda_Controls\C_24'

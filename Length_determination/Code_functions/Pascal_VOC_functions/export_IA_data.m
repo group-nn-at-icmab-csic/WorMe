@@ -32,7 +32,7 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
     dir_split = strsplit(dir_main_save_folder, "\");
     carpeta_to_save = strjoin(dir_split(1:end-1), "\");
 
-    str_folder = separar_puntfile_nou(dir_split{end}); % Nom definit en .zip. Es guardarà l'arxiu intern de .zip.
+    str_folder = divide_pointfile_large(dir_split{end}); % Nom definit en .zip. Es guardarà l'arxiu intern de .zip.
 
 %     % Separem nom carpeta imatges (si volem guardar amb el nom de la imatge predefinit)
 %     dir_img_split = strsplit(myFolder, "\");
@@ -194,7 +194,7 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
             
             
                     % Nom de la imatge
-                    nom_img = separar_puntfile(S_textscan_table_yes_img(1,:).NomWorm);
+                    nom_img = divide_pointfile(S_textscan_table_yes_img(1,:).NomWorm);
                     ruta_img_name = strcat(myFolder, "\", S_textscan_table_yes_img(1,:).NomWorm);
                     
                     resolution_img = appf_split_strindex(S_textscan_table_yes_img(1,:).Resolution)';             
@@ -204,7 +204,7 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
                         % Obtenim cell dels Bounding Box:
                         cell_BB = {};
                         for row_table = 1:height(S_textscan_table_yes_img)
-                            [cell_BB] = cell_insert_valors(cell_BB, appf_split_strindex_BB(S_textscan_table_yes_img(row_table, :).Bounding));
+                            [cell_BB] = cell_insert_values(cell_BB, appf_split_strindex_BB(S_textscan_table_yes_img(row_table, :).Bounding));
                         end
                 
                         % Ara podem fer el arxiu Pascal VOC?
@@ -224,7 +224,7 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
                 
                             [BW_image] = create_BW_indx(appf_split_strindex(S_textscan_table_yes_img(n_worm,:).Indx_BW), appf_split_strindex(S_textscan_table_yes_img(n_worm,:).Resolution)');
                 
-                            imwrite(BW_image, strcat(dir_mainly_output_yes, "\", dir_save_BW_imgs_1, "\", nom_img, "_", retorna_zeros_un(n_obj_yes), ".png"))
+                            imwrite(BW_image, strcat(dir_mainly_output_yes, "\", dir_save_BW_imgs_1, "\", nom_img, "_", return_zeros_one(n_obj_yes), ".png"))
                 
                             n_obj_yes = n_obj_yes +1;            
                         end
@@ -413,7 +413,7 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
             
             
                     % Nom de la imatge
-                    nom_img = separar_puntfile(S_textscan_table_yes_and_no_img(1,:).NomWorm);
+                    nom_img = divide_pointfile(S_textscan_table_yes_and_no_img(1,:).NomWorm);
                     ruta_img_name = strcat(myFolder, "\", S_textscan_table_yes_and_no_img(1,:).NomWorm);
                     
                     resolution_img = appf_split_strindex(S_textscan_table_yes_and_no_img(1,:).Resolution)';             
@@ -423,16 +423,16 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
                         % Obtenim cell dels Bounding Box:
                         cell_BB = {};
                         for row_table = 1:height(S_textscan_table_yes_and_no_img)
-                            [cell_BB] = cell_insert_valors(cell_BB, appf_split_strindex_BB(S_textscan_table_yes_and_no_img(row_table, :).Bounding));
+                            [cell_BB] = cell_insert_values(cell_BB, appf_split_strindex_BB(S_textscan_table_yes_and_no_img(row_table, :).Bounding));
                         end
                 
                         % Obtneim cell amb les anotacions
                         cell_label_props = {};
                         for row_table = 1:height(S_textscan_table_yes_and_no_img)
                             if isequal(S_textscan_table_yes_and_no_img(row_table, :).IsCeleg, "yes")
-                                cell_label_props = cell_insert_valors(cell_label_props, "Celegans");
+                                cell_label_props = cell_insert_values(cell_label_props, "Celegans");
                             elseif isequal(S_textscan_table_yes_and_no_img(row_table, :).IsCeleg, "no")
-                                cell_label_props = cell_insert_valors(cell_label_props, "NonCelegans");        
+                                cell_label_props = cell_insert_values(cell_label_props, "NonCelegans");        
                             else
                                 error("Error in data processment of previous create_Pascal_VOC_label function")
                             end
@@ -459,12 +459,12 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
                             % es guarda en "\Celeg" & "\NonCeleg"
                             if isequal(S_textscan_table_yes_and_no_img(n_worm,:).IsCeleg, "yes")
         
-                                imwrite(BW_image, strcat(dir_mainly_output_yes_and_no, "\", dir_save_BW_imgs_1, "\Celeg", "\", nom_img, "_", retorna_zeros_un(n_obj_yes), ".png"))
+                                imwrite(BW_image, strcat(dir_mainly_output_yes_and_no, "\", dir_save_BW_imgs_1, "\Celeg", "\", nom_img, "_", return_zeros_one(n_obj_yes), ".png"))
                                 n_obj_yes = n_obj_yes +1;            
         
                             elseif isequal(S_textscan_table_yes_and_no_img(n_worm,:).IsCeleg, "no")
         
-                                imwrite(BW_image, strcat(dir_mainly_output_yes_and_no, "\", dir_save_BW_imgs_1, "\NonCeleg", "\", nom_img, "_", retorna_zeros_un(n_obj_no), ".png"))                        
+                                imwrite(BW_image, strcat(dir_mainly_output_yes_and_no, "\", dir_save_BW_imgs_1, "\NonCeleg", "\", nom_img, "_", return_zeros_one(n_obj_no), ".png"))                        
                                 n_obj_no = n_obj_no +1;            
                             else
                                 error("Error in generate data of BW singular: non 'yes' or 'not' anotation")

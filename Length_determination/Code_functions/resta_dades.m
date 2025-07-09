@@ -25,7 +25,7 @@ else
     % Restem la última línia
 
     % Lectura dades existents
-    cell_dades_mfilt = llegir_text_delimitadors(arxiu_text_output_manually, ";");
+    cell_dades_mfilt = read_text_delimiters(arxiu_text_output_manually, ";");
 
     cell_dades_mfilt_nou = cell_dades_mfilt(1 : end-1, :);
     

@@ -14,11 +14,11 @@ function [main_table_actual_last_modif, main_table_actual_last_modiftable, indx_
     [BW_object] = create_BW_indx(appf_split_strindex(no_modified_object(1,:).Indx_BW), appf_split_strindex(no_modified_object(1,:).Resolution)');
     
     % Skel
-    [BW_ini_regio_cropped, proporcio_img] = retallar_BWimatge_BB(BW_object, 1);
+    [BW_ini_regio_cropped, proporcio_img] = cut_BB_BW_image_1(BW_object, 1);
     [BW_skel_crop, dades_imatge, ~] = worm_skeletonization(BW_ini_regio_cropped, app.appv_escala_img, true, true);    
 
     % Escalem els index
-    [indx_BW_skel_scal] = escalar_indx(find(BW_skel_crop), size(BW_object), size(BW_ini_regio_cropped), proporcio_img);
+    [indx_BW_skel_scal] = scale_indx(find(BW_skel_crop), size(BW_object), size(BW_ini_regio_cropped), proporcio_img);
     % En strig
     BWskel_indx_string = strjoin(string(indx_BW_skel_scal), ";");
     

@@ -29,7 +29,7 @@ function app_proc_button_save_temp_modif(app)
     % Read saved Modificacions files
     myFolder_input = "Results_out\Internal_code_files\Image_processing_settings\";
     patro_tipus_image = ".txt";
-    [llistat_string_im] = llegir_arxius_tipologia(myFolder_input, patro_tipus_image);
+    [llistat_string_im] = read_files_typology(myFolder_input, patro_tipus_image);
     
     app.ModificacionsguardadesListBox.Items = llistat_string_im;
     
@@ -37,7 +37,7 @@ function app_proc_button_save_temp_modif(app)
     % Automate Drop Roll Modificacions temporals
     myFolder_input = "Results_out\Internal_code_files\Image_processing_settings\temporals\";
     patro_tipus_image = ".txt";
-    [llistat_string_im] = llegir_arxius_tipologia(myFolder_input, patro_tipus_image);
+    [llistat_string_im] = read_files_typology(myFolder_input, patro_tipus_image);
                 
     app.ModificacionstemporalsListBox.Items = llistat_string_im;
 

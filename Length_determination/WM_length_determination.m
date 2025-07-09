@@ -156,7 +156,7 @@ function [userSavedDocuments] = path_determination()
     
         % __Package determination___
         % Determine if there is installed the packages necessary for the program (Image Processing, etc.)
-        determinacio_paquets()    
+        determine_packages()    
     end
 
 % FINAL OF THE FUNCTION

@@ -21,7 +21,7 @@ function app_proc_button_modify_proc(app)
     field_set = strcat("Results_out\Internal_code_files\Image_processing_settings\", string(value_listbox));
 
     % Obtain the array from reading the text document and print it
-    [array_sortida_modifs, ~] = llegir_text_delimitadors(field_set, ";");
+    [array_sortida_modifs, ~] = read_text_delimiters(field_set, ";");
 
                 
     % READ IMAGE MODIFICATIONS TYPOLOGY
@@ -37,7 +37,7 @@ function app_proc_button_modify_proc(app)
         ultima_modificacio = array_processaments(end);
         
         % Obtain its name
-        [tipus_im_modif, ~] = obtencio_tipologia_llistat(ultima_modificacio);
+        [tipus_im_modif, ~] = obtain_list_typology(ultima_modificacio);
     end
     
     % Change buttons

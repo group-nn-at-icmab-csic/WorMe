@@ -30,7 +30,7 @@ v_NomWorm = string(app.img_original_nomLabel.Text);
 v_Length = dades_imatge;
 
 % Bounding Box
-[BB_values_list, ~] = retallar_BB_BWimg(zeros_imatge_cotxe);
+[BB_values_list, ~] = cut_BB_BW_image_3(zeros_imatge_cotxe);
 v_Bounding = strjoin(string(BB_values_list), ";");
 
 % v_Modifs

@@ -30,7 +30,7 @@ if ~isempty(app.global_S_textscan_table)
     % waitfor(imshow(BW_skel_crop))
     
     % Eixamplar index
-    indx_BW_skel_crop_eix = eixamplar_indx_BB(find(BW_skel_crop), 1, size(BW_skel_crop));
+    indx_BW_skel_crop_eix = wide_indx_BB(find(BW_skel_crop), 1, size(BW_skel_crop));
     BW_skel_crop_eix = false(size(BW_skel_crop));
     BW_skel_crop_eix(indx_BW_skel_crop_eix) = true;
     
