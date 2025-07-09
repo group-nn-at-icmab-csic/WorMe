@@ -10,7 +10,8 @@ disp("WorMe_length_determination_v2_17")
 %                   ex (using MATLAB):  'C:\Users\jllobet\Desktop\Length determination v2_16'
 %                   ex (compiled in Windows): 'C:\Users\Josep TOSHIBA\Documents\WorMe_Length_Results'
 %
-% carpeta_output - directory of results
+% carpeta_output - directory of res
+% ults
 %                   ex (using MATLAB):  "C:\Users\jllobet\Desktop\Length determination v2_15\Results_out\20230124_1625_C_48"
 %                   ex (compiled in Windows): 'C:\Users\Josep TOSHIBA\Documents\WorMe_Length_Results Results_out\20230407_1813_control'
 %

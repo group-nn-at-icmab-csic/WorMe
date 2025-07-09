@@ -12,7 +12,7 @@ function app_interf_boto_return(app)
         % disp("Return des d'estadística")
 
         % Contador finalitzat imatge
-        app.finalitzat_contLabel.Text = "false";
+        app.finalitzat_contLabel = "false";
 
         % Re-definim contadors
         app_interf_graficar_finalitzat_img_off(app)

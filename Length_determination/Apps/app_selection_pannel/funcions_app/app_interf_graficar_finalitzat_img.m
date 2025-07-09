@@ -58,7 +58,7 @@ app.Cross_Button.Visible = 'off';
 app.Hyperlink.Visible = 'on';
 app.CitationLabel.Visible = 'on';
 
-app.finalitzat_contLabel.Text = "true";
+app.finalitzat_contLabel = "true";
 
 app.OriginalButton.Visible = 'off';
 

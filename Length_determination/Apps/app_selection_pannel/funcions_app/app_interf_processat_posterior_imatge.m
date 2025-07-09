@@ -163,7 +163,7 @@ elseif proc_BW
 
 
     % _Activació/Desactivació Botóns_ 
-    if ~str2num(app.finalitzat_contLabel.Text)
+    if ~str2num(app.finalitzat_contLabel)
         app_interf_enable_thickcrosret_buttons(app, 'on')
     end
 end

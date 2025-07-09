@@ -45,28 +45,6 @@ app.n_noLabel2.Text = string(n_no);
 if isempty(indx_object_operate)
     % disp("No objects")
     
-%     % INHABILITAT FUNCIÓ DE: PASSA AUTOMATICAMENT AL ESTADISTIC
-%     % Si aquesta és la ultima imatge, es precedeix a l'estadística:
-%     if isequal(str2num(app.img_contLabel.Text), str2num(app.img_tot_nLabel.Text))
-%         % disp("IMAGE SELECTION FINALIZATION")
-%         
-% %         La porta de que s'ha arribat al final en la v.14. és en f'app_interf_taula_modif_thick(app)', on:
-% %         app.finalitzat_contLabel.Text = "true";
-% %         % Mostrem la part de la GUI d'estadística
-% %         app_interf_boto_estadist(app)
-%     
-%         % Describim que s'ha seleccionat els objectes linealment, sense
-%         % saltar-se objectes. (NOTA: ANULAT DE MOMENT, VEURE BOTÓ DRETA).
-%         % Si sols hi ha una imatge, pero, s'activa si s'ha acavat.
-%         if isequal(str2num(app.img_tot_nLabel.Text), 1)
-%            app.finalitzat_contLabel.Text = "true";
-%         end
-% 
-%         % Execució botó estadística (Botó Done)
-%         app_interf_boto_estadist(app)
-%         
-%     % Sinó, es computa la imatge precedent (sense objectes, o tots seleccionats)
-%     else
     
     % Si és la ultima imatge, es grafica el botó de Done:
     if isequal(str2num(app.img_contLabel.Text), str2num(app.img_tot_nLabel.Text))

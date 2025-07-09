@@ -75,7 +75,7 @@ else
         proc_BW = true; % Contador que no s'ha arribat al final
         
         % Definim que no és la última imatge
-        app.finalitzat_contLabel.Text = "true";
+        app.finalitzat_contLabel = "true";
         
     else
         % Es sobrepassa la imatge: cartell de Finished

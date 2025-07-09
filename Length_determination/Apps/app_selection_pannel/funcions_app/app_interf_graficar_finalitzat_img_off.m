@@ -17,7 +17,7 @@ app_interf_enable_thickcrosret_buttons(app, 'on')
 app.Hyperlink.Visible = 'off';
 app.CitationLabel.Visible = 'off';
     
-app.finalitzat_contLabel.Text = "false";
+app.finalitzat_contLabel = "false";
 
 app.OriginalButton.Visible = 'on';
 

@@ -94,7 +94,7 @@ function app_interf_startupFcn(app)
             
             
             % ___Descripció inicial contadors___
-            app.finalitzat_contLabel.Text = "false";
+            app.finalitzat_contLabel = "false";
             app.n_objecteLabel.Text = "1"; % ÇÇÇ Mirar si hi ha o no objectes en la imatge. si no hi ha cambiar-ho.
             app.ReturnButton.Visible = 'off';
             app.RightButton.Visible = 'off';
@@ -269,73 +269,84 @@ function app_interf_startupFcn(app)
             pos_img =  app.Image.Position;         
             
             % _Describim les dades de posicio de la imatge_
-            app.posFigTextArea.Value = strjoin(string(pos_fig), ";");
-            app.posImgTextArea.Value = strjoin(string(pos_img), ";");
+            app.posFigTextArea = strjoin(string(pos_fig), ";");
+            app.posImgTextArea = strjoin(string(pos_img), ";");
             
             % _Obtenció posicio botons_
             h_determin_button = findobj(app.UIFigure,'Type','uibutton');
             [~, str_button_tot] = app_resize_obtenir_positions(h_determin_button);
             % _Describim les dades de posicio dels botons_
-            app.posButtonsTextArea.Value = str_button_tot;
+            app.posButtonsTextArea = str_button_tot;
+
+            disp("Size of Buttons (checking)")
+            disp(h_determin_button)
             
             
             % _Obtenció posicio listbox_
             h_determin_listbox = findobj(app.UIFigure,'Type','uilistbox');
             [~, str_button_tot_list] = app_resize_obtenir_positions(h_determin_listbox);
-            app.posListboxTextArea.Value = str_button_tot_list;
+            app.posListboxTextArea = str_button_tot_list;
             
             
             % _Obtenció posicio listbox_
             h_determin_label = findobj(app.UIFigure,'Type','uilabel');
             [~, str_button_tot_list] = app_resize_obtenir_positions(h_determin_label);
-            app.posLabelTextArea.Value = str_button_tot_list;
+            app.posLabelTextArea = str_button_tot_list;
             
             
              % _Obtenció posicio image_ 
             h_determin_imgs = findobj(app.UIFigure,'Type','uiimage');
             [~, str_button_tot_list] = app_resize_obtenir_positions(h_determin_imgs);
-            app.posImatgesTextArea.Value = str_button_tot_list;
+            app.posImatgesTextArea = str_button_tot_list;
 
-            
-%              % _Obtenció posicio checkbox_ 
-%             h_determin_checkbox = findobj(app.UIFigure,'Type','uicheckbox');
-%             [~, str_button_tot_list] = app_resize_obtenir_positions(h_determin_checkbox);
-%             app.posCheckboxTextArea.Value = str_button_tot_list;
             
             
              % _Obtenció posicio hyperlink_ 
             h_determin_hyperlink = findobj(app.UIFigure,'Type','uihyperlink');
             [~, str_button_tot_list] = app_resize_obtenir_positions(h_determin_hyperlink);
-            app.posHyperlinkTextArea.Value = str_button_tot_list;
+            app.posHyperlinkTextArea = str_button_tot_list;
 
             % _Obtenció factor FontSize_
             fact_fontsize = h_determin_hyperlink.FontSize / sqrt(pos_fig(3) * pos_fig(4));
-            app.sizeFontTextArea.Value = string(fact_fontsize);
+            app.sizeFontTextArea = string(fact_fontsize);
 
             
             % _Obtenció posicio botostate_
             h_determin_button = findobj(app.UIFigure,'Type','uistatebutton');
             [~, str_button_tot] = app_resize_obtenir_positions(h_determin_button);
             % _Describim les dades de posicio dels botons_
-            app.posStateButtonsTextArea.Value = str_button_tot;
+            app.posStateButtonsTextArea = str_button_tot;
             
 
             % _Obtenció posicio Spinner_ 
             h_determin_checkbox = findobj(app.UIFigure,'Type','uispinner');
             [~, str_button_tot_list] = app_resize_obtenir_positions(h_determin_checkbox);
-            app.posSpinner.Value = str_button_tot_list;
+            app.posSpinner = str_button_tot_list;
             
             
             % _Obtenció posicio Grafica_ 
             h_determin_checkbox = findobj(app.UIFigure, 'Type','axes');
             [~, str_button_tot_list] = app_resize_obtenir_positions(h_determin_checkbox);
-            app.posUIAxes.Value = str_button_tot_list;
+            app.posUIAxes = str_button_tot_list;
 
  
-            % _Obtenció posicio Àrea de text_ 
-            h_determin_checkbox = findobj(app.UIFigure, 'Type','uitextarea');
+            % _Obtenció posicio Numeric field (text area)_ 
+            h_determin_checkbox = findobj(app.UIFigure, 'Type','uinumericeditfield');
             [~, str_button_tot_list] = app_resize_obtenir_positions(h_determin_checkbox);
-            app.postextareaTextArea.Value = str_button_tot_list;            
+            app.posEditfield = str_button_tot_list;
+
+
+            % _Obtenció posicio Check box_ 
+            h_determin_checkbox = findobj(app.UIFigure, 'Type','uicheckbox');
+            [~, str_button_tot_list] = app_resize_obtenir_positions(h_determin_checkbox);
+            app.posCheckBox = str_button_tot_list;
+            
+
+
+
+
+
+
             
             % NOTES:
 %                 % Els objectes són descrits de la mateixa manera:

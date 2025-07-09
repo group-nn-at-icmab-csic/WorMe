@@ -1,32 +1,34 @@
 function app_interf_boto_clickimage(app)
 
+% Click main image button.
+% 
+% Shows the binary image.
+%
+% See also
+% app_selection_pannel
 
-% Botó clicar imatge
+% START OF THE FUNCTION
+
+    % If there is the orginal as the start
+    if app.cont_canvi_img_1
+
+        app.Image4.ImageSource = app.Image.ImageSource;
+        app.Image.ImageSource = graficar_rgbgraybw_image(app.BW_img_extend);
+
+        app.cont_canvi_img_1 = false;
+
+    % If it is changed
+    else
+        app.Image.ImageSource = app.Image4.ImageSource;
+        app.Image4.ImageSource = graficar_rgbgraybw_image(app.BW_img_cuted);
+
+        app.cont_canvi_img_1 = true;
+    end
 
 
-% INICI FUNCIÓ
+    % Update of the figure to enable shortkeys
+    figure(app.UIFigure)                
 
-
-            % Si està original com l'inici
-            if app.cont_canvi_img_1
-
-                app.Image4.ImageSource = app.Image.ImageSource;
-                app.Image.ImageSource = graficar_rgbgraybw_image(app.BW_img_extend);
-
-                app.cont_canvi_img_1 = false;
-
-            % Si està canviat
-            else
-                app.Image.ImageSource = app.Image4.ImageSource;
-                app.Image4.ImageSource = graficar_rgbgraybw_image(app.BW_img_cuted);
-
-                app.cont_canvi_img_1 = true;
-            end
-
-
-            % Actualitzem figura per capacitar shortkey
-            figure(app.UIFigure)                
-
-% FINAL FUNCIÓ
+% FINAL OF THE FUNCTION
 
 end

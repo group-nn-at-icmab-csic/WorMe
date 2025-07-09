@@ -96,10 +96,6 @@ function app_interf_graficar_finalitzat_img_on(app)
 
             
 
-            % (a posar en un futur)
-%             if app.finalitzat_contLabel.Text ~= "true"
-%                 app.NotFinishedImagesLabel.Visible = 'on';
-%             end
 
 
 

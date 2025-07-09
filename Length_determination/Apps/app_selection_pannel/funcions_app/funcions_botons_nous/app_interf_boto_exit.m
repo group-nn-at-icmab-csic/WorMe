@@ -3,7 +3,8 @@ function app_interf_boto_exit()
     % Botó app.ExitButton
     % Tanca la app
 
-    % INICI FUNCIÓ
+    % START OF THE FUNCTION
+
         [answer_msgebox] = quadre_decisio_modif("Do you really you want to exit?", "Exit box", "No", "Yes");
         % Note: result (true/false) is flipped.
 
@@ -11,6 +12,6 @@ function app_interf_boto_exit()
             close all force
         end
                     
-    % FINAL FUNCIÓ
+    % FINAL OF THE FUNCTION
 
 end
