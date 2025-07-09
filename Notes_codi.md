@@ -13,6 +13,7 @@ https://code.visualstudio.com/docs/languages/markdown
 - [ ] Mirar si esquelet hi ha més d'un branchpoint: error de que es selecciona cadena de més
 - [ ] Variable de la app de selecció *global_temps_total_inici* definir origen i funció.
 - [ ] Borrar la carpeta a posteriori de fer l'anàlisi?
+- [ ] Quan es fa Done i no hi ha cap seleccionat, en fer return dona error.
 
 ### ! Vigilar al modificar el codi! 👀
 
