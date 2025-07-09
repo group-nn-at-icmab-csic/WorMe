@@ -10,12 +10,16 @@ https://code.visualstudio.com/docs/languages/markdown
 ## Millora codi programa  
 - [ ] Traduir funcions noms + compartimentar i traduir apps.
 - [ ] Veure que no hi hagi "ççç" ni "ñññ" marques.
-- [ ] Si hi ha seleccionat  modificacions guardades, no es puguin modificar (al canviar imatge permèt modificar...).
 - [ ] Mirar si esquelet hi ha més d'un branchpoint: error de que es selecciona cadena de més
 - [ ] Borrar la carpeta a posteriori de fer l'anàlisi?
+- [ ] (una vegada amb DOI i paper): -> Posar "Please cite us" i enllaç en l'App de resultats finals.
+
+### Possibles Issues
+- [ ] Quan es canvia la grandària a resultats estadística es col·lapsa el programa.
 - [ ] Quan es fa Done i no hi ha cap seleccionat, en fer return dona error.
+- [ ] Si hi ha seleccionat  modificacions guardades, no es puguin modificar (al canviar imatge permèt modificar...).
 - [ ] Comprovar amb imatges amb diferent resolució (segurament dona error).
-- [ ] (una vegada amb DOI i paper): -> Posar "Please cite us" i enllaç en l'App de resultats finals.  
+
 
 - [X] ~~Canviar posicions de introduccio de text i de box de selecció.~~  
 - [X] ~~Variable de la app de selecció *global_temps_total_inici* definir origen i funció.~~
