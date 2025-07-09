@@ -15,6 +15,7 @@ https://code.visualstudio.com/docs/languages/markdown
 - [ ] Borrar la carpeta a posteriori de fer l'anàlisi?
 - [ ] Quan es fa Done i no hi ha cap seleccionat, en fer return dona error.
 - [ ] Botó exit de app selection pannel en la part de results tarda molt: posar en que tanqui directament o corregir.
+- [ ] (una vegada amb DOI i paper): -> Posar "Please cite us" i enllaç en l'App de resultats finals.
 
 ### ! Vigilar al modificar el codi! 👀
 
