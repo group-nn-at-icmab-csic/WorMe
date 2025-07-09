@@ -14,6 +14,7 @@ https://code.visualstudio.com/docs/languages/markdown
 - [ ] Variable de la app de selecció *global_temps_total_inici* definir origen i funció.
 - [ ] Borrar la carpeta a posteriori de fer l'anàlisi?
 - [ ] Quan es fa Done i no hi ha cap seleccionat, en fer return dona error.
+- [ ] Botó exit de app selection pannel en la part de results tarda molt: posar en que tanqui directament o corregir.
 
 ### ! Vigilar al modificar el codi! 👀
 
