@@ -50,8 +50,9 @@ function app_interf_UIFigureSizeChanged(app)
     
             % Si volem que no s'eixamplin els botóns:
             pos_ini_but = but_values(n_but, :);
-            pos_boto_rescale = [pos_boto_rescale(1), pos_boto_rescale(2), pos_ini_but(3), pos_ini_but(4)];
-            
+            %pos_boto_rescale = [pos_boto_rescale(1), pos_boto_rescale(2), pos_ini_but(3), pos_ini_but(4)];  % Without changing size of the figure.
+            pos_boto_rescale = [pos_boto_rescale(1), pos_boto_rescale(2), pos_boto_rescale(3), pos_boto_rescale(4)];
+
             % Cambiem posicio boto
            boto = h_determin_button(n_but);
            %boto.Position
@@ -75,8 +76,9 @@ function app_interf_UIFigureSizeChanged(app)
     
             % Si volem que no s'eixamplin els botóns:
             pos_ini_but = but_values(n_but, :);
-            pos_boto_rescale = [pos_boto_rescale(1), pos_boto_rescale(2), pos_ini_but(3), pos_ini_but(4)];
-            
+            % pos_boto_rescale = [pos_boto_rescale(1), pos_boto_rescale(2), pos_ini_but(3), pos_ini_but(4)];  % Without changing size of the figure.
+            pos_boto_rescale = [pos_boto_rescale(1), pos_boto_rescale(2), pos_boto_rescale(3), pos_boto_rescale(4)];            
+
             % Cambiem posicio boto
            boto = h_determin_button(n_but);
            %boto.Position
@@ -208,7 +210,8 @@ function app_interf_UIFigureSizeChanged(app)
     
             % Si volem que no s'eixamplin els botóns:
             pos_ini_but = listbox_values(n_but, :);
-            pos_boto_rescale = [pos_boto_rescale(1), pos_boto_rescale(2), pos_ini_but(3), pos_ini_but(4)];
+            %pos_boto_rescale = [pos_boto_rescale(1), pos_boto_rescale(2), pos_ini_but(3), pos_ini_but(4)];  % Without changing size of the figure.
+            pos_boto_rescale = [pos_boto_rescale(1), pos_boto_rescale(2), pos_boto_rescale(3), pos_boto_rescale(4)];            
             
             % Cambiem posicio boto
            boto = h_determin_button(n_but);

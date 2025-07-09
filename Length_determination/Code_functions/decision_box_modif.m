@@ -1,4 +1,4 @@
-function [answer_msgebox] = quadre_decisio_modif(string_text, string_text_up, answ1, answ2)
+function [answer_msgebox] = decision_box_modif(string_text, string_text_up, answ1, answ2)
 
 % Com quadre_decisio, però es defineixen les diferents variables.
 % 

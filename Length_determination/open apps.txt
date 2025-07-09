@@ -1,11 +1,22 @@
-open app_image_processment
-open app_selection_pannel
+
 
 pròpies + anglès + quadre_decisio_modif:
-open app_escala_auto
-open app_escala_linia
 
-codi total en anglès:
+
+___all english comments and functions___
 open app_tutorial_alfarel
 open box_correccio_Fiji
 open box_explicacio_IA
+open app_image_processment
+open app_selection_pannel
+open app_escala_auto
+open app_escala_linia
+
+
+
+Variable name changes:
+
+quadre_decisio_modif -> decision_box_modif
+
+agregar_zeros -> add_zeros
+

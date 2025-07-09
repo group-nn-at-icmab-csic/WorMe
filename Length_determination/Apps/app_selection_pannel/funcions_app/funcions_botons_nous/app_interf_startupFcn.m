@@ -278,9 +278,6 @@ function app_interf_startupFcn(app)
             % _Describim les dades de posicio dels botons_
             app.posButtonsTextArea = str_button_tot;
 
-            disp("Size of Buttons (checking)")
-            disp(h_determin_button)
-            
             
             % _Obtenció posicio listbox_
             h_determin_listbox = findobj(app.UIFigure,'Type','uilistbox');
