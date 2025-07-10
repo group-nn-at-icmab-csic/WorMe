@@ -80,7 +80,7 @@ Millora en noves versións de MATLAB? En teoria hauria de millorar, sí.
 
 ## Storic function name change
 
-Functions:
+**Functions**:  
 llargada_josep -> worm_lenght  
 llargada_josep_Fiji -> worm_length_manual  
 esqueletonitzacio_josep_optim -> worm_skeletonization  
@@ -158,7 +158,7 @@ cell_insert_valors -> cell_insert_values
 
 <br>
 
-Folders:  
+**Folders**:  
 imatges_utilitat -> images_useful  
 funcions_app -> functions_app  
 funcions_botons_nous -> functions_new_buttons  
@@ -170,7 +170,7 @@ graficacio_botons -> buttons_graphication
 
 <br>
 
-Apps:  
+**Apps**:  
 app_escala_auto -> app_scale_auto  
 app_escala_linia -> app_scale_line  
 box_correccio_Fiji -> box_manual_correction  
