@@ -39,7 +39,7 @@ function [indx_BW_scal] = scale_indx(indx_BWcrop, size_BW, size_BWcrop, proporci
 %
 % See also
 % cut_BB_BW_RGB_image
-% pintar_BWindx_RGB_new
+
 
 % START FUNCTION
 

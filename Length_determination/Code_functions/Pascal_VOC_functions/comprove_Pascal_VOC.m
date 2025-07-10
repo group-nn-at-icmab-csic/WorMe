@@ -1,16 +1,10 @@
 function [img_RGB_sortida] = comprove_Pascal_VOC(xml_file_2, img_ex)
 
 
-% Donat un arxiu Pascal VOC xml i una imatge associada, retorna el
-% BoudingBox de la imatge per a comprovar que les coordeandes són coherents
-% amb les anotacións.
+% Given a Pascal VOC xml file and an associated image, return the
+% BoundingBox of the image to check that the coordinates are coherent
+% with the annotations.
 %
-%
-%
-%
-% % Exemple
-% xml_file_2 = "2023_01_03_Generar_PascalVOC\Anotacio exemple 2\0_pvoc_imglab_Pascal_VOC.xml";
-% img_ex = imread("2023_01_03_Generar_PascalVOC\Anotacio exemple 2\Image_961.jpg");
 %
 % [img_RGB_sortida] = comprove_Pascal_VOC(xml_file_2, img_ex)
 %
@@ -26,13 +20,14 @@ if isfile(xml_file_2)
     xml_struct = readstruct(xml_file_2);
     
 
-    n_obj = length(xml_struct.object); % Numero d'objectes.
+    n_obj = length(xml_struct.object); % Number of objects
 
     img_RGB_sortida = img_ex;
 
     for n_object = 1:n_obj
     
-        BB_prop = pascal_VOC_to_MATLAB_BB_prop(xml_struct.object(n_object).bndbox); % BB en notació MATLAB
+        BB_prop = pascal_VOC_to_MATLAB_BB_prop(xml_struct.object(n_object).bndbox); 
+        % BB in MATLAB notation
     
         [img_RGB_sortida] = paint_BB_img_axis(img_RGB_sortida, BB_prop, true, 1);
     end

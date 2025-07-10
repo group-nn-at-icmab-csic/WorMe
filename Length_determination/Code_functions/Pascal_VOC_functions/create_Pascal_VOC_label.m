@@ -1,20 +1,22 @@
 function create_Pascal_VOC_label(ruta_img, BB_props, cell_label_props, ruta_write_xml)
 
-% Igual que create_Pascal_VOC, però es determinen, per a cada BoundingBox,
-% la cell amb les etiquetes (create_Pascal_VOC).
+% Same as create_Pascal_VOC, but for each BoundingBox,
+% the cell with the labels (create_Pascal_VOC) is determined.
 %
-% Nota: en f'create_Pascal_VOC', les etiquetes dels bounding box eren "Celegans".
+% Note: in f'create_Pascal_VOC', the labels of the bounding boxes were "Celegans".
 %
-% Crea un arxiu amb notació Pascal VOC a partir de la descripció de
-% les coordenades dels Bounding Box, procedents de MATLAB.
+% Create a file with Pascal VOC notation from the description of
+% the coordinates of the Bounding Boxes, coming from MATLAB.
 %
 %
 % Variables
-%   input
-%       ruta_img - ruta de la imatge
-%       BB_props - cell amb els Bounding Box (anotació normal de MATLAB (x, y, w, h), com imcrop o regionprop.)
-%       ruta_write_xml - ruta del arxiu de sortida tipu Pascal VOC
-%       cell_label_props - cell amb les anotacións. ex: {"Celegans", "NonCelegans", "Celegans", "Celegans"}
+%       input
+%       ruta_img - path of the image
+%       BB_props - cell with the Bounding Boxes 
+%           (normal MATLAB annotation (x, y, w, h), like imcrop or regionprop.)
+%       ruta_write_xml - path of the Pascal VOC type output file
+%       cell_label_props - cell with the annotations. 
+%           example: {"Celegans", "NonCelegans", "Celegans", "Celegans"}
 %
 % See also
 % MATLAB_BB_to_Pascal_VOC_prop
@@ -23,16 +25,16 @@ function create_Pascal_VOC_label(ruta_img, BB_props, cell_label_props, ruta_writ
 
 % START FUNCTION
 
-% Lectura imatge
+% Read image
 img_RGB = imread(ruta_img);
 size_img_RGB = size(img_RGB);
 
-% Passem de BB MATLAB a BB tipu Pascal VOC
+% From MATLAB BB to Pascal VOC BB
 cell_Pascal_VOC_props = {};
 for n_obj = 1:numel(BB_props)
     PascalVOC_prop = floor(MATLAB_BB_to_Pascal_VOC_prop(BB_props{n_obj}));
 
-    % Passem a una sola cell, amb la forma d'estructura:
+    % To only one cell, with the structure:
     field_obj_bndbox = struct("xmin", PascalVOC_prop(1), "ymin", PascalVOC_prop(2), "xmax", PascalVOC_prop(3), "ymax", PascalVOC_prop(4));
 
     [cell_Pascal_VOC_props] = cell_insert_values(cell_Pascal_VOC_props, field_obj_bndbox);
@@ -41,7 +43,7 @@ end
 
 
 
-% Nº objectes
+% Number of objects
 n_obj = numel(cell_Pascal_VOC_props);
 
 field_obj_name = "Celegans";

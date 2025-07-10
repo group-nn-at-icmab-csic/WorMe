@@ -1,7 +1,6 @@
 function [MATLAB_prop] = pascal_VOC_to_MATLAB_BB_prop(pascal_VOC_prop)
 
-% Passa de l'estructura de Pascal VOC a l'estructura tipu MATLAB.
-%
+% Goes from the Pascal VOC structure to the MATLAB type structure.
 
     xmin_M = pascal_VOC_prop.xmin;
     ymin_M = pascal_VOC_prop.ymin;

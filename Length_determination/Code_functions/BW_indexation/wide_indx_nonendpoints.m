@@ -7,8 +7,6 @@ function  [indx_BWskel_obj_fin] = wide_indx_nonendpoints(indx_BWskel_obj, indx_e
 %
 % See also
 % wide_indx_BB
-% paint_indx_to_RGB
-
 
 % START FUNCTION
 

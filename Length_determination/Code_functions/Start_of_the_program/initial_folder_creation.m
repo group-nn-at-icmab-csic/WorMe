@@ -39,7 +39,7 @@ function initial_folder_creation(userSavedDocuments)
     
 
 
-% FINAL OF THE FUNCTION
+% END FUNCTION
 
 end
 

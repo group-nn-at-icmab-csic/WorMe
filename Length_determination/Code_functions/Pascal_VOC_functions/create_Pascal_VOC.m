@@ -1,15 +1,16 @@
 function create_Pascal_VOC(ruta_img, BB_props, ruta_write_xml)
 
 
-% Crea un arxiu amb notació Pascal VOC a partir de la descripció de
-% les coordenades dels Bounding Box, procedents de MATLAB.
+% Create a file with Pascal VOC notation from the description of
+% the Bounding Box coordinates, coming from MATLAB.
 %
 %
 % Variables
 %   input
-%       ruta_img - ruta de la imatge
-%       BB_props - cell amb els Bounding Box (anotació normal de MATLAB (x, y, w, h), com imcrop o regionprop.)
-%       ruta_write_xml - ruta del arxiu de sortida tipu Pascal VOC
+%   ruta_img - image path
+%   BB_props - cell with Bounding Boxes 
+%       (normal MATLAB annotation (x, y, w, h), like imcrop or regionprop.)
+%   ruta_write_xml - output path for a type Pascal VOC file
 %
 %
 % See also
@@ -19,7 +20,7 @@ function create_Pascal_VOC(ruta_img, BB_props, ruta_write_xml)
 
 % START FUNCTION
 
-% Lectura imatge
+% Read image
 img_RGB = imread(ruta_img);
 size_img_RGB = size(img_RGB);
 
@@ -27,13 +28,13 @@ cell_Pascal_VOC_props = {};
 for n_obj = 1:numel(BB_props)
     PascalVOC_prop = floor(MATLAB_BB_to_Pascal_VOC_prop(BB_props{n_obj}));
 
-    % Passem a una sola cell, amb la forma d'estructura:
+    % To only one cell, with the structure:
     field_obj_bndbox = struct("xmin", PascalVOC_prop(1), "ymin", PascalVOC_prop(2), "xmax", PascalVOC_prop(3), "ymax", PascalVOC_prop(4));
 
     [cell_Pascal_VOC_props] = cell_insert_values(cell_Pascal_VOC_props, field_obj_bndbox);
 end
 
-% Nº objectes
+% Number of objects
 n_obj = numel(cell_Pascal_VOC_props);
 
 field_obj_name = "Celegans";

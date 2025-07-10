@@ -15,11 +15,6 @@ function [RGB_to_color_new] = paint_indx_to_RGB(RGB_to_color, indx_to_paint, col
 %
 % output
 %   RGB_to_color_new - RGB image with the colored pinted in the index regions.
-% 
-%
-% See also
-% BBxy_to_BBindx
-% wide_indx_BB
 
 % START FUNCTION
 

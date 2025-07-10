@@ -21,7 +21,7 @@ function [indx_new_branch_total] = obtain_indx_nonbranch(BW_skel_image)
 % imshow(imoverlay(BW_skel_image, BW_false_showindx, "r"))
 %
 % See also
-% matriu_nova
+% matrix_new
 
 
 % START FUNCTION
@@ -127,7 +127,7 @@ for cada_x = 1:length(x_branch)
     % _Graph_
     % BW_zeros_BWskel = false(size(BW_skel_image)); BW_zeros_BWskel(indx_new_branch) = true;
     %imshow(BW_zeros_BWskel, 'InitialMagnification','fit')
-    % Si hol volem graficar millor
+    % If we want a better graph
     % [BW_retallada_skel, ~, ~, ~, ~] = matrix_new(BW_skel_image, 5, x_branch_point, y_branch_point);
     % [BW_retallada_skel_indx, ~, ~, ~, ~] = matrix_new(BW_zeros_BWskel, 5, x_branch_point, y_branch_point);
     % BW_imoverlay = imoverlay(BW_retallada_skel, BW_retallada_skel_indx, "r");

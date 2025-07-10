@@ -1,45 +1,38 @@
 function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_portes)
 
-% Exporta les dades anotades en S_textscan en una carpeta.
-% 
-% El resultat és una carpeta comprimida amb el nom indicat (ex:
-% "C_48_Josla.zip"), que tindrà dins la carpeta amb les dades de IA (ex:
+% Exports the data recorded in S_textscan to a folder.
+%
+% The result is a compressed folder with the indicated name (ex:
+% "C_48_Josla.zip"), which will have inside the folder with the IA data (ex:
 % "\IA_data_C_48_josla").
-% Nota : Si l'arxiu .zip ja existeix, s'adverteix, i es sobre-escriu.
+% Note: If the .zip file already exists, there is a warning, and it is overwritten.
 % 
 %
 % Variables
-%   myFolder - Ruta imatges originals.
-%               ex: 'C:\Users\jllobet\Desktop\Length determination v2_15\_Imatges exemple\Amanda_Controls\C_24'
+%   myFolder - Original images path.
+%               ex: 'C:\Users\jllobet\Pictures\Controls\C_24'
 %
-%   dir_main_save_folder - Ruta carpeta seleccionada en .zip
-%                       ex: 'C:\Users\jllobet\Pictures\nomfile.zip'
+%   dir_main_save_folder - Path for compressed folder (.zip)
+%                ex: 'C:\Users\jllobet\Pictures\C_24_controls.zip'
 %
-% Nota logistica: 
-%   El fet de crear una carpeta i borrar-la no fa que aquesta sigui dins de
-%   la papelera de reciclaje.
-%
-% Afegir:
-% - Arxiu ruta carpeta imatges
-% - Arxiu noms imatges
-% - Arxiu noms rutes imatges
-% Comprimirho tot.
+% Logistical note:
+% Creating a folder and deleting it does not put it into the recycling bin.
 
 % START FUNCTION
 
 
-    % Modificacio ruta inicials
+    % Modify initial path
     dir_split = strsplit(dir_main_save_folder, "\");
     carpeta_to_save = strjoin(dir_split(1:end-1), "\");
 
-    str_folder = divide_pointfile_large(dir_split{end}); % Nom definit en .zip. Es guardarà l'arxiu intern de .zip.
+    str_folder = divide_pointfile_large(dir_split{end}); % Name defined in .zip. Will save the internal .zip file.
 
-%     % Separem nom carpeta imatges (si volem guardar amb el nom de la imatge predefinit)
+%     % Separate name of image folder (if we want to by default save with the image name)
 %     dir_img_split = strsplit(myFolder, "\");
 %     str_folder = dir_img_split{end};
 
     
-    % Desgloçament de les portes (array_portes)
+    % Door breakdown (array_portes)
     c_elegans_IAdata = array_portes(1);
     c_elegans_and_non_c_elegans_IAdata = array_portes(2);
     generar_PascalVOC = array_portes(3);
@@ -50,52 +43,46 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
     
     
     
-    % Variables entrada (exemples)
+    %  Input variables (examples)
     % carpeta_to_save = "E:\Josep_Llobet\Length determination v2_14\2023_01_04_Generar_dades_extra";
-    % carpeta on es guardaràn les carpetes amb les anotacións i imatges.
+    % folder where the folders with the annotations and images are saved.
     % S_textscan_table
-    %   taula (en MATLAB) amb les dades.
+    %   MATLAB table with the data.
     
     
     
-    % ___Filtratge S_textscan_table___
+    % ___Filter S_textscan_table___
     % _drawline_
-    % De moment treiem els valors que tinguin drawline:
-    % Motiu: Els index dels objectes són el dibuixat.
-    % ÇÇÇ Millora: Aplicació de selecció de la mitja de l'amplada de cada punt de percentatge en la
-    % esqueletonització, en funció a la llargada del C. elegans. D'aquesta
-    % manera es podria defeinir la imatge binaria del C. elegans que s'ha dibuixada.
+    % Get rid of the values with drawline:
+    % Their indices are the drawn line.
     S_textscan_table = S_textscan_table(S_textscan_table.Modifs ~= "DrawLine", :);
     
     % IA_data
     %       -- Celegans
     %       -- Celegans_and_NoCelegans
     
-    % % Portes extracció dades
+    % % Data extraction doors
     % c_elegans_IAdata = true; % C elegans
     % c_elegans_and_non_c_elegans_IAdata = true; % C elegans i no- C elegans
     
     
     
-    % creació carpeta
+    % Create file
     dir_main_IAdata = strcat(carpeta_to_save, "\", "IA_data_", str_folder);
     
     if isfolder(dir_main_IAdata)
         ms_g = imread("icon_48.png");
         waitfor(msgbox("A folder with the same name already exists and interrupts the exportation execution.", "Advise", 'custom', ms_g));
-
-        % ÇÇ Borrarr carpeta??
     else
-
-        % Si no hi ha una carpeta que es digui igual:
+        % If there is no folder with the same name:
         if (c_elegans_IAdata | c_elegans_and_non_c_elegans_IAdata) & ~isfolder(dir_main_IAdata)
             mkdir(dir_main_IAdata)
         end
         
         
         
-        % % Portes tipologia exportació dades
-        % generar_PascalVOC = true; % Porta generar Pascal VOC
+        % % Type doors export data
+        % generar_PascalVOC = true; % Door generate Pascal VOC
         % generar_BW_obj = true;
         % generar_BW_obj_junts = true;
         % generar_BW_obj_label = true;
@@ -104,27 +91,27 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
             
         
         
-        % Dos opcions: Nomès C. elegans, o C. elegans i no C elegans.
+        % Two options: Only C. elegans, or C. elegans and no C elegans.
         
         
-        % ____Nomès C. elegans____ 
-        % Es guarden les propietats de sols els objectes anotats com C. elegans.
+        % ____Only C. elegans____ 
+        % The properties of only objects annotated as C. elegans are saved.
         if c_elegans_IAdata
             S_textscan_table_yes = S_textscan_table(S_textscan_table.IsCeleg == "yes", :);
             
         
-            % __Directoris__
-            % Directori seleccionat
-            dir_mainly_output_yes = strcat(dir_main_IAdata, "\Celegans"); % Directori seleccionat o pre-seleccionat
-            % dir_mainly_output_yes = "2023_01_04_Generar_dades_extra"; % Directori seleccionat o pre-seleccionat
+            % __Folder__
+            % Selected folder
+            dir_mainly_output_yes = strcat(dir_main_IAdata, "\Celegans"); 
+            % dir_mainly_output_yes = "2023_01_04_Generar_dades_extra"; 
             
             
-            % Es crea carpeta Celegans_IAdata
+            % Create folder Celegans_IAdata
             if (generar_PascalVOC | generar_BW_obj | generar_BW_obj_junts | generar_BW_obj_label | generar_BW_obj_label_unit) & ~isfolder(dir_mainly_output_yes)
                 mkdir(dir_mainly_output_yes)
             end
             
-            % Directoris nous
+            % New directory
             
             if generar_PascalVOC
                 dir_save_PascalVOC = "PascalVOC_files";
@@ -169,14 +156,14 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
             % Waitbar
             f = waitbar(0,'Exporting data (step 1)');    
             
-            % Per cada imatge
+            % For every image
             for img_every = unique(S_textscan_table_yes.NomWorm)'
         
-                % Posicio
+                % Position
                 [~, loc_B] = ismember(img_every, unique(S_textscan_table_yes.NomWorm)');
                 percen_bar = loc_B/numel(unique(S_textscan_table_yes.NomWorm)');
         
-                % Obtenim steps
+                % Obtain steps
                 if c_elegans_IAdata & c_elegans_and_non_c_elegans_IAdata
                     steps_tot = 2;
                     waitbar(percen_bar,f, strcat('Exporting data (step 1/', string(steps_tot), ')') );
@@ -188,36 +175,34 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
         
                 S_textscan_table_yes_img = S_textscan_table_yes(S_textscan_table_yes.NomWorm == img_every, :);
             
-                % Si no es vuit:
+                % If not empty
                 if ~isempty(S_textscan_table_yes_img)
             
-            
-            
-                    % Nom de la imatge
+                    % Image name
                     nom_img = divide_pointfile(S_textscan_table_yes_img(1,:).NomWorm);
                     ruta_img_name = strcat(myFolder, "\", S_textscan_table_yes_img(1,:).NomWorm);
                     
                     resolution_img = appf_split_strindex(S_textscan_table_yes_img(1,:).Resolution)';             
             
-                    % ___Generació Pascal VOC___ 
+                    % ___Generate Pascal VOC___ 
                     if generar_PascalVOC
-                        % Obtenim cell dels Bounding Box:
+                        % Obtain Bounding Box cell:
                         cell_BB = {};
                         for row_table = 1:height(S_textscan_table_yes_img)
                             [cell_BB] = cell_insert_values(cell_BB, appf_split_strindex_BB(S_textscan_table_yes_img(row_table, :).Bounding));
                         end
                 
-                        % Ara podem fer el arxiu Pascal VOC?
+                        % Create the Pascal VOC file
                         create_Pascal_VOC(ruta_img_name, cell_BB, strcat(dir_mainly_output_yes, "\", dir_save_PascalVOC, "\", nom_img, ".xml" ))
                     end
             
             
             
-                    % ___Generació objectes binàris___ 
+                    % ___Create binary objects___ 
                     if generar_BW_obj
             
-                        % Loop cada objecte:
-                        n_obj_yes = 1; % Contador suma numero d'objectes
+                        % Loop every object:
+                        n_obj_yes = 1; % Counter of object number
             
             
                         for n_worm = 1:height(S_textscan_table_yes_img)
@@ -233,7 +218,7 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
             
             
             
-                    % ___Generació objectes binàris junts___ 
+                    % ___Create binary objects together___ 
                     if generar_BW_obj_junts
             
                         BW_obj_junts = false(resolution_img);
@@ -252,7 +237,7 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
                     
             
             
-                    % ___Generació objectes binàris label___ 
+                    % ___Create label binary objects___ 
                     if generar_BW_obj_label
             
             
@@ -269,7 +254,7 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
                         
                         end
             
-                        % BW_obj_junts_lab(1,1) = 255; % Proba comprovacio visualització
+                        % BW_obj_junts_lab(1,1) = 255; % Check visually
             
                         %  "BW_label"
                         imwrite(uint8(BW_obj_junts_lab), Colormap_josep, strcat(dir_mainly_output_yes, "\", dir_save_BW_imgs_3, "\", nom_img, ".png"))
@@ -279,7 +264,7 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
             
             
             
-                    % ___Generació objectes binàris label unit___ 
+                    % ___Create label unit binary objects___ 
                     if generar_BW_obj_label_unit
             
                         Colormap_josep = obtenir_colormap_Josep();
@@ -295,52 +280,52 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
                         
                         end
             
-                        % BW_obj_junts_lab(1,1) = 255; % Proba comprovacio visualització
+                        % BW_obj_junts_lab(1,1) = 255; % Check visually
             
                         %  "BW_label"
                         imwrite(uint8(BW_obj_junts_lab), Colormap_josep, strcat(dir_mainly_output_yes, "\", dir_save_BW_imgs_4, "\", nom_img, ".png"))
     
                     end        
             
-                    % __Guardem .txt amb els noms de les imatges__
+                    % __Save .txt with the images names__
                     % img_every : "Image_828.jpg"
                     write_str_txt(strcat(dir_mainly_output_yes, "\file_names.txt"), img_every) % File names
-                    write_str_txt(strcat(dir_mainly_output_yes, "\file_rutes.txt"), strcat(myFolder, "\", img_every) ) % File rutes
+                    write_str_txt(strcat(dir_mainly_output_yes, "\file_rutes.txt"), strcat(myFolder, "\", img_every) ) % File paths
                     
                 end
     
     
     
     
-            end % end del for de cada img
+            end % end of for every img
         
                 close(f)
         
-        end % fi nomès C. elegans data (IA_data\Celegans)
+        end % end of only C. elegans data (IA_data\Celegans)
         
         
         
         
         
-        % ____C. elegans i no C. elegans data____
-        % Es guarden les propietats dels objectes anotats com C. elegans i dels anotats com no-C. elegans.
+        % ____C. elegans and no C. elegans data____
+        % The properties of objects annotated as C. elegans and those annotated as non-C. elegans are saved.
         if c_elegans_and_non_c_elegans_IAdata
         
             S_textscan_table_yes_and_no = S_textscan_table;
             
             
-            % __Directoris__
-            % Directori seleccionat
-            dir_mainly_output_yes_and_no = strcat(dir_main_IAdata, "\Celegans_and_NoCelegans"); % Directori seleccionat o pre-seleccionat
-            % dir_mainly_output_yes_and_no = "2023_01_04_Generar_dades_extra"; % Directori seleccionat o pre-seleccionat
+            % __Folder__
+            % Selected folder
+            dir_mainly_output_yes_and_no = strcat(dir_main_IAdata, "\Celegans_and_NoCelegans"); 
+            % dir_mainly_output_yes_and_no = "2023_01_04_Generar_dades_extra"; 
             
             
-            % Es crea carpeta Celegans_IAdata
+            % Create folder Celegans_IAdata
             if (generar_PascalVOC | generar_BW_obj | generar_BW_obj_junts | generar_BW_obj_label | generar_BW_obj_label_unit) & ~isfolder(dir_mainly_output_yes_and_no)
                 mkdir(dir_mainly_output_yes_and_no)
             end
             
-            % Directoris nous
+            % New directory
             
             if generar_PascalVOC
                 dir_save_PascalVOC = "PascalVOC_files";
@@ -387,14 +372,14 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
             % Waitbar
             f = waitbar(0,'Exporting data (step 2)');
         
-            % Per cada imatge
+            % For every image
             for img_every = unique(S_textscan_table_yes_and_no.NomWorm)'
         
-                % Posicio
+                % Position
                 [~, loc_B] = ismember(img_every, unique(S_textscan_table_yes_and_no.NomWorm)');
                 percen_bar = loc_B/numel(unique(S_textscan_table_yes_and_no.NomWorm)');
         
-                % Obtenim steps
+                % Obtain steps
                 if c_elegans_IAdata & c_elegans_and_non_c_elegans_IAdata
                     steps_tot = 2;
                     waitbar(percen_bar,f, strcat('Exporting data (step 2/', string(steps_tot), ')') );
@@ -407,26 +392,26 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
                 S_textscan_table_yes_and_no_img = S_textscan_table_yes_and_no(S_textscan_table_yes_and_no.NomWorm == img_every, :);
             
         
-                % Si no es vuit:
+                % If not empty
                 if ~isempty(S_textscan_table_yes_and_no_img)
             
             
             
-                    % Nom de la imatge
+                    % Image name
                     nom_img = divide_pointfile(S_textscan_table_yes_and_no_img(1,:).NomWorm);
                     ruta_img_name = strcat(myFolder, "\", S_textscan_table_yes_and_no_img(1,:).NomWorm);
                     
                     resolution_img = appf_split_strindex(S_textscan_table_yes_and_no_img(1,:).Resolution)';             
             
-                    % ___Generació Pascal VOC___ 
+                    % ___Generate Pascal VOC___ 
                     if generar_PascalVOC
-                        % Obtenim cell dels Bounding Box:
+                        % Obtain Bounding Box cell:
                         cell_BB = {};
                         for row_table = 1:height(S_textscan_table_yes_and_no_img)
                             [cell_BB] = cell_insert_values(cell_BB, appf_split_strindex_BB(S_textscan_table_yes_and_no_img(row_table, :).Bounding));
                         end
                 
-                        % Obtneim cell amb les anotacions
+                        % Obtain cell with the annotations
                         cell_label_props = {};
                         for row_table = 1:height(S_textscan_table_yes_and_no_img)
                             if isequal(S_textscan_table_yes_and_no_img(row_table, :).IsCeleg, "yes")
@@ -438,17 +423,17 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
                             end
                         end
         
-                        % Ara podem fer el arxiu Pascal VOC?
+                        % Create the Pascal VOC file
                         create_Pascal_VOC_label(ruta_img_name, cell_BB, cell_label_props, strcat(dir_mainly_output_yes_and_no, "\", dir_save_PascalVOC, "\", nom_img, ".xml" ));
                     end
             
             
             
-                    % ___Generació objectes binàris___ 
+                    % ___Create binary objects___ 
                     if generar_BW_obj
             
-                        % Loop cada objecte:
-                        n_obj_yes = 1; % Contador suma numero d'objectes
+                        % Loop every object:
+                        n_obj_yes = 1; % Counter of object number
                         n_obj_no = 1;
             
                         for n_worm = 1:height(S_textscan_table_yes_and_no_img)
@@ -456,7 +441,7 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
                             [BW_image] = create_BW_indx(appf_split_strindex(S_textscan_table_yes_and_no_img(n_worm,:).Indx_BW), appf_split_strindex(S_textscan_table_yes_and_no_img(n_worm,:).Resolution)');
                 
         
-                            % es guarda en "\Celeg" & "\NonCeleg"
+                            % Save in "\Celeg" & "\NonCeleg"
                             if isequal(S_textscan_table_yes_and_no_img(n_worm,:).IsCeleg, "yes")
         
                                 imwrite(BW_image, strcat(dir_mainly_output_yes_and_no, "\", dir_save_BW_imgs_1, "\Celeg", "\", nom_img, "_", return_zeros_one(n_obj_yes), ".png"))
@@ -476,7 +461,7 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
             
             
             
-                    % ___Generació objectes binàris junts___ 
+                    % ___Create binary objects together___ 
                     if generar_BW_obj_junts
             
                         BW_obj_junts = false(resolution_img);
@@ -495,7 +480,7 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
                     
             
             
-                    % ___Generació objectes binàris label___ 
+                    % ___Create label binary objects___ 
                     if generar_BW_obj_label
             
             
@@ -512,7 +497,7 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
                         
                         end
             
-                        % BW_obj_junts_lab(1,1) = 255; % Proba comprovacio visualització
+                        % BW_obj_junts_lab(1,1) = 255; % Check visually
             
                         %  "BW_label"
                         imwrite(uint8(BW_obj_junts_lab), Colormap_josep, strcat(dir_mainly_output_yes_and_no, "\", dir_save_BW_imgs_3, "\", nom_img, ".png"))
@@ -522,7 +507,7 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
             
             
             
-                    % ___Generació objectes binàris label unit___ 
+                    % ___Create label unit binary objects___ 
                     if generar_BW_obj_label_unit
             
                         Colormap_josep = obtenir_colormap_Josep();
@@ -543,36 +528,36 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
                             end
                         end
             
-                        % BW_obj_junts_lab(1,1) = 255; % Proba comprovacio visualització
+                        % BW_obj_junts_lab(1,1) = 255;  % Check visually
             
                         %  "BW_label"
                         imwrite(uint8(BW_obj_junts_lab), Colormap_josep, strcat(dir_mainly_output_yes_and_no, "\", dir_save_BW_imgs_4, "\", nom_img, ".png"))
              
                     end        
                             
-                    % __Guardem .txt amb els noms de les imatges__
+                    % __Save .txt with the images names__
                     % img_every : "Image_828.jpg"
                     write_str_txt(strcat(dir_mainly_output_yes_and_no, "\file_names.txt"), img_every) % File names
-                    write_str_txt(strcat(dir_mainly_output_yes_and_no, "\file_rutes.txt"), strcat(myFolder, "\", img_every) ) % File rutes
+                    write_str_txt(strcat(dir_mainly_output_yes_and_no, "\file_rutes.txt"), strcat(myFolder, "\", img_every) ) % File paths
     
             
                 end
-            end % end del for de cada img
+            end % end of for every img
         
         
             close(f)
         
-        end % fi C. elegans i no C. elegans data (IA_data\Celegans_and_NoCelegans)
+        end % end of C. elegans and no C. elegans data (IA_data\Celegans_and_NoCelegans)
         
 
-        % __Comprimir en .zip__
+        % __Compress in .zip__
 
-        % Guardar en un .Zip!
-        % dir_main_save_folder % Ruta .zip on guardar
-        % dir_main_IAdata : directori a comprimir
+        % Save in a  .zip file
+        % dir_main_save_folder % Path .zip to save
+        % dir_main_IAdata : folder to compress
         zippedfiles = zip(dir_main_save_folder, dir_main_IAdata);
 
-        % Borrar directori creat
+        % Erase created directory
         rmdir(dir_main_IAdata,'s')
         
     
@@ -585,11 +570,7 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
 end
 
 
-% Sub-funcións
-
-
-
-
+% Sub-functions
 
 function [Colormap_josep] = obtenir_colormap_Josep()
     

@@ -1,7 +1,7 @@
 function [PascalVOC_prop] = MATLAB_BB_to_Pascal_VOC_prop(MATLAB_prop)
 
-% Donades les coordenades d'un Bounding Box procedent de la notació de
-% MATLAB, es retorna la notació tipu Pascal VOC, on:
+% Given the coordinates of a Bounding Box from the
+% MATLAB notation, the Pascal VOC type notation is returned, where:
 %
 % MATLAB : [xmin, ymin, width, height]
 % 

@@ -1,16 +1,16 @@
 function determine_packages()
 
-% Determina si els paquets descrits són instalats en el software MATALB de
-% l'ordinador. Si no s'alerta que han de ser instalats
+% Determines whether the described packages are installed in MATLAB. 
+% If not, it warns that they must be installed.
 %
-% Quan es fa servir el programa en MATLAB, aquet requereix tenir instal·lat alguns toolboxes.
+% When using the program in MATLAB, it requires some toolboxes to be installed.
 %
 % See also
 % look_if_installed
 
 % START FUNCTION
 
-    % Determinació per Image Processing Toolbox
+    % Check if installed
     %look_if_installed("vision", "Computer Vision Toolbox")
     look_if_installed("stats", "Statistics and Machine Learning Toolbox")
     look_if_installed('images', 'Image Processing Toolbox')

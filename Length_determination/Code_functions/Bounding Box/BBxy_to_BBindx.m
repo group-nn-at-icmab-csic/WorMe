@@ -13,8 +13,6 @@ function [index_punts] = BBxy_to_BBindx(BB_punts, BW_size)
 %     [index_punts] = BBxy_to_BBindx(BB.BoundingBox, size(BW_final))
 %
 %
-% See also:
-% paint_indx_to_RGB
 
 
 % START FUNCTION

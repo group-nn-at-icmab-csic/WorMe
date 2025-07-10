@@ -19,8 +19,6 @@ function [total_indx_fin] = wide_indx_BB(total_indx, val_exampl, size_BW)
 % imshow(RGB_to_color_new)
 %
 % See also
-% paint_indx_to_RGB
-% BBxy_to_BBindx
 % dimension_output_correction
 
 

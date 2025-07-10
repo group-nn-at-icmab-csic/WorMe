@@ -1,10 +1,10 @@
 function [S_textscan_table_row_main] = consol_S_textscan_modifs(BW_final_2, isceleg, nomworm, modifs_string)
 
-% Ajunta la taula generada en 
+% Attach the generated table to
 
 % START FUNCTION
 
-    % Creació del main de dades:
+    % Create the main of data:
     [BW_final_lab, n_bwlab] = bwlabel(BW_final_2);
 
     S_textscan_table_row_main = [];
