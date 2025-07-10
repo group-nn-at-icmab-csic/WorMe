@@ -1,13 +1,13 @@
 function app_interf_determinar_ultim_object(app, BB_values, tipus_det)
 
-% Determina si l'ultim objecte és present, graficant aquest.
+% Determines if the last object is present, displaying it.
 
-% INICI FUNCIÓ
+% START OF THE FUNCTION
 
 % BB_values = appf_split_strindex(no_modified_object_modificada.Bounding)';
 
 if isequal(tipus_det, "thick") || isequal(tipus_det, "cross")
-    % Determinem ultim objecte
+    % Determine last object
 
     [imatge_original, ~] = app_interf_obtain_original(app, str2double(app.img_contLabel.Text));
     img_original_cuted = imcrop(imatge_original, BB_values);
@@ -27,6 +27,7 @@ else
     app.LastmodifLabel.Visible = 'off';
 end
 
-% FINAL FUNCIÓ
+% END OF THE FUNCTION
+
 
 end

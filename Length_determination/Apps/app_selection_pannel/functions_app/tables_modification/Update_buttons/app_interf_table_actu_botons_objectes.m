@@ -1,12 +1,12 @@
 function app_interf_table_actu_botons_objectes(app, tf_porta)
 
 
-% Actu botons si no hi ha objectes true/false
+% Update buttons if there are no objects true/false
 
-% INICI FUNCIÓ
+% START OF THE FUNCTION
 
 if ~tf_porta
-    % No hi ha objectes
+    % There are no objects
     app.RightButton.Visible = 'on';
     app.LeftButton.Visible = 'on';
     app.Thick_Button.Visible = 'off';
@@ -15,7 +15,7 @@ if ~tf_porta
     app.PintarButton.Visible = 'off';
     
 else
-    % Hi ha objectes
+    % There are objects
     app.RightButton.Visible = 'on';
     app.LeftButton.Visible = 'on';
     app.Thick_Button.Visible = 'on';
@@ -25,6 +25,7 @@ else
     
 end
 
-% FINAL FUNCIÓ
+% END OF THE FUNCTION
+
 
 end

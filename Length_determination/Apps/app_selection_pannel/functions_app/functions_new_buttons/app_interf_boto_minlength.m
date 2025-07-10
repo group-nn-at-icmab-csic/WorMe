@@ -1,9 +1,9 @@
 function app_interf_boto_minlength(app)
 
 
-% Botó Minlength
+% Minlength Button
 
-% INICI FUNCIÓ
+% START OF FUNCTION
 
     % value = app.MinLengthStateButton.Value;
     % Text area : MinLengthTextArea
@@ -12,12 +12,13 @@ function app_interf_boto_minlength(app)
 %     
 %     app.MinLengthTextArea.Value
 
-    % __Actualització i Graficació__ %
+    % __Update and Plotting__ %
     app_interf_actualitzacio_graficacio(app, true)
 
-    % Actualitzem figura per capacitar shortkey
+    % Refresh figure to enable shortkey
     figure(app.UIFigure)                      
 
-% FINAL FUNCIÓ
+% END OF FUNCTION
+
 
 end

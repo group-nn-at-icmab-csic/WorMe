@@ -1,21 +1,21 @@
 function app_interf_boto_minwidth(app)
 
-% Botó Width minima
+% Minimum Width Button
 
-% INICI FUNCIÓ
+% START OF FUNCTION
 
         %value = app.MinWidthStateButton.Value;
 
         % Text area:
         % MinWidthTextArea
         
-        % __Actualització i Graficació__ %
+        % __Update and Plotting__ %
         app_interf_actualitzacio_graficacio(app, true)
 
 
-        % Actualitzem figura per capacitar shortkey
+        % Refresh figure to enable shortkey
         figure(app.UIFigure)
 
-% FINAL FUNCIÓ
+% END OF FUNCTION
 
 end

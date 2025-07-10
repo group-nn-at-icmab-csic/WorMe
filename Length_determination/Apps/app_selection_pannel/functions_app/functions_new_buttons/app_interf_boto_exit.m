@@ -1,7 +1,7 @@
 function app_interf_boto_exit()
 
-    % Botó app.ExitButton
-    % Tanca la app
+    % Button app.ExitButton
+    % Close the app
 
     % START OF THE FUNCTION
 

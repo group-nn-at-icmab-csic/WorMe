@@ -1,19 +1,19 @@
 function app_interf_boto_original(app)
 
-% Botó Original
+% Original Button
 %
-% Mostra la imatge orginial.
+% Displays the original image.
 
-% INICI FUNCIÓ
+% START OF FUNCTION
 
 
-            % Actualitzat botons (imcrop)
+            % Update buttons (imcrop)
             app.imcrop_value = [];
 
             if ~app.OriginalButton.Value
                 app.OriginalButton.Value = false;
 
-                % Actualització
+                % Update
                 app_interf_actualitzacio_graficacio(app, false)
 
             else
@@ -24,11 +24,11 @@ function app_interf_boto_original(app)
 
             end
             
-
             
-            % Actualitzem figura per capacitar shortkey
+            % Refresh figure to enable shortkey
             figure(app.UIFigure)      
 
-% FINAL FUNCIÓ
+% END OF FUNCTION
+
 
 end

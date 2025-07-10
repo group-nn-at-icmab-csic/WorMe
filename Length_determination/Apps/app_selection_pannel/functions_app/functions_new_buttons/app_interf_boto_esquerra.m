@@ -1,32 +1,32 @@
 function app_interf_boto_esquerra(app)
 
-% Botó esquerra
+% Left Button
 
-% INICI FUNCIÓ
+% START OF FUNCTION
 
-    
-    % ___Modif esquerra___
+    % ___Left modification___
     n_imatge = str2num(app.img_contLabel.Text);
     
-    % Sumem contadors
+    % We decrement counters
     app.img_contLabel.Text = string(n_imatge -1);
-    %_nom imatge_
-    [~ , nom_img_original] = app_interf_obtain_original(app, n_imatge-1);        % Obtenció nom imatge
-    app.img_original_nomLabel.Text = nom_img_original;         %Actualització nom imatge
+    % _image name_
+    [~ , nom_img_original] = app_interf_obtain_original(app, n_imatge-1);        % Obtain image name
+    app.img_original_nomLabel.Text = nom_img_original;         % Update image name
 
     
-    % __Actualització i Graficació__ %
+    % __Update and Plotting__ %
     app.imcrop_value = [];
     app_interf_actualitzacio_graficacio(app, false)
 
     
-    % Imatge anterior
+    % Previous image
     app_interf_determinar_ultim_object(app, false, "no_res")
 
-    % Actualitzem figura per capacitar shortkey
+    % Refresh figure to enable shortkey
     figure(app.UIFigure)  
 
 
-% FINAL FUNCIÓ
+% END OF FUNCTION
+
 
 end

@@ -1,19 +1,19 @@
 function app_interf_boto_cross(app)
+% Cross Button
 
-% Botó Cross
+% START OF FUNCTION
 
-% INICI FUNCIÓ
-
-    % __Modificació__
+    % __Modification__
     app_interf_taula_modif_cross(app)
     
-    % __Actualització i Graficació__ %
+    % __Update and Plotting__ %
     app_interf_actualitzacio_graficacio(app, true)
     
-    % Actualitzat figura per capacitar shortkey
+    % Refreshed figure to enable shortkey
     figure(app.UIFigure)
 
 
-% FINAL FUNCIÓ
+% END OF FUNCTION
+
 
 end
