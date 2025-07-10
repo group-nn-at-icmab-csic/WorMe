@@ -31,7 +31,7 @@ cell_crua_dades = read_text_delimiters(arxiu_text_output, ";");
 % Search position of name:
 fila_on_introduir = false;
 for cada_fila = 1:length(cell_crua_dades)
-    % If coincide
+    % If it matches
     if strcmp(cell_crua_dades{cada_fila, 1}, nom_posicio_a_intro)
         % Save the raw 
         fila_on_introduir = cada_fila;
@@ -49,9 +49,9 @@ end
 % Save output de dades
 fid = fopen(arxiu_text_output,'w');
 for var_out_dades = 1:size_llargada
-    % Si la posicio del write és la que volem:
+% If the write position is what we want:
     if var_out_dades == fila_on_introduir        
-        % Copiy raw corresponent
+        % Copy corresponding raw
         fprintf(fid,'%s \n',strcat(cell_crua_dades{var_out_dades, 1}, ";", cell_crua_dades{var_out_dades, 2}));
         
         % After, the raw to introduce

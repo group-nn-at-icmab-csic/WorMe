@@ -1,5 +1,5 @@
-% NOTA: 1. Change the function for the opreation 
-% 2. To do Ctrl + A and copy the comandment line 
+% Note: 1. Change the function for the operation 
+% 2. To do Ctrl + A and copy the command line 
 tictoc = []; for nm = 1:50; tic; 
 
     % Function

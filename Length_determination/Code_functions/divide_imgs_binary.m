@@ -1,35 +1,34 @@
 function [llistat_imatges] = divide_imgs_binary(BW_final_conjunts)
 
-% D'una imatge binaria, retorna una cell amb la imatge on apareix cada
-% objecte.
+% From a binary image, return a cell with the image where each
+% object appears.
 
 % START FUNCTION
 
 % -- input: BW_final_conjunts
-% -- output: llistat_imatges
+% -- output: listat_imatges
 
+%From here we have the binarized image. What we want to determine,
+%however, is the images with a skeletonization length. To do this,
+%we will need to segment the image and analyze each image
+%uniquely.
 
-%A partir d'aqui tenim la imatge binaritzada. El que volem determinar,
-%però, és les imatges amb una llargada d'esqueletonització. Per a fer-ho,
-%necessitarem segmentar la imatge i analitzar cada imatge de manera
-%singular.
-
-% %Si esqueletonitzem:
+% %If we skeletonize:
 % BW_skel = bwskel(BW_final_conjunts);
 % imshow(BW_skel)
-% 
+%
 
-% SEPARACIÓ IMATGES BINÀRIES. 
-% Resultat: cell amb les imatges separades
+% SEPARATION OF BINARY IMAGES.
+% Result: cell with the separated images
 [L_variable, num] = bwlabel(BW_final_conjunts);
 % imshow(L_variable, [])
 
 
-%unique(L) és igual a num, que és el nombre de distincións.
+%unique(L) equals num, equals number of differences
 
 llistat_imatges = {};
 
-%Separem cada una, les mostrem:
+%Separate each one and show
 for k_for_cada = 1 : num
     thisBlob = ismember(L_variable, k_for_cada);
 %     figure
@@ -37,13 +36,13 @@ for k_for_cada = 1 : num
     llistat_imatges{length(llistat_imatges)+1} = thisBlob;
 end
 
-%Ara tenim 'llistat_imatges', que és una cell que té cada imatge.
+%We have'llistat_imatges', which is a cell that has each image
 % llistat_imatges
 % length(llistat_imatges)
 
 
-% El resultat de la funció és una cell amb varies imatges. A partir d'aquí,
-% s'hauria de llegir i filtrar cada una d'aquestes imatges.
+% The result of the function is a cell with several images. From here,
+% each of these images should be read and filtered.
 
 % END FUNCTION
 

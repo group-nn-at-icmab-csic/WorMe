@@ -9,10 +9,10 @@ function [BW_skel_final_unic] = large_skel_iter(BW_skel_image)
 
 % START FUNCTION
 
-% Apply of lare_skel function
+% Apply of large_skel function
 [BW_skel_final_unic] = large_skel(BW_skel_image);
 
-% Determiine the endpoits i branchpoints
+% Determine the endpoints and branchpoints
 BWskel_endpoints = numel(find(bwmorph(BW_skel_final_unic, 'endpoints'))); % Elapsed time is: 0.000943 seconds ; 50 iterations in 4.2Gb of RAM memory used
 BWskel_branchpoints = numel(find(bwmorph(BW_skel_final_unic, 'branchpoints'))); % Elapsed time is: 0.00450 seconds ; 50 iterations in 4.2Gb of RAM memory used
 
@@ -40,6 +40,6 @@ else
 end
     
 
-% FINAL OF THE FUNCTION
+% END FUNCTION
 
 end

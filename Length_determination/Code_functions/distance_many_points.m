@@ -14,20 +14,20 @@ function [sum_punts] = distance_many_points(punts_xy_nou)
 % START FUNCTION
 
 
-% _Points obtantion_
+% _Obtain points_
 sum_punts = 0;
 for cada_punt = 1:height(punts_xy_nou) -1
 
-    % Operació
+    % Operation
     puntdist = [punts_xy_nou(cada_punt, :); punts_xy_nou(cada_punt +1, :)];
     d_punts = pdist(puntdist,'euclidean');
     sum_punts = sum_punts + d_punts;
 
 
 
-%     % __Graficació__
+%     % __Graph__
 % 
-%     % Graficació comprovació
+%     % Graph check
 %     punt1 = punts_xy_nou(cada_punt, :);
 %     punt2 = punts_xy_nou(cada_punt+1, :);    
 % 
@@ -39,14 +39,14 @@ for cada_punt = 1:height(punts_xy_nou) -1
 %     imshow(imoverlay(BW_ini_regio_cropped, zeros_imatge_cotxe_nou, "r" ))
 %     hold on;
 % 
-%     % Punts
+%     % Points
 %     y_endpoint = [punt1(1) punt2(1)]';    
 %     x_endpoint = [punt1(2) punt2(2)]';
 % 
 %     % Line
 %     line(y_endpoint, x_endpoint)
 % 
-%     % Punt
+%     % Point
 %     plot(y_endpoint, x_endpoint, 'b.','markersize',6)
 %     hold off
     
@@ -56,7 +56,7 @@ end
 
 
 
-% FINAL OF THE FUNCTION
+% END FUNCTION
 
 
 end

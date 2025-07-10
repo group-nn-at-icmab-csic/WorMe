@@ -50,10 +50,10 @@ for n_filep = 1:length(filePattern)
     end
 end
 
-% Filtratge dels elements ocults:
+% Filter hidden elements:
 [theFiles] = lecture_sift_hide_files(theFiles);
 
-% FINAL OF THE FUNCTION
+% END FUNCTION
 
 
 end

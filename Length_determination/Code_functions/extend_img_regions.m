@@ -39,7 +39,6 @@ function [BW_img_final] = extend_img_regions(BW_img_ini, regions_xywh, BW_img_aj
 %
 %
 % See also
-% retallar_BWRGBimatge_BB
 % cut_BB_BW_image_1
 % cut_BB_BW_RGB_image
 

@@ -1,46 +1,44 @@
 function [S_textscan_table] = read_data(txt_data_name, write_values, separador_char, variable_names)
 
-% Llegeix i guarda en una taula (S_textscan_table) l'arxiu de text "main_data_analysis.txt"
-% Funció de la app 'app_selection_pannel'.
-% NOTA: El nombre màxim d'elements és 10 (ampliable)
+% Read and save the text file "main_data_analysis.txt" in a table (S_textscan_table)
+% Function of the app 'app_selection_pannel'.
+% NOTE: The maximum number of elements is 10 (expandable)
 %
 % Variables
-% write_values : és el codi del fprint que s'ha d'entrar.
+% write_values ​​: is the fprint code that must be entered.
 %           ex2: "%f%s%s%f%f%f%f%f%f%f%f%f%f%s%s%s%s%s%s%s%s%f"
-% separador_char: separador que tindràn els valors de cada cell
+% separador_char: separator that will have the values ​​of each cell
 %           ex: "$"
-% txt_data_name : directori i nom del arxiu.
+% txt_data_name : directory and name of the file.
 %           ex: "Results\main_results_josep.txt"
-% variable_names : nom de les variables en la taula
+% variable_names : name of the variables in the table
 %           ex:  ["IsCeleg","NomWorm", "Length", "Bounding", "Modifs", "Indx_skel", "Indx_BW", "WidthValues"]
 % 
 %
-% % Exemple: 
+% % Example: 
 % [S_textscan_table] = read_data("Taula_Josep.txt", typology_formatspec_table_norm(app.S_textscan_tracking), "$", app.S_textscan_tracking.Properties.VariableNames);
 %
 % See also
-% write_dades_cell
-% app_interf_guardar_main_dades
 % app_interf_descriure_dades
 
 
 % START FUNCTION
 
 
-% _Obtenim la lectura_
+% _Obtain the read_
 fid = fopen(txt_data_name);
 S_textscan = textscan(fid, write_values, 'Delimiter', separador_char); % Elapsed time is 0.000535 seconds.
 fclose(fid);
 
-% _Mirem el nombre d'elements_
-% segons el codi d'entrada
+% _Let's look at the number of elements_
+% according to the input code
 [~, matches_split] = strsplit(write_values, "%");
 num_col = numel(matches_split);
 
 % disp("Num columnes read_data")
 % num_col
 
-% Ho passem a taula
+% Convert to table
 if num_col == 1
     S_textscan_table = table(string(S_textscan{1}), ...
                             'VariableNames', variable_names);

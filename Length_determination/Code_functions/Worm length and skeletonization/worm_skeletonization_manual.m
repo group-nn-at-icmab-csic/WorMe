@@ -6,9 +6,6 @@ function [BW_skel, dades_imatge_row, dades_imatge_manual_corrected] = worm_skele
 
 % Given a binary image and its scale, its skeletonized image and the distance to that scaled image are returned. We can define the pixel range in the manual error.
 %
-% (CAT)
-% Donada una imatge binària i la seva escala, es retorna la seva imatge esqueletonitzada i la distància d'aquesta imatge a escala.
-%
 % An initial normal image is also added for a final plot.
 % UPGRADE:
 % - The original image is not considered
@@ -43,12 +40,12 @@ function [BW_skel, dades_imatge_row, dades_imatge_manual_corrected] = worm_skele
 % - dades_imatge_row - Data standard. Pixel by pixel.
 %
 %
-% OPITMITZAT: 
+% Optimization: 
 % worm_skeletonization : Elapsed time is 0.362784 seconds.
 %
 %
 %
-% Variables exemple
+% Variables example
 % BW_final = BW_llistat_imatges;
 % I1 = imageArray;
 % escala_imatge = escala_imatge;
@@ -57,12 +54,10 @@ function [BW_skel, dades_imatge_row, dades_imatge_manual_corrected] = worm_skele
 %
 %
 % See also
-% esqueletonitzacio_josep
+% worm_skeletonization
 % large_skel
-% extendre_skel_estes
+% skel_elongate
 % worm_length
-
-
 
 % START SCRIPT
 
@@ -77,7 +72,7 @@ endpoints_BW = find(bwmorph(BW_skel,'endpoints'));
 
 if reduce_line % If line reduction is applied:
     if numel(endpoints_BW)>2
-        % vell: [BW_skel, ~] = longestConstrainedPath_Josep(BW_final, "thinOpt", "thin");
+        % old: [BW_skel, ~] = longestConstrainedPath_Josep(BW_final, "thinOpt", "thin");
         % [BW_skel] = large_skel(BW_skel);
         [BW_skel] = large_skel_iter(BW_skel); % Upgrade josep 11/09/2022
     else
@@ -104,7 +99,7 @@ end
 % _Data with manual error correction_
 [Area_Josep] = worm_length_manual(BW_skel, n_pixel_margin);
 
-Area_Josep_scaled = Area_Josep / escala_imatge; %Es multiplica pel ratio de l'escala (pixels / unitat)
+Area_Josep_scaled = Area_Josep / escala_imatge; % Multiplies by the scale ratio (pixels / unit)
 
 dades_imatge_manual_corrected = Area_Josep_scaled;
 

@@ -29,7 +29,7 @@ function [BW_skel, dades_imatge, dades_imatge_corrected] = worm_skeletonization(
 %
 %
 %
-% OPITMITZAT: 
+% OPITMIZED: 
 % worm_skeletonization : Elapsed time is 0.362784 seconds.
 %
 %
@@ -39,7 +39,7 @@ function [BW_skel, dades_imatge, dades_imatge_corrected] = worm_skeletonization(
 % - there can only be one binary object
 % - All variables must be defined
 %
-% Variables exemple
+% Variables example
 % BW_final = BW_llistat_imatges;
 % I1 = imageArray;
 % escala_imatge = escala_imatge;
@@ -48,15 +48,12 @@ function [BW_skel, dades_imatge, dades_imatge_corrected] = worm_skeletonization(
 %
 %
 % See also
-% esqueletonitzacio_josep
 % large_skel
-% extendre_skel_estes
+% skel_elongate
 % worm_length
 % worm_skeletonization_manual
 
-
-
-% START FUNCTION
+% START SCRIPT
 
 
 % general skeletonization
@@ -94,7 +91,7 @@ end
 % disp("[Area_Josep] = worm_length(BW_skel);")
 % [Area_Josep] = worm_length(BW_skel)
 [Area_Josep] = worm_length_manual(BW_skel, 5);
-Area_Josep_scaled = Area_Josep / escala_imatge; %Es multiplica pel ratio de l'escala (pixels / unitat)
+Area_Josep_scaled = Area_Josep / escala_imatge; % Multiplies by the scale ratio (pixels / unit)
 dades_imatge_corrected = Area_Josep_scaled;
 
 % % _Check comparison between both distances:_

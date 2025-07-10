@@ -26,7 +26,6 @@ function [bwlabel_BW_obj_sumline, image_BW_colors, door_window_drawline, defined
 %
 % See also
 % BW_objects_to_color
-% print_RGB_indx_brush
 
 % START FUNCTION
 

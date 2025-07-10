@@ -22,6 +22,6 @@ function [carpeta_output] = results_folder_create(userSavedDocuments, nom_carpet
         mkdir(strcat(carpeta_output, "\Processment_parameters"))
     end
 
-% FINAL OF THE FUNCTION
+% END FUNCTION
 
 end

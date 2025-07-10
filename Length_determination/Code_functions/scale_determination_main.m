@@ -9,7 +9,7 @@ function [escala_imatge] = scale_determination_main(userSavedDocuments, theFiles
     baseFileName = theFiles(1).name; % If gives error if there is no images
     %disp(baseFileName)
     fullFileName = fullfile(theFiles(1).folder, baseFileName);
-    imageArray_escala = imread_ifgrey(fullFileName); % Imatge inicial
+    imageArray_escala = imread_ifgrey(fullFileName); % Initial image
     
     
     % __Obtain of the scale__
@@ -28,7 +28,7 @@ function [escala_imatge] = scale_determination_main(userSavedDocuments, theFiles
         escaL = '';
     end
     
-    % __Scale obtention__
+    % __Obtain scale__
     escala_imatge = scale_determine(imageArray_escala, escaL);
     % escala_imatge = 1.14  %pixels/unit
     
@@ -38,10 +38,10 @@ function [escala_imatge] = scale_determination_main(userSavedDocuments, theFiles
     
     save(strcat(carpeta_output, "\escala_imatge"), "escala_imatge")
     
-    % % Scale obtention
+    % % Obtain scale
     % getfield( load(strcat(carpeta_output, "\escala_imatge")), "escala_imatge")
 
 
-% FINAL OF THE FUNCTION
+% END FUNCTION
 
 end

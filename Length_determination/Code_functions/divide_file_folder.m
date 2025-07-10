@@ -1,7 +1,7 @@
 function [string_file, string_folder, string_folder_file] = divide_file_folder(string1)
 
-% Donada la ruta d'una imatge, retorna el nom de l'arxiu, la carpeta
-% precedent, i ambdós junts.%
+% Given the path of an image, return the file name, the preceding folder
+%, and both together.%
 % 
 % ruta_img = "2023_01_03_Generar_PascalVOC\Anotacio exemple 2\Image_961.jpg"
 %
@@ -22,9 +22,9 @@ function [string_file, string_folder, string_folder_file] = divide_file_folder(s
     end
     
     
-    % string_file % nom arxiu
-    % string_folder % nom carpeta
-    string_folder_file = strcat(string_folder, "\", string_file); % Nom carpeta + nom arxiu
+    % string_file % name file
+    % string_folder % name folder
+    string_folder_file = strcat(string_folder, "\", string_file); % name folder + name file
 
 
 

@@ -48,7 +48,7 @@ else
 end
 
 
-% Image obtaintion
+% Image obtaining
 [filename, pathname] = uigetfile({['*.jpg;*.png;*.jpeg;*.tif;*.tiff;*.jfif;*.bmp']; '*.jpg'; '*.png'; '*.jpeg'; '*.tif'; '*.tiff'; '*.jfif'; '*.bmp'; '*.*'}, "Select the images", predef_folder_carpeta, 'MultiSelect','on');
 % pathname :    'C:\Users\jllobet\Desktop\Length determination v2_15\_Imatges exemple\Amanda_Controls_poques\C_48\'
 % filename :  {'Image_961.jpg'}    {'Image_970.jpg'}    {'Image_973.jpg'}
@@ -59,7 +59,7 @@ end
 if ~isequal(filename, 0)
 
 
-    %_Obtaintion of directory name_
+    %_obtaining of directory name_
     % Name of the entry folder
     nom_carpeta_input_cru = split(pathname, "\");
     nom_carpeta_input = nom_carpeta_input_cru{end-1};
@@ -136,6 +136,6 @@ end
 
 
 
-% FINAL OF THE FUNCTION
+% END FUNCTION
 
 end

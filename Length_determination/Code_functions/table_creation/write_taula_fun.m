@@ -1,43 +1,36 @@
 function write_taula_fun(arxiu_dir, table_main, var_disc)
 
-% Write taula funcional: Si no existeix l'arxiu, es crea, si existeix però
-% hi ha una variable igual, la sobreescriu, sinó la afegeix.
+% Write functional table: If the file does not exist, it is created, if it exists but
+% there is an equal variable, it is overwritten, otherwise it is added.
 %
-% La taula ha de ser igual la definida que la que es llegeix.
+% The defined table must be equal to the read table
 %
 %
 % Variables
-%   arxiu_dir : directori de la taula (Josep/files/taula.txt)
-%   table_main : Taula a escriure en l'ariux.
-%   var_disc : variable a discriminar la repetitivitat. ex: "Frame"
+% arxiu_dir : directory of the table (Josep/files/taula.txt)
+% table_main : Table to write in the file.
+% var_disc : variable to discriminate repetitiveness. ex: "Frame"
 %
 %
-%
-% Molt semblant a app_sel_computar_dades_manual_file, però ara els tèrmes
-% poden ser nous.
-%
-%
-%
-% % Exemple
-% % Obtenim taula
+%% % Example
+% % We obtain table
 % [table_S_textscan_tracking] = app_sel_open_S_textscan_tracking(app);
-% 
-% % Obtenim una fila, la canviem (a mode d'exemple)
+%
+% % We get a row, we change it (as an example)
 % table_S_textscan_tracking_new = table_S_textscan_tracking(1,:)
 % table_S_textscan_tracking_new.("Frame") = string(randi(10))
-% 
-% % Write taula
-% arxiu_dir = strcat(app.directori_nomvideo_v, "\Tracking_analysis\", "Tracking_data_", carpeta_ultim(app.directori_nomvideo_v), ".txt");
+%
+% % Write table
+% arxiu_dir = strcat(app.directori_nomvideo_v, "\Tracking_analysis\", "Tracking_data_", last_folder(app.directori_nomvideo_v), ".txt");
 % write_taula_fun(arxiu_dir, table_S_textscan_tracking_new, "Frame")
-% 
-% % Lectura taula actual per comprovació
+%
+% % Read current table for verification
 % [S_textscan_table_new] = read_data(arxiu_dir, typology_formatspec_table_norm(table_S_textscan_tracking_new), "$", table_S_textscan_tracking_new.Properties.VariableNames);
 % 
 % S_textscan_table_new
 %
 %
 % See also
-% app_sel_computar_dades_manual_file
 
 % START FUNCTION
 

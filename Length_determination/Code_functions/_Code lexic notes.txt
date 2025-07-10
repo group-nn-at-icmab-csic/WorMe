@@ -1,16 +1,16 @@
 
-% __CODIS TITOLS__
+% __TITLES CODE__
 %
-% Per a veure els títols dels apartats del programa, 
-% la jerarquia d'aquests és definida pel nombre de "_" que tenen.
+% To see the titles in the comments, 
+% The hierarchy is defined by the number of "_".
 %
 % ex:
-% ____Titols____
-% __titol inferior__
+% ____Title____
+% __Secondary title__
 %
-% Títol   : _______
-% Títol 1 : _____
-% Títol 2 : ____
-% Títol 3 : ___
-% Títol 4 : __
-% Títol 5 : _
+% Title   : _______
+% Title 1 : _____
+% Title 2 : ____
+% Title 3 : ___
+% Title 4 : __
+% Title 5 : _

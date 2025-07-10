@@ -29,7 +29,7 @@ BW_edge_canny_cropped = edge(imadjust(im2gray(imageArray_cropped)), "Canny");
 %imshow(BW_edge_approxcanny_cropped_f)
 %imshow(BW_edge_canny_cropped)
 
-% Processament of the approxcanny
+% Processing of the approxcanny
 BW_BW_edge_approxcanny_cropped_f_proc = imclose(BW_edge_approxcanny_cropped_f, strel("disk", 1));
 %imshow(BW_BW_edge_approxcanny_cropped_f_proc)
 BW_BW_edge_approxcanny_cropped_f_proc = imfill(BW_BW_edge_approxcanny_cropped_f_proc, "holes");

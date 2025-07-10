@@ -88,7 +88,7 @@ im_compare_ini_inv = ~im_compare_ini;
 % imshow(im_pharx_ant)
 % imshow(im_compare_ini_inv)
 
-% Graph coincidents
+% Graph matching
 suma_coincid = im_pharx_ant + ~im_compare_ini_inv;
 % imshow(suma_coincid, [])
 coincidencia_BW = suma_coincid==2;
@@ -97,7 +97,7 @@ coincidencia_BW = suma_coincid==2;
 
 % Points of the pharynx pump BW initial
 [x_find_pharx, y_find_pharx] = find(coincidencia_BW);
-% El mateix valor però en coordenades:
+% The same value but in coordinates:
 try
     coordena_pharx = sub2ind(size(im_pharx_ant), y_find_pharx, x_find_pharx);
 catch ME
@@ -152,7 +152,7 @@ if test_ext_si_no
     for punt_BW_phar = 1:length(x_find_pharx)
             
     
-        % Graphication
+        % Graph
         zeros_graficar = zeros(size(im_compare_ini_inv));
         zeros_graficar(x_find_pharx(punt_BW_phar), y_find_pharx(punt_BW_phar)) = 1;
         imshow_write = imshowpair(imoverlay(im_pharx_ant, zeros_graficar, "r"), ...
@@ -186,7 +186,7 @@ if test_ext_si_no
         if ~isfolder(strcat(test_directori_sortida, "\output_images\tests\1_identifica_pum_anterior\pixels_imatge_1_5")) 
         mkdir(strcat(test_directori_sortida, "\output_images\tests\1_identifica_pum_anterior\pixels_imatge_1_5")); end 
     
-        % Graphication
+        % Graph
         zeros_graficar = zeros(size(im_pharx_ant));
         punt_x_noc = x_find_pharx(punt_BW_phar);
         punt_y_noc = y_find_pharx(punt_BW_phar);
@@ -217,6 +217,6 @@ end
 
 
 
-% FINAL OF THE FUNCTION
+% END FUNCTION
 
 end

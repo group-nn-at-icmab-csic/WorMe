@@ -61,7 +61,7 @@ for cada_imatge = 1:length(theFiles_carpetaBB)
         % We obtain the binary image
         imatge_a_llegir = imread(strcat(theFiles_carpetaBB(cada_imatge).folder, "\", theFiles_carpetaBB(cada_imatge).name));
         
-        % Binaritze ( o no)
+        % Binarize ( or not)
         if length(unique(imatge_a_llegir(:))) > 2
             imatge_a_llegir = imbinarize(imatge_a_llegir);
         else
@@ -109,7 +109,7 @@ else
 end
    
 
-% FINAL of the function
+% END FUNCTION
 
 
 end

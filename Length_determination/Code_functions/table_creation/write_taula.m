@@ -1,19 +1,18 @@
 function write_taula(arxiu_dir, table_main, separador)
 
-% Donada una taula, es printa en un arxiu de text nou (sobrescrivint l'anterior, si n'hi ha).
+% Given a table, it is printed to a new text file (overwriting the previous one, if any).
+% Comes from f'write_taula_fun'.
 %
-% Provinent de la f'write_taula_sense_ultima_fila'.
 %
-%
-% % Exemple:
+% % Example:
 % write_taula_sense_ultima_fila("Josep_proba.txt", taula_ex , "$");
 % 
-% % Comprovació
+% % Check
 % [S_textscan_table_newJosep] = read_data("Josep_proba.txt", typology_formatspec_table_norm(taula_ex ), "$", taula_ex .Properties.VariableNames);
 % S_textscan_table_newJosep
 %
 % See also
-% write_taula_sense_ultima_fila
+% write_taula_fun
 % read_data
 % typology_formatspec_table_norm
 
@@ -21,25 +20,25 @@ function write_taula(arxiu_dir, table_main, separador)
 
 % START FUNCTION
 
-% Borrem la taula:
+% Erase the table
 fid = fopen(arxiu_dir,'w');
 fclose(fid); % Elapsed time is 0.050528 seconds.
 
 % delete(arxiu_dir)
 
-% Passem la taula a cell:
+% Transform table to cell
 table_celled = table2cell(table_main);
 
 
-% Printem per cada cell:
+% Print for each cell:
 for cada_tableline = 1:height(table_celled)
     
     if cada_tableline == 1
 
-        % No se li posa espai inicial.
+        % No space at the beginning
         fid = fopen(arxiu_dir,'a+');
         fprintf(fid, typology_formatspec_table_sep(table_main, separador), table_celled{cada_tableline, :});
-        % Nota: sino funciona fer servir funció f'typology_formatspec_table_norm'
+        % Nota: if not working use f'typology_formatspec_table_norm'
         fclose(fid);    
         
     else
@@ -54,7 +53,7 @@ for cada_tableline = 1:height(table_celled)
    
 end
 
-% % Obtenim propietats de la taula:
+% % Obtain table properties:
 % formatSpec_arxiu = typology_formatspec_table_norm(table_main);
 % Variablenames_taula = table_main.Properties.VariableNames;
 

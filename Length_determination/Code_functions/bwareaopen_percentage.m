@@ -23,7 +23,7 @@ imatge_filtrar_bwarea_superficie = imatge_filtrar_bwarea_rows .* imatge_filtrar_
 sqrt_imatge_filtrar_bwarea_superficie = sqrt(imatge_filtrar_bwarea_superficie);
 
 valor_p_bwareaopen = round(((valor_percentual/100) .* sqrt_imatge_filtrar_bwarea_superficie)^2);
-% Nota: if the valor_percentual is 100, meaning 100%, the 
+% Note: if the valor_percentual is 100, meaning 100%, the 
 % valor_p_bwareaopen would be the same than the one of the surface of the image.
 
 imatge_sortida_bwareaopen = bwareaopen(imatge_filtrar_bwarea, valor_p_bwareaopen);
@@ -55,6 +55,6 @@ imatge_sortida_bwareaopen = bwareaopen(imatge_filtrar_bwarea, valor_p_bwareaopen
 % ((sqrt_BW_bwa_superficie/2)/sqrt_BW_bwa_superficie) .*100
  
 
-% FINAL OF THE FUNCTION
+% END FUNCTION
 
 end

@@ -33,7 +33,7 @@ end
 
 [size_llargada, ~] = size(cell_dades_mfilt);
 
-% Guardar l'arxiu output de dades
+% Save the data output file
 fid = fopen(arxiu_text_output_manually,'w');
 for var_out_dades = 1:size_llargada
   fprintf(fid,'%s \n',strcat(cell_dades_mfilt{var_out_dades, 1}, ";", cell_dades_mfilt{var_out_dades, 2}));

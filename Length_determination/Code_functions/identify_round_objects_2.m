@@ -58,5 +58,5 @@ imatge_arxi_ciru = put_txt_to_img(imatge_circle, "Circularity: ", string(round(m
 
 % imshow(imatge_arxi_ciru)
 
-% FINAL OF THE FUNCTION
+% END FUNCTION
 

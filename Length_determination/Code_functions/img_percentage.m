@@ -1,15 +1,15 @@
 function [valor_percentual_imatge] = img_percentage(img_inicial, valor_percentual)
 
-% Donada una imatge, i donat un valor de percentatge, es retorna el valor
-% proporcional a aquest percentatge respecte les mesures de la imatge. 
+% Given an image, and given a percentage value, the value
+% proportional to this percentage with respect to the image measurements is returned.
 %
-% Per exemple, si la imatge fa 1080 x 1920, la superfície total és de 
-% 1080px · 1920px = 2073600 px^2. Si s'obté l'arrel cuadrada del mateix, es
-% retorna un genèric de la superfície de la imatge; en el nostre cas:
-% (2073600)^(1/2) = 1440 px. Llavors, si es vol el 3% d'aquest serà 43,2.
+% For example, if the image is 1080 x 1920, the total area is
+% 1080px · 1920px = 2073600 px^2. If the square root of the same is obtained, 
+% a generic of the image area is returned; in our case:
+% (2073600)^(1/2) = 1440 px. So, if you want 3% of this it will be 43.2.
 %
 %
-% Exemple funció:
+% Example function:
 % [valor_percentual_imatge] = img_percentage(BW_ini_regio, 5);
 %
 % Variables

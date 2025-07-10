@@ -1,22 +1,22 @@
 function time_ex_function(function_ex)
 
-% NO FUNCIONA: no s'agafa la funcio. exemple: time_ex_function(pause(0.1))
-% Determina el temps que tarda en executar-se una funció. 
-% S'ha de definir la funció com a tal.
+% DOES NOT WORK: the function is not taken. example: time_ex_function(pause(0.1))
+% Determines the time it takes to execute a function.
+% The function must be defined as such.
 % 
 %
 % Variables:
-% function_ex  : funció a determinar el temps.
-%               : exemple: time_ex_function(2+2)
-%               : exemple: time_ex_function(numel(find(bwmorph(BW_large_skel_1, 'endpoints'))))
-%               : no funciona: time_ex_function(asdf = numel(find(bwmorph(BW_large_skel_1, 'endpoints'))))
+% function_ex  : function to determine execution time
+%               : example: time_ex_function(2+2)
+%               : example: time_ex_function(numel(find(bwmorph(BW_large_skel_1, 'endpoints'))))
+%               : does not work: time_ex_function(asdf = numel(find(bwmorph(BW_large_skel_1, 'endpoints'))))
 %
 % See also
 % tic
 
 tictoc = []; 
 for nm = 1:50; tic; 
-    % Funcio
+    % Function
     % _____________________________________________________________________
     %pause(0.001);
 	function_ex
@@ -25,7 +25,7 @@ for nm = 1:50; tic;
     tictoc = [tictoc, toc];
 end
 
-% Dades memoria
+% Memory data
 [userview, systemview] = memory;
 GB_RAM_used = round(userview.MemUsedMATLAB/(10^9), 1);
 mean(tictoc)

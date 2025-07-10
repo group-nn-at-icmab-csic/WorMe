@@ -49,7 +49,7 @@ BB_objects = stats_filtred_cell(3, :);
 
 
 
-% FINAL OF THE FUNCTION
+% END FUNCTION
 
 
 end

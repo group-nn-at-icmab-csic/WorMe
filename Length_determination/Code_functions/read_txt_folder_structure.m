@@ -14,7 +14,7 @@ function [theFiles] = read_txt_folder_structure(myFolder)
 
 % _Different image format files_
 
-% Obtain mor than one image file (ex: jpg i png)
+% Obtain more than one image file (ex: jpg i png)
 filePattern = fullfile(myFolder, {'*.txt'});
 
 % Each pattern (.jpg, .png, etc...) generates a different type of reading
@@ -47,11 +47,11 @@ for n_filep = 1:length(filePattern)
 end
    
 
-% % _One format d'imatge_
+% % _One image format_
 % filePattern = fullfile(myFolder, '*.jpg'); % Change to whatever pattern you need.
 % theFiles = dir(filePattern);
 
-% FINAL OF THE FUNCTION
+% END FUNCTION
 
 
 

@@ -41,20 +41,19 @@ function [BW_skel_final_estes] = skel_elongate(BW_inicial, BW_skel, opc_ext, ext
 % Elapsed time is 0.057187 seconds.
 %
 % See also
-% matriu_nova
-% extendre_skel_estes
+% matrix_new
 
 %imshow(imoverlay(BW_inicial, BW_skel, "r"), 'InitialMagnification','fit')
 
 % If the value is fixed:
 if opc_ext == "fixed"
     % Define the extension variable of the matrix as a fixed, defined value.
-    %disp("Valor extensió fixe")
+    %disp("Fixed extension value")
     val_ext_mat = ext_val;
     
 elseif opc_ext == "prop"
     % Define the extension variable of the matrix as a value proportional to the skeletonized object.
-    %disp("Valor extensió proporcional")
+    %disp("Proportional extension value")
     val_ext_mat = round(sum(BW_skel(:)) * ext_val/100);
 end
     %ext_val
@@ -124,7 +123,7 @@ for n_endpoint = 1:length(x_endpoint)
     
     % _Determination of the angles_
     
-    % List to save the angles (opcional)
+    % List to save the angles (optional)
     angles_llista_cell = {};
     
     % Save the standard deviation, to see which one is the smallest.
@@ -162,7 +161,7 @@ for n_endpoint = 1:length(x_endpoint)
         %hold off
         
         % Save in
-        angles_llista_cell{end+1} = angle_pix_mean_proba; % ÇÇÇ potser no cal
+        angles_llista_cell{end+1} = angle_pix_mean_proba; 
         
         % %Show sd and mean
         %mean(angle_pix_mean_proba)

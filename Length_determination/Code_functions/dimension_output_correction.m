@@ -6,6 +6,7 @@ function [proporcio_img_new] = dimension_output_correction(proporcio_img, size_f
 %
 %
 % See also
+% cut_BB_BW_image_1
 % cut_BB_BW_RGB_image
 
 
@@ -25,9 +26,9 @@ if ismember(1, proporcio_img_new <= 0)
     if proporcio_img_new(1) <= 0
     valor_x = proporcio_img_new(1);
     proporcio_img_new(3) = proporcio_img_new(3) + valor_x +1;
-    proporcio_img_new(1) = 1; % Ha de ser 1, i no 0, perque estem parlant de posixions X,Y
+    proporcio_img_new(1) = 1; % It must be 1, not 0, because we are talking about X,Y positions
     end
-    % En Y:
+    % In Y:
     if proporcio_img_new(2) <= 0
         valor_x = proporcio_img_new(2);
         proporcio_img_new(4) = proporcio_img_new(4) + valor_x +1;
@@ -43,14 +44,14 @@ if proporcio_img_new(2) + proporcio_img_new(4) > x_size
     proporcio_img_new(4) = proporcio_img_new(4) + diferencia_x;
 end
 
-% En X
+% In X
 if proporcio_img_new(1) + proporcio_img_new(3) > y_size
     diferencia_y = y_size - (proporcio_img_new(1) + proporcio_img_new(3) );
     proporcio_img_new(3) = proporcio_img_new(3) + diferencia_y;
 end
 
 
-% FUNCTION FINAL
+% END FUNCTION
 
 
 end

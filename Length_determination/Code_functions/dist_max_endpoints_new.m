@@ -27,7 +27,7 @@ function [dist_max ,endppoints_max] = dist_max_endpoints_new(BW_skel_image)
 
 % START FUNCTION
 
-end_points = find(bwmorph(BW_skel_image,'endpoints')); % Igual pero en valors indexats
+end_points = find(bwmorph(BW_skel_image,'endpoints')); % Same but indexed values
 [endp_i,endp_j] = find(bwmorph(BW_skel_image,'endpoints'));
 
 % % Checking that the binary image is a skeleton:
@@ -36,7 +36,7 @@ end_points = find(bwmorph(BW_skel_image,'endpoints')); % Igual pero en valors in
 %     msgbox("It is not binary image", "Error", "error")
 % end
 
-% Inici
+% Begin
 dist_max = 0;
 
 if length(end_points) == 1; dist_max = 1; end
@@ -58,7 +58,7 @@ for endpoint_nume = 1:length(end_points)
     end
 end
 
-% Grafiquem
+% Graph
 % figure
 % imshow(D_endp, []); hold on
 % [rb1,cb1] = ind2sub(size(BW_skel_image),index_endpoint_max_1);
@@ -73,4 +73,4 @@ endppoints_max = [index_endpoint_max_1 index_endpoint_max_2];
 
 end
 
-% FINAL OF THE FUNCTION
+% END FUNCTION

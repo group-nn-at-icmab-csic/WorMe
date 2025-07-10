@@ -5,7 +5,7 @@ function [theFiles_2] = lecture_sift_hide_files(theFiles)
 %
 % Difference between Windows and Mac
 % 
-% Temps de processament: 
+% Processing time
 % Elapsed time: 0.00298 seconds ; 50 iterations in 4.1Gb of RAM memory used
 %
 % See also
@@ -20,7 +20,7 @@ find_ocult = repelem(false, length(theFiles));
 for n_elem = 1:length(theFiles)
     % theFiles(n_elem).name
 
-    % En Windows:
+    % Windows:
     if ispc
         [~,stats] = fileattrib(fullfile(theFiles(n_elem).folder, theFiles(n_elem).name));
         if stats.hidden
@@ -28,7 +28,7 @@ for n_elem = 1:length(theFiles)
         end
 
     elseif ismac
-        % En MAC (OSX), els elements ocults comencen per ".":
+        % MAC (OSX), hidden elements start with ".":
         if strcmp(theFiles(n_elem).name(1),'.')
             find_ocult(n_elem) = true;
         end

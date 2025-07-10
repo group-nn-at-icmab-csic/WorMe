@@ -1,7 +1,6 @@
 function play_music(fullname_arxiu, temps_espera)
 
-% Executa un so mp3 o wav
-% NO RULAAA
+% Play an mp3 or wav
 %
 % Variables exemple
 % fullname_arxiu = "Internal_files\Music\6-8-march-in-d-major-4311.mp3";

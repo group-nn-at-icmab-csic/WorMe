@@ -1,28 +1,28 @@
 function [Area_final] = worm_length_manual(BW_skel, cada_nx)
 
-% Donada una imatge esqueletonitzada, retorna la llargada d'aquesta,
-% aplicant la correcció de les dades per l'error manual.
+% Given a skeletonized image, return its length,
+% applying the data correction for manual error.
 %
-% L'error manual esdevé de entre la distancia que hi ha entre cada pixel, i
-% de la distància que hi ha cada X pixels, el que ocórre quan s'agafa la
-% mesura de forma manual (no s'agafa cada pixel sino en total potser son 10
-% punts).
+% The manual error occurs between the distance between each pixel, and
+% the distance between each X pixels, which occurs when the
+% measurement is taken manually (not every pixel is taken, 
+% but in total there are perhaps 10 points).
 
 
 % START FUNCTION
 
-% Obtenim els index ordenats>
+% We get the sorted indices
 [~, indx_orders] = width_bwskeldist_values(BW_skel, BW_skel);
 
-% Obtenim la distancia de la forma que proposavem:
+% We obtain the distance in the way we proposed:
 [x_r, y_c] = ind2sub(size(BW_skel), indx_orders);
 
 punts_xy = [x_r, y_c];
 
-% Correcció cada 10 pixels:
-% Agafem els punts de cada 35 pixels
+% Correction every 10 pixels:
+% We take the points every 35 pixels
 pos_punts = 1:cada_nx:length(punts_xy);
-% Afegim el final:
+% Let's add the end:
 pos_punts = [pos_punts, length(punts_xy)];
 
 if length(punts_xy(:,1)) > 1
@@ -32,7 +32,7 @@ if length(punts_xy(:,1)) > 1
     % plot(punts_xy_nou(:, 2), punts_xy_nou(:, 1), 'b.','markersize',6)
     % hold off
     
-    % _Obtencio dels punts_
+    % _Obtaining points_
     sum_punts = 0;
     for cada_punt = 1:height(punts_xy_nou) -1
         puntdist = [punts_xy_nou(cada_punt, :); punts_xy_nou(cada_punt +1, :)];

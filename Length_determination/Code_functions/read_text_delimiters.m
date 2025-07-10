@@ -1,15 +1,15 @@
 function [array_processos, string_total] = read_text_delimiters(arxiu_output, delimitador_text)
 
-% Llegeix un arxiu de text en columnes, separat per uns determinats delimitadors. Es retorna una cell del resultat.
+% Reads a text file in columns, separated by certain delimiters. A cell of the result is returned.
 %
-% Nota: si no s'especifíca la variable delimitador_text, aquesta es
-% determina com ";"
+% Note: if the delimiter_text variable is not specified, it is
+% determined as ";"
 %
-% string_total - retorna el string del text.
+% string_total - returns the text string.
 %
-% Exemple
+% Example
 %
-% Dades d'exemple
+% Example data
 % dades_write = [
 %     "imatge"                    "llargada";
 %     "P1011624_skel_00001_01"    "610.1569";
@@ -18,20 +18,20 @@ function [array_processos, string_total] = read_text_delimiters(arxiu_output, de
 %     "P1011655_skel_00005_01"    "208.8975";
 %     "P1011655_skel_00005_03"    "205.9703"]
 % 
-% % Creació text, amb f'write_text_array': 
+% % Text creation, with f'write_text_array':
 % write_text_array("asdf.txt", dades_write, ";")
 % 
-% % Lectura del text creat, amb la funció f'write_text_array'
+% % Reading the created text, with the function f'write_text_array'
 % [cell_text, string_total] = read_text_delimiters("asdf.txt", ";")
 %
 %
-% Exemple 2: amb read_text_delimiters
-% % Crear text
+% Example 2: with read_text_delimiters
+% % Create text
 % arxiu_text_output = "C:\Users\Josep TOSHIBA\Desktop\Length determination v2_8\Results_out\_Internal_code_files\escale_line.txt";
 % escala_write = ["escala", "654.23"];
 % write_text_array(arxiu_text_output, escala_write, ";")
 % 
-% % Llegir text
+% % Read text
 % [array_text, string_total] = read_text_delimiters(arxiu_text_output, ";");
 %
 % See also:
@@ -43,23 +43,23 @@ if ~exist('delimitador_text','var')
     delimitador_text = ";;";
 end
 
-% Llegim l'arxiu
+% Read the file
 fileID = fopen(arxiu_output,'r');
 txt = textscan(fileID,'%s','delimiter','\n');
 fclose(fileID);
 
-% Obtenim el text
+% Obtain the text
 text_obrim = char(txt{1,1});
 [row_text,~] = size(text_obrim);
 
-% Fem split del text i guardem en array
+% Split the text and save in array
 
     
-% Per a cada linea, separem els continguts en una cell final:
+% For each line, we separate the contents into a final cell:
 array_processos = {};
 
 for cada_row_text = 1:row_text
-    text_individ = txt{1}{cada_row_text}; % Cada linea
+    text_individ = txt{1}{cada_row_text}; % Each line
     
     splited_text = split(text_individ, [delimitador_text]);
     splited_text = splited_text';

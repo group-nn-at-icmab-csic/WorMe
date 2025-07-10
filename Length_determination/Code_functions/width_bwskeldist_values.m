@@ -12,7 +12,7 @@ function [bwdist_elem_order, indx_orders] = width_bwskeldist_values(BW_filt_crop
 %
 % Processing time: Elapsed time: 0.0054757 seconds in 50 iterations.
 %
-% Upgrade from: linear_bwdist_values i linear_bwdist_values_new
+% Upgrade from: linear_bwdist_values
 
 % START FUNCTION
 

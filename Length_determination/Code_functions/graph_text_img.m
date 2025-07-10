@@ -1,10 +1,9 @@
 function [imageArray_text] = graph_text_img(imageArray)
 
 % Given an image, the text is graphed in proportion.
-% Note that the text is defined inside the function code... (see graph_text_img_main)
+% Note that the text is defined inside the function code.
 %
 % See also
-% graph_text_img_main
 
 % START FUNCTION
 

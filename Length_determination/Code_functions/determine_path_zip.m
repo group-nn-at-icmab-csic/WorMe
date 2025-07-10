@@ -11,7 +11,7 @@ function [complete_rute, indx_decisio] = determine_path_zip(predef_folder, prede
 %       complete_rute - full path. 'C:\Users\jllobet\Desktop\Josepfile.zip'
 %       indx_decisio - true/false depending on whether it executed successfully or not.
 
-% START OF FUNCTION
+% START FUNCTION
 
 
 
@@ -27,6 +27,6 @@ function [complete_rute, indx_decisio] = determine_path_zip(predef_folder, prede
     indx_decisio = logical(indx_decisio_t);
 
 
-% FINAL OF FUNCTION
+% END FUNCTION
 
 end

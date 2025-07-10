@@ -61,7 +61,7 @@ newD = D(~isnan(D));
 % numel(sort(newD))
 % size(newD)
 
-% We see that ebery element of the list have a value
+% We see that every element of the list have a value
 
 
 % plot(newD)
@@ -98,6 +98,6 @@ valors_lineals_bwdist = BW_bwdist(indx_D_ordenats);
 % plot(BW_bwdist(indx_D_ordenats))
 
 
-% FINAL OF THE FUNCTION
+% END FUNCTION
 
 end

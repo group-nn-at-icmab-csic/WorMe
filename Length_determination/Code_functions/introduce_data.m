@@ -64,7 +64,7 @@ if size_llargada > 0
 
     drawnow; % Force display to update immediately.
 
-% If the file is eight, we write without taking into account its length.
+% If the file is empty, we write without taking into account its length.
 % We simply write the array.
 else
     fid = fopen(arxiu_text_output,'w');

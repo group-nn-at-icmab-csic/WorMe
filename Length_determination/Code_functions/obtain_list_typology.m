@@ -1,10 +1,10 @@
 function [tipus_im_modif, processament_im] = obtain_list_typology(tipologia_input)
 
-% Donat un tipus de modificació últim d'una imatge (tipologia_input), es retorna 
-% el tipus d'imatge que aquesta modificació genera. En exemple: rgb, gray o binary.
+% Given a last modification type of an image (input_type), the
+% type of image that this modification generates is returned. For example: rgb, gray or binary.
 %
-% La utilitat és en app_image_processment per a filtrar les
-% modificacions.
+% The utility is in app_image_processment to filter the
+% modifications.
 %
 % Variables
 %
@@ -13,21 +13,21 @@ function [tipus_im_modif, processament_im] = obtain_list_typology(tipologia_inpu
 % -output-
 %
 %
-% __Tipologia de les funcións__
+% __Function types__
 % 
-% RGB a Grey
+% RGB to Grey
 % ----------
 % "Im2gray"				: im2gray(imatge_input)
 % 
-% Grey Modificació
+% Modify Grey
 % ----------------
 % "imadjust"				: imadjust(I1grey)
 % 
-% Grey a Binaria
+% Grey to Binary
 % --------------
 % "Imbinarize_adaptative_Foreground_dark" : ~imbinarize(I1greyAdj,"adaptive", "ForegroundPolarity","dark");
 % 
-% Binaria Modificació
+% Modify binary
 % -------------------
 % "bwareaopen(2)"				: [~, BW_bwa] = bwareaopen_percentage(BW, 2);
 % "Imclearborder"				: imclearborder(BW_bwa)
@@ -39,9 +39,9 @@ function [tipus_im_modif, processament_im] = obtain_list_typology(tipologia_inpu
 %
 %
 %
-% PARÀMETRES DEL PROCESSAMENT
-% "()" : paréntesis : indiquen el valor de la modificació. SI no hi ha
-% paréntesis no s'empra el valor en la funció.
+% PROCESSING PARAMETERS
+% "()" : parentheses : indicate the value of the modification. IF there are no
+% parentheses the value is not used in the function.
 %
 %
 % See also
@@ -50,30 +50,30 @@ function [tipus_im_modif, processament_im] = obtain_list_typology(tipologia_inpu
 
 % START FUNCTION
 
-% _Variables internes_
-% imatge_input_modif : imatge a modificar en processament.
+% _Internal variables_
+% imatge_input_modif : image to be modified during processing.
 
 
-% Nom processament
+% processing name
 processament_im_cru = tipologia_input;
 
-% Si hi ha paréntesis
+% If there are parentheses
 if contains(processament_im_cru, "(")
 
     splited_nom_arxiu = split(processament_im_cru, "(");
 
-    % Obtenim nom processament
+    % Obtain processing name
     processament_im = splited_nom_arxiu(1);
 
-    % Obtenim valor
+    % Obtain value
     split_valor_prov = split(splited_nom_arxiu(2), ")");
     valor_processament_im = double(split_valor_prov(1));
 
-% Si no hi ha paréntesis
+% If there are no parentheses
 else
-    % Processament
+    % Processing
     processament_im = processament_im_cru;
-    % Valor processament (null)
+    % Processing value (null)
     valor_processament_im = false;
 end
 
@@ -83,7 +83,7 @@ end
 
 
 
-% _PROCESSAMENT DE LA IMATGE_
+% _IMAGE PROCESSING_
 
 % RGB to Grey
 if processament_im == "Im2gray"
@@ -96,12 +96,12 @@ elseif processament_im == "imadjust"
 elseif processament_im == "imadjust_croped"
     tipus_im_modif = "gray";
 
-% Grey a Binària
+% Grey to Binary
 elseif processament_im == "Imbinarize_adaptative_Foreground_dark"
     tipus_im_modif = "binary";
 
     
-% Binària Modif
+% Binary Modif
 elseif processament_im == "bwareaopen"
     tipus_im_modif = "binary";
 

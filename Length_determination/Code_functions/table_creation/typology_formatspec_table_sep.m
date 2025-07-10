@@ -1,17 +1,16 @@
 function [formatSpec] = typology_formatspec_table_sep(table_dades_totals, separador)
 
-% Determina el formatSpec a l'hora de fer un fprintf, quan es crea un
-% arxiu, de les dades d'una TAULA.
+% Determines the formatSpec when doing an fprintf, when creating a
+% file, of the data in a table.
 %
 %
 % See also
-% tipologia_formatspec
-% write_dades_cell
-% creacio_S_textscan
+% create_S_textscan_modifs
+% typology_formatspec_table_norm
  
 % START FUNCTION
 
-% tipus_dades = []; % Control-comprovació
+% tipus_dades = []; % Control-check
 formatSpec = "";
 for n_cell = 1:width(table_dades_totals)
     % cell_dades_totals{n_cell}
@@ -32,12 +31,12 @@ for n_cell = 1:width(table_dades_totals)
     else
         error("Error in f''tipologia_formatspec: not specified the correct variable")
     end
-    % tipus_dades = [tipus_dades, string(class(cell_dades_totals{n_cell}))]; % Control-comprovació
+    % tipus_dades = [tipus_dades, string(class(cell_dades_totals{n_cell}))]; % Control-check
 end
 
 
 
-% unique(tipus_dades) % Control-comprovació
+% unique(tipus_dades) % Control-check
 % END FUNCTION
 
 end

@@ -28,7 +28,7 @@ function [BW_skel_final_unic] = large_skel(BW_skel_image)
 % plot(cb2,rb2,'b.','markersize',14); drawnow;
 % hold off
 
-% _Obtenim els branchpoints_
+% _Obtain the branchpoints_
 BW_branchpoints =  bwmorph(BW_skel_image,'branchpoints');
 branchpoints = find(BW_branchpoints);
 
@@ -57,8 +57,8 @@ if ~isempty(branchpoints)
 
     % We obtain the ambiguity branchpoints:
     [indx_new_branch_total] = obtain_indx_nonbranch(BW_skel_image);
-    % Aquests es comportaràn individualment com un branchpoint
-    
+    % These will behave individually as a branchpoint
+
     % _We subtract the number of branchpoints_
     BW_skel_image_nonbranch = BW_skel_image;
     BW_skel_image_nonbranch(branchpoints) = false;
@@ -91,7 +91,7 @@ if ~isempty(branchpoints)
     % Add the branchpoints
     for cada_inx_brnchamb_main = branchpoints'; branques_pixels{end+1} = cada_inx_brnchamb_main; end
     
-    % _Loop principal de veure cada branca_
+    % _Main loop of each branch_
 
    % First of all we make an image of the tips of the branches with the branchpoints, which will be the base.
     %BW_skel_base = BW_skel_branch_justends; %Elapsed time is 0.000109 seconds.
@@ -100,7 +100,7 @@ if ~isempty(branchpoints)
 
     % we will subtract each section from branch_pixels until we see that these
     % do not condition. Then, we will do the same until we see that there are no
-    % branchpoints?
+    % branchpoints
     branques_pixels_new = branques_pixels;
     BW_skel_image_new = BW_skel_image;
     
@@ -128,10 +128,7 @@ if ~isempty(branchpoints)
         else
             branques_pixels_new_sel{end+1} = branques_pixels_new{n_llist_brnqpx};
         end
-        % Ñññ 
-    end
-    %
-    
+    end    
     % We are going to remove the branchpoints out
     %figure; imshow(BW_skel_image_new_supr)
     
@@ -143,12 +140,12 @@ if ~isempty(branchpoints)
     % For each of the selected branches,
     % which if removed do not alter the connectivity (branques_pixels_new_sel):
     for n_llist_brnqpx = 1:length(branques_pixels_new_sel)
-        BW_skel_image_new_t_branch = BW_skel_image_new_t_nonb; % Upgrade josep 11/09/2022 (fallava)
+        BW_skel_image_new_t_branch = BW_skel_image_new_t_nonb; 
         % BW_skel_image_new_t_branch = BW_skel_image_new_supr;
-        % Eliminem el branch
+        % Delete branch
         BW_skel_image_new_t_branch(branques_pixels_new_sel{n_llist_brnqpx}) = false;
         
-        % % Graficar
+        % % Graph
         % BW_skel_image_new_t_branch_branchp = false(size(BW_skel_image_new_t_branch));
         % BW_skel_image_new_t_branch_branchp(branques_pixels_new_sel{n_llist_brnqpx}) = true;
         % figure
@@ -167,14 +164,14 @@ if ~isempty(branchpoints)
         if n_branchpoints_sup_2 < n_branchpoints_sup
             % And it also does not alter the connectivity of the image
 
-            % % Graficar            
+            % % Graph            
             % imshow(BW_skel_image_new_t_branch)
-            % indx_sqr = branques_pixels_new_sel{n_llist_brnqpx};  %ÑÑÑÑ
+            % indx_sqr = branques_pixels_new_sel{n_llist_brnqpx}; 
             % graficar_rectangle(indx_sqr, size(BW_skel_image_new_t_branch), 4)            
             % getfield(bwconncomp(BW_skel_image_new_t_branch, 8), 'NumObjects')
             
             
-            % if getfield(bwconncomp(bwselect(BW_skel_image_new_t_branch, y_max, x_max), 8), 'NumObjects') == 1% Upgrade Josep (no calia)
+            % if getfield(bwconncomp(bwselect(BW_skel_image_new_t_branch, y_max, x_max), 8), 'NumObjects') == 1
             if getfield(bwconncomp(BW_skel_image_new_t_branch, 8), 'NumObjects') == 1 
                 
                 BW_skel_image_new_t_nonb(branques_pixels_new_sel{n_llist_brnqpx}) = false;
@@ -186,7 +183,7 @@ if ~isempty(branchpoints)
     end
     
     
-    % % Eliminats (graficació):
+    % % Deleted (graph):
     % BW_skel_zeros = false(size(BW_skel_image_new_t_nonb));
     % indx_diferenc = find(BW_skel_image_new_t_nonb - BW_skel_image_new_supr);
     % BW_skel_zeros(indx_diferenc) = true;
@@ -208,6 +205,6 @@ else
     BW_skel_final_unic = BW_skel_image;
 end
 
-% FINAL OF THE FUNCTION
+% END FUNCTION
 
 end

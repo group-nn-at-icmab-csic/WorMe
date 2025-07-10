@@ -57,10 +57,10 @@ function [escala_imatge] = scale_determine(imatge_crop_josep, valor_nums)
         
         %answer;
         
-        % INTRODUIR NUMERIC
+        % INTRODUCE NUMERICAL
         if answer == "Introduce numerical value"
             
-            corrector_tot_be_numeric = 1; %<- true, no surt del bloc.
+            corrector_tot_be_numeric = 1; %<- true, does not exit the block.
             while corrector_tot_be_numeric
                 
                 try
@@ -177,7 +177,7 @@ function [escala_imatge] = scale_determine(imatge_crop_josep, valor_nums)
 %     escala_imatge
    
     
-    % FINAL OF THE FUNCTION
+    % END FUNCTION
 
     
 end

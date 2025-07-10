@@ -1,6 +1,6 @@
 function msgbox_sel_images(userSavedDocuments)
 
-% Descriu un msgbox fins a 7 vegades de l'execució del programa.
+% Describes a msgbox up to 7 times of the program execution.
 
 % START FUNCTION
 

@@ -35,10 +35,10 @@ function [imatge_amb_text] = put_txt_to_img(imatge_ficar_text, text_introduir, d
 % See also
 % text2im
 
-% START OF CODE
+% START FUNCTION
 
 
-% Initial data comprovation
+% Initial data check
 if ~exist('dades_introduir','var')
     dades_introduir = "";
 end
@@ -182,7 +182,7 @@ imatge_amb_text = imatge_ficar_text;
 %imshow(imatge_amb_text);
 
 
-% FINAL OF THE CODE
+% END FUNCTION
 
 
 

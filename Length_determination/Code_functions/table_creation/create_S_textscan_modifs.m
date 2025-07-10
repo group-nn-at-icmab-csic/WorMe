@@ -1,43 +1,40 @@
 function [S_textscan_table_row, variables_noms] = create_S_textscan_modifs(BW_label_1, isceleg, nomworm, modifs_string)
 
-
-% Provinent de creacio_S_textscan
-% Crea l'arxiu S_textscan_table com a variable i com a arxiu de text, el
-% qual contindrà les diferents propietats descrites de l'objecte binari i
-% que seràn la base per al tracking i anàlisi posteriors.
+% Create the file S_textscan_table as a variable and as a text file, which
+% will contain the different described properties of the binary object and
+% will be the basis for subsequent tracking and analysis.
 %
 %
 % Variables
-%       input
-%           BW_1_obj - Objecte binari principal, imatge principal (no retallada)
-%           frame - frame de l'objecte           
-%           img_1 - imatge RGB del frame
-%           morph_tipus - tipus de morfologia ("relax", "pump")
-%           anot_tipus - tipus d'anotació ("golden", "silver", "bronze", etc.)
+% input
+%       BW_1_obj - Main binary object, main image (not cropped)
+%       frame - object frame
+%       img_1 - RGB image of the frame
+%       morph_type - morphology type ("relax", "pump")
+%       anot_type - annotation type ("golden", "silver", "bronze", etc.)
 %
-%       output
-%           S_textscan_table_row - Taula creada (una sola línia)
+% output
+%       S_textscan_table_row - Table created (single line)
 % 
-% Funcións d'interès
+% Functions of interest
 % read_data
 %
 %
 % See also
-% creacio_S_textscan
 
 % START FUNCTION
 
 
 
-% ___ obtenim dades ___ %
+% ___ obtain data ___ %
 
 BW_indx_string = strjoin(string(find(BW_label_1)), ";");
 % Elapsed time: 0.0160 seconds
-% % Lectura:
+% % Read:
 % BW_indx = appf_split_strindex(BW_indx_string);
 % % Elapsed time: 0.00592 seconds
 
-% Resolucio img
+% Resolution img
 resol_string = strjoin(string([size(BW_label_1, 1), size(BW_label_1, 2)]), ";");
 
 % % 
@@ -73,29 +70,29 @@ morph_prop_area = BB.Area;
 
 
 
-% % Dades falten
+% % Data missing
 % isceleg = "yes";
 % nomworm = "imatge.png";
 % modifs_string = "modificacios;etc";
 
 
-% ___ realitzem taula ___ %
+% ___ Make table ___ %
  
-% _Cell de dades_
+% _Data cell_
 cell_dades_totals = {isceleg, nomworm, dades_imatge, BB_string, modifs_string, ...
         BWskel_indx_string, BW_indx_string, BWwidth_string, resol_string, morph_prop_circularity, morph_prop_majoraxis, morph_prop_area};
 
 variables_noms = [ "IsCeleg", "NomWorm", "Length", "Bounding", "Modifs", ...
     "Indx_skel", "Indx_BW", "WidthValues", "Resolution", "Morph_circularity", "Morph_majoraxis", "Morph_area"];
 
-% ___Creació en taula___
+% ___Create in table___
 S_textscan_table_row = cell2table(cell_dades_totals, 'VariableNames', variables_noms);
 
 
 
 
-% __Guradat arxiu__
-% write_dades_cell(arxiu_dir, cell_dades_totals, tipologia_formatspec(cell_dades_totals), "$"); % Guardem en arxiu de text
+% __Save text file__
+% write_dades_cell(arxiu_dir, cell_dades_totals, tipologia_formatspec(cell_dades_totals), "$"); 
 
 
 

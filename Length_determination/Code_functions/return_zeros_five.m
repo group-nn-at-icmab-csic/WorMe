@@ -1,9 +1,9 @@
 function [result_numer] = return_zeros_five(valor_num)
 
-% Donat un valor numèric, retorna aquest en forma de string omplert amb zeros. 
-% La funció és numerar una imatge de manera adecuada.
+% Given a numeric value, return it as a string padded with zeros.
+% The function is to number an image appropriately.
 %
-% Exemple variable
+% Variable example
 % valor_num = 696;
 
 nombre_zeros = 5 - numel(num2str(round(valor_num)));

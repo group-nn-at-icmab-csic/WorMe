@@ -1,17 +1,16 @@
 function [BW_non_conn] = obtain_major_connected(BW_amb_conexions, num_conexio)
 
-% Donada una imatge binaria, amb diferents objectes conectats (ex: dos
-% pixels que es toquen, o es rosen), es retorna la imatge de major area.
-% Això serveix per a, d'una imatge binaria, treure tots aquells pixels que
-% rosen aquesta, per exemple, que toquen aquesta però que no formen part de
-% la imatge.
+% Given a binary image, with different connected objects (eg: two
+% pixels that touch, or are adjacent to each other), the image with the largest area is returned.
+% This is used to remove from a binary image all those pixels that
+% are adjacent to it, for example, that touch it but are not part of
+% the image.
 %
 %
 % Variables
-% num_conexio : Propietat conn de bwconncomp; son els elements conectats (veure doc bwconncomp). exemple: 4. 
+% num_conexio : Property conn of bwconncomp; are the connected elements (see doc bwconncomp). example: 4.
 %
-%
-% Temps de processament
+% Processing time
 % tic; [BW_non_conn_major] = obtain_major_connected(BW_edges_final_p, 4);toc
 % Elapsed time is 0.017739 seconds.
 %
@@ -21,23 +20,22 @@ function [BW_non_conn] = obtain_major_connected(BW_amb_conexions, num_conexio)
 
 BW_conn_comp = bwconncomp(BW_amb_conexions, num_conexio);
 
-% Fem matriu amb els diferents elements
+% Make a matrix with the different elements
 BW_label_matrix = labelmatrix(BW_conn_comp);
 %imshow(BW_label_matrix, [])
 %unique(BW_label_matrix(:))
 
-% _Obtneim l'objecte major_
-% Fem tipu bwpropfilt(BW, "Area", 1, "largest"), però amb els labeled.
+% _Obtain biggest object_
+% Make type bwpropfilt(BW, "Area", 1, "largest"), but with the labeled.
 max_val_BW = 0;
 for cada_comp = 1:BW_conn_comp.NumObjects
     
-    % Si la suma dels pixels de cada component és major que el contador
-    % especificat:
+    % If the sum of the pixels of each component is greater than the specified counter
     BW_equal = BW_label_matrix == cada_comp;
     if sum(BW_equal(:)) > max_val_BW
-        max_val_BW = sum(BW_label_matrix == cada_comp); % definim de nou la suma
+        max_val_BW = sum(BW_label_matrix == cada_comp); % define the sum again
 
-        % Definim la imatge singular
+        % We define the singular image
         BW_non_conn = BW_label_matrix == cada_comp;               
     end
 end

@@ -46,7 +46,7 @@ else
     predef_folder_carpeta = '';
 end
 
-% __Folder obtaintion__
+% __Obtain folder__
 % Entry folder
 carpeta_input = uigetdir(predef_folder_carpeta, "Select the folder with images");
 

@@ -40,7 +40,7 @@ for n_val = 1:num
 end
 
 
-% FINAL OF THE FUNCTION
+% END FUNCTION
 
 
 

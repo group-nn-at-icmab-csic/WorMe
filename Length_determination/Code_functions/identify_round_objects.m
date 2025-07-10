@@ -46,7 +46,7 @@ title(['Metrics closer to 1 indicate that ',...
 'the object is approximately round']);
 
 
-% Exportem, llegim i eliminem la imatge temporal (no ho se fer d'una altre manera)
+% Export, read and delete the temporary image
 exportgraphics(gca, 'tempraryFile_image_round_identif.png');
 imatge_arxi_ciru = imread("tempraryFile_image_round_identif.png");
 delete tempraryFile_image_round_identif.png

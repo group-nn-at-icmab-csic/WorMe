@@ -46,7 +46,6 @@ function [BW_ini_regio_cropped, BB_values, proporcio_img_new] = cut_BB_BW_image_
 %
 %
 % See also
-% retallar_BWRGBimatge_BB
 % cut_BB_BW_RGB_image
 % extend_img_regions
 % dimension_output_correction

@@ -1,10 +1,10 @@
 function [result_numer] = return_zeros_one(valor_num)
 
-% Donat un valor numèric, retorna aquest en forma de string omplert amb
-% zeros, de manera que el valor sigui de dos dígits.
-% La funció és numerar una imatge de manera adecuada.
+% Given a numeric value, return it as a string filled with
+% zeros, so that the value is two digits.
+% The function is to number an image appropriately.
 %
-% Exemple variable
+% Example variable
 % valor_num = 6;
 
 nombre_zeros = 2 - numel(num2str(round(valor_num)));

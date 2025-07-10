@@ -19,8 +19,6 @@ function [BW_img_final] = wide_imgBW(BW_img, value_eixmp)
 %
 %
 % See also:
-% wide_indx_BB
-% wide_indx_nonendpoints
 
 
 % START FUNCTION
@@ -33,6 +31,6 @@ size_BW_objecte_skel= size(BW_img);
 BW_img_final = zeros(size(BW_img));
 BW_img_final(indx_BWskel_obj_eixamp) = true;
 
-% FINAL OF THE FUNCTION
+% END FUNCTION
 
 end

@@ -24,7 +24,7 @@ carpeta_input = uigetdir(predef_folder_carpeta, "Select the folder with images")
 
 % _Write predefined folder__
 % Obtain the same string of the folder, defined in a previous folder from the last defined folder
-[split_arxiu_sortida] = splits_objectes_valor(carpeta_input, "\", 1); % Exemple: 'C:\Users\Josep TOSHIBA\Desktop' -to-> 'C:\Users\Josep TOSHIBA'
+[split_arxiu_sortida] = splits_objectes_valor(carpeta_input, "\", 1); % Example: 'C:\Users\Josep TOSHIBA\Desktop' -to-> 'C:\Users\Josep TOSHIBA'
 array_write_folder = ["Folder", split_arxiu_sortida];
 write_text_array(predefined_folder_input, array_write_folder, ";"); clear split_arxiu_sortida array_write_folder
 

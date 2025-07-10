@@ -1,6 +1,6 @@
 function [array_strings_arxius] = read_files_typology(carpeta_arx, tipologia_arxiu)
 
-% Donada una carpeta i un tipus d'arxiu, retorna en array el nom dels arxius de la tipologia descrita presents en la carpeta.
+% Given a folder and a file type, returns in an array the name of the files of the described type present in the folder.
 
 % START FUNCTION
 

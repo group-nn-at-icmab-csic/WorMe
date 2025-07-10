@@ -14,24 +14,6 @@ function write_img_dir(variable_imatge_guardar, directori_write, mode_write_j, s
 % string1 : file type, if not specified it will be ".png"
 %
 
-% CAT
-
-% Donada una imatge, un directori, i un o varis text, guarda la imatge amb el nom d'arxiu expecificat. 
-% D'aquesta manera no cal haver de fer molts passos sino
-% que es fa amb una sola linia de codi.
-
-%   directori_write : directori, carpeta, a on es fa el write. Si
-%                       s'especifica com a zero (0), en comptes de fer write el que es fa es
-%                       retornar el nom de l'arxiu; això serveix per a poder veure cóm queda el
-%                       nom de l'arxiu, i si és el nom que volem.
-%                       Si s'especifica "", es guarda a la carpeta actual.
-%
-%   mode_write_j : si s'escriu diferents distintius cap endavant (1) o enrere (0)
-%
-%   string1 : nom de l'arxiu, si no s'especifica aquest serà com ".png"
-% 
-
-
 % START FUNCTION 
 
 % Internal variables
@@ -74,7 +56,7 @@ directori_write = string(directori_write);
 % Otherwise it just displays
 if directori_write ~= "0" && directori_write ~= ""
     splited_nom_arxiu_write = split(directori_write,"");
-    es_barra = splited_nom_arxiu_write(end-1); %Nota: tots acaven amb "";
+    es_barra = splited_nom_arxiu_write(end-1); %Note: all end with "";
     if es_barra ~= "\"
         directori_write = directori_write + "\";
     end

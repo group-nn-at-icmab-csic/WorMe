@@ -1,40 +1,40 @@
 function [BW_final, beono] = processment_img_list(imatge_input, array_processaments)
 
-% Donat un array de tipus de processament, es fa el processament consecutiu
-% de la imatge en funció a la tipologia d'aquest array.
+% Given an array of processing types, the consecutive processing 
+% of the image is done according to the type of this array.
 
-% Si dona error en alguna imatge (ex: cleanborders i no hi ha, o per
-% l'estil), que es retorni la última imatge modificada amb un "error" al
-% mig, i un contador de si ha anat bé o malament (beono).
+% If an error occurs in any image (eg: cleanborders and there is none, or
+% the like), the last modified image is returned with an "error" in the
+% middle, and a counter of whether it went well or badly (beono).
 
 % Variables
 %
 % -input-
-% imatge_input          : imatge d'entrada. Original, 3D.
-% array_processaments   : array de la tipologia dels processaments.
-%                         Els paràmetres d'aquests són detemrinats pel nom
-%                         dels mateixos, ex: bwareaopen(3).
+% imatge_input          : input image. Original, 3D.
+% array_processaments   : processing typology array.
+%                         Their parameters are determined by their
+%                         own names, ex: bwareaopen(3).
 %
 % -output-
-% beono : contador si el procés ha anat correctament fins al final o no.
-% BW_final : imatge final processada.
+% beono : counter whether the process has gone correctly to the end or not.
+% BW_final : final processed image.
 %
 %
-% __Tipologia de les funcións__
+% __Function types__
 % 
-% RGB a Grey
+% RGB to Grey
 % ----------
 % "Im2gray"				: im2gray(imatge_input)
 % 
-% Grey Modificació
+% Modify Grey
 % ----------------
 % "imadjust"				: imadjust(I1grey)
 % 
-% Grey a Binaria
+% Grey to Binary
 % --------------
 % "Imbinarize_adaptative_Foreground_dark" : ~imbinarize(I1greyAdj,"adaptive", "ForegroundPolarity","dark");
 % 
-% Binaria Modificació
+% Modify binary
 % -------------------
 % "bwareaopen(2)"				: [~, BW_bwa] = bwareaopen_percentage(BW, 2);
 % "Imclearborder"				: imclearborder(BW_bwa)
@@ -44,56 +44,56 @@ function [BW_final, beono] = processment_img_list(imatge_input, array_processame
 % "close_disc(3)"				: SE = strel("disk", 3);
 % 					              BW_bwa_imcl = imclose(BW_bwa_imcl, SE);
 %
-% "edge_approxcanny"            : fa un edge ce tipus approxcanny. Veure probes_edge
 %
-% PARÀMETRES DEL PROCESSAMENT
-% "()" : paréntesis : indiquen el valor de la modificació. SI no hi ha
-% paréntesis no s'empra el valor en la funció.
+%
+% PROCESSING PARAMETERS
+% "()" : parentheses : indicate the value of the modification. IF there are no
+% parentheses the value is not used in the function.
 %
 %
 % See also
-% processament_imatge2
+% processament_img_list
 
 % START FUNCTION
 
-% _Variables internes_
-% imatge_input_modif : imatge a modificar en processament.
-% splited_nom_arxiu  : Nom del 
+% _Internal variables_
+% imatge_input_modif : image to be modified during processing.
+% splited_nom_arxiu  : Name of the file
 
-% Definim imatge a modificar.
+% We define the image to modify.
 imatge_input_modif = imatge_input;
 
-% Per cada processament:
+% For each processing:
 for cada_process = 1:length(array_processaments)
     
-    % _Obtenim nom i valor del processament_
+    % _Get name and value of the processing_
     
-    % Nom processament
+    % processing name
     processament_im_cru = array_processaments(cada_process);
 
-    % Si hi ha paréntesis
+    % If there are parentheses
     if contains(processament_im_cru, "(")
         
         splited_nom_arxiu = split(processament_im_cru, "(");
         
-        % Obtenim nom processament
+        % Obtain processing name
         processament_im = splited_nom_arxiu(1);
         
-        % Obtenim valor
+        % Obtain value
         split_valor_prov = split(splited_nom_arxiu(2), ")");
 
-        % Filtrem si hi ha coma (ex: (23, 32)
+        % Filter if there is comma (ex: (23, 32)
         if contains(split_valor_prov(1), ",")
             valor_processament_im = double(split(split_valor_prov(1), ","))';
         else
             valor_processament_im = double(split_valor_prov(1));
         end
        
-    % Si no hi ha paréntesis
+    % If there are no parentheses
     else
-        % Processament
+        % Processing
         processament_im = processament_im_cru;
-        % Valor processament (null)
+        % Processing value (null)
         valor_processament_im = false;
     end
     
@@ -101,8 +101,8 @@ for cada_process = 1:length(array_processaments)
     %valor_processament_im
     
     
-    % _PROCESSAMENT DE LA IMATGE_
-    
+    % _IMAGE PROCESSING_
+
     % RGB to Grey
     if processament_im == "Im2gray"
         imatge_input_modif = im2gray(imatge_input_modif);
@@ -112,12 +112,12 @@ for cada_process = 1:length(array_processaments)
         imatge_input_modif = imadjust(imatge_input_modif);
         
         
-    % Grey a Binària
+    % Grey to Binary
     elseif processament_im == "Imbinarize_adaptative_Foreground_dark"
         imatge_input_modif = ~imbinarize(imatge_input_modif,"adaptive", "ForegroundPolarity","dark");
 
 
-    % Binària Modif
+    % Binary Modif
     elseif processament_im == "bwareaopen"
         [imatge_input_modif, ~] = bwareaopen_percentage(imatge_input_modif, valor_processament_im);
         
@@ -139,31 +139,29 @@ for cada_process = 1:length(array_processaments)
         imatge_input_modif = ~imatge_input_modif;
     
     elseif processament_im == "edge_approxcanny"
-        % El retorn de edge és una imatge binària.
-        % ÇÇÇ: Aquesta modificació hauria de restar a la imatge la bora?
+        % The return from edge is a binary image.
         imatge_input_modif = edge(imadjust(im2gray(imatge_input)), "approxcanny");
         
     % Grey modif _croped_
     elseif processament_im == "imadjust_croped"
-        % Obtencio parametres
+        % Obtain parameters
         % imadjust_croped(prm_average, prm_sigma)"
         n = 2;  
         prm_average = valor_processament_im(1);
         prm_sigma = valor_processament_im(2);
         imatge_input_modif = imadjust(imatge_input_modif,[prm_average-n*prm_sigma/255 prm_average+n*prm_sigma/255],[]); % Imatge semi-binaria 3D. %[avg-n*sigma/255 avg+n*sigma/255]
 
-        % im2gray de la imatge general:
+        % im2gray of the general image:
         imatge_input_modif = im2gray(imatge_input_modif);
         
-        % Fem un 'complement' de la imatge binaria
+        % Make a 'complement' of the binary image
         imatge_input_modif = imcomplement(imatge_input_modif);
         
     elseif processament_im == "region_imopen"
-        % ÑÑÑ MODIFICANT DES D'AQUI
         %imatge_input_modif
         %valor_processament_im
     elseif processament_im == "binarize_by_value"
-        % Binaritzem per valor
+        % Binarize per value
         imatge_input_modif = imatge_input_modif >= valor_processament_im;
     end
 
@@ -171,91 +169,91 @@ end
 
 
 %imshow(imatge_input_modif)
-beono = true; % ççç a definim de moment així, perquè encara no entrem a descriure una imatge de sortida amb errors.
+beono = true;
 
 BW_final = imatge_input_modif;
 
 % END FUNCTION
 
 
-% ANNEX NOTES FINALS
+% ANNEX END NOTES
 % ##################
 
-% % EXEMPLE PROCESSAMENT IMATGE ESTÁNDAR DE LA f'processament_imatge2' v2.8.
+% % EXAMPLE STANDARD IMAGE PROCESSING OF THE  f'processament_imatge2' v2.8.
 % % --------------------------------------------------------------------------
 %
 % % TO GRAYSCALE  :::im2gray():::
 % I1grey = im2gray(imatge_input);
-% %______________________seguiment______________________
-% txt_seg(field_set, "Im2gray") % seguiment config.
+% %______________________follow-up______________________
+% txt_seg(field_set, "Im2gray") % follow-up config.
 % 
 % 
 % % GREYSCALE ADJUSTMENT  :::imadjust():::
 % I1greyAdj = imadjust(I1grey);
-% %______________________seguiment______________________
-% txt_seg(field_set, "imadjust") % seguiment config.
+% %______________________follow-up______________________
+% txt_seg(field_set, "imadjust") % follow-up config.
 % 
 % % BINARIZATION :::imbinarize():::
 % BW = ~imbinarize(I1greyAdj,"adaptive",...
 %             "ForegroundPolarity","dark");
-% %______________________seguiment______________________
-% txt_seg(field_set, "Imbinarize_adaptative_Foreground_dark") % seguiment config.
+% %______________________follow-up______________________
+% txt_seg(field_set, "Imbinarize_adaptative_Foreground_dark") % follow-up config.
 % 
 % 
 % %CLEAN LITTLE FRAGMENTS  :::bwareaopen():::
 % %BW_bwa = bwareaopen(BW,800);  %<- filtre anterior
 % [~, BW_bwa] = bwareaopen_percentage(BW, 2);
-% %______________________seguiment______________________
-% txt_seg(field_set, "bwareaopen(2)") % seguiment config.
+% %______________________follow-up______________________
+% txt_seg(field_set, "bwareaopen(2)") % follow-up config.
 % 
 % 
 % %CLEAR BORDER   :::imclearborder():::
 % BW_bwa_imcl = imclearborder(BW_bwa);
-% %______________________seguiment______________________
-% txt_seg(field_set, "Imclearborder") % seguiment config.
+% %______________________follow-up______________________
+% txt_seg(field_set, "Imclearborder") % follow-up config.
 % 
 % %FILL SPACES   :::imfill():::
 % BW_bwa_imcl = imfill(BW_bwa_imcl, "holes");
-% % __seguiment__
-% txt_seg(field_set, "imfill") % seguiment config.
+% % __follow-up__
+% txt_seg(field_set, "imfill") % follow-up config.
 % 
 % % OPEN IMAGE MORPHOLOGY
 % SE = strel("disk", 4);
 % BW_bwa_imcl = imopen(BW_bwa_imcl, SE);
-% %______________________seguiment______________________
-% txt_seg(field_set, "open_disc(4)") % seguiment config.
+% %______________________follow-up______________________
+% txt_seg(field_set, "open_disc(4)") % follow-up config.
 % 
 % 
 % % CLOSE IMAGE MORPHOLOGY
 % SE = strel("disk", 3);
 % BW_bwa_imcl = imclose(BW_bwa_imcl, SE);
-% %______________________seguiment______________________
-% txt_seg(field_set, "close_disc(3)") % seguiment config.
+% %______________________follow-up______________________
+% txt_seg(field_set, "close_disc(3)") % follow-up config.
 % 
 % % CLOSE IMAGE MORPHOLOGY x2
 % SE = strel("disk", 3);
 % BW_bwa_imcl = imclose(BW_bwa_imcl, SE);
-% %______________________seguiment______________________
-% txt_seg(field_set, "close_disc(3)") % seguiment config.
+% %______________________follow-up______________________
+% txt_seg(field_set, "close_disc(3)") % follow-up config.
 % 
 % 
 % %FILL SPACES   :::imfill():::
 % BW_bwa_imcl = imfill(BW_bwa_imcl, "holes");
-% %______________________seguiment______________________
-% txt_seg(field_set, "imfill") % seguiment
+% %______________________follow-up______________________
+% txt_seg(field_set, "imfill") % follow-up
 % 
 % % FILTER BIG SOUND  :::bwareaopen():::
 % % BW_bwa_imcl = bwareaopen(BW_bwa_imcl,2300); %<- filtre anterior
 % [~, BW_bwa_imcl] = bwareaopen_percentage(BW_bwa_imcl, 3.5);
-% %______________________seguiment______________________
-% txt_seg(field_set, "bwareaopen(3.5)") % seguiment
+% %______________________follow-up______________________
+% txt_seg(field_set, "bwareaopen(3.5)") % follow-up
 % 
 % % FILTER BIG SOUND 2
 % % BW_bwa2_imcl_fill_open_close = bwareaopen(BW_bwa_imcl, 800);  %<-Filtre antic
 % [~, BW_bwa_imcl] = bwareaopen_percentage(BW_bwa_imcl, 2);
 % 
-% %______________________seguiment______________________
-% txt_seg(field_set, "bwareaopen(2)") % seguiment
+% %______________________follow-up______________________
+% txt_seg(field_set, "bwareaopen(2)") % follow-up
 
 
 
