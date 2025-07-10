@@ -1,22 +1,22 @@
 function app_interf_boto_textarea_minlength(app)
 
-% Botó canviar valor textarea
+% Textarea value change button
 
-% INICI FUNCIO
+% START OF FUNCTION
 
             %value = app.MinLengthTextArea.Value;
             
-            % Si es canvia el valor, automàticament s'executa el botó.            
+            % If the value changes, the button is automatically executed.
             if ~app.MinLengthStateButton.Value
                 app.MinLengthStateButton.Value = true;                
             end       
             
-            % Actualitzem
+            % Update
             app_interf_actualitzacio_graficacio(app, true)
 
-            % Actualitzem figura per capacitar shortkey
+            % Refresh figure to enable shortkey
             figure(app.UIFigure)     
 
-% FINAL FUNCIO
+% END OF FUNCTION
 
 end

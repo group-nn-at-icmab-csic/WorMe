@@ -1,9 +1,9 @@
 function app_interf_taula_actu_return(app)
 
-% Actualitza el botó return si es troba en posicio primera,
-% segons condicionants.
+% Updates the return button if it is in the first position,
+% according to conditions.
 
-% INICI FUNCIO
+% START OF THE FUNCTION
 
 
 if isequal(str2num(app.img_contLabel.Text), 1)
@@ -18,6 +18,7 @@ if isequal(str2num(app.img_contLabel.Text), 1)
     end
 end
 
-% FINAL FUNCIO
+% END OF THE FUNCTION
+
 
 end

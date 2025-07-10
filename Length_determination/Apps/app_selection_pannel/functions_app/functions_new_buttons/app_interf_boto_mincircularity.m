@@ -1,27 +1,27 @@
 function app_interf_boto_mincircularity(app)
 
-% Botó circularitat minima
+% Minimum circularity button
 
-  
-% true: apretat
-% false: desapretat
 
-% Nota: aquest botó determinarà el valor dels filtres.
+% true: pressed
+% false: released
+
+% Note: this button will determine the value of the filters.
 
 % Spinner:
 % app.SpinnerRound.Value
 
-% INICI FUNCIÓ
+% START OF FUNCTION
 
     % value_buttonstate_round = app.MaxCircularityButton.Value;
 
-    % __Actualització i Graficació__ %
+    % __Update and Plotting__ %
     app_interf_actualitzacio_graficacio(app, true)
 
 
-    % Actualitzem figura per capacitar shortkey
+    % Refresh figure to enable shortkey
     figure(app.UIFigure)       
 
-% FINAL FUNCIÓ
+% END OF FUNCTION
 
 end

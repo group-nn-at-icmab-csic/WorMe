@@ -1,9 +1,9 @@
 function app_interf_table_act_dretaesquerra(app)
 
-% Determina els botons en funcio la posicio de les imatges (final, inici,
+% Determines the buttons depending on the position of the images (end, start,
 % etc.)
 
-% INICI FUNCIO
+% START OF THE FUNCTION
 
     n_imatge = str2num(app.img_contLabel.Text);
     
@@ -19,6 +19,7 @@ function app_interf_table_act_dretaesquerra(app)
     end
 
 
-% FINAL FUNCIO
+% END OF THE FUNCTION
+
 
 end

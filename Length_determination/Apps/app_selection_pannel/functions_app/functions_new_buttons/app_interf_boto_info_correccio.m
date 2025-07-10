@@ -1,15 +1,16 @@
 function app_interf_boto_info_correccio(app)
 
-% Botó info correcció dades
+% Data correction info button
 
-% INICI FUNCIÓ
+% START OF FUNCTION
 
-    % Box informatiu
+    % Informative box
     box_correccio_Fiji()
 
-    % Actualitzem figura per capacitar shortkey
+    % Refresh figure to enable shortkey
     figure(app.UIFigure)   
 
-% FINAL FUNCIÓ
+% END OF FUNCTION
+
 
 end

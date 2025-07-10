@@ -1,38 +1,39 @@
 function app_interf_boto_return(app)
 
-% Botó Return
+% Return Button
 
-% INICI FUNCIÓ
+% START OF FUNCTION
 
-% Notes variables:
+% Variable notes:
 % app.finalitzat_a_estadistica 
 
-    % Si prové d'estadística, s'actualitzen els botóns.
+    % If coming from statistics, update buttons.
     if app.finalitzat_a_estadistica
-        % disp("Return des d'estadística")
+        % disp("Return from statistics")
 
-        % Contador finalitzat imatge
+        % Image finished counter
         app.finalitzat_contLabel = "false";
 
-        % Re-definim contadors
+        % Redefine counters
         app_interf_graficar_finalitzat_img_off(app)
         
         app.finalitzat_a_estadistica = false;
     end    
 
-    % __Modificació__
+    % __Modification__
     app_interf_taula_modif_return(app)
 
 
-    % __Actualització i Graficació__ %
+    % __Update and Plotting__ %
     app_interf_actualitzacio_graficacio(app, false)
 
-    app_interf_determinar_ultim_object(app, false, "no_res")    % Imatge anterior
+    app_interf_determinar_ultim_object(app, false, "no_res")    % Previous image
 
-    % Actualitzat figura per capacitar shortkey
+    % Update figure to enable shortkey
     figure(app.UIFigure)
 
 
-% FINAL FUNCIÓ
+% END OF FUNCTION
+
 
 end

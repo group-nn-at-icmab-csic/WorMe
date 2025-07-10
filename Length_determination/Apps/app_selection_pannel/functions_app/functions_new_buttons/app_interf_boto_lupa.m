@@ -1,38 +1,37 @@
 function app_interf_boto_lupa(app)
 
-% Botó lupa
+% Magnifying glass button
 
-% INICI FUNCIO
+% START OF FUNCTION
 
 
-
-            imatge_principal = app.Image.ImageSource;
+            main_image = app.Image.ImageSource;
             
 
-            % Retallem la imatge en fer zoom
-            [~, xy_punts_a_retall] = imcrop(imatge_principal);
+            % Crop the image when zooming
+            [~, xy_points_to_crop] = imcrop(main_image);
 
 
-            %Si s'ha realitzat una selecció
-            if ~isempty(xy_punts_a_retall)
+            % If a selection has been made
+            if ~isempty(xy_points_to_crop)
                 close
-                xy_punts_a_retall = floor(xy_punts_a_retall);
+                xy_points_to_crop = floor(xy_points_to_crop);
                 
-                [imatge_primera_retallada] = cut_imgs_points(imatge_principal, xy_punts_a_retall);
-                %imshow(imatge_primera_retallada)
+                [first_cropped_image] = cut_imgs_points(main_image, xy_points_to_crop);
+                %imshow(first_cropped_image)
                 
-                app.Image.ImageSource = imatge_primera_retallada;
+                app.Image.ImageSource = first_cropped_image;
                                 
                 
-                % _Mostrar la imatge en un UIAxes_
-                % ÇÇÇ AUGMENTA MOLT LA QUALITAT, ÉS LO SEU.
+                % _Show the image in a UIAxes_
+                % ÇÇÇ GREATLY INCREASES QUALITY, IT'S THE WAY TO GO.
                 % imshow("PNG_BW.png", 'Parent', app.UIAxes); 
                 
-                % Fem visible el botó de return de la imatge:
+                % Make the return image button visible:
                 %app.LupaButton_return.Visible = 'on';
 
-                % Guardem la variable
-                app.imcrop_value = xy_punts_a_retall;
+                % Save the variable
+                app.imcrop_value = xy_points_to_crop;
                 
             end            
             
@@ -41,10 +40,11 @@ function app_interf_boto_lupa(app)
 
 
 
-            % Actualitzem figura per capacitar shortkey
+            % Refresh figure to enable shortkey
             figure(app.UIFigure)                
 
 
-% FINAL FUNCIO
+% END OF FUNCTION
+
 
 end

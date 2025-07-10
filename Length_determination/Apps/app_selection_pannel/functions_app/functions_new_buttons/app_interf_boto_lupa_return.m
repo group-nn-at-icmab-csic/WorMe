@@ -1,24 +1,24 @@
 function app_interf_boto_lupa_return(app)
 
-% Botó lupa
+% Loupe return button
 
-% INICI FUNCIO
+% START OF FUNCTION
 
 
 
         app.LupaReturnButton.Visible = 'off';
 
-        % Actualitzem valor app.imcrop
+        % Update app.imcrop value
         app.imcrop_value = [];
 
-        % __Actualització i Graficació__ %
+        % __Update and Plotting__ %
         app_interf_actualitzacio_graficacio(app, true)
 
 
-        % Actualitzem figura per capacitar shortkey
+        % Refresh figure to enable shortkey
         figure(app.UIFigure)               
 
 
-% FINAL FUNCIO
+% END OF FUNCTION
 
 end

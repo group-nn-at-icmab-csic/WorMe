@@ -1,27 +1,28 @@
 function app_interf_boto_thick(app)
 
-% Botó Thick
+% Thick Button
 
-% INICI FUNCIÓ
+% START OF FUNCTION
 
 
     app.ReturnButton.Visible = 'on';
     app.ReturnButton.Enable = 'on';
 
     
-    % % _Activació/Desactivació Botóns_ 
+    % % _Activation/Deactivation of Buttons_ 
     % app_interf_enable_thickcrosret_buttons(app, 'on')
 
 
-    % __Modificació__
+    % __Modification__
     app_interf_taula_modif_thick(app)
     
-    % __Actualització i Graficació__ %
+    % __Update and Plotting__ %
     app_interf_actualitzacio_graficacio(app, true)
         
-    % Actualitzat figura per capacitar shortkey
+    % Figure updated to enable shortkey
     figure(app.UIFigure)
 
-% FINAL FUNCIÓ
+% END OF FUNCTION
+
 
 end

@@ -1,15 +1,16 @@
 function app_interf_boto_info_exportIA(app)
 
-% Botó info exportacio dades IA
+% AI data export info button
 
-% INICI FUNCIÓ
+% START OF FUNCTION
     
-    % Box informatiu
+    % Informative box
     box_explicacio_IA()
 
-    % Actualitzem figura per capacitar shortkey
+    % Refresh figure to enable shortkey
     figure(app.UIFigure)
 
-% FINAL FUNCIÓ
+% END OF FUNCTION
+
 
 end

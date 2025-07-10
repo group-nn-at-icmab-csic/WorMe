@@ -1,27 +1,27 @@
 function app_interf_boto_spinner_maxcircu(app)
 
-% Botó canviar valor textarea
+% Textarea value change button
 
-% INICI FUNCIO
+% START OF FUNCTION
 
 % Spinner Round Filter Value Change button
             
             value_roundText = app.SpinnerRound.Value; % 1, 2 , 3...
             
-            % Si el valor és numèric
+            % If the value is numeric
             if ~isempty(value_roundText)
                 
-                % Si el valor és superior a 1, asignem valor 1:
+                % If the value is greater than 1, assign value 1:
                 if value_roundText > 1
                     value_roundText = 1;
                     
-                % Si el valor és inferior a zero, posem valor igual a zero:
+                % If the value is less than zero, set value to zero:
                 elseif value_roundText < 0
                     value_roundText = 0;         
                     
                 end                
                 
-            % Si el valor no és numèric, posem igual a zero.
+            % If the value is not numeric, set it to zero.
             else
                 value_roundText = 0;
                 
@@ -30,19 +30,17 @@ function app_interf_boto_spinner_maxcircu(app)
             app.SpinnerRound.Value = value_roundText;
 
 
-            % Activem el botó
+            % Activate the button
             app.MaxCircularityButton.Value = true;           
             
             
-            
-            % ÇÇÇÇ Aplicació filtres sense avançament. (sols modifica la GUI?)
-            
-            % Actualitzem
+            % Update
             app_interf_actualitzacio_graficacio(app, true)
 
-            % Actualitzem figura per capacitar shortkey
+            % Refresh figure to enable shortkey
             figure(app.UIFigure)   
 
-% FINAL FUNCIO
+% END OF FUNCTION
+
 
 end
