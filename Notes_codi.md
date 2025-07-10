@@ -78,11 +78,9 @@ Millora en noves versións de MATLAB? En teoria hauria de millorar, sí.
 
 
 
-## Canvi funcions
+## Storic function name change
 
-REVISAR EN DOCUMENTACIÓ (Ctrl F de tota la carpeta GitHub) I EN LES APPS
-
-Canviat noms funcions:
+Functions:
 llargada_josep -> worm_lenght  
 llargada_josep_Fiji -> worm_length_manual  
 esqueletonitzacio_josep_optim -> worm_skeletonization  
@@ -158,4 +156,22 @@ tipologia_formatspec_table_separador -> typology_formatspec_table_sep
 tipologia_formatspec_table -> typology_formatspec_table_norm  
 cell_insert_valors -> cell_insert_values  
 
+<br>
 
+Folders:  
+imatges_utilitat -> images_useful  
+funcions_app -> functions_app  
+funcions_botons_nous -> functions_new_buttons  
+taules_modificacio -> tables_modification  
+Actualitzacio_botons -> Update_buttons  
+Imatge -> Image  
+execucio_processament_imatge -> image_processment_execution  
+graficacio_botons -> buttons_graphication  
+
+<br>
+
+Apps:  
+app_escala_auto -> app_scale_auto  
+app_escala_linia -> app_scale_line  
+box_correccio_Fiji -> box_manual_correction  
+box_explicacio_IA -> box_IA_explanation  
