@@ -9,7 +9,7 @@ https://code.visualstudio.com/docs/languages/markdown
 
 ## Millora codi programa  
 - [ ] Traduir funcions noms + compartimentar i traduir apps.
-- [ ] Veure que no hi hagi "ççç" ni "ñññ" marques.
+- [ ] Veure que no hi hagi "ççç" ni "ñññ" marques + "Josep".
 - [ ] Mirar si esquelet hi ha més d'un branchpoint: error de que es selecciona cadena de més
 - [ ] Borrar la carpeta a posteriori de fer l'anàlisi?
 - [ ] (una vegada amb DOI i paper): -> Posar "Please cite us" i enllaç en l'App de resultats finals.
