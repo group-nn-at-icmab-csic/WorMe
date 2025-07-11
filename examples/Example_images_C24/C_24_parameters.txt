@@ -1,8 +1,12 @@
+OS used: Windows 11 Pro for Workstations, Version 24H2
+
 WARNING: The scale bar of 20um is incorrect. The real value is 200um, which is the value used for length determination.
 
-Scale: 0.855 px/u
+Scale: Selected automatically
+Value obtained: 0.855 px/u
 
-Modifications: Modif_Example_2.txt
+Modifications: From the Saved section in the Image Processing panel, selected the "Modif_Example_2.txt"
+Modif_Example_2.txt
 1;Im2gray
 2;imadjust_croped(0.89492, 0.054781)
 3;binarize_by_value(7.7273)
