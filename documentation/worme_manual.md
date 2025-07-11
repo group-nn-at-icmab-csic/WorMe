@@ -515,7 +515,7 @@ This leads to a measurement bias, since the ImageJ polyline systematically under
 
 $$\sum\limits_{i=1}^{n-1} \sqrt{(x_{i+1} - x_i)^2 + (y_{i+1} - y_i)^2}$$
 
-$ n:$ number of points
+$n:$ number of points
 
 _Equation 1: Euclidean distance_
 </div>

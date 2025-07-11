@@ -1,16 +1,12 @@
 function write_taula_add(arxiu_dir, table_main, separador)
 
 % Given a table, it is printed to a new text file (overwriting the previous one, if any).
-% Comes from f'write_taula_fun'.
-%
 %
 % Variables
 %   arxiu_dir
 %   table_main
 %   separador
 %
-% % Example:
-% write_taula_sense_ultima_fila("Josep_proba.txt", taula_ex , "$");
 % 
 % % Check
 % [S_textscan_table_newJosep] = read_data("Josep_proba.txt", typology_formatspec_table_norm(taula_ex ), "$", taula_ex .Properties.VariableNames);
