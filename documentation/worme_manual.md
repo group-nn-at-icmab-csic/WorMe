@@ -230,7 +230,6 @@ _Figure 5: Image selection panel, with (1) the main panel, (2) Filters, (3) Tool
 The panel consists of five sections:
 1. Main panel: Shows the processed binary objects surrounded in red bounding boxes. As the selection progresses, it shows accepted objects in green (such as the worm with length 744), rejected objects in red, and the current object in a bold line (such as the worm with length 800).
 2. Filters: Consists of input areas that can filter binary objects. For example, to remove small dirt objects from the selection process.
-    - Max circularity: Filters by circularity
     - Min area: Filters small objects by mask area
     - Min length: Filters short objects by skeletonization length
 3. Tools: Consists of tools that can modify the binary object's mask. All of them can be used by clicking once to extend a line, and twice to finish and confirm. The mask of the current binary object will be shown as a grey overlay.
