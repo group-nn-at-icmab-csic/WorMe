@@ -1,43 +1,43 @@
 function app_interf_taula_modif_return(app)
 
-% Modificació Return
+% Return Modification
 %
-% Borra la ultima anotació en la table_main.
+% Deletes the last annotation in table_main.
 %
-% Obté, modifica i integra les dades a la base de dades.
+% Obtains, modifies, and integrates the data into the database.
 
-% INICI FUNCIÓ
+% START OF THE FUNCTION
 
     % app.table_main_sel
     
-    % Modificacions de la imatge actual
+    % Modifications of the current image
     main_table_actual = app.table_main_sel(app.table_main_sel.Image == string(app.img_original_nomLabel.Text), :);
     
 
-    % Treiem la última modif de la taula_main
+    % Remove the last modification from table_main
     app.table_main_sel = app.table_main_sel( ~(app.table_main_sel.Image == string(app.img_original_nomLabel.Text) & app.table_main_sel.nModif == max(main_table_actual.nModif)), :);
 
-    % Mirem si hem disminuit la imatge:
+    % Check if we have stepped back an image:
     
     if isequal(sum(app.table_main_sel.Image == string(app.img_original_nomLabel.Text)), 0)
-        % restem 1 al contador.
-        % ___Actualitzacions___
-        % _contador imatge_
+        % subtract 1 from the counter.
+        % ___Updates___
+        % _image counter_
         n_imatge = str2double(app.img_contLabel.Text);
         app.img_contLabel.Text = string(n_imatge-1);
-        %_nom imatge_
-        [~ , nom_img_original] = app_interf_obtain_original(app, n_imatge-1);        % Obtenció nom imatge
-        app.img_original_nomLabel.Text = nom_img_original;         %Actualització nom imatge
+        %_image name_
+        [~ , nom_img_original] = app_interf_obtain_original(app, n_imatge-1);        % Obtaining image name
+        app.img_original_nomLabel.Text = nom_img_original;         % Updating image name
         
 
-        % Nota: Hem de restar 2, si ja no hi ha modificacions en la imatge. Perquè?
-        % perque automaticament es crea una modificació si no hi ha objecte (es
-        % crea la de BW). Llavors hem de restar ambdós: la de l'objecte actual
-        % i la de la imatge anterior.
-        % Veure: f'app_interf_table_obtenir_main_table_corresponent'
+        % Note: We need to subtract 2 if there are no modifications left in the image. Why?
+        % because a modification is automatically created if there is no object (the
+        % BW modification is created). Therefore, we must subtract both: the current object's
+        % and the one from the previous image.
+        % See: f'app_interf_table_obtenir_main_table_corresponent'
         
-        % Si hem tirat enrrere, tornem a restar 1:
-        % Modificacions de la imatge actual
+        % If we stepped back, subtract 1 again:
+        % Modifications of the current image
         main_table_actual = app.table_main_sel(app.table_main_sel.Image == string(app.img_original_nomLabel.Text), :);
 
         % app.table_main_sel
@@ -49,16 +49,15 @@ function app_interf_taula_modif_return(app)
     % app.table_main_sel
     
     
-%     % _Comprovació_
-%     % Modificació ultima
+%     % _Check_
+%     % Last modification
 %     main_table_actual_last = main_table_actual(main_table_actual.nModif == max(main_table_actual.nModif),:);    
 %     isequal(main_table_actual_last, app.table_main_sel( (app.table_main_sel.Image == string(app.img_original_nomLabel.Text) & app.table_main_sel.nModif == max(main_table_actual.nModif)), :))
     
-    % Mirem si la dada actual és la de la imatge present, o anterior. Si és
-    % anterior re-definirem 
+    % Check if the current data belongs to the present image, or the previous one. If it's
+    % previous, we will re-define
 
+% END OF THE FUNCTION
 
-
-% FINAL FUNCIÓ
 
 end

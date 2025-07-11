@@ -1,18 +1,17 @@
 function [main_table_actual_last, main_table_actual_last_modiftable, indx_object_operate, no_modified_object] = app_interf_table_obtenir_main_table_actual(app)
    
-    % Obté la taula de moficicacións actual.
+% Retrieves the current modifications table.
+
+% Allows working and plotting based on this table (redefining it if needed).
     
-    % Permèt així poder graficar i operar vers aquesta (tornant a
-    % definir-la).
+    % START FUNCTION
     
-    % INICI FUNCIÓ
-    
-    % ___Taula general___
+    % ___General table___
 
     % app.table_main_sel = table();
 
-    % _Obtenim el nombre de modificacions_
-    % Ens basem amb el nom de la imatge.
+    % _Obtain the number of modifications_
+    % Based on the name of the image.
     
     
     if ~isempty(app.table_main_sel)
@@ -21,30 +20,30 @@ function [main_table_actual_last, main_table_actual_last_modiftable, indx_object
         n_modifs = 0;
     end
 
-    % Si no hi ha anotacions:
+    % If there are no annotations:
     if isequal(n_modifs, 0) 
         % disp("New img")
 
-        % Creem taula BW objectes
+        % Create BW objects table
         [S_textscan_table_row_main] = app_interf_table_crear_BW_taula(app);
 
         
         if ~isempty(S_textscan_table_row_main)
             
-            % Incorporació de la taula en la taula_main
+            % Incorporate the table into the main table
             app_inter_table_incorporar_BW_table(app, S_textscan_table_row_main);
 
-            % Obtenció modificació
+            % Get last modification
             [main_table_actual_last, main_table_actual_last_modiftable, indx_object_operate, no_modified_object] = app_interf_table_obt_ultima_modif(app);
             
         else
             % disp("New image with no objects")
-            % Si en l'objecte nou actual, no hi ha objectes:
+            % If the new current object has no objects:
 
-            % _Grafica imatge sense objectes_
+            % _Plot image without objects_
             app_interf_table_actu_imatge_no_objectes(app)
             
-            % Def objectes
+            % Define empty outputs
             main_table_actual_last = [];
             main_table_actual_last_modiftable = [];
             indx_object_operate = [];
@@ -60,7 +59,7 @@ function [main_table_actual_last, main_table_actual_last_modiftable, indx_object
     else
         %disp("Already img")
 
-        % Obtenció modificació
+        % Get last modification
         [main_table_actual_last, main_table_actual_last_modiftable, indx_object_operate, no_modified_object] = app_interf_table_obt_ultima_modif(app);
 
         
@@ -81,43 +80,44 @@ function [main_table_actual_last, main_table_actual_last_modiftable, indx_object
     %     
 
 
-    % De moment: Elapsed time is 0.002379 seconds.
+    % Currently: Elapsed time is 0.002379 seconds.
 
-    % FINAL FUNCIÓ
+    % END FUNCTION
 
-end % Fi funcio principal botó
+end % End main function for button
 
 
-% Ara la qüestió seria incorporar una copia d'aquesta modificació a la
-% taula.
+
+
+% Now the question would be to incorporate a copy of this modification into the table.
 
 
 
 function [S_textscan_table_row_main] = app_interf_table_crear_BW_taula(app)
 
-% Crea la taula dels objectes de l'objecte actual
+% Creates the table of objects for the current object
 
 % See also
 
-% INICI FUNCIO
+% START FUNCTION
 
-    % Suposem que la imatge és la primera i es nova
+    % We assume the image is the first one and is new
 
-    % Actualitzem contador imatges
+    % Update image counter
     n_imatge = str2double(app.img_contLabel.Text);
 
-    % _Obtenció imatge original_
+    % _Obtain original image_
     [imatge_original, ~] = app_interf_obtain_original(app, n_imatge);
 
-    % _Processament de la imatge original_ 
+    % _Process the original image_ 
     [BW_final] = app_interf_process_img(app, imatge_original);
 
-    % app.img_original_nomLabel.Text : nom de la imatge actual.
+    % app.img_original_nomLabel.Text : name of the current image.
 
-    % Obtenim object
+    % Obtain object
     [S_textscan_table_row_main] = consol_S_textscan_modifs(BW_final, "empty", string(app.img_original_nomLabel.Text), "Modifs_string");
 
-% FINAL FUNCIÓ
+% END FUNCTION
 
 end
     
@@ -125,9 +125,9 @@ end
 
 function app_inter_table_incorporar_BW_table(app, S_textscan_table_row_main)
 
-    % Incorpora la taula del BW a la taula main.
+    % Incorporates the BW table into the main table.
 
-    % INICI FUNCIÓ
+    % START FUNCTION
 
     if ~isempty(app.table_main_sel)
         n_modifs = height(app.table_main_sel(app.table_main_sel.Image == string(app.img_original_nomLabel.Text), :));
@@ -135,7 +135,7 @@ function app_inter_table_incorporar_BW_table(app, S_textscan_table_row_main)
         n_modifs = 0;
     end
     
-    % _Creació i incorporació de la taula nova_
+    % _Creation and incorporation of the new table_
     taula_modif_sing = table(string(app.img_original_nomLabel.Text), n_modifs+1, {S_textscan_table_row_main}, 'VariableNames', {'Image', 'nModif', 'ModifTable'});
 
     if isempty(app.table_main_sel)
@@ -144,39 +144,39 @@ function app_inter_table_incorporar_BW_table(app, S_textscan_table_row_main)
         app.table_main_sel = [app.table_main_sel; taula_modif_sing]; 
     end
 
-    % FINAL FUNCIÓ
+    % END FUNCTION
 
 end
 
 
 function [main_table_actual_last, main_table_actual_last_modiftable, indx_object_operate, no_modified_object] = app_interf_table_obt_ultima_modif(app)
 
-    % Obté la última modificació de la taula general, per tal de poder graficar
-    % i operar amb aquesta.
+    % Obtains the last modification from the general table in order to plot
+    % and work with it.
 
     
     % Variables
-    % main_table_actual_last - taula última modificació
-    % main_table_actual_last_modiftable - taula dels objectes, de la ultima modificació
-    % indx_object_operate - index del objecte a operar (en aplicat del filtres, i no empty)
-    % no_modified_object - objecte a operar (en aplicat del filtres i no empty)
+    % main_table_actual_last - table of the last modification
+    % main_table_actual_last_modiftable - table of the objects from the last modification
+    % indx_object_operate - index of the object to operate on (after filters, and not empty)
+    % no_modified_object - object to operate on (after filters, and not empty)
     
-    % _Selecció ultima modificacio_
-    % Modificacions de la imatge actual
+    % _Select last modification_
+    % Modifications for the current image
     main_table_actual = app.table_main_sel(app.table_main_sel.Image == string(app.img_original_nomLabel.Text), :);
 
     
-    % Modificació ultima
+    % Last modification
     main_table_actual_last = main_table_actual(main_table_actual.nModif == max(main_table_actual.nModif),:);
-    % Taula modificacions
+    % Modifications table
     main_table_actual_last_modiftable = main_table_actual_last.ModifTable{1};
 
 
-    % fins aqui tenim la taula amb els objectes binaris de la ultima
-    % modificació de la imatge.
+    % Up to here, we have the table with the binary objects from the last
+    % modification of the image.
     %
-    % Ara hem de: 1. Seleccionar un objecte (filtrant els parametres), i
-    % graficar-lo. o 2. Si no hi ha objecte, passar a la proxima imatge.
+    % Now we need to: 1. Select an object (filtering parameters) and
+    % plot it, or 2. If no object exists, move to the next image.
 
     [li_a, li_b] = ismember(main_table_actual_last_modiftable.IsCeleg, "empty");
 
@@ -184,23 +184,23 @@ function [main_table_actual_last, main_table_actual_last_modiftable, indx_object
     %     {'IsCeleg'}    {'NomWorm'}    {'Length'}    {'Bounding'}    {'Modifs'}    {'Indx_skel'}    {'Indx_BW'}    {'WidthValues'}    {'Resolution'}    {'Morph_circularity'}
     %     {'Morph_majoraxis'}    {'Morph_area'}
 
-    % _Filtres_ % 
+    % _Filters_ % 
     [~ , indx_filtres] = app_interf_table_filter_index_obtain(app, main_table_actual_last_modiftable);
     indx_filtres = ~indx_filtres;
      
     indx_find = find(li_b & indx_filtres);
     indx_find_num = indx_find((indx_find > 0) == 1);
 
-    % indx_object_operate : index de l'objecte últim.
+    % indx_object_operate : index of the last object.
 
-    % Nota: els index es basen en la taula de modificació, en el total de la
-    % mateixa.
+    % Note: the indices are based on the modification table, considering
+    % the total table.
     if ~isempty(indx_find_num)
         indx_object_operate = indx_find_num(1);
         no_modified_object = main_table_actual_last_modiftable(indx_object_operate, :);
     
-    % Si no hi ha cap objecte a modificar (empty post-filtrat), es
-    % retorna com a vuit.
+    % If there is no object to modify (empty after filtering), it
+    % returns empty.
     else
         indx_object_operate = [];
         no_modified_object = table();
@@ -208,11 +208,10 @@ function [main_table_actual_last, main_table_actual_last_modiftable, indx_object
    
 
 
-    % Fins aqui tenim l'objecte determinat. Ara hauriem d'obtenir, graficar, i
-    % decidir sobre aquest.
+    % Up to here, we have determined the object. Now we should obtain,
+    % plot, and decide on this object.
 
-    % Per lo tant, es GUARDEN les configuracions (index de la modificacio i
-    % taula), per tal de poder operar amb aquesta, quan hi hagi, posteriorment,
-    % la DECISIÓ de l'usuari.
+    % Therefore, the configurations are SAVED (index of the modification and
+    % table) to allow operating on it later, when the user makes a DECISION.
 
 end

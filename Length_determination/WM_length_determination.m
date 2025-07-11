@@ -3,7 +3,7 @@ disp("WorMe_length_determination_v2_17")
 
 % Developed in MATLAB 2021b version
 
-% v.2.17: integration of selected worms counter + grayscale image reading.
+% Version 2.18
 
 % _____ PRINCIPAL VARIABLES ____
 % userSavedDocuments - directory of the program (in MATALB o compiled)

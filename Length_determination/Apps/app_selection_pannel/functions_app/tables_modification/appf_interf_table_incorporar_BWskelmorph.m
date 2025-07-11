@@ -1,17 +1,17 @@
 function [main_table_actual_last_modif, main_table_actual_last_modiftable, indx_object_operate, no_modified_object_modificada]= appf_interf_table_incorporar_BWskelmorph(app, main_table_actual_last, main_table_actual_last_modiftable, indx_object_operate, no_modified_object)
 
-% Obté i determina les propietats morfologiques de esqueletonització i
-% ampalda de l'objecte binari, i les re-descriu a la taula table_main.
+% Obtains and determines morphological properties of skeletonization and
+% width of the binary object, and re-describes them in the table table_main.
 
 %
 %
 % See also
 % appf_interf_table_redefinir_BWskelmorph
 
-% INICI FUNCIÓ
+% START OF THE FUNCTION
 
               
-    % Describim l'esqueletonització dels mateixos.
+    % Describe the skeletonization of the objects themselves.
     [BW_object] = create_BW_indx(appf_split_strindex(no_modified_object(1,:).Indx_BW), appf_split_strindex(no_modified_object(1,:).Resolution)');
     
     % Skel
@@ -21,51 +21,51 @@ function [main_table_actual_last_modif, main_table_actual_last_modiftable, indx_
     
 %     [BW_skel, dades_imatge_row, dades_imatge_manual_corrected] = worm_skeletonization_manual(BW_final, escala_imatge, extendre_skel_opcio, reduce_line, n_pixel_margin);
     
-    % Escalem els index
+    % Scale the indices
     [indx_BW_skel_scal] = scale_indx(find(BW_skel_crop), size(BW_object), size(BW_ini_regio_cropped), proporcio_img);
-    % En strig
+    % To string
     BWskel_indx_string = strjoin(string(indx_BW_skel_scal), ";");
     
-    % Amplada valors
+    % Width values
     [bwdist_elem_order, ~] = width_bwskeldist_values(BW_ini_regio_cropped, BW_skel_crop);
-    % En strig
+    % To string
     BWwidth_string = strjoin(string(bwdist_elem_order), ";");
 
-    % Paràmetres morfologics
-    % Veure f'create_S_textscan_modifs'
+    % Morphological parameters
+    % See f'create_S_textscan_modifs'
     
     % BoundingBoxes
     BB = regionprops(BW_object, 'BoundingBox', "Circularity", 'MajorAxisLength', 'Area');
     % Elapsed time: 0.00788 seconds ; 50 iterations in 4.3Gb of RAM memory used
 
     
-    % ______MODIFICACIÓ_____ %
-    % Incorporem els components de la taula modificada a la taula_main
+    % ______MODIFICATION_____ %
+    % Incorporate the components of the modified table into the main table
     
-    % Pseudocodi
-    % 1. Modifiquem objecte (fila de la taula)
-    % 2. Incorporem objecte a la taula principal
-    % 3. Incorporem taula a la taula_main
+    % Pseudocode
+    % 1. Modify object (row of the table)
+    % 2. Incorporate object into the main table
+    % 3. Incorporate table into the main table_main
 
-    % Modifiquem objecte actual:
+    % Modify current object:
     no_modified_object_modificada = no_modified_object;
     no_modified_object_modificada.Length = dades_imatge;
     no_modified_object_modificada.Indx_skel = BWskel_indx_string;
     no_modified_object_modificada.WidthValues = BWwidth_string;
     
-    % morfologics
+    % morphological
     no_modified_object_modificada.Bounding = strjoin(string(BB.BoundingBox), ";");
     no_modified_object_modificada.Morph_circularity = BB.Circularity;
     no_modified_object_modificada.Morph_majoraxis = BB.MajorAxisLength;
     no_modified_object_modificada.Morph_area = BB.Area;
     
     
-    % Incorporem a la taula general d'objectes
+    % Incorporate into the general objects table
     main_table_actual_last_modiftable(indx_object_operate,:) = no_modified_object_modificada;
     
 
-    % Incorporem a la taula_main
-    % INdex: app.table_main_sel.Image == main_table_actual_last.Image & app.table_main_sel.nModif == main_table_actual_last.nModif
+    % Incorporate into table_main
+    % Index: app.table_main_sel.Image == main_table_actual_last.Image & app.table_main_sel.nModif == main_table_actual_last.nModif
 
     main_table_actual_last_modif = main_table_actual_last;
     main_table_actual_last_modif.ModifTable = {main_table_actual_last_modiftable};
@@ -73,12 +73,12 @@ function [main_table_actual_last_modif, main_table_actual_last_modiftable, indx_
     app.table_main_sel( app.table_main_sel.Image == main_table_actual_last.Image & app.table_main_sel.nModif == main_table_actual_last.nModif, : ) = main_table_actual_last_modif;
  
 
-    % % Comprovem:
+    % % Check:
     % [main_table_actual_last, main_table_actual_last_modiftable, indx_object_operate, no_modified_object] = app_interf_table_obtenir_main_table_corresponent(app)
 
     
     
-    % FINAL FUNCIÓ
-    
+    % END OF THE FUNCTION
+
     
 end

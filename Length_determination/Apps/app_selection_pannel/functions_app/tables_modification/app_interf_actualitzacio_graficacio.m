@@ -1,25 +1,24 @@
 function app_interf_actualitzacio_graficacio(app, enrrere_porta)
 
-% Genera l'actualització de les dades (determinacio del objecte actual), i
-% la graficació d'aquestes.
+% Generates the data update (determination of the current object), and
+% the plotting of this data.
 
+% START FUNCTION
 
-% INICI FUNCIÓ
+% __Data advancement typology__ %
+% If the data is advanced by modifications, a reading of the objects
+% and an automatic positioning versus the images is performed.
+% If there is no reading of the objects, as may happen with the right or
+% left buttons, the precedence should not be automatic.
 
-% __Tipologia avançament dades__ % 
-% Si les dades s'avancen per modificacions, es fa una lectura dels objectes
-% i una automàtica posicio vers les imatges.
-% Si no hi ha una lectura dels objectes, com pot ser en els botons dreta o
-% esquerra, la precedencia no ha de ser automatica.
+% If it is not an option for statistics?
 
-% Si no és opció a estadistica?
-
-% Si la lectura es normal (true)
+% If the reading is normal (true)
 if enrrere_porta
-    % _Obtenció dada objecte
+    % _Obtaining object data
     [main_table_actual_last, main_table_actual_last_modiftable, indx_object_operate, no_modified_object] = app_interf_table_obtenir_main_table_corresponent(app);
 
-    % Si no hi ha una lectura normal, sino que es fa cap enrrere.    
+    % If there is no normal reading, but instead a step back is performed.
 else
     [main_table_actual_last, main_table_actual_last_modiftable, indx_object_operate, no_modified_object] = app_interf_table_obtenir_main_table_actual(app);
 end
@@ -30,43 +29,41 @@ end
 
 
 [n_yes, n_no] = app_interf_table_contar_pos(app);
-% Elapsed time aprox: Elapsed time is 0.057395 seconds. (en ~100 mostres)
-app.n_yesLabel.Text = string(n_yes);  % Mostrem valors als botóns
+% Elapsed time approx: Elapsed time is 0.057395 seconds. (in ~100 samples)
+app.n_yesLabel.Text = string(n_yes);  % Display values on the buttons
 app.n_yesLabel2.Text = string(n_yes);
 app.n_noLabel.Text = string(n_no);
 app.n_noLabel2.Text = string(n_no);
 
+% If after executing the function, the variables indx_object_operate and
+% no_modified_object are empty, it means there are no objects, or all have been deselected by the filters.
 
-
-% Si executada la funció, les variables indx_object_operate i
-% no_modified_object són vuides, significa que no hi ha objectes, o pels filtres s'han desseleccionat tots.
-
-% Si no hi ha objectes
+% If there are no objects
 if isempty(indx_object_operate)
     % disp("No objects")
     
     
-    % Si és la ultima imatge, es grafica el botó de Done:
+    % If it is the last image, the Done button is displayed:
     if isequal(str2num(app.img_contLabel.Text), str2num(app.img_tot_nLabel.Text))
-        app.DoneButton.BackgroundColor = [0.39,0.83,0.07]; % Color groc
+        app.DoneButton.BackgroundColor = [0.39,0.83,0.07]; % Yellow color
     else
         app.DoneButton.BackgroundColor = [0.90,0.90,0.90];
     end
 
         if isempty(main_table_actual_last_modiftable)
-            % Imatge sense objectes
+            % Image without objects
             app_interf_table_actu_imatge_no_objectes(app)    
 
-            % Imatge sense objectes, sense selecció: botóns thick cross no
-            % operables. 
+            % Image without objects, without selection: thick cross buttons not
+            % operable. 
             app.ReturnButton.Visible = 'off';
         else
-            % Imatge amb objectes, pero sense selecció dels mateixos.
+            % Image with objects, but without their selection.
 
-            % Ara podem graficar la ultima modificacio
+            % Now we can plot the last modification
             appf_interf_table_graficacio(app, main_table_actual_last, main_table_actual_last_modiftable, indx_object_operate, no_modified_object)        
 
-            % Seleccio botons?
+            % Object buttons selection?
             app_interf_table_actu_botons_objectes(app, false)
 
             app.ReturnButton.Visible = 'on';
@@ -75,21 +72,21 @@ if isempty(indx_object_operate)
 
     
 else
-    % Si sí que hi ha objectes:
+    % If there are objects:
     
     app_interf_table_actu_botons_objectes(app, true)
-    app.ReturnButton.Visible = 'on'; % Return es fora perque depen de si hi ha o no obj.
+    app.ReturnButton.Visible = 'on'; % Return is outside because it depends on whether there are objects or not.
             
-    % ___Re-describim les dades morfològiques de l'objecte actual___
-    % Definim els valors de skel de l'objecte actual (no ho habiem fet
-    % abans per no fer-ho de cada objecte) i l'adherim a la taula de
-    % moficiacions actual.
+    % ___Re-describe morphological data of the current object___
+    % We define the skel values of the current object (we had not done it
+    % before to avoid doing it for every object) and add it to the
+    % current modifications table.
     
     if isequal(no_modified_object(1,:).Length, "No_data_yet")
         [main_table_actual_last, main_table_actual_last_modiftable, indx_object_operate, no_modified_object] = appf_interf_table_incorporar_BWskelmorph(app, main_table_actual_last, main_table_actual_last_modiftable, indx_object_operate, no_modified_object);
     end
     
-    % Ara podem graficar la ultima modificacio
+    % Now we can plot the last modification
     appf_interf_table_graficacio(app, main_table_actual_last, main_table_actual_last_modiftable, indx_object_operate, no_modified_object)
     
     app.DoneButton.BackgroundColor = [0.90, 0.90, 0.90];
@@ -97,15 +94,16 @@ else
 end
 
 
-if ~app.finalitzat_a_estadistica % Si no s'ha passat a estadística.
+if ~app.finalitzat_a_estadistica % If it has not moved to statistics.
     app_interf_table_act_dretaesquerra(app)
     app_interf_taula_actu_return(app)
 end
 
-% % graficacio
+% % plotting
 % [main_table_actual_last, main_table_actual_last_modiftable, indx_object_operate, no_modified_object] = app_interf_table_obtenir_main_table_actual(app)
 
 
-% FINAL FUNCIÓ
+% END FUNCTION
+
 
 end

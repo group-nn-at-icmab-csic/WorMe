@@ -1,20 +1,20 @@
 function [main_table_actual_last_modiftable_nofilter, indx_filtre_tots] = app_interf_table_filter_index_obtain(app, main_table_actual_last_modiftable)
 
-% obtenció de la taula modificada pels filtrs anotats, i els index
-% d'aquesta modificació.
+% Obtaining the modified table based on the annotated filters, and the
+% indices of this modification.
 
-% INICI FUNCIÓ
+% START FUNCTION
 
-    % Funcio
-    % Donada una taula de modificacions, retorna la taula ( i index)
-    % d'aquesta amb l'aplicació dels filtres.
+    % Function
+    % Given a table of modifications, returns the table (and indices)
+    % with the application of the filters.
     % main_table_actual_last_modiftable
     
-    % _____Obtenció valor dels filtres_____
+    % _____Obtaining filter values_____
     
-    % Circularitat maxima
+    % Maximum circularity
     
-    % Si està el botó d'estat apretat:
+    % If the status button is pressed:
     if app.MaxCircularityButton.Value
         filt_val_max_circ = app.SpinnerRound.Value;
     else
@@ -22,7 +22,7 @@ function [main_table_actual_last_modiftable_nofilter, indx_filtre_tots] = app_in
     end
    
     
-    % Llargada estimada minima
+    % Minimum estimated length
 	if app.MinLengthStateButton.Value
         filt_val_min_length = app.MinLengthTextArea.Value;
     else
@@ -30,7 +30,7 @@ function [main_table_actual_last_modiftable_nofilter, indx_filtre_tots] = app_in
     end
     
 
-    % Area minima    
+    % Minimum area    
 
     if app.MinWidthStateButton.Value
         filt_val_min_area = app.MinWidthTextArea.Value;
@@ -49,6 +49,7 @@ function [main_table_actual_last_modiftable_nofilter, indx_filtre_tots] = app_in
     main_table_actual_last_modiftable_nofilter = main_table_actual_last_modiftable(~indx_filtre_tots, :);
     
 
-% FINAL FUNCIÓ
+% END FUNCTION
+
 
 end

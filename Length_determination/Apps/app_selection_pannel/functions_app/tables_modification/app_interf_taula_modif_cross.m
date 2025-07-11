@@ -1,50 +1,48 @@
 function app_interf_taula_modif_cross(app)
 
-% Botó thick
+% Thick button
 %
-% Obté, modifica i integra les dades a la base de dades.
+% Obtains, modifies, and integrates the data into the database.
 
-% INICI FUNCIÓ
+% START OF THE FUNCTION
 
-    % Incorporació "no" a la taula
+    % Incorporation of "no" into the table
     [main_table_actual_last, main_table_actual_last_modiftable, indx_object_operate, no_modified_object] = app_interf_table_obtenir_main_table_corresponent(app);
 
-    % ______MODIFICACIÓ_____ %
+    % ______MODIFICATION_____ %
 
     %app_interf_table_modif_yes
 
-    % Pseudocodi
-    % 1. Modifiquem objecte (fila de la taula)
-    % 2. Incorporem objecte a la taula principal
-    % 3. Incorporem taula a la taula_main
+    % Pseudocode
+    % 1. Modify object (row of the table)
+    % 2. Incorporate object into the main table
+    % 3. Incorporate table into the table_main
 
-    % Modifiquem objecte actual:
+    % Modify current object:
     no_modified_object_modificada = no_modified_object;
     no_modified_object_modificada.IsCeleg = "no";
 
-    % Incorporem a la taula general d'objectes
+    % Incorporate into the general table of objects
     main_table_actual_last_modiftable(indx_object_operate,:) = no_modified_object_modificada;
 
-    % Incorporem a la taula principal
+    % Incorporate into the main table
     main_table_actual_last_new = main_table_actual_last;
-    main_table_actual_last_new.nModif = main_table_actual_last_new.nModif+1; % Sumem 1 a la modif actual
-    main_table_actual_last_new.ModifTable = {main_table_actual_last_modiftable}; % Actualitzem la taula dels objectes modificats
+    main_table_actual_last_new.nModif = main_table_actual_last_new.nModif+1; % Add 1 to the current modification
+    main_table_actual_last_new.ModifTable = {main_table_actual_last_modiftable}; % Update the table of modified objects
 
-    % Incorporem a la taula_main
+    % Incorporate into table_main
     app.table_main_sel = [app.table_main_sel; main_table_actual_last_new];
 
-    % Renovació objecte anterior
-    % Retallem l'objecte
+    % Renewal of previous object
+    % Crop the object
     BB_values = appf_split_strindex(no_modified_object_modificada.Bounding)';
     app_interf_determinar_ultim_object(app, BB_values, "cross")
 
-    % Comprovació:
+    % Check:
     % [main_table_actual_last, main_table_actual_last_modiftable, indx_object_operate, no_modified_object] = app_interf_table_obtenir_main_table_actual(app)
     % [main_table_actual_last, main_table_actual_last_modiftable, indx_object_operate, no_modified_object] = app_interf_table_obtenir_main_table_corresponent(app)
 
+% END OF THE FUNCTION
 
-
-
-% FINAL FUNCIÓ
 
 end

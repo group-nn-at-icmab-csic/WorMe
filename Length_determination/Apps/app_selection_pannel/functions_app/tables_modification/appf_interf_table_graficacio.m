@@ -1,50 +1,50 @@
 function appf_interf_table_graficacio(app, main_table_actual_last, main_table_actual_last_modiftable, indx_object_operate, no_modified_object)
 
 
-% graficació en GUI
+% plotting in GUI
 
 
-% INICI FUNCIÓ
+% START OF THE FUNCTION
 
 
-    % _____Graficació______
-    % Basar-se en f'app_interf_graficar_img'
+    % _____Plotting______
+    % Based on f'app_interf_graficar_img'
 
-    % _Obtenció imatge original actual_
+    % _Obtain current original image_
     [imatge_original, ~] = app_interf_obtain_original(app, str2double(app.img_contLabel.Text));
-    prop_ext_BB = round((size(imatge_original, 1) * size(imatge_original, 2))^(1/3)); % Proporcio lineal imatge
+    prop_ext_BB = round((size(imatge_original, 1) * size(imatge_original, 2))^(1/3)); % Linear proportion of the image
 
     RGB_to_color_new = imatge_original;
 
     if ~isempty(no_modified_object)
-        % % __Graficació___
+        % % __Plotting___
         [BW_object] = create_BW_indx(appf_split_strindex(no_modified_object(1,:).Indx_BW), appf_split_strindex(no_modified_object(1,:).Resolution)');
         [BW_skel] = create_BW_indx(appf_split_strindex(no_modified_object(1,:).Indx_skel), appf_split_strindex(no_modified_object(1,:).Resolution)');
 
-        % Objecte actual
+        % Current object
         % RGB_to_color_new = imoverlay(RGB_to_color_new, BW_object, "r");
 
         indx_endpoints_BWskel = find(bwmorph(BW_skel, 'endpoints'));
         [indx_BWskel_obj_fin] = wide_indx_nonendpoints(find(BW_skel), indx_endpoints_BWskel, size(BW_skel));
-        % Pintar els indx
+        % Paint the indices
         [RGB_to_color_new] = paint_indx_to_RGB(RGB_to_color_new, indx_BWskel_obj_fin, "black");
 
-        % __Objecte principal__
+        % __Main object__
         BB_BWproces = appf_split_strindex_BB(no_modified_object.Bounding); % Bounding Box    
 
         % Bounding Box
         BB_BWproces = BB_BWproces + [-prop_ext_BB -prop_ext_BB +prop_ext_BB*2 +prop_ext_BB*2];
         [BB_index_punts] = BBxy_to_BBindx(BB_BWproces, size(BW_object));
-        indx_BB_BW_objecte_eixmp = wide_indx_BB(BB_index_punts, 2, size(BW_object));    % Eixamplem els index:
+        indx_BB_BW_objecte_eixmp = wide_indx_BB(BB_index_punts, 2, size(BW_object));    % Expand the indices:
         [RGB_to_color_new] = paint_indx_to_RGB(RGB_to_color_new, indx_BB_BW_objecte_eixmp, "red");
 
-        % Dades llargada
-        BB_val_xy = [BB_BWproces(:,1) + BB_BWproces(:,3), BB_BWproces(:,2) - 20]; % BB Text dades
-        length_dades = no_modified_object.Length;     % Valors llargada:
+        % Length data
+        BB_val_xy = [BB_BWproces(:,1) + BB_BWproces(:,3), BB_BWproces(:,2) - 20]; % BB Text data
+        length_dades = no_modified_object.Length;     % Length values:
         if isstring(length_dades); length_dades_graficar = round(str2double(length_dades)); else; length_dades_graficar = round(length_dades); end
         RGB_to_color_new = insertText(RGB_to_color_new, BB_val_xy, strcat("Length: ", string(length_dades_graficar)), 'BoxColor', "yellow", 'FontSize', round((prop_ext_BB)^(2/3)));
         
-        % Grafiquem imatge objecte BW
+        % Plot BW object image
         [BW_ini_regio_cropped, ~] = cut_BB_BW_image_1(BW_object, 3);
         app.Image4.Visible = 'on';
         app.Image4.ImageSource = graph_rgbgraybw_image(BW_ini_regio_cropped);
@@ -56,17 +56,17 @@ function appf_interf_table_graficacio(app, main_table_actual_last, main_table_ac
     
     
 
-    % Objectes "yes"
+    % Objects "yes"
     main_table_isyes = main_table_actual_last_modiftable(main_table_actual_last_modiftable.IsCeleg == "yes", :);
     if ~isempty(main_table_isyes)
         [RGB_to_color_new] = print_RGB_indx_brush(RGB_to_color_new, appf_split_strindex(main_table_isyes.Indx_BW), [-10 25 -10]); %[-20 50 -20]);
         
-        % Dades llargada
+        % Length data
         BB_values_yes = appf_split_strindex_BB(main_table_isyes.Bounding); % Bounding Box
         BB_values_read_xy = [BB_values_yes(:,1) + BB_values_yes(:,3), BB_values_yes(:,2) - 20];        
         RGB_to_color_new = insertText(RGB_to_color_new, BB_values_read_xy, strcat("Length: ", string(round(str2double(main_table_isyes.Length)))), 'BoxColor', "green", 'FontSize', round((prop_ext_BB)^(2/3)) ); % Elapsed time is 0.002617 seconds.
        
-        % Esquel
+        % Skeleton
         [indx_Skel_eix] = wide_indx_BB(appf_split_strindex(main_table_isyes.Indx_skel), 1, appf_split_strindex(main_table_isyes(1,:).Resolution)');
         [RGB_to_color_new] = paint_indx_to_RGB(RGB_to_color_new, indx_Skel_eix, "black");
         % Elapsed time is 0.004696 seconds.
@@ -77,7 +77,7 @@ function appf_interf_table_graficacio(app, main_table_actual_last, main_table_ac
         if ~isempty(table_yes_draws)
             [RGB_to_color_new] = print_RGB_indx_brush(RGB_to_color_new, appf_split_strindex(table_yes_draws.Indx_BW), [-255 -255 -255]); %[-20 50 -20]);
             
-%             % Dades llargada (re-marquem)
+%             % Length data (re-mark)
 %             BB_values_yes = appf_split_strindex_BB(table_yes_draws.Bounding); % Bounding Box
 %             BB_values_read_xy = [BB_values_yes(:,1) + BB_values_yes(:,3), BB_values_yes(:,2) - 20];             
 %             table_yes_draws.Length
@@ -86,21 +86,21 @@ function appf_interf_table_graficacio(app, main_table_actual_last, main_table_ac
         
     end
 
-    % Objectes "no"
+    % Objects "no"
     main_table_isno = main_table_actual_last_modiftable(main_table_actual_last_modiftable.IsCeleg == "no", :);
     if ~isempty(main_table_isno)
-         % Vermell no seleccionats
+         % Red not selected
          [RGB_to_color_new] = print_RGB_indx_brush(RGB_to_color_new, appf_split_strindex(main_table_isno.Indx_BW), [25 -10 -10]);    
     end
 
-    % Objectes "empty", que no són filtrats:
-    % Nota: Els filtres són també descrits en f'app_interf_table_obtenir_main_table_actual'
+    % Objects "empty", which are not filtered:
+    % Note: The filters are also described in f'app_interf_table_obtenir_main_table_actual'
 
-    % Obtenim objectes filtrats pels filtres anotats:
+    % Obtain objects filtered by the noted filters:
     [main_table_actual_last_modiftable_nofilter, indx_filtre_tots] = app_interf_table_filter_index_obtain(app, main_table_actual_last_modiftable);
-    %                                               ↑ Index circularitat
+    %                                               ↑ Circularity index
     
-    % Index de l'objecte actual
+    % Index of the current object
     indx_obj_act = zeros(height(main_table_actual_last_modiftable),1);
     indx_obj_act(indx_object_operate) = 1;
     
@@ -110,12 +110,12 @@ function appf_interf_table_graficacio(app, main_table_actual_last, main_table_ac
 
     indx_sel_emptyfiltre = ~indx_obj_act & ~indx_filtre_tots & indx_empty;
     
-    % Obtenim sols els "empty":
+    % Obtain only the "empty":
     main_table_empty_nofilter = main_table_actual_last_modiftable(indx_sel_emptyfiltre, :);
-    % Descartem també l'objecte actual.
+    % Also discard the current object.
     
     if ~isempty(main_table_empty_nofilter)
-        % Fem BB
+        % Create BB
         indx_tot_BB = [];
         for n_row = 1:height(main_table_empty_nofilter)
             BB_BWproces = appf_split_strindex_BB(main_table_empty_nofilter(n_row, :).Bounding); % Bounding Box    
@@ -128,9 +128,9 @@ function appf_interf_table_graficacio(app, main_table_actual_last, main_table_ac
         
     end
 
-    % __Possible retallat imatge__
+    % __Possible image cropping__
     if ~isempty(app.imcrop_value)
-       % Retallem la imatge
+       % Crop the image
         [RGB_to_color_new] = cut_imgs_points(RGB_to_color_new, app.imcrop_value);
     else
         app.LupaReturnButton.Visible = 'off';
@@ -145,7 +145,7 @@ function appf_interf_table_graficacio(app, main_table_actual_last, main_table_ac
 
 
 
+% END OF THE FUNCTION
 
-% FINAL FUNCIÓ
 
 end
