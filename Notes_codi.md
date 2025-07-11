@@ -13,6 +13,7 @@ https://code.visualstudio.com/docs/languages/markdown
 - [ ] Mirar si esquelet hi ha més d'un branchpoint: error de que es selecciona cadena de més
 - [ ] Borrar la carpeta a posteriori de fer l'anàlisi?
 - [ ] (una vegada amb DOI i paper): -> Posar "Please cite us" i enllaç en l'App de resultats finals.
+- [ ] Botó info dades + IA no s'executa (tarda molt perquè és App?)
 
 ### Possibles Issues
 - [ ] Quan es canvia la grandària a resultats estadística es col·lapsa el programa.
