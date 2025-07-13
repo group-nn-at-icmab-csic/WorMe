@@ -1,9 +1,10 @@
 function app_interf_onoff_botons_done(app, onoff)
 
-% INICI FUNCIO
+% START OF THE FUNCTION
 
 
-% Cambi visualització figures
+% Change figures visualization
+
 % app.Image.Visible = onoff;
 % app.UIAxes.Visible = 'on';
 % app.DoneButton.Visible = onoff;
@@ -32,7 +33,7 @@ app.ImageLabel.Visible = onoff;
 app.ofLabel.Visible = onoff;
 app.ObjectnLabel.Visible = onoff;
 
-% filtres
+% filters
 app.FiltersLabel.Visible = onoff;
 app.SpinnerRound.Visible = onoff;
 app.MinWidthStateButton.Visible = onoff;
@@ -51,6 +52,6 @@ app.PintarButton.Visible = onoff;
 app.TutorialButton.Visible = onoff;
 
 
-% FINAL FUNCIO
+% FINAL OF THE FUNCTION
 
 end

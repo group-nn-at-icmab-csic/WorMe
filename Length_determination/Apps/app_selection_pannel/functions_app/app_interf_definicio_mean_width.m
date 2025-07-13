@@ -1,31 +1,30 @@
 function app_interf_definicio_mean_width(app, S_textscan_table)
 
-% Definició del valor del filtre d'amplada mitja
+% Definition of the filter value for mean width
 
-% INICI FUNCIÓ
+% FUNCTION START
 
-            
-% Definim la taula filtrada per les imatges seleccionades:
+% Define the filtered table for the selected images:
 S_textscan_table_yesfilt = S_textscan_table(S_textscan_table.IsCeleg == "yes", :);
 
-% __Filtre amplada mitja__            
-% El valor de filtre, es basarà en el valor final que serà el
-% factor aplicat a la mitja dels totals d'amplades.
+% __Mean width filter__            
+% The filter value will be based on the final value which will be the
+% factor applied to the mean of the total widths.
 
-% Obtenim els valors de totes les amplades
+% Obtain the values of all the widths
 width_total_values = appf_split_strindex(S_textscan_table_yesfilt.WidthValues);
-% Fem la mitja d'aquests valors
+% Calculate the mean of these values
 width_total_mean = mean(width_total_values);
 
 
-% Apliquem el factor de percentatge definit en la GUI
+% Apply the percentage factor defined in the GUI
 width_val_filtr = (app.SpinnerWidthMean.Value/100) * width_total_mean;
 
-% Definim en el textarea. El valor d'aquest servirà per a aplicar el filtre.
+% Set in the textarea. The value of this will be used to apply the filter.
 app.MinWidthRefTextArea.Value = string(width_val_filtr);
 
 
-% FINAL FUNCIÓ
+% FUNCTION END
 
 
 end

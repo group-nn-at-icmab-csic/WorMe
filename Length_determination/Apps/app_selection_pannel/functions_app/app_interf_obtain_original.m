@@ -1,29 +1,29 @@
 function [imatge_original, nom_img_original] = app_interf_obtain_original(app, n_imatge)
 
-% S'obté la imatge original de les seleccionades (arxiu theFiles) numero 'n_imatge'.
+% The original image is obtained from the selected ones (file theFiles) number 'n_imatge'.
 
+% START FUNCTION
 
-% INICI FUNCIÓ
-
-% _Agafem la imatge posterior a l'actual_
-% DEFINICIÓ DE LA IMATGE
-% Carpeta de les imatges
+% _We take the image after the current one_
+% IMAGE DEFINITION
+% Folder of the images
 carpeta_imatges = app.dir_imgs_orig;
 
-% LECTURA IMATGES .jpg i .png de la carpeta:
+% READING .jpg and .png IMAGES from the folder:
 % [theFiles] = read_imgs_folder_structure(carpeta_imatges);
 theFiles = app.theFiles_arxiu;
 
-% Obtencio imatge
+% Obtaining the image
 baseFileName = theFiles(n_imatge).name;
 fullFileName = fullfile(theFiles(n_imatge).folder, baseFileName);
-% Imatge a processar
+% Image to be processed
 imatge_original = imread_ifgrey(fullFileName);
 
-% Nom img sortida
+% Name of the output image
 nom_img_original = baseFileName;
 
-% FINAL FUNCIÓ
+% END FUNCTION
+
 
 
 end

@@ -1,15 +1,15 @@
 function app_interf_graficar_finalitzat_img(app)
 
-% Mostra els botóns de la GUI quan no s'ha arribat al final.
+% Shows the GUI buttons when the end has not been reached.
 %
-% Funció de la app 'app_selection_pannel'.
+% Function of the app 'app_selection_pannel'.
 %
 % See also
 % app_interf_graficar_finalitzat_img_off
 
-% INICI FUNCIO
+% FUNCTION START
 
-% Es sobrepassa la imatge: cartell de Finished
+% Image exceeded: Finished sign
 app.Image.ImageSource = imread("Apps\app_selection_pannel\images_useful\Finished_WM.png");
 % app.Image2.ImageSource = imread("Apps\app_selection_pannel\images_useful\Logo_WorMe_blanc.png");
 
@@ -18,7 +18,7 @@ app.Image.Visible = 'on';
 app.DoneButton.Visible = 'on';
 
 
-% Estadístics
+% Statistics
 % Statistics buttons labels
 app.UIAxes.Visible = 'off'; 
 app.ExitButton.Visible = 'off';
@@ -47,10 +47,10 @@ app.acceptedLabel.Visible = 'off';
 app.refusedLabel.Visible = 'off';
 
 
-% Continuem graficant la última imatge:
+% Continue plotting the last image:
 app_interf_graficar_BB_imatge_ultima(app);
 
-% Desactivem botóns
+% Disable buttons
 app.Thick_Button.Visible = 'off';
 app.Cross_Button.Visible = 'off';
 
@@ -63,16 +63,17 @@ app.finalitzat_contLabel = "true";
 app.OriginalButton.Visible = 'off';
 
 
-% Copiat del botó 'Done'
+% Copy from the 'Done' button
 app_interf_onoff_botons_done(app, 'off')
 
 
 
 
-% Coloració Botó Done
+% Done Button Coloring
 app.DoneButton.BackgroundColor = "green";
 % app.DoneButton.BackgroundColor = [0.96,0.96,0.96];
 
-% FINAL FUNCIÓ
+% FUNCTION END
+
 
 end

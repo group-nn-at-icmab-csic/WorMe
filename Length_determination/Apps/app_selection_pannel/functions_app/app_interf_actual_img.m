@@ -1,19 +1,19 @@
 function [BW_final, imatge_original, nom_img_original] = app_interf_actual_img(app)
 
 
-% INICI FUNCIO
+% FUNCTION START
 
-% Obtenció de la imatge última i modificació a binària (sigui una imatge nova o no)
-    % _Obtenció imatge original_
+% Obtaining the latest image and converting to binary (whether it is a new image or not)
+    % _Obtaining original image_
 n_imatge = str2num(app.img_contLabel.Text);
 [imatge_original, nom_img_original] = app_interf_obtain_original(app, n_imatge);
 % imatge_original = imread(strcat(dir_img_originals, "\", nom_img_origin));
 
 
-% _Processament de la imatge original_ 
+% _Processing the original image_ 
 [BW_final] = app_interf_process_img(app, imatge_original);
 
-% FINAL FUNCIÓ
+% FUNCTION END
 
 
 end

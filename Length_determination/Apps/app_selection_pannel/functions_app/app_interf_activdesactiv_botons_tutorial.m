@@ -1,8 +1,8 @@
 function app_interf_activdesactiv_botons_tutorial(app, onoff)
 
-% Actiació o desactivació de les figures de la app en el tutorial.
+% Activate/ unactivate the app figures in tutorial.
 
-% INICI FUNCIÓ
+% START OF THE FUNCTION
 
 app.CLabel.Visible = onoff;
 app.FLabel.Visible = onoff;
@@ -19,7 +19,7 @@ app.ELabel.Visible = onoff;
 app.spaceLabel.Visible = onoff;
 
 
-% FINAL FUNCIÓ
+% FINAL OF THE FUNCTION
 
 
 end

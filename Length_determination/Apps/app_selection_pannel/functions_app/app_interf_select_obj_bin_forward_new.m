@@ -1,44 +1,44 @@
 function [proc_BW, new_img, num, BW_final_object, BW_final_noproc, imatge_original, isdrawline] = app_interf_select_obj_bin_forward_new(app, number_BW, BW_final_noproc, dir_output, imatge_original)
 
-% Selecciona els objectes binaris de la imatge i els retorna, si n'hi ha, i
-% sino retorna la imatge nova processada.
-% Funció de la app 'app_selection_pannel'.
+% Selects the binary objects from the image and returns them if there are any,
+% otherwise returns the newly processed image.
+% Function from the app 'app_selection_pannel'.
 %
-% Upgrade: Incorporació de draw line taula per a la seva selecció.
+% Upgrade: Incorporation of draw line table for its selection.
 %
 % Variables
-% number_BW : numero d'objectes binaris (de BW objectes no processats 'BW_final_noproc')
+% number_BW : number of binary objects (from unprocessed BW objects 'BW_final_noproc')
 
-% INICI FUNCIÓ
+% START FUNCTION
 
-% Si hi ha algún objecte binari
+% If there is any binary object
 if number_BW > 0
 
     [BW_final_object, num] = app_interf_take_unique_obj(BW_final_noproc);
     
-    % Nota: si no hi ha objecte es veurà com a zeros.
+    % Note: if there is no object it will appear as zeros.
 
-    % Obtenim les taules de draw
+    % We obtain the draw tables
     [S_textscan_table_filtred_drawline, taula_dibuix_filted_nonproc] = app_interf_select_drawline(app);
     
-    % _Mirem si va avanç un objecte de la taula de draw_
+    % _Check if it advances one object from the draw table_
     [BW_final_object, num, isdrawline] = app_interf_determina_BW_obj_draw(taula_dibuix_filted_nonproc, BW_final_object, num);
     % imshow(BW_final_object)
 
-    % Definim si és o no una línia dibuixada:
+    % Define whether it is a drawn line or not:
     
 
-    % Definim contadors precedencia
-    proc_BW = true; % Contador que no s'ha arribat al final    
-    new_img = false; % Contador imatge nova
+    % Define precedence counters
+    proc_BW = true; % Flag indicating the end has not been reached    
+    new_img = false; % Flag for new image
 
 
-    % Cambiem botons botó original:
+    % Change original button:
     app.OriginalButton.Value = false;
 
-% Si ja no hi ha cap objecte binari:
+% If there are no more binary objects:
 else
-    % _Seguim amb la següent imatge_
+    % _Continue with the next image_
     [BW_final, BW_final_object, BW_final_noproc, imatge_original, proc_BW, new_img, num] = app_interf_precedencia_img(app, dir_output);
     
     isdrawline = false;
@@ -47,7 +47,8 @@ else
 end
 
 
-% FINAL FUNCIÓ
+% END FUNCTION
+
 
 
 end

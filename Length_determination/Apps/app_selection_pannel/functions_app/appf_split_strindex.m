@@ -1,35 +1,28 @@
 function [array_BWobj_fets] = appf_split_strindex(array_str_indx)
 
-% Donat un array amb arxius de text tipu:
-% "23745;123746;124824;124825;124826;...", es retorna el array amb el valor
-% numèric d'aquests.
-% 
-% Variables
-% array_str_indx : array amb els strings dels indexs.
-%                 exemple: S_textscan_table.Indx_BW
-% 
-% 
+% Given an array of text strings like:
+% "23745;123746;124824;124825;124826;...", returns a numeric array
+% with all these values converted to numbers.
+%
+% Variables:
+% array_str_indx : array of strings containing indexes
+%                  e.g., S_textscan_table.Indx_BW
+%
+
+% START OF THE FUNCTION
 
 array_BWobj_fets = [];
 
-% _Lectura dades_
+% Read and convert each string element:
 for n_obj = 1:length(array_str_indx)
-    % Llegim cada un, i el convertim a dobule
-    indx_BW_obj = double(split(array_str_indx(n_obj), ";"));% Elapsed time is 0.009027 seconds.
+    % Split the string by semicolon and convert to double array
+    indx_BW_obj = double(split(array_str_indx(n_obj), ";"));
     
-    % Prelocació
-    array_BWobj_fets_z = zeros((length(array_BWobj_fets) + length(indx_BW_obj)), 1);
-    array_BWobj_fets_z(1:end,:) = [array_BWobj_fets; indx_BW_obj];
-    
-    array_BWobj_fets = zeros(length(array_BWobj_fets_z),1);
-    array_BWobj_fets(1:end,:) = array_BWobj_fets_z;
-    
-%      % (sense prelocació) Passem a un sol array
-%      array_BWobj_fets = [array_BWobj_fets; indx_BW_obj];
-
+    % Concatenate the new numeric indices to the growing array
+    array_BWobj_fets = [array_BWobj_fets; indx_BW_obj];
 end
 
-
+% FINAL OF THE FUNCTION
 
 
 end

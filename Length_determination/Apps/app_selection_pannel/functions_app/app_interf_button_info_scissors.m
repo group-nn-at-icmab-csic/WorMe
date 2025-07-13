@@ -9,7 +9,7 @@ function app_interf_button_info_scissors(app)
 
 % START OF THE FUNCTION   
 
-    % _Funció mostrar video_
+    % _Function show video_
     video_ruta =  "Images_resources\Tutorial_videos\WorMe_1_Scissors_final.mp4";
     
     if isfile(video_ruta)
@@ -20,7 +20,7 @@ function app_interf_button_info_scissors(app)
     end
   
 
-    % Actualitzem figura per capacitar shortkey
+    % Update the figure in order to enable the shortkeys
     figure(app.UIFigure)     
 
 % FINAL OF THE FUNCTION

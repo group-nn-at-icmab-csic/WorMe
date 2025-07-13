@@ -1,6 +1,8 @@
 function [but_values] = app_resize_lectura_str(button_text)
 
-% LLegeix un text tipus "548;339;100;74$548;339;100;74" i retorna un array
+% Read the text like "548;339;100;74$548;339;100;74" and returns it as an array
+
+% START OF THE FUNCTION
 
 strsplit_but = split(button_text, "$");
 
@@ -11,6 +13,6 @@ for n_but = 1:length(strsplit_but)
 end
 % but_values
 
-
+% FINAL OF THE FUNCTION
 
 end

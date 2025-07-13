@@ -1,17 +1,17 @@
 function app_interf_graficar_finalitzat_img_off(app)
 
-% Desactivació i activació dels botóns i figures de la GUI quan aquesta
-% arriba a la imatge de finalització: estadística.
+% Deactivation and activation of buttons and GUI figures when the app
+% reaches the completion image: statistics.
 %
-% Funció de la app 'app_selection_pannel'.
+% Function of the app 'app_selection_pannel'.
 %
 % See also
 % app_interf_graficar_finalitzat_img
 
-% INICI FUNCIO
+% FUNCTION START
 
 
-% Desactivem botóns
+% Disable buttons
 app_interf_enable_thickcrosret_buttons(app, 'on')
 
 app.Hyperlink.Visible = 'off';
@@ -21,7 +21,7 @@ app.finalitzat_contLabel = "false";
 
 app.OriginalButton.Visible = 'on';
 
-% Coloració Botó Done
+% Done Button Coloring
 % app.DoneButton.BackgroundColor = "green";
 app.DoneButton.BackgroundColor = [0.96,0.96,0.96];
 
@@ -33,14 +33,13 @@ app.Image5.Visible = 'off';
 
 
                     
-% Activació/Desactivacio botons
+% Enable/Disable buttons
 app_interf_onoff_botons_done(app, 'on')
-% Desactivem, però, alguns:
-% % (a posar en un futur)
+% Disable some, however:
+% % (to be added in the future)
 % app.NotFinishedImagesLabel.Visible = 'off';
 
-% Estadística
-% Estadístics
+% Statistics
 % Statistics buttons labels
 app.UIAxes.Visible = 'off'; 
 app.ExitButton.Visible = 'off';
@@ -70,15 +69,15 @@ app.refusedLabel.Visible = 'off';
 
 app.LupaReturnButton.Visible = 'off';
 
-% On del Done
+% Done button ON
 app.DoneButton.Visible = 'on';
 app.LeftButton.Visible = 'on';
 
 
-% Mirem si el botó return hi ha de ser:
+% Check if the return button should be visible:
 
 
+% FUNCTION END
 
-% FINAL FUNCIÓ
 
 end

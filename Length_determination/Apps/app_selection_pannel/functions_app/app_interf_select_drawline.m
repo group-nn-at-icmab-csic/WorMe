@@ -1,53 +1,53 @@
 function [S_textscan_table_filtred_drawline, taula_dibuix_filted_nonproc] = app_interf_select_drawline(app)
 
-% Donada la taula de drawline i la taula general de dades, es fa una
-% selecció de les dades en funció a si són presents en una banda u altre.
-% D'aquesta manera es permèt tenir consideració de quins elements s'han
-% processat i quins no.
+% Given the drawline table and the general data table, a selection of data
+% is performed based on whether they are present in one or the other.
+% This allows keeping track of which elements have been processed
+% and which have not.
 %
 %
 %   Variables
 %       output:
-%           taula_dibuix_filted_nonproc : 
-%               taula dades de draw, sense els valors que han sigut seleccionats manualment.
+%           taula_dibuix_filted_nonproc :
+%               data table of draw, excluding the values that have been manually selected.
 %
 %           S_textscan_table_filtred_drawline :
-%               taula main amb els valors filtrats de drawline.
+%               main table with filtered drawline values.
 %
 %
 
 
-% INICI FUNCIÓ
+% START FUNCTION
 
-% _Taula main dades_
-% Obtenim taula principal de dades
+% _Main data table_
+% Obtain main data table
 [S_textscan_table] = app_interf_lectura_Stable(app);
 
 
-% Filtrem per nom
+% Filter by name
 S_textscan_table_filtred = S_textscan_table(S_textscan_table.NomWorm == app.img_original_nomLabel.Text, :);
 
 
-% Filtrem la taula els valors de draw:
+% Filter the table for draw values:
 S_textscan_table_filtred_drawline = S_textscan_table_filtred(S_textscan_table_filtred.Modifs == "DrawLine", :);
-% En aqui hi hauria d'haver les línies de draw lines que s'han
-% seleccionat i guardat. Aquestes ara es descartaran de la taula principal. Estan duplicades.
+% Here there should be the draw lines that have been
+% selected and saved. These will now be removed from the main table. They are duplicated.
 
 
 
-% _Taula draw_
+% _Draw table_
 taula_dibuix = app.taula_draw_main;
 
 if ~isempty(taula_dibuix)
-    % Filtrem per nom
+    % Filter by name
     taula_dibuix_filted = taula_dibuix(taula_dibuix.NomWorm == app.img_original_nomLabel.Text, :);
     
-    % Taula dibuix a anar eliminant
+    % Draw table to be reduced
     taula_dibuix_filted_t = taula_dibuix_filted;
 
     if ~isempty(S_textscan_table_filtred_drawline)
 
-        % Filtrem per index processats:
+        % Filter by processed indices:
         taula_dibuix_filted_nonproc = taula_dibuix_filted(~ismember(taula_dibuix_filted.Indx_skel, S_textscan_table_filtred_drawline.Indx_skel), :);
 
     else
@@ -59,7 +59,8 @@ else
 end
 
 
-% FINAL FUNCIÓ
+% END FUNCTION
+
 
 
 end

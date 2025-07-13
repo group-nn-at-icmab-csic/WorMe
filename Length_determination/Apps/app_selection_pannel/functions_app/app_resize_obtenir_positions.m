@@ -1,30 +1,30 @@
 function [buttonpos, str_button_tot] = app_resize_obtenir_positions(h_determin_button)
 
-% Obté les posicions d'una determinat objecte en la app.
+% Gets the positions of a given set of objects (buttons) in the app.
 %
 % Variables
-% h_determin_button : findobj d'un tipus de figura
-%       exemple: h_determin_button = findobj(app.UIFigure,'Type','uibutton');
+% h_determin_button : findobj result of a certain type of figure element
+%       example: h_determin_button = findobj(app.UIFigure,'Type','uibutton');
 %
 
+% START OF THE FUNCTION
 
 buttonpos = [];
 for cada = 1:length(h_determin_button)
-   boto_centered = h_determin_button(cada); % es defineix el botó
-   %boto_centered.Position
+   boto_centered = h_determin_button(cada); % define the button
+   % boto_centered.Position
 
-   % guardem les posicions
+   % store the positions
     buttonpos = [buttonpos; boto_centered.Position];
 end      
-%buttonpos
+% buttonpos
 
-% __Escriptura botons__
+% __Writing buttons__
 
-% From 
+% Example format of buttonpos: 
 % buttonpos = [333    49    46    40; ...
-%    198    49    46    40; ...
-%     15   412   100    22]
-
+%              198    49    46    40; ...
+%               15   412   100    22]
 
 [rows_but, ~] = size(buttonpos);
 
@@ -32,7 +32,7 @@ str_button_tot = [];
 for cada_but = 1:rows_but
     buttonstring = strjoin(string(buttonpos(cada_but, :)), ";");
 
-    % Describim en un sol string
+    % Describe all positions in a single string
     if isempty(str_button_tot)
         str_button_tot = buttonstring;        
     else
@@ -40,6 +40,7 @@ for cada_but = 1:rows_but
     end
 end
 
+% END OF THE FUNCTION
 
 end
 

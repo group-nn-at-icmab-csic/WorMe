@@ -1,105 +1,106 @@
 function [proc_BW, new_img, num, BW_final_object, BW_final_noproc, imatge_original] = app_interf_select_obj_bin(app, number_BW, BW_final_noproc, dir_output, imatge_original)
 
-% Selecciona els objectes binaris de la imatge i els retorna, si n'hi ha, i
-% sino retorna la imatge nova processada.
-% Funció de la app 'app_selection_pannel'.
+% Selects the binary objects from the image and returns them if they exist,
+% otherwise returns the newly processed image.
+% Function from the app 'app_selection_pannel'.
 %
 %
 %
 % Variables
-% number_BW : numero d'objectes binaris (de BW objectes no processats 'BW_final_noproc')
+% number_BW : number of binary objects (from BW objects not processed 'BW_final_noproc')
 
-% INICI FUNCIÓ
+% START FUNCTION
 
-% Si hi ha algún objecte binari
+% If there is any binary object
 if number_BW > 0
-    % Obtenim l'objecte binari
+    % Obtain the binary object
     [L_variable, num] = bwlabel(BW_final_noproc);
     BW_final_object = L_variable == 1;
     % imshow(BW_final_object)
 
-    proc_BW = true; % Contador que no s'ha arribat al final    
+    proc_BW = true; % Flag indicating the end has not been reached    
 
-    new_img = false; % Contador imatge nova
+    new_img = false; % Flag for new image
 
-% Si ja no hi ha cap objecte binari:
+% If there is no binary object:
 else
-    % _Seguim amb la següent imatge_
+    % _Continue with the next image_
 
-    % Definim contador imatges
-    n_imatge = str2double(app.img_contLabel.Text) +1;
+    % Define image counter
+    n_imatge = str2double(app.img_contLabel.Text) + 1;
 
     app.img_contLabel.Text = string(n_imatge);
 
-    % Si el nombre d'imatges no supera el total:
+    % If the number of images does not exceed the total:
     if n_imatge <= str2double(app.img_tot_nLabel.Text)
-        % _Agafem la imatge posterior a l'actual_
-        % DEFINICIÓ DE LA IMATGE
-        % Carpeta de les imatges
+        % _Take the image following the current one_
+        % DEFINE THE IMAGE
+        % Folder containing the images
         carpeta_imatges = app.dir_imgs_orig;
 
-        % LECTURA IMATGES .jpg i .png de la carpeta:
+        % READ .jpg and .png images from the folder:
         [theFiles] = read_imgs_folder_structure(carpeta_imatges);
 
-        % Obtencio imatge
+        % Get image
         baseFileName = theFiles(n_imatge).name;
         app.img_original_nomLabel.Text = baseFileName;
         fullFileName = fullfile(theFiles(n_imatge).folder, baseFileName);
-        % Imatge a processar
+        % Image to process
         imatge_original = imread(fullFileName);
 
-        % CAMBIEM RUTA IMATGE
+        % UPDATE IMAGE PATH
         app.vapp_ruta_img_origin = fullFileName;
 
-        % _Processem la imatge_            
-        % Llegir arxiu i mostrar en Label Modificacions
+        % _Process the image_            
+        % Read file and display in Label Modifications
         [array_processaments] = obtain_array_processments(strcat("Apps\app_image_processment\Internal code files\Image processing settings\", string(app.ModificacionsguardadesListBox.Value)));
 
-        % Modifiquem la imatge original i la mostrem: 
+        % Modify the original image and display it: 
          [BW_final, ~] = processment_img_list(imatge_original, array_processaments); 
-         % Guardem la imatge en PNG:
+         % Save the image in PNG:
          imwrite(BW_final, strcat(dir_output, "\imgBWtemp.png"));
 
-        % Apliquem l'esborrat dels índex (ÇÇ no és del tot
-        % necessari)
+        % Apply deletion of indices (not entirely
+        % necessary)
         [L_variable, num] = bwlabel(BW_final);
         BW_final_object = L_variable == 1;
 
-        % Definim imatge BW amb objectes no processats:
+        % Define BW image with unprocessed objects:
         BW_final_noproc = BW_final;
         BW_final_noproc(BW_final_object) = false;             
 
-        % Fem contador com a nova imatge
+        % Mark counter as new image
         new_img = true;
 
-        proc_BW = true; % Contador que no s'ha arribat al final
+        proc_BW = true; % Flag indicating the end has not been reached
         
-        % Definim que no és la última imatge
+        % Define that this is not the last image
         app.finalitzat_contLabel = "true";
         
     else
-        % Es sobrepassa la imatge: cartell de Finished
+        % Image limit exceeded: show Finished sign
         app.Image.ImageSource = imread("Apps\app_selection_pannel\images_useful\Finished_WM.png");
         app.Image2.ImageSource = imread("Apps\app_selection_pannel\images_useful\Logo_WorMe_blanc.png");
 
-        % Desactivem botóns
+        % Disable buttons
         app.Thick_Button.Visible = 'off';
         app.Cross_Button.Visible = 'off';
 
-        %app.DoneButton.Visible = 'on';
+        % app.DoneButton.Visible = 'on';
 
         app.Hyperlink.Visible = 'on';
         app.CitationLabel.Visible = 'on';
 
         app.finalitzat_contLabel.Text = "true";
         
-        proc_BW = false; % Contador que no s'ha arribat al final                    
+        proc_BW = false; % Flag indicating the end has been reached                    
     end
 
 end
 
 
-% FINAL FUNCIÓ
+% END FUNCTION
+
 
 
 end

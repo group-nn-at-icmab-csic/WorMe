@@ -1,7 +1,7 @@
 function [S_textscan_table] = app_interf_llegir_main_dades(dir_output)
 
-% Llegeix i guarda en una taula (S_textscan_table) l'arxiu de text "main_data_analysis.txt"
-% Funció de la app 'app_selection_pannel'.
+% Reads and stores in a table (S_textscan_table) the text file "main_data_analysis.txt"
+% Function from the app 'app_selection_pannel'.
 %
 %
 % See also
@@ -9,12 +9,12 @@ function [S_textscan_table] = app_interf_llegir_main_dades(dir_output)
 % app_interf_descriure_dades
 
 
-% INICI FUNCIÓ
+% FUNCTION START
 
 fid = fopen(strcat(dir_output, "/main_data_analysis.txt"));
 S_textscan = textscan(fid, '%s %s %.3f %s %s %s %s %s %s', 'Delimiter', "$"); % Elapsed time is 0.000535 seconds.
 fclose(fid);
-% Ho passem a taula
+% Convert to table
 S_textscan_table = table(string(S_textscan{1}), ...
                          string(S_textscan{2}), ...
                           S_textscan{3}, ...
@@ -26,10 +26,7 @@ S_textscan_table = table(string(S_textscan{1}), ...
                           string(S_textscan{9}), ...
                         'VariableNames', ["IsCeleg","NomWorm", "Length", "Bounding", "Modifs", "Indx_skel", "Indx_BW", "WidthValues", "Resolution"] );
 
-
-
-
-% FINAL FUNCIÓ
+% FUNCTION END
 
 
 end

@@ -1,13 +1,12 @@
 function [S_textscan_table_draw] = app_interf_descriure_dades_draw_taula(app, dades_imatge, zeros_imatge_cotxe)
-
-% Descriure dades de la línia dibuixada en una taula.
+% Describe data of the drawn line in a table.
 %
-% Variables taula: "IsCeleg","NomWorm", "Length", "Bounding", "Modifs", "Indx_skel", "Indx_BW", "WidthValues", "Resolution"
+% Table variables: "IsCeleg","NomWorm", "Length", "Bounding", "Modifs", "Indx_skel", "Indx_BW", "WidthValues", "Resolution"
 %
 %   Variables
 %       input
-%           dades_imatge : dades_llargada
-%           zeros_imatge_cotxe : imatge_esqueletonització
+%           dades_imatge : length_data
+%           zeros_imatge_cotxe : skeletonization_image
 %
 % See also
 % app_interf_guardar_main_dades
@@ -15,18 +14,18 @@ function [S_textscan_table_draw] = app_interf_descriure_dades_draw_taula(app, da
 % app_interf_descriure_dades_draw_cell
 
 
-% INICI FUNCIÓ
+% FUNCTION START
 
 
-% Definim els elements:
+% Define the elements:
 
-% Selecció
+% Selection
 v_IsCeleg = "IsDraw";
 
-% Nom imatge
+% Image name
 v_NomWorm = string(app.img_original_nomLabel.Text);
 
-% Llargada
+% Length
 v_Length = dades_imatge;
 
 % Bounding Box
@@ -49,7 +48,7 @@ v_WidthValues = NaN;
 v_Resolution = app.resolucio_img;
 
 
-% Ho passem a taula
+% Convert to table
 S_textscan_table_draw = table(v_IsCeleg, v_NomWorm, v_Length, v_Bounding, v_Modifs, ...
                      v_Indx_skel, v_Indx_BW, v_WidthValues, v_Resolution, ...
                         'VariableNames', ["IsCeleg","NomWorm", "Length", "Bounding", "Modifs", "Indx_skel", "Indx_BW", "WidthValues", "Resolution"] );
@@ -57,7 +56,7 @@ S_textscan_table_draw = table(v_IsCeleg, v_NomWorm, v_Length, v_Bounding, v_Modi
 
 
 
+% FUNCTION END
 
-% FINAL FUNCIÓ
 
 end

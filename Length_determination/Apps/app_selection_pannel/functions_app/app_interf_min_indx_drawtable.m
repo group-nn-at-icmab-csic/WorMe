@@ -1,8 +1,9 @@
 function [taula_dibuix_minima] = app_interf_min_indx_drawtable(taula_dibuix_filted_nonproc)
 
-% Agafem l'element de la taula amb menor nombre:
+% Take the element of the table with lower number.
 
-% INICI FUNCIÓ 
+% START OF THE FUNCTION
+
 if height(taula_dibuix_filted_nonproc) == 1
     taula_dibuix_minima = taula_dibuix_filted_nonproc;
 
@@ -21,7 +22,7 @@ else
 
 end
 
-% FINAL FUNCIÓ
+% FINAL OF THE FUNCTION
 
 
 end

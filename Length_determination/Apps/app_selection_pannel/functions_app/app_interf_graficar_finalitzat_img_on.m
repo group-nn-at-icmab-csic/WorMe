@@ -1,15 +1,15 @@
 function app_interf_graficar_finalitzat_img_on(app)
 
 
-% Activa botóns estadística
+% Activate the statistic button
 
 
-% INICI FUNCIÓ
+% START OF THE FUNCTION
 
-            % Contador per retorn a imatge finalitzat.
+            % Counter for the finalization of the image return.
             app.finalitzat_a_estadistica = true;
             
-            % Cambi visualització figures
+            % Change of the image visualization of the figures
             app.Image.Visible = 'off';
             app.Image4.Visible = 'off';
             app.UIAxes.Visible = 'on';
@@ -42,7 +42,7 @@ function app_interf_graficar_finalitzat_img_on(app)
             app.dir_img_orig_sLabel.Visible = 'off';
             app.FolderLabel.Visible = 'off';            
 
-            % filtres
+            % Filters
             app.FiltersLabel.Visible = 'off';
             app.MaxCircularityButton.Visible = 'off';
             app.SpinnerRound.Visible = 'off';
@@ -94,12 +94,8 @@ function app_interf_graficar_finalitzat_img_on(app)
             app.refusedLabel.Visible = 'on';
 
 
-            
 
-
-
-
-% FINAL FUNCIÓ
+% FINAL OF THE FUNCTION
 
 
 end

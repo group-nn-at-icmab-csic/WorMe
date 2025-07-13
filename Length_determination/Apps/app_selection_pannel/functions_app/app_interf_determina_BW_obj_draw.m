@@ -1,51 +1,52 @@
 function [BW_final_object, num, isdrawline] = app_interf_determina_BW_obj_draw(taula_dibuix_filted_nonproc, BW_final_object, num)
 
 
-% Determina si, donat una imatge binària amb un objecte binari, hi hauria
-% d'haber la selecció d'un objecte de draw.
+% Determines if, given a binary image with a binary object, there should be
+% the selection of a draw object.
 %
 %
 % Variables
 %   input:
-%       BW_final_object : BW objecte unic
-%       num : nombre objects
+%       BW_final_object : single BW object
+%       num : number of objects
 %   output
-%       isdrawline : contador si és o no draw
-%       taula_dibuix_filted_nonproc : taula draws no processats
-%       BW_final_object : BW objecte unic
+%       isdrawline : counter if it is or not draw
+%       taula_dibuix_filted_nonproc : table of unprocessed draws
+%       BW_final_object : single BW object
 % 
 
-% INICI FUNCIÓ
+% FUNCTION START
 
 
-% Si hi ha objectes de draw:
+% If there are draw objects:
 if ~isempty(taula_dibuix_filted_nonproc)
 
-    % Sumem el valor de la variable control 'num'
+    % We sum the value of the control variable 'num'
     num = height(taula_dibuix_filted_nonproc);
 
-    % Si l-'index de la imatge 'es anterior, es fa aquest, sino es fa
-    % el del objecte draw:
+    % If the 'image index' is earlier, this is done, otherwise the
+    % draw object one is done:
     if min(find(BW_final_object)) < min(appf_split_strindex(taula_dibuix_filted_nonproc.Indx_skel)) %#ok 
         isdrawline = false;
     else
         isdrawline = true;
 
-        % Agafem la drawline amb el valor menor index:
+        % We take the drawline with the lowest index value:
         [taula_dibuix_minima] = app_interf_min_indx_drawtable(taula_dibuix_filted_nonproc);
     
-        % Obtenim la imatge amb l'objecte últim:
+        % We obtain the image with the last object:
         BW_final_object = false(double([appf_split_strindex(taula_dibuix_minima.Resolution)']));
         BW_final_object(appf_split_strindex(taula_dibuix_minima.Indx_skel)) = true;
             
     end
 else
-    isdrawline = false; % Defineix si s'obté l'objecte o una imatge binaria.
+    isdrawline = false; % Defines if the object or a binary image is obtained.
 end
 
 
 
-% FINAL FUNCIÓ
+% FUNCTION END
+
 
 
 

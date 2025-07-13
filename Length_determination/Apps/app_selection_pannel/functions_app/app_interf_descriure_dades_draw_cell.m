@@ -1,31 +1,31 @@
 function [cell_dades_totals] = app_interf_descriure_dades_draw_cell(app, dades_imatge, zeros_imatge_cotxe)
 
-% Descriure dades de la línia dibuixada en una taula.
+% Describe data of the drawn line in a table.
 %
-% Variables taula: "IsCeleg","NomWorm", "Length", "Bounding", "Modifs", "Indx_skel", "Indx_BW", "WidthValues", "Resolution"
+% Table variables: "IsCeleg","NomWorm", "Length", "Bounding", "Modifs", "Indx_skel", "Indx_BW", "WidthValues", "Resolution"
 %
 %   Variables
 %       input
-%           dades_imatge : dades_llargada
-%           zeros_imatge_cotxe : imatge_esqueletonització
+%           dades_imatge : length_data
+%           zeros_imatge_cotxe : skeletonization_image
 %
 % See also
 % app_interf_guardar_main_dades
 % app_interf_llegir_main_dades
 
 
-% INICI FUNCIÓ
+% FUNCTION START
 
 
-% Definim els elements:
+% Define the elements:
 
-% Selecció
+% Selection
 v_IsCeleg = "IsDraw";
 
-% Nom imatge
+% Image name
 v_NomWorm = app.img_original_nomLabel.Text;
 
-% Llargada
+% Length
 v_Length = dades_imatge;
 
 % Bounding Box
@@ -52,6 +52,7 @@ cell_dades_totals = {v_IsCeleg, v_NomWorm, v_Length, v_Bounding, v_Modifs, ...
 
 
 
-% FINAL FUNCIÓ
+% FUNCTION END
+
 
 end
