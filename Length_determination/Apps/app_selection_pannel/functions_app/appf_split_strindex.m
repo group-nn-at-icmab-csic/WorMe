@@ -13,13 +13,20 @@ function [array_BWobj_fets] = appf_split_strindex(array_str_indx)
 
 array_BWobj_fets = [];
 
-% Read and convert each string element:
+% _Data reading_:
 for n_obj = 1:length(array_str_indx)
-    % Split the string by semicolon and convert to double array
-    indx_BW_obj = double(split(array_str_indx(n_obj), ";"));
+
+    % Read every one, and convert it in double:
+    indx_BW_obj = double(split(array_str_indx(n_obj), ";"));% Elapsed time is 0.009027 seconds.
     
-    % Concatenate the new numeric indices to the growing array
-    array_BWobj_fets = [array_BWobj_fets; indx_BW_obj];
+    % Prelocació
+    array_BWobj_fets_z = zeros((length(array_BWobj_fets) + length(indx_BW_obj)), 1);
+    array_BWobj_fets_z(1:end,:) = [array_BWobj_fets; indx_BW_obj];
+    
+    array_BWobj_fets = zeros(length(array_BWobj_fets_z),1);
+    array_BWobj_fets(1:end,:) = array_BWobj_fets_z;
+
+    
 end
 
 % FINAL OF THE FUNCTION
