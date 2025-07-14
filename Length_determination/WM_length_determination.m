@@ -100,7 +100,7 @@ function [userSavedDocuments] = path_determination()
     
     % If execute the software instal·led (from .exe, from compiled file)
     if isdeployed % Stand-alone mode.(Runtime)
-        [status, result] = system('path');
+        [~, result] = system('path');
         currentDir = char(regexpi(result, 'Path=(.*?);', 'tokens', 'once'));
         
         % Obtain the directory where we save the files:
@@ -117,9 +117,17 @@ function [userSavedDocuments] = path_determination()
 
         % Create the folder for to save the results:
         if ~isfolder(userDocuments)
-            waitfor(msgbox({"Error Documents: Folder:", userDocuments, "doesn't defined."}, 'Error','error'));
-            waitfor(msgbox("Please, define a new folder for save the program results."));
-            userSavedDocuments = uigetdir(predef_folder_carpeta, "Select the folder with images");
+            % If Documents folder doesn't exist,
+            % we create in the user main folder.
+            userSavedDocuments = fullfile(getenv('USERPROFILE'), "WorMe_Length_Results");
+            mkdir(userSavedDocuments)
+
+            if ~isfolder(userSavedDocuments) 
+                % If it is still not created:
+                waitfor(msgbox({"Error Documents: Folder:", userDocuments, "doesn't defined."}, 'Error','error'));
+                waitfor(msgbox("Please, define a new folder for save the program results."));
+                % userSavedDocuments = uigetdir(predef_folder_carpeta, "Select the folder with images");
+            end
             
         % If Documents exists, we create the folder where the results are going to be saved:
         else
@@ -127,7 +135,7 @@ function [userSavedDocuments] = path_determination()
             mkdir(userSavedDocuments)
             %waitfor(msgbox(userSavedDocuments))
         end
-    
+        
         % Change the directory of the actual folder:
         cd(userSavedDocuments)
         
