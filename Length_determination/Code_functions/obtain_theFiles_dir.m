@@ -5,13 +5,13 @@ function [theFiles, carpeta_input, nom_carpeta_input, porta_f] = obtain_theFiles
 % Variables
 %   input
 %       userSavedDocuments - current path route.
-%                       e.g.:  'C:\Users\jllobet\Desktop\Length determination v2_15'
+%                       e.g.:  'C:/Users/jllobet/Desktop/Length determination v2_15'
 %
 %   output
 %       theFiles - Structure describing images. dir() file of the images
 %
 %       carpeta_input - path to the images folder
-%                       e.g.: 'C:\Users\jllobet\Desktop\Length determination v2_15\_Imatges exemple\Amanda_Controls\C_48'
+%                       e.g.: 'C:/Users/jllobet/Desktop/Length determination v2_15/_Imatges exemple/Amanda_Controls/C_48'
 %
 %       nom_carpeta_input - name of the images folder
 %                       e.g.: 'C_48'
@@ -33,9 +33,9 @@ function [theFiles, carpeta_input, nom_carpeta_input, porta_f] = obtain_theFiles
 % v'nom_carpeta_input'      : name of the directory of the original images
 %
 % _Obtaining (or not) value of the predefined folder
-% It is obtained from "Results_out\Internal_code_files\predefined_folder.txt"
+% It is obtained from "Results_out/Internal_code_files/predefined_folder.txt"
 
-predefined_folder_input = strcat(userSavedDocuments, "\Results_out\Internal_code_files", "\predefined_folder.txt");
+predefined_folder_input = fullfile(userSavedDocuments, "Results_out", "Internal_code_files", "predefined_folder.txt");
 
 if isfile(predefined_folder_input)
     % If a text file exists that contains the scale
@@ -54,13 +54,13 @@ carpeta_input = uigetdir(predef_folder_carpeta, "Select the folder with images")
 if ~isequal(carpeta_input, 0)
     % _Write predefined folder_
     % We obtain the same string from the folder, defined a folder previous to the last one defined.
-    [split_arxiu_sortida] = splits_objectes_valor(carpeta_input, "\", 1); % Exemple: 'C:\Users\Josep TOSHIBA\Desktop' -to-> 'C:\Users\Josep TOSHIBA'
+    [split_arxiu_sortida] = splits_objectes_valor(carpeta_input, filesep, 1); % Exemple: 'C:/Users/Josep TOSHIBA/Desktop' -to-> 'C:/Users/Josep TOSHIBA'
     array_write_folder = ["Folder", split_arxiu_sortida];
     write_text_array(predefined_folder_input, array_write_folder, ";"); clear split_arxiu_sortida array_write_folder
     
     %_Obtain the directory name_
     % Name of the entry folder
-    nom_carpeta_input_cru = split(carpeta_input, "\");
+    nom_carpeta_input_cru = split(carpeta_input, filesep);
     nom_carpeta_input = nom_carpeta_input_cru{end}; clear nom_carpeta_input_cru
 
     

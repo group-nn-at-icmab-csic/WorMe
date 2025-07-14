@@ -43,12 +43,12 @@ function app_proc_startupFcn(app)
     % Define the Modifications Box, based on existing documents:
     
     % Read temporary modifications files
-    myFolder_input = "Results_out\Internal_code_files\Image_processing_settings\temporals\";
+    myFolder_input = fullfile("Results_out", "Internal_code_files", "Image_processing_settings", "temporals", filesep);
     [llistat_string_im_temp] = read_files_typology(myFolder_input, ".txt");          
     app.ModificacionstemporalsListBox.Items = llistat_string_im_temp;
 
     % Read saved modifications files
-    myFolder_input = "Results_out\Internal_code_files\Image_processing_settings\"; 
+    myFolder_input = fullfile("Results_out", "Internal_code_files", "Image_processing_settings", filesep); 
     [llistat_string_im_guard] = read_files_typology(myFolder_input, ".txt");
     app.ModificacionsguardadesListBox.Items = llistat_string_im_guard;
     
@@ -59,7 +59,7 @@ function app_proc_startupFcn(app)
     % time the program is run, this modification
     % is automatically preselected.
     % _Get (or not) predefined folder value_
-    predefined_file_input = "Results_out\Internal_code_files\predefined_modif.txt";
+    predefined_file_input = fullfile("Results_out", "Internal_code_files", "predefined_modif.txt");
     
     if isfile(predefined_file_input)
         % If there exists a text file containing the scale
@@ -87,12 +87,12 @@ function app_proc_startupFcn(app)
                 % app.NovamodificaciButtonPushed;
 
                 % Create a new file from scratch.
-                nom_arxiu_guardar = strcat("Results_out\Internal_code_files\Image_processing_settings\temporals\Modif_img_01.txt");
+                nom_arxiu_guardar = fullfile("Results_out", "Internal_code_files", "Image_processing_settings", "temporals", "Modif_img_01.txt");
                 txt_seg(nom_arxiu_guardar, "", ";", "nou", "blanc") % configuration tracking
 
                 % _Update the ListBox_
                 % Temporary Mods
-                myFolder_input = "Results_out\Internal_code_files\Image_processing_settings\temporals\";
+                myFolder_input = fullfile("Results_out", "Internal_code_files", "Image_processing_settings", "temporals", filesep);
                 [llistat_string_im] = read_files_typology(myFolder_input, ".txt");
                 % Update the listbox
                 app.ModificacionstemporalsListBox.Items = llistat_string_im;       
@@ -217,8 +217,8 @@ function app_proc_startupFcn(app)
 
     
     % _Copy example modifications_
-    % The modifications from app_image_processment\Internal code files\Modifications_examples are copied to 
-    file_porta_modifs = "Results_out\Internal_code_files\first_modifications.txt"; % File carrying copy of example mods
+    % The modifications from app_image_processment/Internal code files/Modifications_examples are copied to 
+    file_porta_modifs = fullfile("Results_out", "Internal_code_files", "first_modifications.txt"); % File carrying copy of example mods
     %waitfor(msgbox(file_porta_modifs))
     if ~isfile(file_porta_modifs)
         % If there is no file, it means it’s the first time
@@ -235,7 +235,7 @@ function app_proc_startupFcn(app)
             % their directory, since it’s internal.
             % Otherwise, if it does not work, a which
             % is done to get the internal path of the file.
-            directori_nou_copiar = strcat("Results_out\Internal_code_files\Image_processing_settings\Modif_Example_", string(n_va), ".txt");
+            directori_nou_copiar = strcat( fullfile("Results_out", "Internal_code_files", "Image_processing_settings", "Modif_Example_"), string(n_va), ".txt");
             copyfile(arxiu_copiar, directori_nou_copiar)
         end
 
@@ -250,7 +250,7 @@ function app_proc_startupFcn(app)
     % __Update modifications__
     
     % Read saved modifications files
-    myFolder_input = "Results_out\Internal_code_files\Image_processing_settings\";
+    myFolder_input = fullfile("Results_out", "Internal_code_files", "Image_processing_settings", filesep);
     patro_tipus_image = ".txt";
     [llistat_string_im] = read_files_typology(myFolder_input, patro_tipus_image);
     
@@ -258,7 +258,7 @@ function app_proc_startupFcn(app)
     
     
     % Automation Drop Roll Temporary Modifications
-    myFolder_input = "Results_out\Internal_code_files\Image_processing_settings\temporals\";
+    myFolder_input = fullfile("Results_out", "Internal_code_files", "Image_processing_settings", "temporals", filesep);
     patro_tipus_image = ".txt";
     [llistat_string_im] = read_files_typology(myFolder_input, patro_tipus_image);
                 

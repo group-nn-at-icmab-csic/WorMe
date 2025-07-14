@@ -10,14 +10,14 @@ function app_interf_button_export(app)
             dir_img_originals = app.dir_imgs_orig;
             
             % Folder name:
-            dir_img_originals_split_t = split(dir_img_originals, "\");
+            dir_img_originals_split_t = split(dir_img_originals, filesep);
             nom_dir_img_originals = dir_img_originals_split_t{end}; % Works
             
             
             % _DATA READING_
             tipus_lectura = "%s%s%s%s%s%s%s%s%s";
             variable_names = {'IsCeleg', 'NomWorm', 'Length', 'Bounding', 'Modifs', 'Indx_skel', 'Indx_BW', 'WidthValues', 'Resolution'};
-            [S_textscan_table] = read_data(strcat(app.appv_dir_output, "\main_data_analysis.txt"), tipus_lectura, "$", variable_names);
+            [S_textscan_table] = read_data(fullfile(app.appv_dir_output, "main_data_analysis.txt"), tipus_lectura, "$", variable_names);
 
             % [S_textscan_table] = app_interf_llegir_main_dades(dir_output);
             

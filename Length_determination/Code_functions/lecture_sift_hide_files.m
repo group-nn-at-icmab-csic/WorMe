@@ -27,13 +27,12 @@ for n_elem = 1:length(theFiles)
             find_ocult(n_elem) = true;
         end
 
-    elseif ismac
-        % MAC (OSX), hidden elements start with ".":
+    elseif ismac || isunix
+        % MAC (OSX), and Ubuntu hidden elements start with ".":
         if strcmp(theFiles(n_elem).name(1),'.')
             find_ocult(n_elem) = true;
         end
 
-    % elseif isunix
 
     end
 end

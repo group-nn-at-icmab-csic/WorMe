@@ -7,7 +7,7 @@ function write_text_array(arxiu_text_output, dades_write, separador)
 % dades_write       : dades to be written to the file.
 %
 % Examples
-% arxiu_text_output = strcat(pwd, "\", "dades_output.txt");
+% arxiu_text_output = strcat(pwd, filesep, "dades_output.txt");
 %
 % Example data
 % dades_write = [

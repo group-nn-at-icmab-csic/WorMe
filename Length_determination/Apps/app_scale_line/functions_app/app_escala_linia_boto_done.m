@@ -10,7 +10,7 @@ function app_escala_linia_boto_done(app)
     % Create text
     % we define folder and file
     carpeta_out = app.path_carpeta_outLabel.Text;            
-    arxiu_text_output = strcat(carpeta_out, "\escale_line.txt");
+    arxiu_text_output = fullfile(carpeta_out, "escale_line.txt");
     escala_write = ["escala", distancia_valor];
     write_text_array(arxiu_text_output, escala_write, ";")
 

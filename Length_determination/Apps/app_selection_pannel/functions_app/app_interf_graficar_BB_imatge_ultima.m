@@ -34,9 +34,7 @@ if ~isempty(app.global_S_textscan_table)
     BW_skel_crop_eix(indx_BW_skel_crop_eix) = true;
     
     % Obtain the original image:
-    imageArray = imread(strcat(app.dir_imgs_orig, "\", S_textscan_table.NomWorm)); % app.img_original_nomLabel.Text
-    
-    
+    imageArray = imread(fullfile(app.dir_imgs_orig, S_textscan_table.NomWorm)); % app.img_original_nomLabel.Text
     imageArray_croped = imcrop(imageArray, BB_values);
     
     
@@ -50,9 +48,9 @@ if ~isempty(app.global_S_textscan_table)
         % Plot previous image:
         
         if S_textscan_table.IsCeleg == "no"
-            app.Image3.ImageSource = "Apps\app_selection_pannel\images_useful\cross.png";
+            app.Image3.ImageSource = fullfile('Apps', 'app_selection_pannel', 'images_useful', 'cross.png');
         else
-            app.Image3.ImageSource = "Apps\app_selection_pannel\images_useful\greentick.png";
+            app.Image3.ImageSource = fullfile('Apps', 'app_selection_pannel', 'images_useful', 'greentick.png');
         end
         
     end

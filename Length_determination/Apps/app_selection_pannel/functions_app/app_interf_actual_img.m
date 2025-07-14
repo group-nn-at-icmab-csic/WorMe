@@ -7,7 +7,6 @@ function [BW_final, imatge_original, nom_img_original] = app_interf_actual_img(a
     % _Obtaining original image_
 n_imatge = str2num(app.img_contLabel.Text);
 [imatge_original, nom_img_original] = app_interf_obtain_original(app, n_imatge);
-% imatge_original = imread(strcat(dir_img_originals, "\", nom_img_origin));
 
 
 % _Processing the original image_ 

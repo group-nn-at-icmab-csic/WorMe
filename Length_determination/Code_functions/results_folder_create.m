@@ -13,13 +13,13 @@ function [carpeta_output] = results_folder_create(userSavedDocuments, nom_carpet
         string(return_zeros_one(data_temps(4))), ...
         string(return_zeros_one(data_temps(5))));
     
-    carpeta_output = strcat(userSavedDocuments, "\Results_out\", data_actual, "_", nom_carpeta_input);
+    carpeta_output = strcat(userSavedDocuments, filesep, "Results_out", filesep, data_actual, "_", nom_carpeta_input);
     
     
     % Folder of output results
     if ~isfolder(carpeta_output)
         mkdir(carpeta_output)
-        mkdir(strcat(carpeta_output, "\Processment_parameters"))
+        mkdir(fullfile(carpeta_output, "Processment_parameters"))
     end
 
 % END FUNCTION

@@ -10,7 +10,7 @@ function [S_textscan_table] = read_data(txt_data_name, write_values, separador_c
 % separador_char: separator that will have the values ​​of each cell
 %           ex: "$"
 % txt_data_name : directory and name of the file.
-%           ex: "Results\main_results_own.txt"
+%           ex: "Results/main_results_own.txt"
 % variable_names : name of the variables in the table
 %           ex:  ["IsCeleg","NomWorm", "Length", "Bounding", "Modifs", "Indx_skel", "Indx_BW", "WidthValues"]
 % 

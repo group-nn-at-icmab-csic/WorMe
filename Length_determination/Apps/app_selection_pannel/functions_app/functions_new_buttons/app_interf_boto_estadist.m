@@ -79,16 +79,9 @@ function app_interf_boto_estadist(app)
     % S_textscan_table.Properties.VariableNames
     
     % Now we would save the table. At path:
-    write_taula(strcat(app.appv_dir_output, "\main_data_analysis.txt"), S_textscan_table, "$");
+    write_taula(fullfile(app.appv_dir_output, "main_data_analysis.txt"), S_textscan_table, "$");
     
-    % typology_formatspec_table_norm(S_textscan_table) % "%s%s%s%s%s%s%s%s%s"
-    
-    % S_textscan_table.Properties.VariableNames
-    % % Check
-    % disp("Check")
-    % typology_formatspec_table_norm(S_textscan_table)
-    % [S_textscan_table] = read_data(strcat(app.appv_dir_output, "\main_data_analysis.txt"), typology_formatspec_table_norm(S_textscan_table), "$", S_textscan_table.Properties.VariableNames)
-    
+
     % We can export the data to excel, as indicated.
     
     
@@ -134,7 +127,7 @@ function app_interf_boto_estadist(app)
                 % If there is not enough data (1 or 0):
                 if length(dades_length) < 2
     
-                    imshow("Apps\app_selection_pannel\images_useful\not_enough_data2.png", 'Parent', app.UIAxes); 
+                    imshow(fullfile('Apps', 'app_selection_pannel', 'images_useful', 'not_enough_data2.png'), 'Parent', app.UIAxes); 
                     app.UIAxes.XLabel.String = "";
     
                     title(app.UIAxes, "")
@@ -180,7 +173,9 @@ function app_interf_boto_estadist(app)
                     dir_img_originals = app.dir_imgs_orig;
     
                     % Folder name:
-                    dir_img_originals_split_t = split(dir_img_originals, "\");
+
+                    dir_img_originals_split_t = split(dir_img_originals, filesep);
+
                     dir_img_originals_split = dir_img_originals_split_t{end}; % Works
                     
                     title(app.UIAxes, regexprep(dir_img_originals_split, '[\\\^\_]','\\$0'))

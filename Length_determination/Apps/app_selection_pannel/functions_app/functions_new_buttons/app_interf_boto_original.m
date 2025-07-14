@@ -18,7 +18,7 @@ function app_interf_boto_original(app)
 
             else
 
-                imatge_original = imread(strcat(app.dir_imgs_orig, "\", app.img_original_nomLabel.Text));
+                imatge_original = imread(fullfile(app.dir_imgs_orig, app.img_original_nomLabel.Text));
                 app.Image.ImageSource = imatge_original;
                 app.OriginalButton.Value = true;
 

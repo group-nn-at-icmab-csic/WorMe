@@ -17,9 +17,9 @@ if isequal(tipus_det, "thick") || isequal(tipus_det, "cross")
     app.LastmodifLabel.Visible = 'on';
     
     if isequal(tipus_det, "thick")
-        app.Image3.ImageSource = "Apps\app_selection_pannel\images_useful\greentick.png";
+        app.Image3.ImageSource = fullfile('Apps', 'app_selection_pannel', 'images_useful', 'greentick.png');
     else
-        app.Image3.ImageSource = "Apps\app_selection_pannel\images_useful\cross.png";        
+        app.Image3.ImageSource = fullfile('Apps', 'app_selection_pannel', 'images_useful', 'cross.png');        
     end
 else
     app.Image2.Visible = 'off';

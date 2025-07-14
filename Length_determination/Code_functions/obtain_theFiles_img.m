@@ -4,12 +4,12 @@ function [theFiles, carpeta_input, nom_carpeta_input, porta_f] = obtain_theFiles
 % Variables
 %   input
 %       userSavedDocuments - current path route.
-%                       e.g.:  'C:\Users\jllobet\Desktop\Length determination v2_15'
+%                       e.g.:  'C:/Users/jllobet/Desktop/Length determination v2_15'
 %   output
 %       theFiles - Structure describing images. dir() file of the images
 %
 %       carpeta_input - path to the images folder
-%                       e.g.: 'C:\Users\jllobet\Desktop\Length determination v2_15\_Imatges exemple\Amanda_Controls\C_48'
+%                       e.g.: 'C:/Users/jllobet/Desktop/Length determination v2_15/_Imatges exemple/Amanda_Controls/C_48'
 %
 %       nom_carpeta_input - name of the images folder
 %                       e.g.: 'C_48'
@@ -34,9 +34,9 @@ msgbox_sel_images(userSavedDocuments)
 % v'nom_carpeta_input'      : name of the directory of the original images
 %
 % _Obtaining (or not) value of the predefined folder
-% It is obtained from "Results_out\Internal_code_files\predefined_folder.txt"
+% It is obtained from "Results_out/Internal_code_files/predefined_folder.txt"
 
-predefined_folder_input = strcat(userSavedDocuments, "\Results_out\Internal_code_files", "\predefined_folder.txt");
+predefined_folder_input = fullfile(userSavedDocuments, "Results_out", "Internal_code_files", "predefined_folder.txt");
 
 if isfile(predefined_folder_input)
     % If a text file exists that contains the scale
@@ -50,7 +50,7 @@ end
 
 % Image obtaining
 [filename, pathname] = uigetfile({['*.jpg;*.png;*.jpeg;*.tif;*.tiff;*.jfif;*.bmp']; '*.jpg'; '*.png'; '*.jpeg'; '*.tif'; '*.tiff'; '*.jfif'; '*.bmp'; '*.*'}, "Select the images", predef_folder_carpeta, 'MultiSelect','on');
-% pathname :    'C:\Users\jllobet\Desktop\Length determination v2_15\_Imatges exemple\Amanda_Controls_poques\C_48\'
+% pathname :    'C:/Users/jllobet/Desktop/Length determination v2_15/_Imatges exemple/Amanda_Controls_poques/C_48/'
 % filename :  {'Image_961.jpg'}    {'Image_970.jpg'}    {'Image_973.jpg'}
 % Note: if there is no selection, and the box fails, both pathname and filename are 0.
 
@@ -61,10 +61,10 @@ if ~isequal(filename, 0)
 
     %_obtaining of directory name_
     % Name of the entry folder
-    nom_carpeta_input_cru = split(pathname, "\");
+    nom_carpeta_input_cru = split(pathname, filesep);
     nom_carpeta_input = nom_carpeta_input_cru{end-1};
 
-    if isequal(pathname(end), "\")
+    if isequal(pathname(end), filesep)
         carpeta_input = pathname(1:end-1);
     else
         error("Error in notation of the folder")
@@ -73,7 +73,7 @@ if ~isequal(filename, 0)
 
     % __Obtaining the directories___
     % Save the directories
-    [split_arxiu_sortida] = splits_objectes_valor(carpeta_input, "\", 1); % Example: 'C:\Users\Josep TOSHIBA\Desktop' -to-> 'C:\Users\Josep TOSHIBA'
+    [split_arxiu_sortida] = splits_objectes_valor(carpeta_input, filesep, 1); % Example: 'C:/Users/Josep TOSHIBA/Desktop' -to-> 'C:/Users/Josep TOSHIBA'
     array_write_folder = ["Folder", split_arxiu_sortida];
     write_text_array(predefined_folder_input, array_write_folder, ";"); clear split_arxiu_sortida array_write_folder
     

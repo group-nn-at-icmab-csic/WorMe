@@ -32,7 +32,7 @@ function app_proc_button_delete_modif_temp(app)
         if answer_msgebox
 
             % Both temporary files and images are deleted
-            myFolder_input = "Results_out\Internal_code_files\Image_processing_settings\temporals\";
+            myFolder_input = fullfile("Results_out", "Internal_code_files", "Image_processing_settings", "temporals", filesep);
            
             string_delete = strcat(myFolder_input, valor_modif_perm, ".txt");
             delete(string_delete)
@@ -41,7 +41,7 @@ function app_proc_button_delete_modif_temp(app)
 
 
         % Update elements:
-        [llistat_string_im] = read_files_typology("Results_out\Internal_code_files\Image_processing_settings\temporals\", ".txt");
+        [llistat_string_im] = read_files_typology(fullfile("Results_out", "Internal_code_files", "Image_processing_settings", "temporals", filesep), ".txt");
         app.ModificacionstemporalsListBox.Items = llistat_string_im;
         
         % Act as if the 'Original' button was pressed

@@ -38,14 +38,11 @@ end
 
 
 % Identify previous pump
-[llist_BW_identif, BW_bwselect_igual_punts, imatge_montatge_sortida] = identify_pump_previous_new(BW_conjuntes_comparar, BW_aillar_skel, "", false, "");
+[llist_BW_identif, BW_bwselect_igual_punts, imatge_montatge_sortida] = identify_pump_previous_new(BW_conjuntes_comparar, BW_aillar_skel, "", "");
 
 
 % Notes: if there is no matching image, the variable 'llist_BW_identif' is empty.
 % This will be useful for using this option to filter the images.
-% % Example if the image is all zeros
-% BW_zero = zeros(size(BW_aillar));
-% [llist_BW_identif, BW_bwselect_igual_punts, imatge_montatge_sortida] = identify_pump_previous_new(BW_conjuntes_comparar, BW_zero, "", false, "");
 
 
 % Check for more than one detected image.

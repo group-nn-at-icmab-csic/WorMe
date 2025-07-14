@@ -4,7 +4,7 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
 %
 % The result is a compressed folder with the indicated name (ex:
 % "C_48_Josla.zip"), which will have inside the folder with the IA data (ex:
-% "\IA_data_C_48_josla").
+% "/IA_data_C_48_josla").
 % Note: If the .zip file already exists, there is a warning, and it is overwritten.
 % 
 %
@@ -22,13 +22,13 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
 
 
     % Modify initial path
-    dir_split = strsplit(dir_main_save_folder, "\");
-    carpeta_to_save = strjoin(dir_split(1:end-1), "\");
+    dir_split = strsplit(dir_main_save_folder, filesep);
+    carpeta_to_save = strjoin(dir_split(1:end-1), filesep);
 
     str_folder = divide_pointfile_large(dir_split{end}); % Name defined in .zip. Will save the internal .zip file.
 
 %     % Separate name of image folder (if we want to by default save with the image name)
-%     dir_img_split = strsplit(myFolder, "\");
+%     dir_img_split = strsplit(myFolder, filesep);
 %     str_folder = dir_img_split{end};
 
     
@@ -68,7 +68,7 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
     
     
     % Create file
-    dir_main_IAdata = strcat(carpeta_to_save, "\", "IA_data_", str_folder);
+    dir_main_IAdata = strcat(carpeta_to_save, filesep, "IA_data_", str_folder);
     
     if isfolder(dir_main_IAdata)
         ms_g = imread("icon_48.png");
@@ -102,7 +102,7 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
         
             % __Folder__
             % Selected folder
-            dir_mainly_output_yes = strcat(dir_main_IAdata, "\Celegans"); 
+            dir_mainly_output_yes = fullfile(dir_main_IAdata, "Celegans"); 
             % dir_mainly_output_yes = "2023_01_04_Generar_dades_extra"; 
             
             
@@ -116,15 +116,15 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
             if generar_PascalVOC
                 dir_save_PascalVOC = "PascalVOC_files";
                 
-                if ~isfolder(strcat(dir_mainly_output_yes, "\", dir_save_PascalVOC))
-                    mkdir(strcat(dir_mainly_output_yes, "\", dir_save_PascalVOC))
+                if ~isfolder(strcat(dir_mainly_output_yes, filesep, dir_save_PascalVOC))
+                    mkdir(strcat(dir_mainly_output_yes, filesep, dir_save_PascalVOC))
                 end
             end
             
             if generar_BW_obj
                 dir_save_BW_imgs_1 = "BW_singular";
-                if ~isfolder(strcat(dir_mainly_output_yes, "\", dir_save_BW_imgs_1))
-                    mkdir(strcat(dir_mainly_output_yes, "\", dir_save_BW_imgs_1))
+                if ~isfolder(strcat(dir_mainly_output_yes, filesep, dir_save_BW_imgs_1))
+                    mkdir(strcat(dir_mainly_output_yes, filesep, dir_save_BW_imgs_1))
                 end
             end
             
@@ -132,23 +132,23 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
             
             if generar_BW_obj_junts
                 dir_save_BW_imgs_2 = "BW_joined";
-                if ~isfolder(strcat(dir_mainly_output_yes, "\", dir_save_BW_imgs_2))
-                    mkdir(strcat(dir_mainly_output_yes, "\", dir_save_BW_imgs_2))
+                if ~isfolder(strcat(dir_mainly_output_yes, filesep, dir_save_BW_imgs_2))
+                    mkdir(strcat(dir_mainly_output_yes, filesep, dir_save_BW_imgs_2))
                 end
             end
             
             if generar_BW_obj_label
                 dir_save_BW_imgs_3 = "BW_label";
-                if ~isfolder(strcat(dir_mainly_output_yes, "\", dir_save_BW_imgs_3))
-                    mkdir(strcat(dir_mainly_output_yes, "\", dir_save_BW_imgs_3))
+                if ~isfolder(strcat(dir_mainly_output_yes, filesep, dir_save_BW_imgs_3))
+                    mkdir(strcat(dir_mainly_output_yes, filesep, dir_save_BW_imgs_3))
                 end
             end
             
             
             if generar_BW_obj_label_unit
                 dir_save_BW_imgs_4 = "BW_label_unit";
-                if ~isfolder(strcat(dir_mainly_output_yes, "\", dir_save_BW_imgs_4))
-                    mkdir(strcat(dir_mainly_output_yes, "\", dir_save_BW_imgs_4))
+                if ~isfolder(strcat(dir_mainly_output_yes, filesep, dir_save_BW_imgs_4))
+                    mkdir(strcat(dir_mainly_output_yes, filesep, dir_save_BW_imgs_4))
                 end
             end
             
@@ -180,7 +180,7 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
             
                     % Image name
                     nom_img = divide_pointfile(S_textscan_table_yes_img(1,:).NomWorm);
-                    ruta_img_name = strcat(myFolder, "\", S_textscan_table_yes_img(1,:).NomWorm);
+                    ruta_img_name = strcat(myFolder, filesep, S_textscan_table_yes_img(1,:).NomWorm);
                     
                     resolution_img = appf_split_strindex(S_textscan_table_yes_img(1,:).Resolution)';             
             
@@ -193,7 +193,7 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
                         end
                 
                         % Create the Pascal VOC file
-                        create_Pascal_VOC(ruta_img_name, cell_BB, strcat(dir_mainly_output_yes, "\", dir_save_PascalVOC, "\", nom_img, ".xml" ))
+                        create_Pascal_VOC(ruta_img_name, cell_BB, strcat(dir_mainly_output_yes, filesep, dir_save_PascalVOC, filesep, nom_img, ".xml" ))
                     end
             
             
@@ -209,7 +209,7 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
                 
                             [BW_image] = create_BW_indx(appf_split_strindex(S_textscan_table_yes_img(n_worm,:).Indx_BW), appf_split_strindex(S_textscan_table_yes_img(n_worm,:).Resolution)');
                 
-                            imwrite(BW_image, strcat(dir_mainly_output_yes, "\", dir_save_BW_imgs_1, "\", nom_img, "_", return_zeros_one(n_obj_yes), ".png"))
+                            imwrite(BW_image, strcat(dir_mainly_output_yes, filesep, dir_save_BW_imgs_1, filesep, nom_img, "_", return_zeros_one(n_obj_yes), ".png"))
                 
                             n_obj_yes = n_obj_yes +1;            
                         end
@@ -231,7 +231,7 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
                         
                         end
             
-                        imwrite(BW_obj_junts, strcat(dir_mainly_output_yes, "\", dir_save_BW_imgs_2, "\", nom_img, ".png"))
+                        imwrite(BW_obj_junts, strcat(dir_mainly_output_yes, filesep, dir_save_BW_imgs_2, filesep, nom_img, ".png"))
              
                     end
                     
@@ -257,7 +257,7 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
                         % BW_obj_junts_lab(1,1) = 255; % Check visually
             
                         %  "BW_label"
-                        imwrite(uint8(BW_obj_junts_lab), Colormap_person, strcat(dir_mainly_output_yes, "\", dir_save_BW_imgs_3, "\", nom_img, ".png"))
+                        imwrite(uint8(BW_obj_junts_lab), Colormap_person, strcat(dir_mainly_output_yes, filesep, dir_save_BW_imgs_3, filesep, nom_img, ".png"))
                         
             
                     end
@@ -283,14 +283,14 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
                         % BW_obj_junts_lab(1,1) = 255; % Check visually
             
                         %  "BW_label"
-                        imwrite(uint8(BW_obj_junts_lab), Colormap_person, strcat(dir_mainly_output_yes, "\", dir_save_BW_imgs_4, "\", nom_img, ".png"))
+                        imwrite(uint8(BW_obj_junts_lab), Colormap_person, strcat(dir_mainly_output_yes, filesep, dir_save_BW_imgs_4, filesep, nom_img, ".png"))
     
                     end        
             
                     % __Save .txt with the images names__
                     % img_every : "Image_828.jpg"
-                    write_str_txt(strcat(dir_mainly_output_yes, "\file_names.txt"), img_every) % File names
-                    write_str_txt(strcat(dir_mainly_output_yes, "\file_rutes.txt"), strcat(myFolder, "\", img_every) ) % File paths
+                    write_str_txt(fullfile(dir_mainly_output_yes, "file_names.txt"), img_every) % File names
+                    write_str_txt(fullfile(dir_mainly_output_yes, "file_rutes.txt"), strcat(myFolder, filesep, img_every) ) % File paths
                     
                 end
     
@@ -316,7 +316,7 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
             
             % __Folder__
             % Selected folder
-            dir_mainly_output_yes_and_no = strcat(dir_main_IAdata, "\Celegans_and_NoCelegans"); 
+            dir_mainly_output_yes_and_no = fullfile(dir_main_IAdata, "Celegans_and_NoCelegans"); 
             % dir_mainly_output_yes_and_no = "2023_01_04_Generar_dades_extra"; 
             
             
@@ -330,17 +330,17 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
             if generar_PascalVOC
                 dir_save_PascalVOC = "PascalVOC_files";
                 
-                if ~isfolder(strcat(dir_mainly_output_yes_and_no, "\", dir_save_PascalVOC))
-                    mkdir(strcat(dir_mainly_output_yes_and_no, "\", dir_save_PascalVOC))
+                if ~isfolder(strcat(dir_mainly_output_yes_and_no, filesep, dir_save_PascalVOC))
+                    mkdir(strcat(dir_mainly_output_yes_and_no, filesep, dir_save_PascalVOC))
                 end
             end
             
             if generar_BW_obj
                 dir_save_BW_imgs_1 = "BW_singular";
-                if ~isfolder(strcat(dir_mainly_output_yes_and_no, "\", dir_save_BW_imgs_1))
-                    mkdir(strcat(dir_mainly_output_yes_and_no, "\", dir_save_BW_imgs_1))
-                    mkdir(strcat(dir_mainly_output_yes_and_no, "\", dir_save_BW_imgs_1, "\Celeg"))
-                    mkdir(strcat(dir_mainly_output_yes_and_no, "\", dir_save_BW_imgs_1, "\NonCeleg"))            
+                if ~isfolder(strcat(dir_mainly_output_yes_and_no, filesep, dir_save_BW_imgs_1))
+                    mkdir(strcat(dir_mainly_output_yes_and_no, filesep, dir_save_BW_imgs_1))
+                    mkdir(strcat(dir_mainly_output_yes_and_no, filesep, dir_save_BW_imgs_1, filesep, "Celeg"))
+                    mkdir(strcat(dir_mainly_output_yes_and_no, filesep, dir_save_BW_imgs_1, filesep, "NonCeleg"))            
                 end
             end
             
@@ -348,23 +348,23 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
             
             if generar_BW_obj_junts
                 dir_save_BW_imgs_2 = "BW_joined";
-                if ~isfolder(strcat(dir_mainly_output_yes_and_no, "\", dir_save_BW_imgs_2))
-                    mkdir(strcat(dir_mainly_output_yes_and_no, "\", dir_save_BW_imgs_2))
+                if ~isfolder(strcat(dir_mainly_output_yes_and_no, filesep, dir_save_BW_imgs_2))
+                    mkdir(strcat(dir_mainly_output_yes_and_no, filesep, dir_save_BW_imgs_2))
                 end
             end
             
             if generar_BW_obj_label
                 dir_save_BW_imgs_3 = "BW_label";
-                if ~isfolder(strcat(dir_mainly_output_yes_and_no, "\", dir_save_BW_imgs_3))
-                    mkdir(strcat(dir_mainly_output_yes_and_no, "\", dir_save_BW_imgs_3))
+                if ~isfolder(strcat(dir_mainly_output_yes_and_no, filesep, dir_save_BW_imgs_3))
+                    mkdir(strcat(dir_mainly_output_yes_and_no, filesep, dir_save_BW_imgs_3))
                 end
             end
             
             
             if generar_BW_obj_label_unit
                 dir_save_BW_imgs_4 = "BW_label_unit";
-                if ~isfolder(strcat(dir_mainly_output_yes_and_no, "\", dir_save_BW_imgs_4))
-                    mkdir(strcat(dir_mainly_output_yes_and_no, "\", dir_save_BW_imgs_4))
+                if ~isfolder(strcat(dir_mainly_output_yes_and_no, filesep, dir_save_BW_imgs_4))
+                    mkdir(strcat(dir_mainly_output_yes_and_no, filesep, dir_save_BW_imgs_4))
                 end
             end
             
@@ -399,7 +399,7 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
             
                     % Image name
                     nom_img = divide_pointfile(S_textscan_table_yes_and_no_img(1,:).NomWorm);
-                    ruta_img_name = strcat(myFolder, "\", S_textscan_table_yes_and_no_img(1,:).NomWorm);
+                    ruta_img_name = strcat(myFolder, filesep, S_textscan_table_yes_and_no_img(1,:).NomWorm);
                     
                     resolution_img = appf_split_strindex(S_textscan_table_yes_and_no_img(1,:).Resolution)';             
             
@@ -424,7 +424,7 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
                         end
         
                         % Create the Pascal VOC file
-                        create_Pascal_VOC_label(ruta_img_name, cell_BB, cell_label_props, strcat(dir_mainly_output_yes_and_no, "\", dir_save_PascalVOC, "\", nom_img, ".xml" ));
+                        create_Pascal_VOC_label(ruta_img_name, cell_BB, cell_label_props, strcat(dir_mainly_output_yes_and_no, filesep, dir_save_PascalVOC, filesep, nom_img, ".xml" ));
                     end
             
             
@@ -441,15 +441,15 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
                             [BW_image] = create_BW_indx(appf_split_strindex(S_textscan_table_yes_and_no_img(n_worm,:).Indx_BW), appf_split_strindex(S_textscan_table_yes_and_no_img(n_worm,:).Resolution)');
                 
         
-                            % Save in "\Celeg" & "\NonCeleg"
+                            % Save in "/Celeg" & "/NonCeleg"
                             if isequal(S_textscan_table_yes_and_no_img(n_worm,:).IsCeleg, "yes")
         
-                                imwrite(BW_image, strcat(dir_mainly_output_yes_and_no, "\", dir_save_BW_imgs_1, "\Celeg", "\", nom_img, "_", return_zeros_one(n_obj_yes), ".png"))
+                                imwrite(BW_image, strcat(dir_mainly_output_yes_and_no, filesep, dir_save_BW_imgs_1, filesep, "Celeg", filesep, nom_img, "_", return_zeros_one(n_obj_yes), ".png"))
                                 n_obj_yes = n_obj_yes +1;            
         
                             elseif isequal(S_textscan_table_yes_and_no_img(n_worm,:).IsCeleg, "no")
         
-                                imwrite(BW_image, strcat(dir_mainly_output_yes_and_no, "\", dir_save_BW_imgs_1, "\NonCeleg", "\", nom_img, "_", return_zeros_one(n_obj_no), ".png"))                        
+                                imwrite(BW_image, strcat(dir_mainly_output_yes_and_no, filesep, dir_save_BW_imgs_1, filesep, "NonCeleg", filesep, nom_img, "_", return_zeros_one(n_obj_no), ".png"))                        
                                 n_obj_no = n_obj_no +1;            
                             else
                                 error("Error in generate data of BW singular: non 'yes' or 'not' anotation")
@@ -474,7 +474,7 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
                         
                         end
             
-                        imwrite(BW_obj_junts, strcat(dir_mainly_output_yes_and_no, "\", dir_save_BW_imgs_2, "\", nom_img, ".png"))
+                        imwrite(BW_obj_junts, strcat(dir_mainly_output_yes_and_no, filesep, dir_save_BW_imgs_2, filesep, nom_img, ".png"))
              
                     end
                     
@@ -500,7 +500,7 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
                         % BW_obj_junts_lab(1,1) = 255; % Check visually
             
                         %  "BW_label"
-                        imwrite(uint8(BW_obj_junts_lab), Colormap_person, strcat(dir_mainly_output_yes_and_no, "\", dir_save_BW_imgs_3, "\", nom_img, ".png"))
+                        imwrite(uint8(BW_obj_junts_lab), Colormap_person, strcat(dir_mainly_output_yes_and_no, filesep, dir_save_BW_imgs_3, filesep, nom_img, ".png"))
                         
             
                     end
@@ -531,14 +531,14 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
                         % BW_obj_junts_lab(1,1) = 255;  % Check visually
             
                         %  "BW_label"
-                        imwrite(uint8(BW_obj_junts_lab), Colormap_person, strcat(dir_mainly_output_yes_and_no, "\", dir_save_BW_imgs_4, "\", nom_img, ".png"))
+                        imwrite(uint8(BW_obj_junts_lab), Colormap_person, strcat(dir_mainly_output_yes_and_no, filesep, dir_save_BW_imgs_4, filesep, nom_img, ".png"))
              
                     end        
                             
                     % __Save .txt with the images names__
                     % img_every : "Image_828.jpg"
-                    write_str_txt(strcat(dir_mainly_output_yes_and_no, "\file_names.txt"), img_every) % File names
-                    write_str_txt(strcat(dir_mainly_output_yes_and_no, "\file_rutes.txt"), strcat(myFolder, "\", img_every) ) % File paths
+                    write_str_txt(strcat(dir_mainly_output_yes_and_no, filesep, "file_names.txt"), img_every) % File names
+                    write_str_txt(strcat(dir_mainly_output_yes_and_no, filesep, "file_rutes.txt"), strcat(myFolder, filesep, img_every) ) % File paths
     
             
                 end

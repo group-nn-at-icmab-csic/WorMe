@@ -67,8 +67,8 @@ function app_proc_button_rename(app)
         
         % If files with the same name exist
         [llistat_string_im] = [...
-            read_files_typology("Results_out\Internal_code_files\Image_processing_settings\temporals\", ".txt"), ...
-            read_files_typology("Results_out\Internal_code_files\Image_processing_settings\", ".txt")];
+            read_files_typology(fullfile("Results_out", "Internal_code_files", "Image_processing_settings", "temporals", filesep), ".txt"), ...
+            read_files_typology(fullfile("Results_out", "Internal_code_files", "Image_processing_settings", filesep), ".txt")];
         
         splitat_arxius = split(llistat_string_im, ".txt");
         
@@ -86,11 +86,11 @@ function app_proc_button_rename(app)
             % answer_resposta : Response with the new name, which does not exist.
             
             if rename_cont == "temporals"
-                nom_arxiu_anterior = strcat("Results_out\Internal_code_files\Image_processing_settings\temporals\",app.ModificacionstemporalsListBox.Value);
-                nom_arxiu_guardar = strcat("Results_out\Internal_code_files\Image_processing_settings\temporals\",answer_resposta,".txt");
+                nom_arxiu_anterior = strcat(fullfile("Results_out", "Internal_code_files", "Image_processing_settings", "temporals", filesep),app.ModificacionstemporalsListBox.Value);
+                nom_arxiu_guardar = strcat(fullfile("Results_out", "Internal_code_files", "Image_processing_settings", "temporals", filesep),answer_resposta,".txt");
             elseif rename_cont == "guardades"
-                nom_arxiu_anterior = strcat("Results_out\Internal_code_files\Image_processing_settings\",app.ModificacionsguardadesListBox.Value);
-                nom_arxiu_guardar = strcat("Results_out\Internal_code_files\Image_processing_settings\",answer_resposta,".txt");                        
+                nom_arxiu_anterior = strcat(fullfile("Results_out", "Internal_code_files", "Image_processing_settings", filesep),app.ModificacionsguardadesListBox.Value);
+                nom_arxiu_guardar = strcat(fullfile("Results_out", "Internal_code_files", "Image_processing_settings", filesep),answer_resposta,".txt");                        
             end
             
             % Create a new file and delete the previous one
@@ -102,7 +102,7 @@ function app_proc_button_rename(app)
             if rename_cont == "temporals"
                 % Update the lists:
                 % Read saved modifications files
-                myFolder_input = "Results_out\Internal_code_files\Image_processing_settings\temporals\";
+                myFolder_input = fullfile("Results_out", "Internal_code_files", "Image_processing_settings", "temporals", filesep);
                 patro_tipus_image = ".txt";
                 [llistat_string_im] = read_files_typology(myFolder_input, patro_tipus_image);
     
@@ -114,7 +114,7 @@ function app_proc_button_rename(app)
             elseif rename_cont == "guardades"
                 % Update the lists:
                 % Read saved modifications files
-                myFolder_input = "Results_out\Internal_code_files\Image_processing_settings\";
+                myFolder_input = fullfile("Results_out", "Internal_code_files", "Image_processing_settings", filesep);
                 patro_tipus_image = ".txt";
                 [llistat_string_im] = read_files_typology(myFolder_input, patro_tipus_image);
     

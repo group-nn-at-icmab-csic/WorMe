@@ -15,26 +15,26 @@ function initial_folder_creation(userSavedDocuments)
 % START FUNCTION
 
     % INITIAL FOLDER MAIN RESULTS FOLDER
-    if ~isfolder(strcat(userSavedDocuments, "\Results_out"))
-        mkdir(strcat(userSavedDocuments, "\Results_out"))
+    if ~isfolder(fullfile(userSavedDocuments, "Results_out"))
+        mkdir(fullfile(userSavedDocuments, "Results_out"))
     end
     
     % Folder creation
     
     % Image processing settings 
-    carpetes_fer = ["Image_processing_settings", "Image_processing_settings\temporals"]; % Folders inside "\Internal_code_files"
-    if ~isfolder(strcat(userSavedDocuments, "\Results_out\Internal_code_files"))
-        mkdir(strcat(userSavedDocuments, "\Results_out\Internal_code_files"))
+    carpetes_fer = ["Image_processing_settings", fullfile("Image_processing_settings", "temporals")]; % Folders inside "/Internal_code_files"
+    if ~isfolder(fullfile(userSavedDocuments, "Results_out", "Internal_code_files" ))
+        mkdir(fullfile(userSavedDocuments, "Results_out", "Internal_code_files" ))
         for cada_carpet = carpetes_fer
-            mkdir(strcat(userSavedDocuments, "\Results_out\Internal_code_files\", cada_carpet))
+            mkdir(fullfile(userSavedDocuments, "Results_out", "Internal_code_files", cada_carpet))
         end
     end
     
     
     % OBTAINING FOLDER AND CREATION OF RESULTS FOLDERS
     % Directory of folder Internal_code_files
-    dir_internal_code_files = strcat(userSavedDocuments, "\", "Results_out\Internal_code_files");
-    dir_internal_code_files_imagefiles = strcat(dir_internal_code_files, "\", "Image_processing_settings");
+    dir_internal_code_files = fullfile(userSavedDocuments, "Results_out", "Internal_code_files");
+    dir_internal_code_files_imagefiles = fullfile(dir_internal_code_files, "Image_processing_settings");
     
     
 

@@ -17,7 +17,6 @@ function [split_arxiu_sortida] = splits_objectes_valor(string_to_split, delimita
 %
 % valors_restants = 1;
 % string_to_split = 'C:\Users\Josep TOSHIBA\Desktop\Length determination v2_4\_Extern\Imatges exemple\Input_images_Amanda_poques';
-% delimitador = "\";
 % [split_arxiu_sortida] = splits_objectes_valor(string_to_split, delimitador, valors_restants)
 %
 %
@@ -40,7 +39,7 @@ for cada_split = 1:length(split_arxiu) - valors_restants
     split_arxiu_nou{end+1} = split_arxiu{cada_split};    
 end
 
-split_arxiu_sortida_prov = join(split_arxiu_nou, "\");
+split_arxiu_sortida_prov = join(split_arxiu_nou, filesep);
 split_arxiu_sortida = split_arxiu_sortida_prov{1};
 
 

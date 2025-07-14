@@ -6,8 +6,6 @@ function [string_file, string_final] = divide_pointfile_large(string1)
 %
 %string1 = "asdf.jpg"
 
-disp("Separar puntfile new")
-
 % Improved:
 if contains(string1, ".")
     splited_string1 = split(string1, ".");

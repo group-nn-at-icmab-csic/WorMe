@@ -65,8 +65,8 @@ app_interf_definicio_mean_width(app, S_textscan_table);
 
 % _Obtaining the previously modified binary image_
 % We modify the original image and display it:
-imatge_original = imread(strcat(app.dir_imgs_orig, "\", app.img_original_nomLabel.Text));
-BW_final = imread(strcat(dir_output, "\imgBWtemp.png"));
+imatge_original = imread(fullfile(app.dir_imgs_orig, app.img_original_nomLabel.Text));
+BW_final = imread(fullfile(dir_output, "imgBWtemp.png"));
 
 
 % __Delete already processed objects__

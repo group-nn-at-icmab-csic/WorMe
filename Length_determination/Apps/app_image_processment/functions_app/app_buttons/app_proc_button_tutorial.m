@@ -38,7 +38,7 @@ function app_proc_button_tutorial(app)
 
 
         % Correction to avoid showing the last frame
-        %imshow("Apps\app_nova_interfaz_nova\images_useful\imatge_background_fosc.png", 'Parent', app.UIAxes2);            
+        %imshow("Apps/app_nova_interfaz_nova/images_useful/imatge_background_fosc.png", 'Parent', app.UIAxes2);            
 
 
     % If the Tutorial button is activated (exit) = As usual

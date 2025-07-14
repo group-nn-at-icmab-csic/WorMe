@@ -58,11 +58,11 @@ function app_interf_button_tutorial(app)
 
 
     % Test opening video in compiled version:
-    % winopen("Imatges_logos_musica\Videos\Los Simpson - yogurlado (castellano).mp4");
+    % winopen("Imatges_logos_musica/Videos/Los Simpson - yogurlado (castellano).mp4");
 
 
         % Correction so the last frame does not appear
-        imshow("Apps\app_selection_pannel\images_useful\imatge_background_fosc.png", 'Parent', app.UIAxes2);            
+        imshow(fullfile('Apps', 'app_selection_pannel', 'images_useful', 'imatge_background_fosc.png'), 'Parent', app.UIAxes2);            
 
 
     % If the Tutorial button is activated (exit) = As usual
@@ -108,7 +108,7 @@ function app_interf_button_tutorial(app)
 
 
         % Correction so the last frame does not appear
-        imshow("Apps\app_selection_pannel\images_useful\imatge_background_clar.png", 'Parent', app.UIAxes2);
+        imshow(fullfile('Apps', 'app_selection_pannel', 'images_useful', 'imatge_background_clar.png'), 'Parent', app.UIAxes2);
 
 
     end

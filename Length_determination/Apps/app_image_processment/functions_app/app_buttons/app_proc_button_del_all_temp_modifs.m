@@ -35,9 +35,9 @@ function app_proc_button_del_all_temp_modifs(app)
                 patro_tipus_image = patrons_imatge(patro_n);
                 
                 if patro_tipus_image == ".txt"
-                    myFolder_input = "Results_out\Internal_code_files\Image_processing_settings\";
+                    myFolder_input = fullfile("Results_out", "Internal_code_files", "Image_processing_settings", filesep);
                 elseif patro_tipus_image == ".png"
-                    myFolder_input = "Apps\app_image_processment\Internal code files\Image processing settings\settings_imatges\";
+                    myFolder_input = fullfile('Apps', 'app_image_processment', 'Internal code files', 'Image processing settings', 'settings_imatges', filesep);
                 end
                
                 string_delete = strcat(myFolder_input, valor_modif_perm, patro_tipus_image);
@@ -47,12 +47,12 @@ function app_proc_button_del_all_temp_modifs(app)
             end
             
 %                 % Create a new blank file
-%                 nom_arxiu_guardar = "Apps\app_image_processment\Internal code files\Image processing settings\temporals\setting0.txt";
+%                 nom_arxiu_guardar = "Apps/app_image_processment/Internal code files/Image processing settings/temporals/setting0.txt";
 %                 txt_seg(nom_arxiu_guardar, "", ";", "nou", "blanc") % config tracking.
 %     
 %                 
             % Update elements:
-            [llistat_string_im] = read_files_typology("Results_out\Internal_code_files\Image_processing_settings\", ".txt");
+            [llistat_string_im] = read_files_typology(fullfile("Results_out", "Internal_code_files", "Image_processing_settings", filesep), ".txt");
             app.ModificacionsguardadesListBox.Items = llistat_string_im;
             
             % Act as if the 'Original' button was pressed

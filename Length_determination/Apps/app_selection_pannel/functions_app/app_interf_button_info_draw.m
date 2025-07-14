@@ -12,7 +12,7 @@ function app_interf_button_info_draw(app)
      % Info video Draw
 
     % _Show video function_
-    video_ruta =  "Images_resources\Tutorial_videos\WorMe_Draw.mp4";
+    video_ruta =  fullfile("Images_resources", "Tutorial_videos", "WorMe_Draw.mp4");
 
     if isfile(video_ruta)
         %app_interf_video_demostratiu(app, video_ruta)

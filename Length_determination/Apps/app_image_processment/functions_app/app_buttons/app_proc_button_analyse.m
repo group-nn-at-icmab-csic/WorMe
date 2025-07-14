@@ -19,16 +19,16 @@ function app_proc_button_analyse(app)
     
     if ~isempty(app.ModificacionstemporalsListBox.Value)
         value_listbox = app.ModificacionstemporalsListBox.Value;
-        field_set = strcat("Results_out\Internal_code_files\Image_processing_settings\temporals\", string(value_listbox));
+        field_set = strcat(fullfile('Results_out', 'Internal_code_files', 'Image_processing_settings', 'temporals', filesep), string(value_listbox));
     % If it is pre-selected in saved
     elseif ~isempty(app.ModificacionsguardadesListBox.Value)
         value_listbox = app.ModificacionsguardadesListBox.Value;
         % Read file and display in Modificacions Label
-        field_set = strcat("Results_out\Internal_code_files\Image_processing_settings\", string(value_listbox));
+        field_set = strcat(fullfile('Results_out', 'Internal_code_files', 'Image_processing_settings', filesep), string(value_listbox));
     end
     
     
-    copyfile(field_set, strcat(dir_save_txt, "\Processment_parameters\", value_listbox)); % <- temporal the strcat
+    copyfile(field_set, strcat(dir_save_txt, filesep, "Processment_parameters", filesep, value_listbox)); % <- temporal the strcat
 
     
     % _Modification pre-selection_
@@ -41,7 +41,7 @@ function app_proc_button_analyse(app)
     % We save the value of the modification in a txt file, to read it
     % when the program is reopened
     array_write_folder = ["Folder", value_listbox];
-    write_text_array("Results_out\Internal_code_files\predefined_modif.txt", array_write_folder, ";");
+    write_text_array(fullfile('Results_out', 'Internal_code_files', 'predefined_modif.txt'), array_write_folder, ";");
 
     
     

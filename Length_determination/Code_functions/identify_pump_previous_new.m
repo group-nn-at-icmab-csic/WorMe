@@ -1,4 +1,4 @@
-function [llist_BW_identif, BW_bwselect_igual_punts, imatge_montatge_sortida] = identify_pump_previous_new(im_compare_ini, im_pharx_ant, im_croped_graf, test_ext_si_no, test_directori_sortida)
+function [llist_BW_identif, BW_bwselect_igual_punts, imatge_montatge_sortida] = identify_pump_previous_new(im_compare_ini, im_pharx_ant, im_croped_graf, test_directori_sortida)
 % Given a binary image, it checks which objects fit into a binary image
 % superimposed on it.
 %
@@ -124,86 +124,8 @@ for cada_obj_BW = 1:length(llist_BW_identif)
     BW_bwselect_igual_punts{cada_obj_BW} = find(llist_BW_identif{cada_obj_BW});
 end
 
-% __ ↓↓ Optional ↓↓ __ %
 
-if test_ext_si_no
-    % We take the objects that detect each point.
-    
-    
-    % Create folders:
-    if ~isfolder(strcat(test_directori_sortida, "\output_images\tests")) 
-    mkdir(strcat(test_directori_sortida, "\output_images\tests")); end 
-    
-    if ~isfolder(strcat(test_directori_sortida, "\output_images\tests\1_identifica_pum_anterior")) 
-    mkdir(strcat(test_directori_sortida, "\output_images\tests\1_identifica_pum_anterior")); 
-    
-        if ~isfolder(strcat(test_directori_sortida, "\output_images\tests\1_identifica_pum_anterior\pixels_imatge_1_1")) 
-        mkdir(strcat(test_directori_sortida, "\output_images\tests\1_identifica_pum_anterior\pixels_imatge_1_1")); end 
 
-        if ~isfolder(strcat(test_directori_sortida, "\output_images\tests\1_identifica_pum_anterior\pixels_imatge_1_2")) 
-        mkdir(strcat(test_directori_sortida, "\output_images\tests\1_identifica_pum_anterior\pixels_imatge_1_2")); end 
-
-        if ~isfolder(strcat(test_directori_sortida, "\output_images\tests\1_identifica_pum_anterior\pixels_imatge_1_3")) 
-        mkdir(strcat(test_directori_sortida, "\output_images\tests\1_identifica_pum_anterior\pixels_imatge_1_3")); end 
-    
-    end 
-
-    
-    for punt_BW_phar = 1:length(x_find_pharx)
-            
-    
-        % Graph
-        zeros_graficar = zeros(size(im_compare_ini_inv));
-        zeros_graficar(x_find_pharx(punt_BW_phar), y_find_pharx(punt_BW_phar)) = 1;
-        imshow_write = imshowpair(imoverlay(im_pharx_ant, zeros_graficar, "r"), ...
-            imoverlay(im_compare_ini_inv, zeros_graficar, "r"), "montage");
-    
-        imwrite(imoverlay(im_pharx_ant, zeros_graficar, "r"), ...
-            strcat(test_directori_sortida, "\output_images\tests\1_identifica_pum_anterior\pixels_imatge_1_1\", return_zeros_five(punt_BW_phar), "_pixels_imatge_1.jpg"))
-    
-        imwrite(imoverlay(im_compare_ini_inv, zeros_graficar, "r"), ...
-            strcat(test_directori_sortida, "\output_images\tests\1_identifica_pum_anterior\pixels_imatge_1_2\", return_zeros_five(punt_BW_phar), "_pixels_imatge_1.jpg"))
-    
-        imwrite(imshow_write.CData, ...
-            strcat(test_directori_sortida, "\output_images\tests\1_identifica_pum_anterior\pixels_imatge_1_3\", return_zeros_five(punt_BW_phar), "_montage1.jpg"))
-    
-    
-                
-            % MAKE AN IF OF IF THE POINTS MATCH, IF THEY MATCH DO BWSELECT
-        % AND COMPARE THE RESULT BETWEEN ONE BINARY IMAGE AND ANOTHER
-        
-        % _ If the value of each point in both images is the same, that is,
-        % if both frames share a binary image at the same point, then we operate.
-        % We do this filter because it may be, surely, in the points of the binary image
-        % of the first frame do not match with the second, so that when doing bwselect
-        % an image of zeros is given. When they match, we define which objects these are and if
-        % they are different from each other._
-        
-        % We create folders
-        if ~isfolder(strcat(test_directori_sortida, "\output_images\tests\1_identifica_pum_anterior\pixels_imatge_1_4")) 
-        mkdir(strcat(test_directori_sortida, "\output_images\tests\1_identifica_pum_anterior\pixels_imatge_1_4")); end 
-    
-        if ~isfolder(strcat(test_directori_sortida, "\output_images\tests\1_identifica_pum_anterior\pixels_imatge_1_5")) 
-        mkdir(strcat(test_directori_sortida, "\output_images\tests\1_identifica_pum_anterior\pixels_imatge_1_5")); end 
-    
-        % Graph
-        zeros_graficar = zeros(size(im_pharx_ant));
-        punt_x_noc = x_find_pharx(punt_BW_phar);
-        punt_y_noc = y_find_pharx(punt_BW_phar);
-        zeros_graficar(punt_x_noc, punt_y_noc) = 1;
-        imshow_write_2 = imshowpair(imoverlay(im_pharx_ant, zeros_graficar, "r"), ...
-        imoverlay(im_compare_ini_inv, zeros_graficar, "r"), "montage");
-        
-        % Write
-        imwrite(imshow_write_2.CData, ...
-            strcat(test_directori_sortida, "\output_images\tests\1_identifica_pum_anterior\pixels_imatge_1_4\", return_zeros_five(punt_BW_phar), "_montage2.jpg"))
-        imwrite(imoverlay(im_pharx_ant, zeros_graficar, "r"), ...
-            strcat(test_directori_sortida, "\output_images\tests\1_identifica_pum_anterior\pixels_imatge_1_4\", return_zeros_five(punt_BW_phar), "_pixels_imatge", ".jpg"))
-      
-      
-    end
-
-end
 
 
 if isempty(punts_noc)

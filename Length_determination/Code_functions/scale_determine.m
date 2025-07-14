@@ -105,14 +105,14 @@ function [escala_imatge] = scale_determine(imatge_crop_person, valor_nums)
         elseif answer == "Select automatically"
 
             % App app_scale_auto
-            carpeta_out_app = "Results_out\Internal_code_files";
+            carpeta_out_app = fullfile("Results_out", "Internal_code_files");
             waitfor(app_scale_auto(imatge_crop_person, carpeta_out_app))            
 
             
             % Asssign the value of scale_determine
             
             % Read text 
-            arxiu_text_output = "Results_out\Internal_code_files\escale_line.txt";
+            arxiu_text_output = fullfile("Results_out", "Internal_code_files", "escale_line.txt");
             [escala_imatge_prov, ~] = read_text_delimiters(arxiu_text_output, ";");
             escala_imatge = str2double(escala_imatge_prov(2));
             
@@ -122,14 +122,14 @@ function [escala_imatge] = scale_determine(imatge_crop_person, valor_nums)
 
         elseif answer == "Select by a line"
             
-            carpeta_out_app = "Results_out\Internal_code_files";
+            carpeta_out_app = fullfile("Results_out", "Internal_code_files");
             waitfor(app_scale_line(imatge_crop_person, carpeta_out_app))
             
                       
             % Assign the value of scale_determine
             
             % Read text
-            arxiu_text_output = "Results_out\Internal_code_files\escale_line.txt";
+            arxiu_text_output = fullfile("Results_out", "Internal_code_files", "escale_line.txt");
             [escala_imatge_prov, ~] = read_text_delimiters(arxiu_text_output, ";");
             escala_imatge = str2double(escala_imatge_prov(2));
             

@@ -7,7 +7,7 @@ function [carpeta_input, nom_carpeta_input] = troncal_obtencio_dir_originals(use
 %
 % _Obtaining (or not) value of the predefined folder
 % Obtained from "Results_out\Internal_code_files\predefined_folder.txt"
-predefined_folder_input = strcat(userSavedDocuments, "\Results_out\Internal_code_files", "\predefined_folder.txt");
+predefined_folder_input = fullfile(userSavedDocuments, "Results_out", "Internal_code_files", "predefined_folder.txt");
 
 if isfile(predefined_folder_input)
     % If there is a text file that contains the scale
@@ -24,13 +24,13 @@ carpeta_input = uigetdir(predef_folder_carpeta, "Select the folder with images")
 
 % _Write predefined folder__
 % Obtain the same string of the folder, defined in a previous folder from the last defined folder
-[split_arxiu_sortida] = splits_objectes_valor(carpeta_input, "\", 1); % Example: 'C:\Users\Josep TOSHIBA\Desktop' -to-> 'C:\Users\Josep TOSHIBA'
+[split_arxiu_sortida] = splits_objectes_valor(carpeta_input, filesep, 1); % Example: 'C:\Users\Josep TOSHIBA\Desktop' -to-> 'C:\Users\Josep TOSHIBA'
 array_write_folder = ["Folder", split_arxiu_sortida];
 write_text_array(predefined_folder_input, array_write_folder, ";"); clear split_arxiu_sortida array_write_folder
 
 %_Obtain directory name_
 % Name of the input folder
-nom_carpeta_input_cru = split(carpeta_input, "\");
+nom_carpeta_input_cru = split(carpeta_input, filesep);
 nom_carpeta_input = nom_carpeta_input_cru{end}; clear nom_carpeta_input_cru
 
 

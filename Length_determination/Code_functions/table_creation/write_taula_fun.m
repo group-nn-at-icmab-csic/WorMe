@@ -12,7 +12,7 @@ function write_taula_fun(arxiu_dir, table_main, var_disc)
 % var_disc : variable to discriminate repetitiveness. ex: "Frame"
 %
 %
-%% % Example
+% % Example
 % % We obtain table
 % [table_S_textscan_tracking] = app_sel_open_S_textscan_tracking(app);
 %
@@ -21,7 +21,7 @@ function write_taula_fun(arxiu_dir, table_main, var_disc)
 % table_S_textscan_tracking_new.("Frame") = string(randi(10))
 %
 % % Write table
-% arxiu_dir = strcat(app.directori_nomvideo_v, "\Tracking_analysis\", "Tracking_data_", last_folder(app.directori_nomvideo_v), ".txt");
+% arxiu_dir = strcat(app.directori_nomvideo_v, "/Tracking_analysis/", "Tracking_data_", last_folder(app.directori_nomvideo_v), ".txt");
 % write_taula_fun(arxiu_dir, table_S_textscan_tracking_new, "Frame")
 %
 % % Read current table for verification

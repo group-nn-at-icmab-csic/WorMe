@@ -24,12 +24,12 @@ function [predef_folder_carpeta] = predef_carpeta_import_export(app, str_tipu_ex
         
         % We get the Results_out path:
         carpeta_output = app.appv_dir_output; % dir_output, which in main script is carpeta_output 
-        % ex: "D:\Escritorio\Length determination v2_15\Results_out\20230121_1947_200"
+        % ex: "D:/Escritorio/Length determination v2_15/Results_out/20230121_1947_200"
 
-        carpeta_output_split = strsplit(carpeta_output, "\");
-        results_out = strjoin(carpeta_output_split(1:end-1), "\");
+        carpeta_output_split = strsplit(carpeta_output, filesep);
+        results_out = strjoin(carpeta_output_split(1:end-1), filesep);
+        predefined_folder_input = strcat(results_out, fullfile(filesep, 'Internal_code_files', 'predefined_folder_exp_'), str_tipu_export, ".txt");
 
-        predefined_folder_input = strcat(results_out, "\Internal_code_files\predefined_folder_exp_", str_tipu_export, ".txt");
 
         % Reading the predefined path
         if isequal(write_read, "read")

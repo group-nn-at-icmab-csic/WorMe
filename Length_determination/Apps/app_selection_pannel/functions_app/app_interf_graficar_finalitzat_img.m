@@ -10,8 +10,8 @@ function app_interf_graficar_finalitzat_img(app)
 % FUNCTION START
 
 % Image exceeded: Finished sign
-app.Image.ImageSource = imread("Apps\app_selection_pannel\images_useful\Finished_WM.png");
-% app.Image2.ImageSource = imread("Apps\app_selection_pannel\images_useful\Logo_WorMe_blanc.png");
+app.Image.ImageSource = imread(fullfile('Apps', 'app_selection_pannel', 'images_useful', 'Finished_WM.png'));
+% app.Image2.ImageSource = imread("Apps/app_selection_pannel/images_useful/Logo_WorMe_blanc.png");
 
 
 app.Image.Visible = 'on';

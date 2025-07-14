@@ -54,8 +54,8 @@ function app_proc_button_add_modif(app)
         if ~isempty(answer_resposta) && answer_resposta ~= ""
             % If there are files with the same name
             [llistat_string_im] = [... 
-                read_files_typology("Results_out\Internal_code_files\Image_processing_settings\temporals\", ".txt"), ...
-                read_files_typology("Results_out\Internal_code_files\Image_processing_settings\", ".txt")];
+                read_files_typology( fullfile("Results_out", "Internal_code_files", "Image_processing_settings", "temporals", filesep), ".txt"), ...
+                read_files_typology(fullfile("Results_out", "", "Image_processing_settings", filesep), ".txt")];
             
             splitat_arxius = split(llistat_string_im, ".txt");
             
@@ -70,7 +70,7 @@ function app_proc_button_add_modif(app)
             % Whether they exist or not
             if si_no_son_iguals
                 % The new file is created
-                nom_arxiu_guardar = strcat("Results_out\Internal_code_files\Image_processing_settings\temporals\",answer_resposta,".txt");
+                nom_arxiu_guardar = strcat(fullfile("Results_out", "Internal_code_files", "Image_processing_settings", "temporals", filesep), answer_resposta, ".txt");
                 txt_seg(nom_arxiu_guardar, "", ";", "nou", "blanc") % tracking config.
                 
                 nom_correcte = false;
@@ -96,7 +96,7 @@ function app_proc_button_add_modif(app)
     
     if write_arxiu_txt
         % Update List box
-        [llistat_string_im] = read_files_typology("Results_out\Internal_code_files\Image_processing_settings\temporals\", ".txt");
+        [llistat_string_im] = read_files_typology(fullfile("Results_out", "Internal_code_files", "Image_processing_settings", "temporals", filesep), ".txt");
         app.ModificacionstemporalsListBox.Items = llistat_string_im;
     
         resposta_answer_list = strcat(answer_resposta, ".txt");

@@ -7,13 +7,13 @@ disp("WorMe_length_determination_v2_17")
 
 % _____ PRINCIPAL VARIABLES ____
 % userSavedDocuments - directory of the program (in MATALB o compiled)
-%                   ex (using MATLAB):  'C:\Users\jllobet\Desktop\Length determination v2_16'
-%                   ex (compiled in Windows): 'C:\Users\Josep TOSHIBA\Documents\WorMe_Length_Results'
+%                   ex (using MATLAB):  'C:/Users/jllobet/Desktop/Length determination v2_16'
+%                   ex (compiled in Windows): 'C:/Users/Josep TOSHIBA/Documents/WorMe_Length_Results'
 %
 % carpeta_output - directory of res
 % ults
-%                   ex (using MATLAB):  "C:\Users\jllobet\Desktop\Length determination v2_15\Results_out\20230124_1625_C_48"
-%                   ex (compiled in Windows): 'C:\Users\Josep TOSHIBA\Documents\WorMe_Length_Results Results_out\20230407_1813_control'
+%                   ex (using MATLAB):  "C:/Users/jllobet/Desktop/Length determination v2_15/Results_out/20230124_1625_C_48"
+%                   ex (compiled in Windows): 'C:/Users/Josep TOSHIBA/Documents/WorMe_Length_Results Results_out/20230407_1813_control'
 %
 % theFiles : Data structure of the images (name, folder, date, ...). Utility for obtaining images.
 
@@ -90,11 +90,11 @@ function [userSavedDocuments] = path_determination()
     
     % %_Folders_%  
     % userSavedDocuments :  
-    %           e.g. execution in MATLAB: 'C:\Users\jllobet\Desktop\Length determination v2_12new'
-    %           e.g. execution in .exe: C\:Users\jllobet\Documents\WorMe_Length_Results
+    %           e.g. execution in MATLAB: 'C:/Users/jllobet/Desktop/Length determination v2_12new'
+    %           e.g. execution in .exe: C/:Users/jllobet/Documents/WorMe_Length_Results
     % currentDir         : 
-    %           e.g. execution in MATLAB: 'C:\Users\jllobet\Desktop\Length determination v2_12new'
-    %           e.g. execution in .exe: 'C:\Users\jllobet\Desktop\Length determination v2_12new\Compilacio\WM_length_determinationv212\for_testing'
+    %           e.g. execution in MATLAB: 'C:/Users/jllobet/Desktop/Length determination v2_12new'
+    %           e.g. execution in .exe: 'C:/Users/jllobet/Desktop/Length determination v2_12new/Compilacio/WM_length_determinationv212/for_testing'
 
     
     
@@ -104,9 +104,17 @@ function [userSavedDocuments] = path_determination()
         currentDir = char(regexpi(result, 'Path=(.*?);', 'tokens', 'once'));
         
         % Obtain the directory where we save the files:
-        userProfile = getenv('USERPROFILE');
-        userDocuments = strcat(userProfile, "\Documents");
-        
+        if ispc
+            % Windows
+            userDocuments = fullfile(getenv('USERPROFILE'), 'Documents');
+            
+        else
+            % macOS or Linux
+            userProfile = getenv('HOME');
+            userDocuments = fullfile(userProfile, 'Documents');
+        end
+
+
         % Create the folder for to save the results:
         if ~isfolder(userDocuments)
             waitfor(msgbox({"Error Documents: Folder:", userDocuments, "doesn't defined."}, 'Error','error'));
@@ -115,7 +123,7 @@ function [userSavedDocuments] = path_determination()
             
         % If Documents exists, we create the folder where the results are going to be saved:
         else
-            userSavedDocuments = strcat(userDocuments, "\WorMe_Length_Results");
+            userSavedDocuments = fullfile(userDocuments, "WorMe_Length_Results");
             mkdir(userSavedDocuments)
             %waitfor(msgbox(userSavedDocuments))
         end
@@ -129,8 +137,9 @@ function [userSavedDocuments] = path_determination()
         try
             % Determine the current path from where the current MATLAB script is being used.
             path_actual = matlab.desktop.editor.getActiveFilename; % Path de l'arxiu actual obert de MATLAB.
-            % fprintf('%s\n',path_actual);
-            ultim_barra = strfind(path_actual, "\");
+            ultim_barra = strfind(path_actual, filesep);
+
+            % Operate with the path: obtain the actual folder.
             index_ultim_barra = ultim_barra(numel(ultim_barra)) -1 ;
             path_actual = path_actual(1:index_ultim_barra); clear index_ultim_barra ultim_barra;
     

@@ -18,7 +18,7 @@ function app_proc_button_modify_proc(app)
     app.ImatgeLabel.Text = string(value_listbox);
     
     % Read file and display in Modifications Label
-    field_set = strcat("Results_out\Internal_code_files\Image_processing_settings\", string(value_listbox));
+    field_set = strcat(fullfile("Results_out", "Internal_code_files", "Image_processing_settings", filesep), string(value_listbox));
 
     % Obtain the array from reading the text document and print it
     [array_sortida_modifs, ~] = read_text_delimiters(field_set, ";");

@@ -5,7 +5,7 @@ function introduce_data(arxiu_text_output, array_introduir, posicio_a_intro)
 % the last line of the text.
 %
 % Variables
-% arxiu_text_output : directory of the text file (e.g., C:\Escritorio\Josep.txt)
+% arxiu_text_output : directory of the text file (e.g., C:/Escritorio/Josep.txt)
 % array_introduir   : array of data to insert, in string form (e.g., [% "P1011629_skel_00003_01.JPG_02"    "112.7794"])
 % posicio_a_intro   : Position in the text file where the data will be inserted.
 %
@@ -14,7 +14,7 @@ function introduce_data(arxiu_text_output, array_introduir, posicio_a_intro)
 %
 % % Function example
 % % Data files
-% arxiu_text_output = "C:\Users\Josep TOSHIBA\Desktop\Length determination v2_4\Results_out\20220305_1312_Input_images_Amanda_moltes\Filtered\dades_output.txt";
+% arxiu_text_output = "C:/Users/Josep TOSHIBA/Desktop/Length determination v2_4/Results_out/20220305_1312_Input_images_Amanda_moltes/Filtered/dades_output.txt";
 % var_out_dades = 3
 % array_introduir = ["Worm_1" string(69)];
 % introduce_data(arxiu_text_output, array_introduir, 2)

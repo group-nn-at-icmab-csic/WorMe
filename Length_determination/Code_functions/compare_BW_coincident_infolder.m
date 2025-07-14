@@ -24,9 +24,9 @@ function [nom_im_carpeta_coincident] = compare_BW_coincident_infolder(BW_aillar,
 % % Original name of the image to compare.
 % nom_BW_modif = "P1011629";
 % % Folder reading binary images with only one object.
-% carpeta_imatges_BW_totes = "C:\Users\Josep TOSHIBA\Desktop\Length determination v2_6\Results_out\20220318_1335_Input_images_Amanda_poques\Processades\Conjunt_BW_totes";
+% carpeta_imatges_BW_totes = "C:/Users/Josep TOSHIBA/Desktop/Length determination v2_6/Results_out/20220318_1335_Input_images_Amanda_poques/Processades/Conjunt_BW_totes";
 % % Image to compare
-% BW_aillar = imread("C:\Users\Josep TOSHIBA\Desktop\Length determination v2_6\Results_out\20220318_1335_Input_images_Amanda_poques\Processades\Conjunt_BW_totes\P1011629_skel_00003_02.JPG");
+% BW_aillar = imread("C:/Users/Josep TOSHIBA/Desktop/Length determination v2_6/Results_out/20220318_1335_Input_images_Amanda_poques/Processades\Conjunt_BW_totes\P1011629_skel_00003_02.JPG");
 % BW_aillar = imbinarize(BW_aillar);
 %
 % See also
@@ -59,7 +59,7 @@ for cada_imatge = 1:length(theFiles_carpetaBB)
         % ours.
         
         % We obtain the binary image
-        imatge_a_llegir = imread(strcat(theFiles_carpetaBB(cada_imatge).folder, "\", theFiles_carpetaBB(cada_imatge).name));
+        imatge_a_llegir = imread(strcat(theFiles_carpetaBB(cada_imatge).folder, filesep, theFiles_carpetaBB(cada_imatge).name));
         
         % Binarize ( or not)
         if length(unique(imatge_a_llegir(:))) > 2

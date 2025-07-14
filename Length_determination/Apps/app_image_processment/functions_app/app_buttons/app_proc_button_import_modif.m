@@ -21,7 +21,7 @@ function app_proc_button_import_modif(app)
 
                 % File to copy
                 arxiu_copiar = strcat(pathname, filename{n_cada_file});
-                directori_nou_copiar = strcat("Results_out\Internal_code_files\Image_processing_settings\", filename{n_cada_file});
+                directori_nou_copiar = strcat(fullfile("Results_out", "Internal_code_files", "Image_processing_settings", filesep), filename{n_cada_file});
 
                 % If the object does not exist:
                 if ~ismember(arxiu_copiar, app.ModificacionsguardadesListBox.Items)
@@ -45,7 +45,7 @@ function app_proc_button_import_modif(app)
 
             % File to copy
             arxiu_copiar = strcat(pathname, filename);
-            directori_nou_copiar = strcat("Results_out\Internal_code_files\Image_processing_settings\", filename);
+            directori_nou_copiar = strcat(fullfile("Results_out", "Internal_code_files", "Image_processing_settings", filesep), filename);
 
             % If the object does not exist:
             if ~ismember(arxiu_copiar, app.ModificacionsguardadesListBox.Items)
@@ -75,7 +75,7 @@ function app_proc_button_import_modif(app)
     % Update modifications
     
     % Read saved modifications files
-    myFolder_input = "Results_out\Internal_code_files\Image_processing_settings\";
+    myFolder_input = fullfile("Results_out", "Internal_code_files", "Image_processing_settings", filesep);
     patro_tipus_image = ".txt";
     [llistat_string_im] = read_files_typology(myFolder_input, patro_tipus_image);
     
@@ -83,7 +83,7 @@ function app_proc_button_import_modif(app)
     
     
     % Automate Drop Roll Temporary Modifications
-    myFolder_input = "Results_out\Internal_code_files\Image_processing_settings\temporals\";
+    myFolder_input = fullfile("Results_out", "Internal_code_files", "Image_processing_settings", "temporals", filesep);
     patro_tipus_image = ".txt";
     [llistat_string_im] = read_files_typology(myFolder_input, patro_tipus_image);
                 

@@ -5,7 +5,7 @@ function app_interf_boto_info_correccio(app)
 % START OF FUNCTION
 
     % Informative box
-    box_correccio_Fiji()
+    box_manual_correction()
 
     % Refresh figure to enable shortkey
     figure(app.UIFigure)   

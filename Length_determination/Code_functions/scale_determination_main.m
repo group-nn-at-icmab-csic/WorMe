@@ -17,7 +17,7 @@ function [escala_imatge] = scale_determination_main(userSavedDocuments, theFiles
     % _Obtaining (or not) predefined scale value_
     % Obtained from the text file "predefined_escale.txt" described in the folder
     % (hidden) Internal_code_files. Reading is done
-    text_escala_internal_code_files = strcat(userSavedDocuments, "\", "Results_out\Internal_code_files\predefined_escale.txt");
+    text_escala_internal_code_files = strcat(userSavedDocuments, filesep, fullfile("Results_out", "Internal_code_files", "predefined_escale.txt"));
     
     if isfile(text_escala_internal_code_files)
         % If a text file exists that contains the scale
@@ -36,10 +36,8 @@ function [escala_imatge] = scale_determination_main(userSavedDocuments, theFiles
     array_write_imatge = ["Escala", string(escala_imatge)];
     write_text_array(text_escala_internal_code_files, array_write_imatge, ";")
     
-    save(strcat(carpeta_output, "\escala_imatge"), "escala_imatge")
+    save(fullfile(carpeta_output, "escala_imatge"), "escala_imatge")
     
-    % % Obtain scale
-    % getfield( load(strcat(carpeta_output, "\escala_imatge")), "escala_imatge")
 
 
 % END FUNCTION

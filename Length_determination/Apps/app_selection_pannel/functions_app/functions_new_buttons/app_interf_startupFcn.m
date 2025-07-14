@@ -51,8 +51,8 @@ function app_interf_startupFcn(app)
             % dir_output, "/main_data_analysis.txt" - Main data file
             %
             % temporals:
-            % dir_output, "\temp_indx_BWobject.txt" - Index of objects (temporary)
-            % dir_output,"\temp_indx_BWskel.txt"    - Skeletonization index (temporary)
+            % dir_output, "/temp_indx_BWobject.txt" - Index of objects (temporary)
+            % dir_output,"/temp_indx_BWskel.txt"    - Skeletonization index (temporary)
             %
             %
             %
@@ -155,7 +155,7 @@ function app_interf_startupFcn(app)
             
             
             % Save folder name
-            dir_img_originals_sing_t = split(dir_img_originals, "\");
+            dir_img_originals_sing_t = split(dir_img_originals, filesep);
             dir_img_originals_sing = dir_img_originals_sing_t{end}; % Works
             app.dir_img_orig_sLabel.Text = dir_img_originals_sing;
             
@@ -164,7 +164,7 @@ function app_interf_startupFcn(app)
             % the documents created:
             
             % Automation Drop Roll Temporary Modifications
-            myFolder_input = "Results_out\Internal_code_files\Image_processing_settings\temporals\";
+            myFolder_input = fullfile("Results_out", "Internal_code_files", "Image_processing_settings", "temporals", filesep);
             patro_tipus_image = ".txt";
 
             [llistat_string_im_temp] = read_files_typology(myFolder_input, patro_tipus_image);          
@@ -172,7 +172,7 @@ function app_interf_startupFcn(app)
             app.ModificacionstemporalsListBox.Items = llistat_string_im_temp;
             
             % Read Saved Modifications files
-            myFolder_input = "Results_out\Internal_code_files\Image_processing_settings\";
+            myFolder_input = fullfile("Results_out", "Internal_code_files", "Image_processing_settings", filesep);
             patro_tipus_image = ".txt";
             [llistat_string_im_guard] = read_files_typology(myFolder_input, patro_tipus_image);
             app.ModificacionsguardadesListBox.Items = llistat_string_im_guard;
@@ -200,9 +200,9 @@ function app_interf_startupFcn(app)
             
             
             % _Read the saved modification_
-            filestxt = read_txt_folder_structure(strcat(dir_output, "\Processment_parameters"));
+            filestxt = read_txt_folder_structure(fullfile(dir_output, "Processment_parameters"));
             text_config_parameters = filestxt.name;
-            dir_text_config_parameters = strcat(dir_output, "\Processment_parameters\", text_config_parameters);
+            dir_text_config_parameters = fullfile(dir_output, "Processment_parameters", text_config_parameters);
             [array_sortida_modifs, ~] = read_text_delimiters(dir_text_config_parameters, ";"); % obtain the array from reading the text document and print it
             cell_cont = array_sortida_modifs(2:end, 2); % Operate
             array_processaments = cell2array_own(cell_cont);

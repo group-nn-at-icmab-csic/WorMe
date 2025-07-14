@@ -4,7 +4,7 @@ function msgbox_sel_images(userSavedDocuments)
 
 % START FUNCTION
 
-    file_contadors = strcat(userSavedDocuments, "\Results_out\Internal_code_files\cont_started.mat");
+    file_contadors = fullfile(userSavedDocuments, "Results_out", "Internal_code_files", "cont_started.mat");
     if ~isfile(file_contadors)
         cont_started = 0;
         save(file_contadors, "cont_started")

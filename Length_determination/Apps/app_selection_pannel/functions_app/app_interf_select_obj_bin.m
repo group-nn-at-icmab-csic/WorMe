@@ -53,12 +53,12 @@ else
 
         % _Process the image_            
         % Read file and display in Label Modifications
-        [array_processaments] = obtain_array_processments(strcat("Apps\app_image_processment\Internal code files\Image processing settings\", string(app.ModificacionsguardadesListBox.Value)));
+        [array_processaments] = obtain_array_processments(strcat(fullfile('Apps', 'app_image_processment', 'Internal code files', 'Image processing settings', filesep), string(app.ModificacionsguardadesListBox.Value)));
 
         % Modify the original image and display it: 
          [BW_final, ~] = processment_img_list(imatge_original, array_processaments); 
          % Save the image in PNG:
-         imwrite(BW_final, strcat(dir_output, "\imgBWtemp.png"));
+         imwrite(BW_final, fullfile(dir_output, "imgBWtemp.png"));
 
         % Apply deletion of indices (not entirely
         % necessary)
@@ -79,8 +79,8 @@ else
         
     else
         % Image limit exceeded: show Finished sign
-        app.Image.ImageSource = imread("Apps\app_selection_pannel\images_useful\Finished_WM.png");
-        app.Image2.ImageSource = imread("Apps\app_selection_pannel\images_useful\Logo_WorMe_blanc.png");
+        app.Image.ImageSource = imread(fullfile('Apps', 'app_selection_pannel', 'images_useful', 'Finished_WM.png'));
+        app.Image2.ImageSource = imread(fullfile('Apps', 'app_selection_pannel', 'images_useful', 'Logo_WorMe_blanc.png'));
 
         % Disable buttons
         app.Thick_Button.Visible = 'off';

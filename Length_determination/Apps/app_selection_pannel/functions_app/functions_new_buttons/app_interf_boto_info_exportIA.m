@@ -5,7 +5,7 @@ function app_interf_boto_info_exportIA(app)
 % START OF FUNCTION
     
     % Informative box
-    box_explicacio_IA()
+    box_IA_explanation()
 
     % Refresh figure to enable shortkey
     figure(app.UIFigure)

@@ -2,14 +2,14 @@ function introduce_data_posvar(arxiu_text_output, array_introduir, nom_posicio_a
 % Given a text file, a row is inserted into the text at the position following the position with the specified name.
 %
 % Variables
-% arxiu_text_output : directory of the text file (e.g., C:\Escritorio\Josep.txt)
+% arxiu_text_output : directory of the text file (e.g., C:/Escritorio/Josep.txt)
 % array_introduir   : array of data to insert, in string form (e.g., [% "P1011629_skel_00003_01.JPG_02"    "112.7794"])
 % nom_posicio_a_intro   : Name from which the data insertion will be made.
 % n_vegades             : (optional) In case the print is wanted in reverse order compared to the one generated if the function is executed multiple times.
 %
 % % Function example
 % % Data files
-% arxiu_text_output = "C:\Users\Josep TOSHIBA\Desktop\Length determination v2_4\Results_out\20220305_1312_Input_images_Amanda_moltes\Filtered\dades_output.txt";
+% arxiu_text_output = "C:/Users/Josep TOSHIBA/Desktop/Length determination v2_4/Results_out/20220305_1312_Input_images_Amanda_moltes/Filtered/dades_output.txt";
 % var_out_dades = 3
 % array_introduir = ["Worm_1" string(69)];
 % introduce_data(arxiu_text_output, array_introduir, 2)

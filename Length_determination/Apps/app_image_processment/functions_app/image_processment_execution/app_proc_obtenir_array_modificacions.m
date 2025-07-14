@@ -10,11 +10,11 @@ function [array_processaments, tipus_im_modif] = app_proc_obtenir_array_modifica
         value_listbox = app.ModificacionstemporalsListBox.Value;                
         app.ImatgeLabel.Text = string(value_listbox);                
         % Read file and display in Label Modifications
-        field_set = strcat("Results_out\Internal_code_files\Image_processing_settings\temporals\", string(value_listbox));
+        field_set = strcat(fullfile("Results_out", "Internal_code_files", "Image_processing_settings", "temporals", filesep), string(value_listbox));
     else
         value_listbox = app.ModificacionsguardadesListBox.Value;                
         app.ImatgeLabel.Text = string(value_listbox);                
-        field_set = strcat("Results_out\Internal_code_files\Image_processing_settings\", string(value_listbox));
+        field_set = strcat(fullfile("Results_out", "Internal_code_files", "Image_processing_settings", filesep), string(value_listbox));
     end
 
     % we obtain the array from reading the text document and print it

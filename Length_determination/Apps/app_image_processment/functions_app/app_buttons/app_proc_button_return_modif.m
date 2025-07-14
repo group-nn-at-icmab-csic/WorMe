@@ -17,12 +17,12 @@ function app_proc_button_return_modif(app)
     % We take the selected text from the ListBox, according to the type of modification selected (temporary or saved)
     if ~isempty(app.ModificacionstemporalsListBox.Value)
         value_listbox = app.ModificacionstemporalsListBox.Value;
-        field_set = strcat("Results_out\Internal_code_files\Image_processing_settings\temporals\", string(value_listbox));
+        field_set = strcat(fullfile("Results_out", "Internal_code_files", "Image_processing_settings", "temporals", filesep), string(value_listbox));
     % If pre-selected in saved
     elseif ~isempty(app.ModificacionsguardadesListBox.Value)
         value_listbox = app.ModificacionsguardadesListBox.Value;
         % Read file and display in Modificacions Label
-        field_set = strcat("Results_out\Internal_code_files\Image_processing_settings\", string(value_listbox));
+        field_set = strcat(fullfile("Results_out", "Internal_code_files", "Image_processing_settings", filesep), string(value_listbox));
     end
 
     % Delete the last line of the text:

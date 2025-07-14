@@ -9,8 +9,8 @@ function app_proc_button_save_temp_modif(app)
 
 % START OF THE FUNCTION
     arxiu_guardar_copiar = app.ModificacionstemporalsListBox.Value;
-    arxiu_borrar = strcat("Results_out\Internal_code_files\Image_processing_settings\temporals\", arxiu_guardar_copiar);
-    arxiu_nou_copiar = strcat("Results_out\Internal_code_files\Image_processing_settings\", arxiu_guardar_copiar);
+    arxiu_borrar = strcat(fullfile("Results_out", "Internal_code_files", "Image_processing_settings", "temporals", filesep), arxiu_guardar_copiar);
+    arxiu_nou_copiar = strcat(fullfile("Results_out", "Internal_code_files", "Image_processing_settings", filesep), arxiu_guardar_copiar);
     
     % Check if it already exists.
     % If the object does not exist:
@@ -27,7 +27,7 @@ function app_proc_button_save_temp_modif(app)
     % Update modifications
     
     % Read saved Modificacions files
-    myFolder_input = "Results_out\Internal_code_files\Image_processing_settings\";
+    myFolder_input = fullfile("Results_out", "Internal_code_files", "Image_processing_settings", filesep);
     patro_tipus_image = ".txt";
     [llistat_string_im] = read_files_typology(myFolder_input, patro_tipus_image);
     
@@ -35,7 +35,7 @@ function app_proc_button_save_temp_modif(app)
     
     
     % Automate Drop Roll Modificacions temporals
-    myFolder_input = "Results_out\Internal_code_files\Image_processing_settings\temporals\";
+    myFolder_input = fullfile("Results_out", "Internal_code_files", "Image_processing_settings", "temporals", filesep);
     patro_tipus_image = ".txt";
     [llistat_string_im] = read_files_typology(myFolder_input, patro_tipus_image);
                 
