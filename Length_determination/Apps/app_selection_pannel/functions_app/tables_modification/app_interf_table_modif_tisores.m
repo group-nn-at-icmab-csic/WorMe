@@ -14,14 +14,13 @@ function app_interf_table_modif_tisores(app)
     
     [imatge_original, ~] = app_interf_obtain_original(app, str2double(app.img_contLabel.Text)); % original image
         
-    % __Cut the binary object with the scissors tool__ % ççç
+    % __Cut the binary object with the scissors tool__ %
     % can be improved (edges, color, etc.)
     [BW_cuted, ~, porta_window_drawline, ~] = dividie_BWobj_manual_multiple(BW_object, imatge_original);
     % BW_cuted : BW image with the line subtracted.
     % porta_window_drawline : indicates whether the function executed correctly.    
 
 
-    % ÑÑÑ
     % If it has been cut:
     % Pseudocode: 
     % 1. Obtain original image and cut BW image

@@ -65,7 +65,7 @@ function app_escala_linia_boto_draw(app)
     
     % We save the value
     app.distancia_pixelsLabel.Text = string(distancia_punts);
-    % [Area_Josep] = worm_length(BW_skel)
+    
 
     imatge_final_punts = imoverlay(imatge_a_draw, BW_final_convull, "r");
     

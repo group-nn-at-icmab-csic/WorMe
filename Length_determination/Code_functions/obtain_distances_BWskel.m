@@ -45,30 +45,26 @@ function [dades_imatge_row, dades_imatge_manual_corrected] = obtain_distances_BW
 
 
 % _Obtain numeric length_
-% disp("[Area_Josep] = worm_length(BW_skel);")
 
 % _Data with manual error correction_
-[Area_Josep] = worm_length_manual(BW_skel, n_pixel_margin);
+[worm_length_dist_manual] = worm_length_manual(BW_skel, n_pixel_margin);
 
-Area_Josep_scaled = Area_Josep / escala_imatge; % Multiplies by the scale ratio (pixels / unit)
-
-dades_imatge_manual_corrected = Area_Josep_scaled;
+dades_imatge_manual_corrected = worm_length_dist_manual / escala_imatge; % Multiplies by the scale ratio (pixels / unit)
 
 
 % _Data without manual error correction_
 
-[Area_Josep] = worm_length(BW_skel);
+[worm_length_dist_normal] = worm_length(BW_skel);
 
-Area_Josep_scaled = Area_Josep / escala_imatge; % Multiplies by the scale ratio (pixels / unit)
+dades_imatge_row = worm_length_dist_normal / escala_imatge; % Multiplies by the scale ratio (pixels / unit)
 
-dades_imatge_row = Area_Josep_scaled;
 
 % % _Check comparison between both distances:_
 % Note: the error is 1 pixel, due to the methodology. It is susceptible
 % to not being considered.
-% [Area_Josep_1] = worm_length_manual(BW_skel, 1)
-% [Area_Josep_2] = worm_length(BW_skel)
-% if isequal(Area_Josep_1, Area_Josep_2); disp("Equal length"); end
+% [Area_1] = worm_length_manual(BW_skel, 1)
+% [Area_2] = worm_length(BW_skel)
+% if isequal(Area_1, Area_2); disp("Equal length"); end
 
 
 % END SCRIPT

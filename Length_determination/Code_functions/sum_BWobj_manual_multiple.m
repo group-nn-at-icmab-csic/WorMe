@@ -137,14 +137,6 @@ try
         %imshow(imatge_BW_colors)
         
         
-        % % Example back image skeletonization
-        % bwlabeled_obj_tot = bwlabel(bwlabel_BW_obj_sumatlinia);
-        % bwlabeled_obj_tot_2 = bwlabeled_obj_tot == 2;
-        % imshow(bwlabeled_obj_tot_2)
-        % 
-        % [~, ~, sfMaskBurn_newfunction, ~, ~] = ...
-        %     esqueletonitzacio_josep(bwlabeled_obj_tot_2, imageArray, escala_imatge, 1);
-        % imshow(sfMaskBurn_newfunction)
 
     else
 

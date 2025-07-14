@@ -29,10 +29,6 @@ function app_interf_startupFcn(app)
             % data normality? Direct normality test? With
             % a 'show statistics' button?
             %
-            % ççç add condition if the modification is or is not the same.
-            %
-            % ççç When changing the modification type (app.ModificacionstemporalsListBox, app.ModificacionsguardadesListBox), reset
-            % all data of the current image. (= avoid mess).
             % 
             % Export binary images.
             % Export data in Pascal VOC format
@@ -94,7 +90,7 @@ function app_interf_startupFcn(app)
             
             % ___Initial description counters___
             app.finalitzat_contLabel = "false";
-            app.n_objecteLabel.Text = "1"; % ÇÇÇ Check if there are objects or not in the image. If none, change it.
+            app.n_objecteLabel.Text = "1";
             app.ReturnButton.Visible = 'off';
             app.RightButton.Visible = 'off';
             app.LeftButton.Visible = 'off';

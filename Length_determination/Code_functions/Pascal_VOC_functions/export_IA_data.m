@@ -241,7 +241,7 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
                     if generar_BW_obj_label
             
             
-                        Colormap_josep = obtenir_colormap_Josep();
+                        Colormap_person = obtenir_colormap_person();
             
                         BW_obj_junts_lab = double(false(resolution_img));
             
@@ -257,7 +257,7 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
                         % BW_obj_junts_lab(1,1) = 255; % Check visually
             
                         %  "BW_label"
-                        imwrite(uint8(BW_obj_junts_lab), Colormap_josep, strcat(dir_mainly_output_yes, "\", dir_save_BW_imgs_3, "\", nom_img, ".png"))
+                        imwrite(uint8(BW_obj_junts_lab), Colormap_person, strcat(dir_mainly_output_yes, "\", dir_save_BW_imgs_3, "\", nom_img, ".png"))
                         
             
                     end
@@ -267,7 +267,7 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
                     % ___Create label unit binary objects___ 
                     if generar_BW_obj_label_unit
             
-                        Colormap_josep = obtenir_colormap_Josep();
+                        Colormap_person = obtenir_colormap_person();
             
                         BW_obj_junts_lab = double(false(resolution_img));
             
@@ -283,7 +283,7 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
                         % BW_obj_junts_lab(1,1) = 255; % Check visually
             
                         %  "BW_label"
-                        imwrite(uint8(BW_obj_junts_lab), Colormap_josep, strcat(dir_mainly_output_yes, "\", dir_save_BW_imgs_4, "\", nom_img, ".png"))
+                        imwrite(uint8(BW_obj_junts_lab), Colormap_person, strcat(dir_mainly_output_yes, "\", dir_save_BW_imgs_4, "\", nom_img, ".png"))
     
                     end        
             
@@ -484,7 +484,7 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
                     if generar_BW_obj_label
             
             
-                        Colormap_josep = obtenir_colormap_Josep();
+                        Colormap_person = obtenir_colormap_person();
             
                         BW_obj_junts_lab = double(false(resolution_img));
             
@@ -500,7 +500,7 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
                         % BW_obj_junts_lab(1,1) = 255; % Check visually
             
                         %  "BW_label"
-                        imwrite(uint8(BW_obj_junts_lab), Colormap_josep, strcat(dir_mainly_output_yes_and_no, "\", dir_save_BW_imgs_3, "\", nom_img, ".png"))
+                        imwrite(uint8(BW_obj_junts_lab), Colormap_person, strcat(dir_mainly_output_yes_and_no, "\", dir_save_BW_imgs_3, "\", nom_img, ".png"))
                         
             
                     end
@@ -510,7 +510,7 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
                     % ___Create label unit binary objects___ 
                     if generar_BW_obj_label_unit
             
-                        Colormap_josep = obtenir_colormap_Josep();
+                        Colormap_person = obtenir_colormap_person();
             
                         BW_obj_junts_lab = double(false(resolution_img));
             
@@ -531,7 +531,7 @@ function export_IA_data(S_textscan_table, myFolder, dir_main_save_folder, array_
                         % BW_obj_junts_lab(1,1) = 255;  % Check visually
             
                         %  "BW_label"
-                        imwrite(uint8(BW_obj_junts_lab), Colormap_josep, strcat(dir_mainly_output_yes_and_no, "\", dir_save_BW_imgs_4, "\", nom_img, ".png"))
+                        imwrite(uint8(BW_obj_junts_lab), Colormap_person, strcat(dir_mainly_output_yes_and_no, "\", dir_save_BW_imgs_4, "\", nom_img, ".png"))
              
                     end        
                             
@@ -572,9 +572,9 @@ end
 
 % Sub-functions
 
-function [Colormap_josep] = obtenir_colormap_Josep()
+function [Colormap_person] = obtenir_colormap_person()
     
-    Colormap_josep = [      0         0         0
+    Colormap_person = [      0         0         0
         0.5020         0         0
              0    0.5020         0
         0.5020    0.5020         0

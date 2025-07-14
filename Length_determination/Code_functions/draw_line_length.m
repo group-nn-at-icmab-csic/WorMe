@@ -102,21 +102,19 @@ try
     % ___Obtaining the numerical length___
     
     % _By sum of pixels of the defined skeletonized image_
-    [Area_Josep] = worm_length(zeros_imatge_cotxe); % LLargada Josep de la imatge esqueletonitzada
+    [dist_length_worm_normal] = worm_length(zeros_imatge_cotxe); % Length of worm of the skeletonized image
     % You could incorporate: worm_length_manual, but it is more accurate to
     % determine by the points defined in the draw, how it is done and obtained
     % dades_imagte_2
 
-    Area_Josep_scaled = Area_Josep / escala_imatge; % Multiplies by the scale ratio (pixels / unit)
+    dades_imatge = dist_length_worm_normal / escala_imatge; % Multiplies by the scale ratio (pixels / unit)
     
-    dades_imatge = Area_Josep_scaled;
 
     % _By sum of the distance between the defined points (Fiji error)_
-    [Area_Josep2] = distance_many_points(ep_rounded); % Legth of the defined points.    
+    [dist_length_worm_manual] = distance_many_points(ep_rounded); % Legth of the defined points.    
 
-    Area_Josep_scaled_2 = Area_Josep2 / escala_imatge; % Multiplies by the scale ratio (pixels / unit)
+    dades_imatge_punts = dist_length_worm_manual / escala_imatge; % Multiplies by the scale ratio (pixels / unit)
     
-    dades_imatge_punts = Area_Josep_scaled_2;
     
 
 catch

@@ -5,11 +5,11 @@ function write_taula(arxiu_dir, table_main, separador)
 %
 %
 % % Example:
-% write_taula_sense_ultima_fila("Josep_proba.txt", taula_ex , "$");
+% write_taula_sense_ultima_fila("Data_proba.txt", taula_ex , "$");
 % 
 % % Check
-% [S_textscan_table_newJosep] = read_data("Josep_proba.txt", typology_formatspec_table_norm(taula_ex ), "$", taula_ex .Properties.VariableNames);
-% S_textscan_table_newJosep
+% [S_textscan_table_new] = read_data("Data_proba.txt", typology_formatspec_table_norm(taula_ex ), "$", taula_ex .Properties.VariableNames);
+% S_textscan_table_new
 %
 % See also
 % write_taula_fun

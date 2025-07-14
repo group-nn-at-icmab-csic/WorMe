@@ -6,9 +6,9 @@ function [complete_rute, indx_decisio] = determine_path_zip(predef_folder, prede
 % Variables
 %   Input
 %         predef_folder - predefined folder. e.g.: "C:\Users\jllobet\Downloads"
-%         predef_file - predefined file name. e.g.: "Josepfile"
+%         predef_file - predefined file name. e.g.: "MyOwnfile"
 %   Output
-%       complete_rute - full path. 'C:\Users\jllobet\Desktop\Josepfile.zip'
+%       complete_rute - full path. 'C:\Users\jllobet\Desktop\MyOwnfile.zip'
 %       indx_decisio - true/false depending on whether it executed successfully or not.
 
 % START FUNCTION

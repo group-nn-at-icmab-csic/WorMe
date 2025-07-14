@@ -20,7 +20,7 @@ function app_interf_processat_posterior_imatge(app)
 % #2: Image processing and data description.
 % #3: Plotting the image with the obtained data.
 
-% ÇÇÇ OPTIMIZABLE: if a counter is stored indicating that it is the last
+% OPTIMIZABLE: if a counter is stored indicating that it is the last
 % binary object, there’s no need to repeat the entire process.
 % Example would be from 'bwconncomp' if equal to 1.
 

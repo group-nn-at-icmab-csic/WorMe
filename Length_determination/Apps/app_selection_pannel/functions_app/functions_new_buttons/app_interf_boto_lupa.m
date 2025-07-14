@@ -24,7 +24,6 @@ function app_interf_boto_lupa(app)
                                 
                 
                 % _Show the image in a UIAxes_
-                % ÇÇÇ GREATLY INCREASES QUALITY, IT'S THE WAY TO GO.
                 % imshow("PNG_BW.png", 'Parent', app.UIAxes); 
                 
                 % Make the return image button visible:

@@ -66,7 +66,6 @@ endpoints_BW = find(bwmorph(BW_skel,'endpoints'));
 
 if reduce_line % If line reduction is applied:
     if numel(endpoints_BW)>2
-        % vell: [BW_skel, ~] = longestConstrainedPath_Josep(BW_final, "thinOpt", "thin");
         % [BW_skel] = large_skel(BW_skel);
         [BW_skel] = large_skel_iter(BW_skel); % Upgrade josep 11/09/2022
     else
@@ -88,24 +87,22 @@ end
 
 
 % _Getting the numeric length_
-% disp("[Area_Josep] = worm_length(BW_skel);")
-% [Area_Josep] = worm_length(BW_skel)
-[Area_Josep] = worm_length_manual(BW_skel, 5);
-Area_Josep_scaled = Area_Josep / escala_imatge; % Multiplies by the scale ratio (pixels / unit)
-dades_imatge_corrected = Area_Josep_scaled;
+% disp("[worm_length_distance] = worm_length(BW_skel);")
+% [worm_length_distance] = worm_length(BW_skel)
+[worm_length_dist_manual] = worm_length_manual(BW_skel, 5);
+dades_imatge_corrected = worm_length_dist_manual / escala_imatge; % Multiplies by the scale ratio (pixels / unit)
+
 
 % % _Check comparison between both distances:_
 % Note: the error is 1 pixel, due to the methodology. It is susceptible
 % to not being considered.
-% [Area_Josep_1] = worm_length_manual(BW_skel, 1)
-% [Area_Josep_2] = worm_length(BW_skel)
-% if isequal(Area_Josep_1, Area_Josep_2); disp("Equal length"); end
+% [worm_length_distance_1] = worm_length_manual(BW_skel, 1)
+% [worm_length_distance_2] = worm_length(BW_skel)
+% if isequal(worm_length_distance_1, worm_length_distance_2); disp("Equal length"); end
 
-[Area_Josep] = worm_length(BW_skel);
+[worm_length_dist_normal] = worm_length(BW_skel);
 
-Area_Josep_scaled = Area_Josep / escala_imatge; % Multiplies by the scale ratio (pixels / unit)
-
-dades_imatge = Area_Josep_scaled;
+dades_imatge = worm_length_dist_normal / escala_imatge; % Multiplies by the scale ratio (pixels / unit)
 
 
 

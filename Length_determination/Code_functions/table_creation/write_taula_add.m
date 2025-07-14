@@ -9,8 +9,8 @@ function write_taula_add(arxiu_dir, table_main, separador)
 %
 % 
 % % Check
-% [S_textscan_table_newJosep] = read_data("Josep_proba.txt", typology_formatspec_table_norm(taula_ex ), "$", taula_ex .Properties.VariableNames);
-% S_textscan_table_newJosep
+% [S_textscan_table_new] = read_data("Data_proba.txt", typology_formatspec_table_norm(taula_ex ), "$", taula_ex .Properties.VariableNames);
+% S_textscan_table_new
 %
 % See also
 % write_taula_fun

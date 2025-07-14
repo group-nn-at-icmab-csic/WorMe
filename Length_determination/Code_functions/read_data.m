@@ -10,13 +10,13 @@ function [S_textscan_table] = read_data(txt_data_name, write_values, separador_c
 % separador_char: separator that will have the values ​​of each cell
 %           ex: "$"
 % txt_data_name : directory and name of the file.
-%           ex: "Results\main_results_josep.txt"
+%           ex: "Results\main_results_own.txt"
 % variable_names : name of the variables in the table
 %           ex:  ["IsCeleg","NomWorm", "Length", "Bounding", "Modifs", "Indx_skel", "Indx_BW", "WidthValues"]
 % 
 %
 % % Example: 
-% [S_textscan_table] = read_data("Taula_Josep.txt", typology_formatspec_table_norm(app.S_textscan_tracking), "$", app.S_textscan_tracking.Properties.VariableNames);
+% [S_textscan_table] = read_data("Taula_own.txt", typology_formatspec_table_norm(app.S_textscan_tracking), "$", app.S_textscan_tracking.Properties.VariableNames);
 %
 % See also
 % app_interf_descriure_dades
