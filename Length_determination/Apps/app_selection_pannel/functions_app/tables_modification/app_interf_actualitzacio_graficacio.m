@@ -23,11 +23,6 @@ else
     [main_table_actual_last, main_table_actual_last_modiftable, indx_object_operate, no_modified_object] = app_interf_table_obtenir_main_table_actual(app);
 end
 
-% main_table_actual_last %ççç
-% main_table_actual_last_modiftable
-% no_modified_object
-
-
 [n_yes, n_no] = app_interf_table_contar_pos(app);
 % Elapsed time approx: Elapsed time is 0.057395 seconds. (in ~100 samples)
 app.n_yesLabel.Text = string(n_yes);  % Display values on the buttons

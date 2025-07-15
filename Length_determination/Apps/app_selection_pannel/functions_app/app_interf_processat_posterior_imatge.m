@@ -27,7 +27,7 @@ function app_interf_processat_posterior_imatge(app)
 dir_output = app.appv_dir_output;
 
 % __Reading the data__
-% ÇÇÇ This command should be executed every time an image is read, in order to apply
+% This command should be executed every time an image is read, in order to apply
 % the indices of the binary object, primarily.
 
 % _Read the file_

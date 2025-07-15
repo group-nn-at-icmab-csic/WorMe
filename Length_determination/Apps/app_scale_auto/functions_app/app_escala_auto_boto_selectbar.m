@@ -88,7 +88,6 @@ function app_escala_auto_boto_selectbar(app)
                 
             % If it has 2 endpoints    
             elseif length(find(bwmorph(BW_obj_skel,'endpoints'))) == 2
-                % ÇÇÇ check what happens
                 var_y_new = var_y;
                 var_x_new = var_x;
             end
