@@ -45,9 +45,9 @@ WorMe is a MATLAB based software that **does not require a MATLAB licence**. It 
 
 The program requires at least 4GB of available disk space, as well as a Windows Operating System. 
 
-### Installation and use from the executable (.exe)
+### Installation and use from the installer
 
-WorMe Length determination can be **easily installed from the [executable file](https://github.com/group-nn-at-icmab-csic/WorMe/releases)** as a local software in Windows. **It does not require a MATLAB licence**. A [brief installation guide](https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/WM_ld_Installation_guide.pdf) is also provided.
+WorMe Length determination can be **easily installed from the [installer](https://github.com/group-nn-at-icmab-csic/WorMe/releases)** as a local software in Windows, macOS or Linux. **It does not require a MATLAB licence**. It can also be executed as a local file, which will install the program and does not require internet access. A [brief installation guide](../Installation/README.md) is also provided.
 
 The step-by-step installation will automatically download and install MATLAB Runtime R2021b (9.11) and WorMe Length determination as system software. [MATLAB Runtime](https://mathworks.com/products/compiler/matlab-runtime.html) is a collection of the libraries required to run MATLAB aplications, in this case WorMe Length determination.
 
@@ -59,7 +59,7 @@ _Figure 2: WorMe installer that triggers the installation of MATLAB runtime R202
 
 ### Installation and use from the source code 
 
-The program can also be used by by running the main script [`WM_length_determination.m`](https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/Length_determination/WM_length_determination.m) in MATLAB version R2021b or greater. However, a MATLAB licence is required.  
+The program can also be used by by running the main script [`WM_length_determination.m`](https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/Length_determination/WM_length_determination.m) in MATLAB version R2021b or greater. It can be used in Windows, macOS and Linux. However, a MATLAB licence is required.  
 
 In this case, the program uses a few toolboxes which are needed for its execution (See: [How to add Add Ons in MATLAB](https://es.mathworks.com/help/matlab/matlab_env/get-add-ons.html)):
 - [Computer Vision Toolbox](https://es.mathworks.com/products/computer-vision.html)

@@ -59,9 +59,12 @@ Please feel free to create an issue if you have any questions or comments. Devel
 
 ## Installation
 
-WorMe is a MATLAB application for Windows OS. It **does not require a MATLAB licence**. 
-- Install as local software from the [executable file](https://github.com/group-nn-at-icmab-csic/WorMe/releases) (.exe)
-- Execute [the source code](https://github.com/group-nn-at-icmab-csic/WorMe/releases), `WM_length_determination.m`, from the MATLAB Desktop environment software (version >2021b). (This requires a MATLAB licence).
+WorMe is a MATLAB application for Windows, macOS and Linux. It **does not require a MATLAB licence**. The software binaries and source code are found [here](https://github.com/group-nn-at-icmab-csic/WorMe/releases/latest).
+- Install as local software from the executable or install file.
+- Execute the source code, `WM_length_determination.m`, from the MATLAB Desktop environment software (version >2021b). (This requires a MATLAB licence).
+- Execute as a local file after installing MATLAB Runtime (version 9.11).
+
+More details can be found in the [Installation guide](Installation/Readme.md).
 
 -------------------------------------------
 ## Fast Tutorial
