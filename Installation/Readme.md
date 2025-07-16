@@ -9,12 +9,16 @@ All the three ways (from code, installing, or from local) can be installed in Wi
 
 
 
-|                                | **Executing the code from MATLAB Desktop** | **Install WorMe as software** | **Executing WorMe as a local file** |
+|                                | **Running code from MATLAB Desktop** | **Install WorMe as software** | **Executing WorMe as a local file** |
 |--------------------------------|--------------------------------------------|-------------------------------|-------------------------------------|
 | **Description**                | Execute the code from MATLAB Desktop. Doesn't require internet connection. *(Fast, but MATLAB license required)* | From an installer, MATLAB Runtime 2021b and WorMe Length determination are installed on the computer. *(No MATLAB license required)* | By installing MATLAB Runtime 9.11 on the computer, WorMe can be executed without installation. It can later be installed as software. Doesn't require internet connection. *(No MATLAB license required)* |
 | **Speed**                      | Fast                                       | Not as fast                   | Not as fast                         |
 | **Internet Required**          | No                                         | Yes                           | No                                  |
 | **MATLAB License Required**    | Yes                                        | No                            | No                                  |
-| **Windows Installer Link**     |                                            | [Windows installer](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/Installation/Windows/Installer)                              | [Windows local installer](https://github.com/group-nn-at-icmab-csic/WorMe/tree/main/Installation/Windows/Installer_local)                                    |
-| **Linux Installer Link**       |                                            | [Linux installer](https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/Installation/Linux/Installer/WorMe_v2_18_Lnx_inst.install)                              |                                     |
+| **Windows Installer Link**     |                                            | [Windows installer](https://raw.githubusercontent.com/group-nn-at-icmab-csic/WorMe/main/Installation/Windows/Installer/WorMe_v2_18_Win_inst.exe
+)                              | [Windows local installer](https://raw.githubusercontent.com/group-nn-at-icmab-csic/WorMe/main/Installation/Windows/Installer_local/WorMe_v2_18_Win_local_inst.rar
+)                                    |
+| **Linux Installer Link**       |                                            | [Linux installer](https://raw.githubusercontent.com/group-nn-at-icmab-csic/WorMe/main/Installation/Linux/Installer/WorMe_v2_18_Lnx_inst.install
+)                              |  [Linux Local installer](https://raw.githubusercontent.com/group-nn-at-icmab-csic/WorMe/main/Installation/Linux/Installer_local/WorMe_v2_18_Lnx_local_inst.rar)
+                                   |
 | **macOS Installer Link**       |                                            |                               |                                     |
