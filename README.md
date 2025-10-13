@@ -2,7 +2,7 @@
 WorMe is a software for *Caenorhabditis elegans* length determination.
 
 <p align="center">
-  <img src="Length_determination/Images_resources/Logo_WorMe.png"  width="50%" alt="WorMe icon">  
+  <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/source/Images_resources/Logo_WorMe.png"  width="50%" alt="WorMe icon">  
 </p>
 
 <p align="center">
@@ -47,7 +47,7 @@ Please feel free to create an issue if you have any questions or comments. Devel
 
 * LICENSE: license file, please read.
 
-* /Length_determination/: Source code for the WorMe length determination software
+* /source/: Source code for the WorMe length determination software
 
 * /documentation/: User Manual
 
