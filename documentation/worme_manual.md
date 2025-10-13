@@ -41,7 +41,7 @@ _Figure 1: Use of the program_
 
 WorMe is a MATLAB based software that **does not require a MATLAB licence**. It can be easily installed and executed in one of these two options:  
 - Install as local software from the [executable file](https://github.com/group-nn-at-icmab-csic/WorMe/releases) (.exe). This does not require a MATLAB licence, because the program is compiled.
-- Execute [the source code](https://github.com/group-nn-at-icmab-csic/WorMe/Length_determination/WM_length_determination.m) from the MATLAB Desktop environment software (version >2021b). This requires a MATLAB licence but it has a slightly faster execution time.
+- Execute [the source code](https://github.com/group-nn-at-icmab-csic/WorMe/source/WM_length_determination.m) from the MATLAB Desktop environment software (version >2021b). This requires a MATLAB licence but it has a slightly faster execution time.
 
 The program requires at least 4GB of available disk space, as well as a Windows Operating System. 
 
@@ -59,7 +59,7 @@ _Figure 2: WorMe installer that triggers the installation of MATLAB runtime R202
 
 ### Installation and use from the source code 
 
-The program can also be used by by running the main script [`WM_length_determination.m`](https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/Length_determination/WM_length_determination.m) in MATLAB version R2021b or greater. It can be used in Windows, macOS and Linux. However, a MATLAB licence is required.  
+The program can also be used by by running the main script [`WM_length_determination.m`](https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/source/WM_length_determination.m) in MATLAB version R2021b or greater. It can be used in Windows, macOS and Linux. However, a MATLAB licence is required.  
 
 In this case, the program uses a few toolboxes which are needed for its execution (See: [How to add Add Ons in MATLAB](https://es.mathworks.com/help/matlab/matlab_env/get-add-ons.html)):
 - [Computer Vision Toolbox](https://es.mathworks.com/products/computer-vision.html)
