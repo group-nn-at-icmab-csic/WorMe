@@ -47,7 +47,7 @@ The program requires at least 4GB of available disk space, as well as a Windows 
 
 ### Installation and use from the installer
 
-WorMe Length determination can be **easily installed from the [installer](https://github.com/group-nn-at-icmab-csic/WorMe/releases)** as a local software in Windows, macOS or Linux. **It does not require a MATLAB licence**. It can also be executed as a local file, which will install the program and does not require internet access. A [brief installation guide](../Installation/README.md) is also provided.
+WorMe Length determination can be **easily installed from the [installer](https://github.com/group-nn-at-icmab-csic/WorMe/releases)** as a local software in Windows, macOS or Linux. **It does not require a MATLAB licence**. It can also be executed as a local file, which will install the program and does not require internet access. A [brief installation guide](../Installation/Readme.md) is also provided.
 
 The step-by-step installation will automatically download and install MATLAB Runtime R2021b (9.11) and WorMe Length determination as system software. [MATLAB Runtime](https://mathworks.com/products/compiler/matlab-runtime.html) is a collection of the libraries required to run MATLAB aplications, in this case WorMe Length determination.
 
@@ -79,7 +79,7 @@ The use of WorMe is based in five continuous steps:
 → [Worm selection](#selection-panel): Select worm objects manually.<br>
 → [Results](#results-panel): Read and download the results (data and image objects). <br>
 
-For a fast tutorial, please refer to the repository's [README file](../README.md). For a video tutorial, please proceed to [Example of usage](#example-of-usage).
+For a fast tutorial, please refer to the repository's [README file](../Readme.md). For a video tutorial, please proceed to [Example of usage](#example-of-usage).
 
 ### Image selection
 
@@ -292,7 +292,7 @@ In each of these folders, you can also find three other files which were obtaine
 - `C_XX_graphic_results.zip`, for image results,
 - `C_XX_parameters.txt`, for the scale values, image processment and selection tools used during the analysis.
 
-In this section, we present a tutorial which shows the analysis of the C48 example folder. For a fast tutorial, please refer to the repository's [README file](../README.md).
+In this section, we present a tutorial which shows the analysis of the C48 example folder. For a fast tutorial, please refer to the repository's [README file](../Readme.md).
 
 <p align="center"><strong><span style="font-size:18px;">Select the images</span></strong></p>
 First, the user selects the images to analyze. The program will save the image paths.
