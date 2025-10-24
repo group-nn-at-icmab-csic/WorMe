@@ -64,7 +64,7 @@ WorMe is a MATLAB application for Windows, macOS and Linux. It **does not requir
 - Execute the source code, `WM_length_determination.m`, from the MATLAB Desktop environment software (version >2021b). (This requires a MATLAB licence).
 - Execute as a local file after installing MATLAB Runtime (version 9.11).
 
-More details can be found in the [Installation guide](Installation/Readme.md).
+More details can be found in the [Installation guide](Installation/README.md).
 
 -------------------------------------------
 ## Fast Tutorial
