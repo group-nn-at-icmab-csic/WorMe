@@ -220,7 +220,7 @@ The program can simply be used by running the main script [`WM_length_determinat
 
 
 <div align = "center">
-<img src="images/WM_ld_Installation_guide/11.png" width = "50%" >
+<img src="images/WM_ld_Installation_guide/11.png" width = "30%" >
 </div>
 
 This is going to allow the user to see in deep the code of WorMe.
