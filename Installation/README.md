@@ -36,43 +36,47 @@ Download and install the [**executable installation file**](https://raw.githubus
 <br>
 ↓
 <br>
-<img src="images/WM_ld_Installation_guide/1.png" alt="WorMe Logo" >
+<img src="images/WM_ld_Installation_guide/1.png" width="60%">
 
 ↓
 <br>
 Describe the installation folder:
 <br>
-<img src="images/WM_ld_Installation_guide/2.png" alt="WorMe Logo" >
+<img src="images/WM_ld_Installation_guide/2.png" width="60%" >
+<br>
 Note: is recommended to add a shortcut to the desktop.
 
 ↓
 <br>
 MATLAB Runtime installation:
 <br>
-<img src="images/WM_ld_Installation_guide/3.png" alt="WorMe Logo" >
+<img src="images/WM_ld_Installation_guide/3.png" width="60%" >
 </div>
 
+
+<br>
 
 Note: MATLAB Runtime is the software which allow to execute the WorMe program. It is not the main MATLAB software, and you will not need a MATLAB license. MATLAB Runtime is just a software that allow to execute the MATLAB compiled programs, like the WorMe program.
 
 
 
+
 <div align = "center">
-<img src="images/WM_ld_Installation_guide/4.png" alt="WorMe Logo" >
+<img src="images/WM_ld_Installation_guide/4.png" width="60%" >
 <br>
 ↓
 
-<img src="images/WM_ld_Installation_guide/5.png" alt="WorMe Logo" >
-<br>
-↓
-
-
-<img src="images/WM_ld_Installation_guide/6.jpg" alt="WorMe Logo" >
+<img src="images/WM_ld_Installation_guide/5.png" width="60%" >
 <br>
 ↓
 
 
-<img src="images/WM_ld_Installation_guide/7.jpg" alt="WorMe Logo" >
+<img src="images/WM_ld_Installation_guide/6.jpg" width="60%" >
+<br>
+↓
+
+
+<img src="images/WM_ld_Installation_guide/7.jpg" width="60%" >
 <br>
 
 </div>
@@ -138,20 +142,20 @@ And we can start with the installation:
 
 
 <div align = "center">
-<img src="images/WM_Runtime-dependent_Installation_guide/2.png">
+<img src="images/WM_Runtime-dependent_Installation_guide/2.png" width="60%">
 <br>
 ↓
 
-<img src="images/WM_Runtime-dependent_Installation_guide/3.png" >
+<img src="images/WM_Runtime-dependent_Installation_guide/3.png" width="60%">
 <br>
 ↓
 
 
-<img src="images/WM_Runtime-dependent_Installation_guide/4.png" alt="WorMe Logo" >
+<img src="images/WM_Runtime-dependent_Installation_guide/4.png" width="60%" >
 <br>
 ↓
 
-<img src="images/WM_Runtime-dependent_Installation_guide/6.png" alt="WorMe Logo" >
+<img src="images/WM_Runtime-dependent_Installation_guide/6.png" width="60%" >
 <br>
 
 </div>
@@ -163,12 +167,12 @@ Once Runtime is installed, you can download the [**WorMe runtime-dependent file*
 Then, we can execute WorMe without installation by the executable file:
 
 <div align = "center">
-<img src="images/WM_Runtime-dependent_Installation_guide/7.png" weidth = "40%">
+<img src="images/WM_Runtime-dependent_Installation_guide/7.png" width = "40%">
 
 ↓
 <br>
 
-<img src="images/WM_Runtime-dependent_Installation_guide/8.png" weidth = "40%">
+<img src="images/WM_Runtime-dependent_Installation_guide/8.png" width = "60%">
 
 </div>
 
@@ -222,5 +226,5 @@ The program can simply be used by running the main script [`WM_length_determinat
 This is going to allow the user to see in deep the code of WorMe.
 
 <div align = "center">
-<img src="images/WM_ld_Installation_guide/12.png" 
+<img src="images/WM_ld_Installation_guide/12.png"  width="80%"
 </div>
