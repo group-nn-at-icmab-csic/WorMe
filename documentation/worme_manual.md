@@ -39,14 +39,15 @@ _Figure 1: Use of the program_
 
 ## Installation
 
-WorMe is a MATLAB based software that **does not require a MATLAB licence** for its use. It can be easily installed or executed from the source code.  
+WorMe is a MATLAB-based software that **does not require a MATLAB licence** for its use. It can be installed and executed on Windows operating system as a runtime-dependent application (MATLAB license not required), or run from the source code in MATLAB Desktop version R2021b or greater on a  Windows, Linux or macOS (MATLAB license required).  
+<br>
 See the [**Guide for install WorMe Length determination**](https://github.com/group-nn-at-icmab-csic/WorMe/Installation/README.md) for a detailed guide of installation.   
 
 In the guide, is descrived the ways WorMe can be executed:
 
 - As an [**standalone aplication**](https://github.com/group-nn-at-icmab-csic/WorMe/Installation/README.md#installation-of-worme-standalone-software). MATALB license is not required. It install easy and automatically WorMe and MATLAB Runtime 9.11 as local softwares.
 - As a [**runtime-dependent application**](https://github.com/group-nn-at-icmab-csic/WorMe/Installation/README.md#installation-of-worme-runtime-dependent-application).  MATLAB license is not required. It installs the MATLAB Runtime 9.11 and executes WorMe as a local runtime-dependent application. 
-- [**Running the code from MATLAB Desktop**](https://github.com/group-nn-at-icmab-csic/WorMe/Installation/README.md#runnign-worme-from-matlab-desktop). License is required. MATLAB version 9.11 (2021b) or higher.
+- [**Running the code from MATLAB Desktop**](https://github.com/group-nn-at-icmab-csic/WorMe/Installation/README.md#runnign-worme-from-matlab-desktop). License is required. MATLAB version 9.11 (R2021b) or higher.
 
 <br>
 

@@ -1,10 +1,12 @@
 # Guide for install WorMe Length determination
 
-WorMe works in Windows OS. On the next, is described different ways to run WorMe and the installation guide:
+WorMe is a software developed in *MATLAB version 9.11 (R2021b)*. The program is deployed as an executable using MATLAB Runtime, so it can be installed and run without a MATLAB license on Windows Operating System. WorMe can be also used on Windows, Linux or macOS, by running the code from the main script `WM_length_determination.m` from the MATLAB Desktop interface (*version R2021b or greater*).
+
+On the next, is described different ways to run WorMe and the installation guide:
 
 - As an [**standalone aplication**](#installation-of-worme-standalone-software). MATALB license is not required. It installs automatically WorMe and MATLAB Runtime 9.11 as local softwares.
 - As a [**runtime-dependent application**](#installation-of-worme-runtime-dependent-application).  MATLAB license is not required. It installs the MATLAB Runtime 9.11 and executes WorMe as a local runtime-dependent application. 
-- [**Running the code from MATLAB Desktop**](#runnign-worme-from-matlab-desktop). License is required. MATLAB version 9.11 (2021b) or higher.
+- [**Running the code from MATLAB Desktop**](#runnign-worme-from-matlab-desktop). License is required. MATLAB version 9.11 (R2021b) or higher.
 
 
 For to see the updated versions of the WorMe program, see: [**latest releases**](https://github.com/group-nn-at-icmab-csic/WorMe/releases/latest).
@@ -193,7 +195,7 @@ This kind of installation may be slightly more slow than the use of WorMe as a s
 </div>
 
 An easy way to execute WorMe is to execute it from MATLAB Desktop. **This process of execution require MATLAB license**, though.  
-For to execute the code of WorMe, we need at least a MATLAB Desktop 2021b or greater license, and the license of a few toolboxes. 
+For to execute the code of WorMe, we need at least a MATLAB Desktop R2021b or greater license, and the license of a few toolboxes. 
 
 The program toolboxes required for the execution are:
 - [Computer Vision Toolbox](https://es.mathworks.com/products/computer-vision.html)
