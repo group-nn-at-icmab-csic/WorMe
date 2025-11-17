@@ -1,5 +1,5 @@
 # WorMe
-WorMe is a software for *Caenorhabditis elegans* length determination.
+WorMe is a software for *Caenorhabditis elegans* length determination in microscopical images.
 
 <p align="center">
   <img src="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/source/Images_resources/Logo_WorMe.png"  width="50%" alt="WorMe icon">  
