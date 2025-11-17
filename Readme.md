@@ -25,9 +25,11 @@ WorMe is a software for *Caenorhabditis elegans* length determination.
 
 ----------------------------------------------------------------
 
-## Documentation
-For detailed documentation please check out the [User Manual](documentation/worme_manual.md).  
-
+<div align="center">
+  
+## Documentation  
+For detailed documentation please check out the [User Manual](documentation/worme_manual.md).
+</div>
 
 ## Citation
 
@@ -61,9 +63,9 @@ Please feel free to create an issue if you have any questions or comments. Devel
 ## Installation
 
 WorMe is a MATLAB application for Windows. It **does not require a MATLAB licence**. The software binaries and source code are found [here](https://github.com/group-nn-at-icmab-csic/WorMe/releases/latest).
-- Install as local software from the executable or install file.
-- Execute the source code, `WM_length_determination.m`, from the MATLAB Desktop environment software (version >2021b). (This requires a MATLAB licence).
-- Execute as a local file after installing MATLAB Runtime (version 9.11).
+- Install as local software from the executable or install file. In Windows.
+- Execute the source code, `WM_length_determination.m`, from the MATLAB Desktop environment software (version >2021b). Requires a MATLAB licence. In Windows, Linux or Mac.
+- Execute it as a runtime-dependent file after installing MATLAB Runtime (version 9.11). No license required. In Windows.
 
 More details can be found in the [Installation guide](Installation/README.md).
 
