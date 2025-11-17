@@ -27,13 +27,8 @@ WorMe is a software for *Caenorhabditis elegans* length determination.
 
 ## Documentation  
 
-<p align="center">
-For detailed documentation please check out the user manual:
-</p>
+For detailed documentation please check out the (**user manual**)[documentation/worme_manual.md].
 
-<p align="center">
-<a href="https://github.com/group-nn-at-icmab-csic/WorMe/blob/main/documentation/worme_manual.md">User Manual</a>
-</p>
 
 ## Citation
 
