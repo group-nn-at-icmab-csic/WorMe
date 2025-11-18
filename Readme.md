@@ -32,7 +32,7 @@ For detailed documentation please check out the [**user manual**](documentation/
 
 ## Citation
 
-The software can be cited using the URI provided by DIGITAL.CSIC: http://hdl.handle.net/10261/394968
+The software can be cited using the DOI provided by DIGITAL.CSIC: https://doi.org/10.20350/digitalCSIC/17417
 
 ----------------------------------------------------------------
 
