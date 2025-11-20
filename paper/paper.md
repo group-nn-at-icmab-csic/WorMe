@@ -22,7 +22,7 @@ authors:
 affiliations:
  - name: Institut de Ciencia de Materials de Barcelona (ICMAB-CSIC), C/ dels Til.lers s/n, Campus UAB Bellaterra, Barcelona, Spain
    index: 1
- - name: "Current: #Department of Molecular Biology and Genetics. $Danish Research Institute of Translational Neuroscience—DANDRITE, Nordic-EMBL Partnership for Molecular Medicine, Aarhus University, Aarhus, Denmark"
+ - name: "Current: Department of Molecular Biology and Genetics, Aarhus University, 8000 Aarhus, Denmark; and Danish Research Institute of Translational Neuroscience—DANDRITE, Nordic-EMBL Partnership for Molecular Medicine, Aarhus University, 8000 Aarhus, Denmark."
    index: 2
 date: 
 bibliography: paper.bib
