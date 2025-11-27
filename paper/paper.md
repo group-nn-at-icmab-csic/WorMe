@@ -37,7 +37,7 @@ bibliography: paper.bib
 
 Body size is a crucial endpoint used to assess the nematode’s development that can be affected by dietary changes or altered temperatures [@Tain2008; @So2011; @Muoz-Juan2024]. Furthermore, in toxicity studies, the nematode’s body length is used to assess whether exposure inhibits growth [@Schrter2024; @Jung2015; @Srinivasan2023].
 
-The length of *C. elegans* is usually measured manually from microscopy images using FIJI-ImageJ, an image analysis software [@Schindelin2012]. This method presents several disadvantages, as it is time-consuming and imprecise, since it involves manually tracing a line along the middle of each worm. Thus, the measured length would vary across attempts and experimenters.
+The length of *C. elegans* is usually measured manually from microscopy images using ImageJ/FIJI, an image analysis software [@Schindelin2012]. This method presents several disadvantages, as it is time-consuming and imprecise, since it involves manually tracing a line along the middle of each worm. Thus, the measured length would vary across attempts and experimenters.
 
 Therefore, many software solutions have been developed to automate and improve this process, such as the WormSizer plugin for FIJI [@Moore2013], WormToolBox from CellProfiler [@Whlby2012], WormLength from QuantWorm [@Jung2014], Anilength [@Jung2021], or WorMachine [@Hakim2018], among others. Most are designed to measure length from stereomicroscope images, as they capture a large number of worms in the same picture. However, the quality of these images is usually low.
 
